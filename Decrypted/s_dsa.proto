@@ -1,0 +1,280 @@
+syntax = "proto3";
+
+package ncmd_ds;
+
+import "enum.proto";
+import "public.proto";
+
+message ds_creatematch_req {
+  uint64 room_id = 1;
+  uint32 map_id = 2;
+  .ncmd_cs.ERoomMode mode = 4;
+  repeated .ncmd_ds.ds_player_info players = 5;
+  .ncmd_cs.EMsgSyncFlag sync_flag = 6;
+  .ncmd_cs.ESpecialRoom special = 7;
+}
+
+message ds_weapon_info {
+  int32 primary_id = 1;
+  uint64 primary_uuid = 2;
+  int32 primary_exp = 3;
+  int32 primary_level = 4;
+  int32 secondary_id = 5;
+  uint64 secondary_uuid = 6;
+  int32 secondary_exp = 7;
+  int32 secondary_level = 8;
+  repeated int32 grenades = 9;
+  repeated int32 primary_components = 10;
+  repeated int32 secondary_components = 11;
+  int32 melee_id = 12;
+  int32 advanced_fx_id = 13;
+  int32 terminate_fx_id = 14;
+}
+
+message ds_communication_info {
+  int32 id = 1;
+  .ncmd_cs.ECommunicationType communication_type = 2;
+}
+
+message ds_personality_info {
+  int32 id = 1;
+  .ncmd_cs.EPersonalityType personality_type = 2;
+}
+
+message ds_decal_info {
+  int32 decal_pos = 1;
+  int32 config_id = 2;
+}
+
+message ds_role_info {
+  int32 role_id = 1;
+  int32 skin_id = 2;
+  .ncmd_ds.ds_weapon_info weapons = 3;
+  repeated .ncmd_ds.ds_communication_info communications = 4;
+  repeated int32 voices = 5;
+  repeated .ncmd_ds.ds_decal_info decals = 6;
+  int32 flutter_id = 7;
+  int32 advanced_skin_id = 8;
+  repeated .ncmd_ds.ds_personality_info personalities = 9;
+  repeated uint32 custom_mask_list = 11;
+  float weight = 12;
+  bool is_can_use = 13;
+}
+
+message ds_friend_info {
+  uint64 friend_id = 1;
+  uint32 intimacy = 2;
+  uint32 intimacy_level = 3;
+}
+
+message ds_player_info {
+  uint64 player_id = 1;
+  bytes nick = 2;
+  .ncmd_cs.ESexType sex = 3;
+  .ncmd_cs.ERoomCamp campid = 4;
+  int32 icon = 5;
+  uint32 level = 6;
+  bool robot = 7;
+  uint64 token = 8;
+  repeated .ncmd_ds.ds_role_info ds_roles = 9;
+  repeated .ncmd_ds.ds_decal_info ds_decals = 10;
+  string device_id = 11;
+  uint32 plat_id = 12;
+  string open_id = 13;
+  int32 fluttering_id = 14;
+  .ncmd_cs.ERobotType robot_type = 15;
+  uint32 rank = 17;
+  uint32 gradation = 18;
+  uint64 team_id = 19;
+  repeated uint64 friend_ids = 20;
+  uint32 pos = 21;
+  uint32 player_serial = 22;
+  int32 mmr = 23;
+  bool is_leader = 24;
+  bool is_referee = 25;
+  uint32 rank_pos = 26;
+  uint32 division_score = 27;
+  repeated .ncmd_ds.ds_friend_info friend_infos = 28;
+  uint64 watch_tar_id = 29;
+  .ncmd_cs.EWatchView watch_view = 30;
+  .ncmd_cs.ERoomCamp watch_camp = 31;
+  uint32 vc_avatar_id = 32;
+  uint32 vc_frame_id = 33;
+  uint32 vc_border_id = 34;
+}
+
+message ds_creatematch_res {
+  uint32 code = 1;
+  uint64 room_id = 2;
+}
+
+message ds_exit_ntf {
+  uint32 ds_pid = 1;
+  uint64 room_id = 2;
+  .ncmd_cs.EDsExit reason = 3;
+}
+
+message ds_quit_req {
+  uint64 room_id = 1;
+  .ncmd_cs.EDsExit reason = 2;
+}
+
+message ds_quit_res {
+  uint32 code = 1;
+}
+
+message ds_game_settle_req {
+  uint64 room_id = 1;
+  .ncmd_cs.ERoomMode room_mode = 2;
+  repeated .ncmd_cs.ERoomCamp winner_team = 3;
+  int32 map_id = 4;
+  repeated .ncmd_cs.ds_settle_player_info players = 5;
+  uint32 game_time = 6;
+  repeated uint32 scores = 7;
+  .ncmd_cs.ERoomCamp attack_camp_id = 9;
+  uint64 end_time = 10;
+  bool is_surrender = 11;
+  repeated .ncmd_cs.ds_round_settle_info round_infos = 12;
+}
+
+message ds_game_settle_res {
+  uint64 room_id = 1;
+}
+
+message player_login_ntf {
+  uint64 room_id = 1;
+  uint64 player_id = 2;
+  int32 team_index = 3;
+}
+
+message player_logout_ntf {
+  uint64 room_id = 1;
+  uint64 player_id = 2;
+  .ncmd_cs.ELogoutDSReason logout_reason = 3;
+}
+
+message player_disconnect_ntf {
+  uint64 room_id = 1;
+  uint64 player_id = 2;
+  uint32 reason = 3;
+}
+
+message ds_heartbeat_req {
+  int32 ds_pid = 1;
+  uint64 room_id = 2;
+  uint32 players = 3;
+  uint32 bots_num = 4;
+  uint32 state = 5;
+}
+
+message ds_heartbeat_res {
+  int32 ds_pid = 1;
+  uint64 room_id = 2;
+}
+
+message player_halfenter_ntf {
+  uint64 room_id = 1;
+  .ncmd_ds.ds_player_info player = 2;
+}
+
+message player_enter_watch_ntf {
+  .ncmd_ds.ds_player_info watch_player = 1;
+}
+
+message player_exit_watch_ntf {
+  uint64 room_id = 1;
+  uint64 player_id = 2;
+}
+
+message achievement {
+  uint32 id = 1;
+  uint32 progress = 2;
+}
+
+message ds_achieve_reach {
+  uint64 player_id = 1;
+  repeated .ncmd_ds.achievement achievements = 2;
+}
+
+message ds_achieve_reach_ntf {
+  uint64 room_id = 1;
+  repeated .ncmd_ds.ds_achieve_reach achievements = 2;
+}
+
+message ds_report_tlog_ntf {
+  string log_str = 1;
+}
+
+message ds_batch_report_tlog_ntf {
+  repeated string log_list = 1;
+}
+
+message ds_finish_return_req {
+  uint64 player_id = 1;
+}
+
+message ds_task_data {
+  uint64 player_id = 2;
+  repeated .ncmd_cs.task_info tasks = 1;
+}
+
+message ds_task_data_ntf {
+  uint64 room_id = 1;
+  repeated .ncmd_ds.ds_task_data task_datas = 2;
+}
+
+message ds_task_change_ntf {
+  repeated int32 drop_task_ids = 1;
+  repeated .ncmd_cs.task_info update_task_datas = 2;
+  uint64 player_id = 3;
+}
+
+message ds_upload_replay_ntf {
+  uint64 room_id = 1;
+  string file_path = 2;
+}
+
+message ds_ace_unsafe_ntf {
+  uint32 reason = 1;
+  string msg = 2;
+}
+
+message ds_report_progress_ntf {
+  uint64 room_id = 1;
+  uint32 progress = 2;
+  repeated uint32 scores = 3;
+}
+
+message ds_activity_info {
+  repeated uint32 activity_ids = 1;
+}
+
+message ds_game_rule_ntf {
+  .ncmd_cs.room_rule rule = 1;
+  .ncmd_ds.ds_activity_info activity_info = 2;
+}
+
+message role_skin_data {
+  uint32 role_id = 1;
+  uint32 role_skin_id = 2;
+  uint32 fxflying_id = 3;
+  uint32 primary_weapon_id = 4;
+  uint32 kill_fx_id = 5;
+  uint32 terminate_fx_id = 6;
+}
+
+message ds_sync_skin_data_ntf {
+  uint64 player_id = 1;
+  .ncmd_ds.role_skin_data data = 2;
+}
+
+message ds_select_role_ntf {
+  uint64 room_id = 1;
+  uint64 player_id = 2;
+  uint32 role_id = 3;
+}
+
+message ds_player_exit_battle_ntf {
+  uint64 player_id = 1;
+}
+

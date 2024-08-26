@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package ncmd_cs.lobby;
+
+import "enum.proto";
+
+message gm_command_req {
+  string command = 1;
+}
+
+message gm_command_res {
+  uint32 code = 1;
+  string tips = 2;
+}
+
+message get_online_players_req {
+}
+
+message player_base_data {
+  uint64 player_id = 1;
+  string nick = 2;
+  uint32 icon = 3;
+  .ncmd_cs.ESexType sex = 4;
+  uint32 rank = 5;
+  uint32 status = 6;
+  uint64 team_id = 7;
+  uint64 room_id = 8;
+}
+
+message get_online_players_res {
+  uint32 code = 1;
+  repeated .ncmd_cs.lobby.player_base_data players = 2;
+}
+

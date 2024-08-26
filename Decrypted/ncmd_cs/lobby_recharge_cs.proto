@@ -1,0 +1,111 @@
+syntax = "proto3";
+
+package ncmd_cs.lobby;
+
+message recharge_plat_info_req {
+  string version = 1;
+}
+
+message recharge_plat_info_res {
+  uint32 code = 1;
+  repeated uint32 platform_ids = 2;
+}
+
+message recharge_order_send_req {
+  string pay_order_id = 1;
+  string evidence = 2;
+  string clientParams = 3;
+  uint32 oper_type = 4;
+}
+
+message recharge_order_send_res {
+  uint32 code = 1;
+  string pay_order_id = 2;
+  int32 amount = 3;
+  repeated .ncmd_cs.lobby.recharge_commodity_pack commodities = 4;
+  uint32 oper_type = 5;
+}
+
+message recharge_order_send_ntf {
+  string pay_order_id = 1;
+  int32 amount = 2;
+  repeated .ncmd_cs.lobby.recharge_commodity_pack commodities = 3;
+}
+
+message recharge_commodity_pack {
+  int32 commodity_id = 1;
+  int32 commodity_count = 2;
+}
+
+message recharge_commodity_sync_req {
+  string version = 1;
+}
+
+message recharge_commodity_sync_res {
+  uint32 code = 1;
+  repeated uint32 commodity_ids = 2;
+}
+
+message recharge_order_create_req {
+  uint32 pay_platform_id = 1;
+  string pay_open_id = 2;
+  repeated .ncmd_cs.lobby.recharge_commodity_pack commodities = 3;
+  uint32 amount = 4;
+  string currency = 5;
+  string language = 6;
+}
+
+message recharge_order_create_res {
+  uint32 code = 1;
+  uint64 order_id = 2;
+  string pay_order_id = 3;
+  uint32 pay_code = 4;
+  string pay_msg = 5;
+  string redirect_url = 6;
+}
+
+message midas_query_balance_req {
+  string open_key = 1;
+  string pf = 2;
+  string pf_key = 3;
+}
+
+message midas_query_balance_res {
+  uint32 code = 1;
+}
+
+message midas_product_data {
+  string id = 1;
+  uint32 num = 2;
+}
+
+message midas_create_order_req {
+  string open_key = 1;
+  string pf = 2;
+  string pf_key = 3;
+  repeated .ncmd_cs.lobby.midas_product_data product_list = 4;
+  string channel = 5;
+  uint32 commodity_id = 6;
+  bool wegame = 7;
+}
+
+message midas_create_order_res {
+  uint32 code = 1;
+  string token = 2;
+  string url = 3;
+}
+
+message midas_deliver_ntf {
+  repeated uint32 items = 1;
+  bool is_direct = 2;
+}
+
+message midas_first_pay {
+  uint32 id = 1;
+  uint32 state = 2;
+}
+
+message midas_first_pay_mul_ntf {
+  repeated .ncmd_cs.lobby.midas_first_pay first_pays = 1;
+}
+

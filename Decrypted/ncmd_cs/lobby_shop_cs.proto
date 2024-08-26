@@ -1,0 +1,333 @@
+syntax = "proto3";
+
+package ncmd_cs.lobby;
+
+import "enum.proto";
+
+message commodity_items {
+  int32 item_id = 1;
+  int32 item_amount = 2;
+}
+
+message shop_pay_giving_req {
+  uint64 order_id = 1;
+}
+
+message shop_pay_giving_res {
+  uint32 code = 1;
+}
+
+message shop_pay_claiming_req {
+  uint64 order_id = 1;
+}
+
+message shop_pay_claiming_res {
+  uint32 code = 1;
+}
+
+message price_detail {
+  .ncmd_cs.ECurrencyType currency_id = 1;
+  int32 currency_amount = 2;
+}
+
+message shop_cfg_data {
+  int32 id = 1;
+  .ncmd_cs.EStoreType store_type = 2;
+  int32 store_param = 3;
+  uint32 up_time = 4;
+  uint32 down_time = 5;
+  int32 goods_id = 6;
+  int32 goods_num = 7;
+  repeated .ncmd_cs.lobby.price_detail now_price = 8;
+  repeated .ncmd_cs.lobby.price_detail present_price = 9;
+  uint32 precondition = 10;
+  repeated uint32 goods_layout = 11;
+  repeated uint32 suit_main = 12;
+  repeated uint32 suit_free = 13;
+  uint32 show_up_time = 14;
+  uint32 shop_down_time = 15;
+  repeated .ncmd_cs.lobby.price_detail price = 16;
+  uint32 discount_up_time = 17;
+  uint32 discount_down_time = 18;
+}
+
+message shop_limit_info {
+  int32 goods_id = 1;
+  int32 bought_cnt = 2;
+}
+
+message store_fixed_price {
+  int32 id = 1;
+  repeated .ncmd_cs.lobby.price_detail fixed_price_list = 2;
+}
+
+message shop_cfg_data_req {
+}
+
+message shop_cfg_data_res {
+  uint32 code = 1;
+  int32 is_end = 2;
+  repeated .ncmd_cs.lobby.shop_cfg_data data = 3;
+}
+
+message shop_limit_data_req {
+}
+
+message shop_limit_data_res {
+  uint32 code = 1;
+  repeated .ncmd_cs.lobby.shop_limit_info limitation_list = 2;
+  repeated .ncmd_cs.lobby.store_fixed_price fixed_price_list = 3;
+}
+
+message shop_change_cfg_data_req {
+  uint64 version = 1;
+}
+
+message shop_change_cfg_data_res {
+  uint32 code = 1;
+  uint64 version = 2;
+  repeated .ncmd_cs.lobby.shop_cfg_data change_list = 3;
+  repeated .ncmd_cs.lobby.shop_limit_info limitation_list = 4;
+}
+
+message shop_buy_commodity_req {
+  int32 shop_index = 1;
+  int32 count = 2;
+  .ncmd_cs.ECurrencyType pay_currency_id = 3;
+  string open_key = 4;
+  string pf = 5;
+  string pf_key = 6;
+  uint32 buy_channel = 7;
+  uint64 coupon_uuid = 8;
+}
+
+message shop_buy_commodity_res {
+  uint32 code = 1;
+  repeated .ncmd_cs.lobby.commodity_items item_list = 2;
+}
+
+message shop_record {
+  uint64 id = 1;
+  .ncmd_cs.ShopRecordType record_type = 2;
+  uint32 target_id = 3;
+  int32 shop_index = 4;
+  int32 count = 5;
+  string context = 6;
+  uint32 time = 7;
+  string nick = 8;
+  uint32 icon = 9;
+  .ncmd_cs.ShopRecordStatusType status = 10;
+  uint32 reddot = 11;
+}
+
+message shop_giving_req {
+  int32 shop_index = 1;
+  int32 count = 2;
+  uint32 receiver_id = 3;
+  string context = 4;
+  .ncmd_cs.ECurrencyType pay_currency_id = 5;
+  string open_key = 6;
+  string pf = 7;
+  string pf_key = 8;
+  uint64 id = 9;
+}
+
+message shop_giving_res {
+  uint32 code = 1;
+}
+
+message shop_giving_ntf {
+  .ncmd_cs.lobby.shop_record giving_record = 1;
+}
+
+message shop_claiming_req {
+  int32 shop_index = 1;
+  int32 count = 2;
+  uint64 target_id = 3;
+  string context = 4;
+}
+
+message shop_claiming_res {
+  uint32 code = 1;
+}
+
+message shop_claiming_ntf {
+  .ncmd_cs.lobby.shop_record claiming_record = 1;
+}
+
+message shop_recv_giving_gift_req {
+  uint64 id = 1;
+}
+
+message shop_recv_giving_gift_res {
+  uint32 code = 1;
+  uint64 id = 2;
+}
+
+message shop_giving_gift_ntf {
+  .ncmd_cs.lobby.shop_record giving_gift_record = 1;
+}
+
+message shop_giving_claiming_record_req {
+}
+
+message shop_giving_claiming_record_res {
+  uint32 code = 1;
+  uint32 opt = 2;
+  repeated .ncmd_cs.lobby.shop_record records = 3;
+  uint32 finish = 4;
+}
+
+message shop_set_claiming_req {
+  uint32 opt = 1;
+}
+
+message shop_set_claiming_res {
+  uint32 code = 1;
+  uint32 new_opt = 2;
+}
+
+message shop_claiming_refuse_req {
+  uint64 id = 1;
+}
+
+message shop_claiming_refuse_res {
+  uint32 code = 1;
+  uint64 id = 2;
+}
+
+message shop_claiming_refuse_ntf {
+  .ncmd_cs.lobby.shop_record claiming_refuse_record = 1;
+}
+
+message shop_giving_read_req {
+  uint64 id = 1;
+  .ncmd_cs.ShopRecordType record_type = 2;
+}
+
+message shop_giving_read_res {
+  uint32 code = 1;
+  uint64 id = 2;
+  .ncmd_cs.ShopRecordType record_type = 3;
+  uint32 new_reddot = 4;
+}
+
+message shop_giving_claim_limit_req {
+}
+
+message claim_limit_record {
+  uint32 target_id = 1;
+  uint32 shop_index = 2;
+}
+
+message shop_giving_claim_limit_res {
+  uint32 code = 1;
+  uint32 giving_count = 2;
+  uint32 claim_count = 3;
+  repeated .ncmd_cs.lobby.claim_limit_record records = 4;
+}
+
+message shop_claim_give_req {
+  uint64 mail_id = 1;
+}
+
+message shop_claim_give_res {
+  uint32 code = 1;
+  uint64 order_id = 2;
+}
+
+message shop_claim_refuse_req {
+  uint64 mail_id = 1;
+}
+
+message shop_claim_refuse_res {
+  uint32 code = 1;
+  uint64 mail_id = 2;
+}
+
+message shop_setting_claiming_req {
+  bool flag = 1;
+}
+
+message shop_setting_claiming_res {
+  uint32 code = 1;
+}
+
+message shop_limit_buy_ntf {
+  repeated .ncmd_cs.lobby.shop_limit_info limit_info = 1;
+  repeated .ncmd_cs.lobby.store_fixed_price fixed_price_list = 2;
+}
+
+message shop_recv_gift_req {
+  int32 shop_index = 1;
+}
+
+message shop_recv_gift_res {
+  uint32 code = 1;
+}
+
+message crystal_card {
+  uint32 id = 1;
+  uint32 start_time = 2;
+  uint32 end_time = 3;
+  uint32 total_count = 4;
+  uint32 recv_count = 5;
+  uint32 crystal = 6;
+  uint32 left_count = 7;
+  uint32 total_crystal = 8;
+}
+
+message shop_month_card_ntf {
+  repeated .ncmd_cs.lobby.crystal_card cards = 1;
+}
+
+message shop_buy_crystal_card_ntf {
+  uint32 id = 1;
+}
+
+message shop_month_card_crystal_req {
+}
+
+message shop_month_card_crystal_res {
+  uint32 code = 1;
+  uint32 crystal = 2;
+}
+
+message hermesdisplay_cfg {
+  uint32 id = 1;
+  uint32 goods_page = 2;
+  repeated uint32 goods_layout = 3;
+  string goods_bg = 4;
+  uint32 show_up_time = 5;
+  uint32 shop_down_time = 6;
+  uint32 goods_id = 7;
+  string popup_portrait = 8;
+  uint32 goods_num = 9;
+  uint32 goods_label = 10;
+}
+
+message shop_hermesdisplay_ntf {
+  repeated .ncmd_cs.lobby.hermesdisplay_cfg hermesdisplay_data = 1;
+}
+
+message shop_daily_random_req {
+}
+
+message shop_daily_random_res {
+  uint32 code = 1;
+  repeated uint32 daily_goods = 2;
+}
+
+message shop_daily_random_ntf {
+  repeated uint32 daily_goods = 1;
+}
+
+message goods_flush_time {
+  uint32 limit_type = 1;
+  uint32 flush_time = 2;
+}
+
+message shop_goods_flush_time_ntf {
+  repeated .ncmd_cs.lobby.goods_flush_time goods_flush_times = 1;
+}
+

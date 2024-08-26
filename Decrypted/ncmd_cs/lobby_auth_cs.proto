@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package ncmd_cs.lobby;
+
+import "enum.proto";
+
+message auth_real_name_req {
+  .ncmd_cs.ECertType type = 1;
+  string real_name = 2;
+  string cert_id = 3;
+}
+
+message auth_real_name_res {
+  uint32 code = 1;
+  bool is_match = 2;
+  string tip_msg = 3;
+  int32 auth_age = 4;
+}
+
+message auth_real_name_ntf {
+  .ncmd_cs.ECertType auth_type = 1;
+  int32 unauth_reset_time = 2;
+  int32 unauth_game_time = 3;
+  int32 config_game_time = 4;
+  int32 auth_age = 5;
+}
+
+message auth_teen_over_ntf {
+  bool is_forbid_time = 1;
+  int32 today_game_time = 2;
+}
+

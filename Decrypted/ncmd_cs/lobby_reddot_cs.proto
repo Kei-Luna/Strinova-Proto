@@ -1,0 +1,62 @@
+syntax = "proto3";
+
+package ncmd_cs.lobby;
+
+import "enum.proto";
+
+message reddot_info {
+  uint64 reddot_id = 1;
+  uint64 reddot_rid = 2;
+  .ncmd_cs.EReddotType reddot_type = 3;
+  uint32 overtime = 4;
+  string custom = 5;
+  bool mark = 6;
+  uint64 event_id = 7;
+}
+
+message reddot_read_req {
+  uint64 reddot_id = 1;
+}
+
+message reddot_read_res {
+  uint32 code = 1;
+}
+
+message reddot_add_req {
+  uint64 reddot_rid = 1;
+  .ncmd_cs.EReddotType reddot_type = 2;
+  uint32 overtime = 3;
+  string custom = 4;
+  uint64 event_id = 5;
+}
+
+message reddot_add_res {
+  uint32 code = 1;
+}
+
+message reddot_add_ntf {
+  .ncmd_cs.lobby.reddot_info reddot = 1;
+}
+
+message reddot_sync_ntf {
+  repeated .ncmd_cs.lobby.reddot_info reddots = 1;
+}
+
+message reddot_batch_read_req {
+  repeated uint64 reddots = 1;
+}
+
+message reddot_batch_read_res {
+  uint32 code = 1;
+  repeated uint64 reddots = 2;
+}
+
+message reddot_voice_batch_read_req {
+  repeated uint32 voice_list = 1;
+}
+
+message reddot_voice_batch_read_res {
+  uint32 code = 1;
+  repeated uint32 voice_list = 2;
+}
+

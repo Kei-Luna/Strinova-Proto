@@ -1,0 +1,122 @@
+syntax = "proto3";
+
+package ncmd_cs.lobby;
+
+import "common.proto";
+import "enum.proto";
+
+message item {
+  .ncmd_cs.EItemType type = 1;
+  uint64 item_uuid = 2;
+  int32 item_id = 3;
+  uint32 count = 4;
+  int32 expire_time = 5;
+  uint64 obtain_time = 6;
+}
+
+message attachment_info {
+  .ncmd_cs.EAttachmentType attach_type = 1;
+  int32 attach_id = 2;
+}
+
+message item_unlock {
+  .ncmd_cs.EAttachmentType attach_type = 1;
+  int32 attach_id = 2;
+}
+
+message weapon {
+  .ncmd_cs.lobby.item weapon_base = 1;
+  int32 level = 2;
+  int32 cur_exp = 3;
+  repeated .ncmd_cs.lobby.attachment_info attachments = 4;
+  repeated .ncmd_cs.lobby.item_unlock unlocks = 5;
+  repeated int32 advanced_skins = 6;
+  int32 advanced_skin_id = 7;
+  int32 advanced_fx_id = 8;
+  int32 terminate_fx_id = 9;
+}
+
+message bag_all_items_sync_ntf {
+  repeated .ncmd_cs.lobby.item item_list = 1;
+  repeated .ncmd_cs.lobby.weapon weapon_list = 2;
+  repeated .ncmd_cs.lobby.item decal_list = 3;
+  repeated .ncmd_cs.lobby.item fluttering_list = 4;
+  repeated .ncmd_cs.lobby.item emotion_list = 5;
+  repeated .ncmd_cs.lobby.item weapon_fx_list = 6;
+}
+
+message bag_part_items_sync_ntf {
+  repeated .ncmd_cs.lobby.item item_list = 1;
+  repeated .ncmd_cs.lobby.weapon weapon_list = 2;
+  repeated .ncmd_cs.lobby.item decal_list = 3;
+  repeated .ncmd_cs.lobby.item fluttering_list = 4;
+  .ncmd_cs.obtain_data obtain_list = 5;
+  repeated .ncmd_cs.lobby.item emotion_list = 6;
+  repeated .ncmd_cs.lobby.item weapon_fx_list = 7;
+}
+
+message item_use_req {
+  uint64 item_uuid = 1;
+  int32 item_id = 2;
+  uint32 count = 3;
+  .ncmd_cs.EOccasionType occasion_type = 4;
+}
+
+message item_use_res {
+  uint32 code = 1;
+  .ncmd_cs.obtain_data obtain_list = 2;
+  uint64 use_item_uuid = 3;
+  int32 item_id = 4;
+  uint32 count = 5;
+}
+
+message bag_mod_name_req {
+  uint64 item_uuid = 1;
+  string new_nick = 2;
+}
+
+message bag_mod_name_res {
+  uint32 code = 1;
+  int32 rest_cd = 2;
+  int32 ban_time = 3;
+  string ban_reason = 4;
+}
+
+message bag_addition_card_req {
+  uint64 item_uuid = 1;
+  int32 item_count = 2;
+}
+
+message bag_addition_card_res {
+  uint32 code = 1;
+  int32 item_id = 2;
+  int32 item_count = 3;
+}
+
+message bag_item_sell_req {
+  uint64 item_uuid = 1;
+  int32 sell_count = 2;
+}
+
+message bag_item_sell_res {
+  uint32 code = 1;
+  uint64 item_uuid = 2;
+  int32 sell_count = 3;
+  .ncmd_cs.ECurrencyType currency_type = 4;
+  int32 currency_total = 5;
+  int32 item_id = 6;
+}
+
+message optional_gift_use_req {
+  uint32 gift_id = 1;
+  uint32 count = 2;
+  repeated uint32 optionals = 3;
+}
+
+message optional_gift_use_res {
+  uint32 code = 1;
+  uint32 gift_id = 2;
+  uint32 count = 3;
+  repeated uint32 optionals = 4;
+}
+

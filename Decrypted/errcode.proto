@@ -1,0 +1,9 @@
+syntax = "proto2";
+
+package proto.errcode;
+
+enum ERROR_CODE {
+  SUCCESS = 0;
+  FAILED = 1;
+}
+

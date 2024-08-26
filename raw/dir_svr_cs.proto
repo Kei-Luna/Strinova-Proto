@@ -1,0 +1,60 @@
+
+‚
+dir_svr_cs.protoncmd_cs.dir
+enum.proto"b
+gray_config
+id (Rid
+cfg (	Rcfg
+gray (	Rgray
+
+gray_param (	R	grayParam"H
+get_gray_config_req
+open_id (	RopenId
+version (	Rversion"Y
+get_gray_config_res
+code (Rcode.
+confs (2.ncmd_cs.dir.gray_configRconfs"‡
+server_addr
+host (	Rhost
+ip (	Rip
+port (Rport
+
+cluster_id (R	clusterId!
+cluster_name (	RclusterName"[
+get_token_req
+open_id (	RopenId1
+	device_id (2.ncmd_cs.EDeviceTypeRdeviceId"Ü
+get_token_res
+code (Rcode,
+lobby_access_token (	RlobbyAccessToken7
+
+lobby_addr (2.ncmd_cs.dir.server_addrR	lobbyAddr5
+	ping_list (2.ncmd_cs.dir.server_addrRpingList
+api_addr (	RapiAddr"3
+get_lobby_info_req
+
+magic_code (R	magicCode"_
+get_lobby_info_res
+code (Rcode5
+	addr_list (2.ncmd_cs.dir.server_addrRaddrList"
+get_system_notice_req"1
+system_notice
+id (Rid
+msg (	Rmsg"h
+get_system_notice_res
+code (Rcode;
+notice_list (2.ncmd_cs.dir.system_noticeR
+noticeList"¦
+query_steam_bind_req"
+steam_open_id (	RsteamOpenId
+steam_token (	R
+steamToken
+os (	Ros
+	channelid (R	channelid
+	login_env (RloginEnv"ˆ
+query_steam_bind_res
+code (Rcode"
+steam_open_id (	RsteamOpenId
+open_id (	RopenId
+platform_id (R
+platformIdbproto3

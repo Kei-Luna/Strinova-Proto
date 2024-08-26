@@ -1,0 +1,152 @@
+syntax = "proto3";
+
+package ncmd_cs.lobby;
+
+import "enum.proto";
+
+message rank_data_req {
+  .ncmd_cs.ERankType rank_type = 1;
+  uint32 sub_type = 2;
+  uint32 start_pos = 3;
+  uint32 end_pos = 4;
+  uint32 custom = 5;
+  uint32 city_code = 6;
+  uint32 version = 7;
+}
+
+message rank_division_node {
+  uint32 stars = 1;
+  uint32 win_games = 2;
+  uint32 rank = 3;
+  uint32 division_score = 4;
+  int32 grade_score = 5;
+}
+
+message rank_team_node {
+  uint32 win_games = 1;
+  uint32 kills = 2;
+}
+
+message rank_role_node {
+  uint32 score = 1;
+  uint32 win_games = 2;
+}
+
+message rank_crystal_node {
+  uint32 crystal = 1;
+  uint32 kills = 2;
+  uint32 win_games = 3;
+}
+
+message rank_pushcar_node {
+  uint32 kills = 1;
+  uint32 car_time = 2;
+  uint32 win_games = 3;
+}
+
+message train_battle_node {
+  uint32 score = 1;
+  uint32 cost_time = 2;
+  uint32 finish_time = 3;
+}
+
+message rank_row_info {
+  uint64 player_id = 1;
+  uint32 rank_pos = 2;
+  string nick = 3;
+  uint32 icon = 4;
+  repeated uint32 freq_roles = 5;
+  uint32 city_code = 6;
+  uint32 level = 7;
+  uint32 vc_border_id = 8;
+  uint32 privilege_type = 9;
+  uint32 privilege_time = 10;
+  .ncmd_cs.lobby.rank_division_node rank_division_data = 11;
+  .ncmd_cs.lobby.rank_team_node rank_team_data = 12;
+  .ncmd_cs.lobby.rank_role_node rank_role_data = 13;
+  .ncmd_cs.lobby.train_battle_node train_battle_data = 14;
+  .ncmd_cs.lobby.rank_crystal_node rank_crystal_data = 15;
+  .ncmd_cs.lobby.rank_pushcar_node rank_pushcar_data = 16;
+}
+
+message rank_data_res {
+  uint32 code = 1;
+  .ncmd_cs.ERankType rank_type = 2;
+  uint32 sub_type = 3;
+  uint32 start_pos = 4;
+  uint32 end_pos = 5;
+  uint32 custom = 6;
+  uint32 city_code = 7;
+  uint32 version = 8;
+  uint32 rank_total = 9;
+  repeated .ncmd_cs.lobby.rank_row_info rows_info = 10;
+  .ncmd_cs.lobby.rank_row_info self_rank = 11;
+}
+
+message rank_data_refresh_ntf {
+  .ncmd_cs.ERankType rank_type = 1;
+}
+
+message rank_get_cur_city_code_req {
+}
+
+message rank_get_cur_city_code_res {
+  uint32 code = 1;
+  uint32 city_code = 2;
+}
+
+message rank_set_cur_city_code_req {
+  uint32 city_code = 1;
+}
+
+message rank_set_cur_city_code_res {
+  uint32 code = 1;
+}
+
+message rank_get_friend_data_req {
+  .ncmd_cs.ERankType rank_type = 1;
+  uint32 sub_type = 2;
+}
+
+message rank_get_friend_data_res {
+  uint32 code = 1;
+  bool finish = 2;
+  repeated .ncmd_cs.lobby.rank_row_info rows_info = 3;
+  .ncmd_cs.lobby.rank_row_info self_rank = 4;
+  .ncmd_cs.ERankType rank_type = 5;
+  uint32 sub_type = 6;
+}
+
+message rank_forbid_update_ntf {
+  string reason = 1;
+}
+
+message rank_get_block_hole_rank_req {
+}
+
+message rank_get_block_hole_rank_res {
+  uint32 code = 1;
+  uint32 rank = 2;
+  uint32 rank_pos = 3;
+}
+
+message rank_search_req {
+  .ncmd_cs.ERankType rank_type = 1;
+  uint32 sub_type = 2;
+  uint32 custom = 3;
+  uint32 city_code = 4;
+  uint32 version = 5;
+  string nick = 6;
+}
+
+message rank_search_res {
+  uint32 code = 1;
+  .ncmd_cs.ERankType rank_type = 2;
+  uint32 sub_type = 3;
+  uint32 custom = 4;
+  uint32 city_code = 5;
+  uint32 version = 6;
+  string nick = 7;
+  repeated .ncmd_cs.lobby.rank_row_info rows_info = 8;
+}
+

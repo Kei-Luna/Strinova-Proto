@@ -1,0 +1,4887 @@
+
+‰
+lobby_account_cs.protoncmd_cs.lobby"E
+send_phone_msg_req
+phone (	Rphone
+sms_type (RsmsType"(
+send_phone_msg_res
+code (Rcode"_
+check_phone_code_req
+phone (	Rphone
+code (Rcode
+
+check_type (R	checkType"*
+check_phone_code_res
+code (Rcode"
+query_account_info_req"¢
+query_account_info_res
+code (Rcode
+phone (	Rphone
+fanbook (	Rfanbook
+phone_count (R
+phoneCount#
+fanbook_count (RfanbookCount"j
+bind_account_phone_req
+	oper_type (RoperType
+
+phone_code (R	phoneCode
+phone (	Rphone"~
+bind_account_phone_res
+	oper_type (RoperType
+
+phone_code (R	phoneCode
+phone (	Rphone
+code (Rcode"}
+bind_account_fanbook_req
+	oper_type (RoperType!
+fanbook_code (	RfanbookCode!
+redirect_uri (	RredirectUri"K
+bind_account_fanbook_res
+	oper_type (RoperType
+code (Rcode"
+logoff_account_req"(
+logoff_account_res
+code (Rcodebproto3
+©
+lobby_achievement_cs.protoncmd_cs.lobby
+enum.protocommon.proto"3
+achievement_list_req
+	player_id (RplayerId"O
+achievement
+id (Rid
+progress (Rprogress
+level (Rlevel"ﬂ
+achievement_type)
+type (2.ncmd_cs.EAchieveTypeRtype
+rank (Rrank>
+achievements (2.ncmd_cs.lobby.achievementRachievements&
+reward_reach_lv (RrewardReachLv$
+reward_take_lv (RrewardTakeLv"v
+achievement_list_res
+code (RcodeJ
+achievement_list (2.ncmd_cs.lobby.achievement_typeRachievementList"g
+achievement_list_sync_ntfJ
+achievement_list (2.ncmd_cs.lobby.achievement_typeRachievementList"_
+achievement_level_reward_req)
+type (2.ncmd_cs.EAchieveTypeRtype
+level (Rlevel"ù
+achievement_level_reward_res
+code (Rcode(
+items (2.ncmd_cs.item_packRitems)
+type (2.ncmd_cs.EAchieveTypeRtype
+level (Rlevel"(
+achievement_reward_req
+id (Rid"f
+achievement_reward_res
+code (Rcode(
+items (2.ncmd_cs.item_packRitems
+id (Ridbproto3
+¸Ö
+lobby_activity_cs.protoncmd_cs.lobby
+enum.protoactivity_cfg.proto"†
+activity_preview_data
+id (Rid-
+cfg (2.ncmd_cs.lobby.activity_cfgRcfg
+reddot (Rreddot0
+status (2.ncmd_cs.EActivityStatusRstatus"
+activity_preview_list_req"r
+activity_preview_list_res
+code (RcodeA
+	data_list (2$.ncmd_cs.lobby.activity_preview_dataRdataList"X
+acticity_update_activity_ntf8
+data (2$.ncmd_cs.lobby.activity_preview_dataRdata"o
+acticity_statue_change_ntf
+activity_id (R
+activityId0
+status (2.ncmd_cs.EActivityStatusRstatus"^
+activity_preview_list_ntfA
+	data_list (2$.ncmd_cs.lobby.activity_preview_dataRdataList"U
+activity_share_report_req
+activity_id (R
+activityId
+task_id (RtaskId"/
+activity_share_report_res
+code (Rcode"3
+sta_get_data_req
+activity_id (R
+activityId"\
+sta_player_card_data
+day (Rday
+item_id (RitemId
+item_cnt (RitemCnt"¢
+sta_player_data@
+	send_item (2#.ncmd_cs.lobby.sta_player_card_dataRsendItem9
+cards (2#.ncmd_cs.lobby.sta_player_card_dataRcards
+days (Rdays"ü
+sta_get_data_res
+code (RcodeC
+cfg_list (2(.ncmd_cs.lobby.activitystappointment_cfgRcfgList2
+data (2.ncmd_cs.lobby.sta_player_dataRdata"®
+sta_data_ntfC
+cfg_list (2(.ncmd_cs.lobby.activitystappointment_cfgRcfgList2
+data (2.ncmd_cs.lobby.sta_player_dataRdata
+activity_id (R
+activityId"F
+sta_open_card_req
+activity_id (R
+activityId
+day (Rday"Å
+sta_open_card_res
+code (Rcode
+activity_id (R
+activityId7
+card (2#.ncmd_cs.lobby.sta_player_card_dataRcard"J
+sta_choose_reward_req
+activity_id (R
+activityId
+day (Rday"^
+sta_choose_reward_res
+code (Rcode
+activity_id (R
+activityId
+day (Rday"#
+sta_new_day_ntf
+day (Rday"=
+battle_reward_get_data_req
+activity_id (R
+activityId"…
+battle_reward_get_data_res
+code (RcodeC
+cfg_list (2(.ncmd_cs.lobby.activity_battlereward_cfgRcfgList*
+current_day_count (RcurrentDayCount&
+day_count_limit (RdayCountLimit"@
+gallery_gleaning_get_data_req
+activity_id (R
+activityId"D
+gallery_gleaning_data
+box_id (RboxId
+grids (Rgrids"À
+gallery_gleaning_get_data_res
+code (Rcode
+activity_id (R
+activityIdB
+gg_cfg (2+.ncmd_cs.lobby.activity_gallerygleaning_cfgRggCfg:
+box_cfg (2!.ncmd_cs.lobby.activity_ggbox_cfgRboxCfg
+task_cfg (RtaskCfg?
+box_data (2$.ncmd_cs.lobby.gallery_gleaning_dataRboxData
+item_num (RitemNum"w
+gallery_gleaning_lottery_req
+activity_id (R
+activityId
+box_id (RboxId
+lottery_cnt (R
+lotteryCnt"õ
+gallery_gleaning_lottery_res
+code (Rcode
+activity_id (R
+activityId
+box_id (RboxId
+grids (Rgrids
+left_num (RleftNum"2
+sc_data_get_req
+activity_id (R
+activityId"e
+sc_phase_prize
+phase (Rphase
+grid (Rgrid
+cue (Rcue
+item_id (RitemId"E
+sc_prize_preview_cfg
+phase (Rphase
+item_id (RitemId"“
+summer_concert_cfgP
+summer_concert (2).ncmd_cs.lobby.activity_summerconcert_cfgRsummerConcertN
+phase_reward (2+.ncmd_cs.lobby.activity_sc_phase_reward_cfgRphaseRewardC
+delivery (2'.ncmd_cs.lobby.activity_sc_delivery_cfgRdeliveryU
+preview_prize_target (2#.ncmd_cs.lobby.sc_prize_preview_cfgRpreviewPrizeTarget"É
+sc_data_get_res
+code (Rcode
+	cur_phase (RcurPhase!
+phase_reward (RphaseReward'
+delivery_reward (RdeliveryReward>
+phase_prize (2.ncmd_cs.lobby.sc_phase_prizeR
+phasePrize3
+cfg (2!.ncmd_cs.lobby.summer_concert_cfgRcfg"G
+sc_open_card_req
+activity_id (R
+activityId
+grid (Rgrid"Ç
+sc_open_card_res
+code (Rcode
+grid (Rgrid
+cue (Rcue
+	cur_phase (RcurPhase
+item_id (RitemId"K
+sc_award_phase_req
+activity_id (R
+activityId
+phase (Rphase">
+sc_award_phase_res
+code (Rcode
+phase (Rphase"C
+sc_deliver_req
+activity_id (R
+activityId
+cnt (Rcnt"[
+sc_deliver_res
+code (Rcode
+activity_id (R
+activityId
+grids (Rgrids"õ
+stm_data_ntf
+activity_id (R
+activityId
+cur_day (RcurDay
+days (Rdays=
+cfg_list (2".ncmd_cs.lobby.activitystmusic_cfgRcfgList"K
+stm_new_day_ntf
+activity_id (R
+activityId
+cur_day (RcurDay"C
+stm_reward_req
+activity_id (R
+activityId
+day (Rday"W
+stm_reward_res
+code (Rcode
+activity_id (R
+activityId
+day (Rday"ß
+invite_card_data&
+sub_activity_id (RsubActivityId
+status (Rstatus
+use_code (RuseCode
+code_str (	RcodeStr
+
+cond_value (R	condValue";
+invite_card_data_get_req
+activity_id (R
+activityId"‹
+invite_card_data_get_res
+code (RcodeR
+invite_card_data_list (2.ncmd_cs.lobby.invite_card_dataRinviteCardDataListX
+invite_card_cfg_list (2'.ncmd_cs.lobby.activity_invite_card_cfgRinviteCardCfgList"a
+invite_card_reward_req
+activity_id (R
+activityId&
+sub_activity_id (RsubActivityId"j
+invite_card_reward_res
+code (Rcode<
+	card_data (2.ncmd_cs.lobby.invite_card_dataRcardData"^
+invite_card_use_req
+activity_id (R
+activityId&
+sub_activity_id (RsubActivityId"g
+invite_card_use_res
+code (Rcode<
+	card_data (2.ncmd_cs.lobby.invite_card_dataRcardData"j
+invite_card_data_ntfR
+invite_card_data_list (2.ncmd_cs.lobby.invite_card_dataRinviteCardDataList"
+beta_recharge_rebate_data_req"∞
+beta_recharge_rebate_data_res
+code (Rcode
+step (Rstep'
+recharge_amount (RrechargeAmount#
+rebate_amount (RrebateAmount
+has_take (RhasTake"
+beta_recharge_rebate_take_req"X
+beta_recharge_rebate_take_res
+code (Rcode#
+rebate_amount (RrebateAmount"2
+mp_get_data_req
+activity_id (R
+activityId"4
+mp_grid_data
+grid (Rgrid
+pos (Rpos"ä
+mp_get_data_res
+code (Rcode
+activity_id (R
+activityId
+item_num (RitemNumC
+mp_cfg (2,.ncmd_cs.lobby.activity_michelleplaytime_cfgRmpCfgD
+
+unlock_cfg (2%.ncmd_cs.lobby.activity_mp_unlock_cfgR	unlockCfg!
+unlock_grids (RunlockGrids9
+
+gain_items (2.ncmd_cs.lobby.common_itemR	gainItems>
+choose_items (2.ncmd_cs.lobby.mp_grid_dataRchooseItems"]
+mp_unlock_reward_req
+activity_id (R
+activityId
+grid (Rgrid
+pos (Rpos"¨
+mp_unlock_reward_res
+code (Rcode
+activity_id (R
+activityId
+grid (Rgrid9
+
+gain_items (2.ncmd_cs.lobby.common_itemR	gainItems
+pos (Rpos"K
+mp_exchange_reward_req
+activity_id (R
+activityId
+cnt (Rcnt"ö
+mp_exchange_reward_res
+code (Rcode
+activity_id (R
+activityId
+cnt (Rcnt9
+
+gain_items (2.ncmd_cs.lobby.common_itemR	gainItems"<
+role_warm_up_get_data_req
+activity_id (R
+activityId"™
+role_warm_up_get_data_res
+code (Rcode
+activity_id (R
+activityId
+
+award_role (R	awardRole
+award_phase (R
+awardPhaseK
+activity_cfg (2(.ncmd_cs.lobby.activity_welcome_mrds_cfgRactivityCfgK
+	phase_cfg (2..ncmd_cs.lobby.activity_welcome_mrds_award_cfgRphaseCfg"U
+role_warm_up_award_phase_req
+activity_id (R
+activityId
+phase (Rphase"i
+role_warm_up_award_phase_res
+code (Rcode
+activity_id (R
+activityId
+phase (Rphase">
+role_warm_up_award_role_req
+activity_id (R
+activityId"R
+role_warm_up_award_role_res
+code (Rcode
+activity_id (R
+activityId"N
+role_warm_up_exchange_req
+activity_id (R
+activityId
+cnt (Rcnt"b
+role_warm_up_exchange_res
+code (Rcode
+activity_id (R
+activityId
+cnt (Rcnt"4
+maid_data_get_req
+activity_id (R
+activityId"≥
+sc_maid_all_cfg;
+base_cfg (2 .ncmd_cs.lobby.activity_maid_cfgRbaseCfgc
+phase_reward_cfg_list (20.ncmd_cs.lobby.activity_sc_maid_phase_reward_cfgRphaseRewardCfgList"È
+maid_data_get_res
+code (Rcode
+cur_page (RcurPage*
+phase_reward_list (RphaseRewardList0
+cfg (2.ncmd_cs.lobby.sc_maid_all_cfgRcfg&
+page_photo_list (RpagePhotoList
+activity_id (R
+activityId"V
+maid_select_page_req
+activity_id (R
+activityId
+
+page_index (R	pageIndex"I
+maid_select_page_res
+code (Rcode
+
+page_index (R	pageIndex"l
+maid_award_phase_req
+activity_id (R
+activityId
+
+page_index (R	pageIndex
+phase (Rphase"_
+maid_award_phase_res
+code (Rcode
+
+page_index (R	pageIndex
+phase (Rphase"U
+maid_photo_page_req
+activity_id (R
+activityId
+
+page_index (R	pageIndex"H
+maid_photo_page_res
+code (Rcode
+
+page_index (R	pageIndex"î
+fission_student
+	player_id (RplayerId#
+school_status (RschoolStatus
+level (Rlevel#
+online_status (RonlineStatus
+logout_time (R
+logoutTime
+nick (	Rnick
+icon (Ricon
+status (Rstatus#
+finish_school	 (RfinishSchool"j
+fission_recruit:
+students (2.ncmd_cs.lobby.fission_studentRstudents
+	shared_id (RsharedId"À
+fission_newhand
+tutor_id (RtutorId#
+school_status (RschoolStatus
+
+start_time (R	startTime
+end_time (RendTime
+fight_count (R
+fightCount
+
+kill_count (R	killCount"7
+fission_get_data_req
+activity_id (R
+activityId"Ä
+fission_get_data_res
+code (Rcode
+identity (Ridentity8
+newhand (2.ncmd_cs.lobby.fission_newhandRnewhand8
+recruit (2.ncmd_cs.lobby.fission_recruitRrecruitD
+fission_cfg (2#.ncmd_cs.lobby.activity_fission_cfgR
+fissionCfg"j
+fission_bind_tutor_req
+activity_id (R
+activityId
+nick (	Rnick
+	shared_id (RsharedId"G
+fission_bind_tutor_res
+code (Rcode
+tutor_id (RtutorId"S
+fission_new_student_ntf8
+student (2.ncmd_cs.lobby.fission_studentRstudent"W
+fission_set_identity_req
+activity_id (R
+activityId
+identity (Ridentity".
+fission_set_identity_res
+code (Rcode"V
+fission_set_shared_req
+activity_id (R
+activityId
+	shared_id (RsharedId"I
+fission_set_shared_res
+code (Rcode
+	shared_id (RsharedId">
+fission_get_school_over_req
+activity_id (R
+activityId"r
+fission_get_school_over_res
+code (Rcode?
+school_info (2.ncmd_cs.lobby.fission_newhandR
+schoolInfo"6
+midaut_data_get_req
+activity_id (R
+activityId"N
+midaut_common_buy_info
+shop_id (RshopId
+	buy_count (RbuyCount"K
+midaut_common_phase_info
+phase_id (RphaseId
+state (Rstate"Ü
+sc_midaut_all_cfg=
+base_cfg (2".ncmd_cs.lobby.activity_midaut_cfgRbaseCfge
+phase_reward_cfg_list (22.ncmd_cs.lobby.activity_sc_midaut_phase_reward_cfgRphaseRewardCfgListK
+shop_cfg_list (2'.ncmd_cs.lobby.activity_midaut_shop_cfgRshopCfgList"Ç
+midaut_data_get_res
+code (Rcode&
+total_buy_count (RtotalBuyCount*
+total_point_count (RtotalPointCount-
+play_cg_award_state (RplayCgAwardStateS
+phase_reward_list (2'.ncmd_cs.lobby.midaut_common_phase_infoRphaseRewardListK
+buy_count_list (2%.ncmd_cs.lobby.midaut_common_buy_infoRbuyCountList2
+cfg (2 .ncmd_cs.lobby.sc_midaut_all_cfgRcfg"T
+midaut_award_phase_req
+activity_id (R
+activityId
+phase_id (RphaseId"]
+midaut_award_phase_res
+code (Rcode
+phase_id (RphaseId
+state (Rstate"l
+midaut_buy_mooncake_req
+activity_id (R
+activityId
+shop_id (RshopId
+buy_num (RbuyNum"ó
+midaut_buy_mooncake_res
+code (Rcode&
+total_buy_count (RtotalBuyCount@
+buy_info (2%.ncmd_cs.lobby.midaut_common_buy_infoRbuyInfo"5
+midaut_cg_play_req
+activity_id (R
+activityId"W
+midaut_cg_play_res
+code (Rcode-
+play_cg_award_state (RplayCgAwardState"<
+nationfasion_data_get_req
+activity_id (R
+activityId"T
+nationfasion_common_buy_info
+shop_id (RshopId
+	buy_count (RbuyCount"±
+sc_nationfasion_all_cfgC
+base_cfg (2(.ncmd_cs.lobby.activity_nationfasion_cfgRbaseCfgQ
+shop_cfg_list (2-.ncmd_cs.lobby.activity_nationfasion_shop_cfgRshopCfgList"›
+nationfasion_data_get_res
+code (RcodeQ
+buy_count_list (2+.ncmd_cs.lobby.nationfasion_common_buy_infoRbuyCountList8
+cfg (2&.ncmd_cs.lobby.sc_nationfasion_all_cfgRcfg
+activity_id (R
+activityId"i
+nationfasion_buy_req
+activity_id (R
+activityId
+shop_id (RshopId
+buy_num (RbuyNum"ì
+nationfasion_buy_res
+code (RcodeF
+buy_info (2+.ncmd_cs.lobby.nationfasion_common_buy_infoRbuyInfo
+activity_id (R
+activityId"<
+first_top_up_data_get_req
+activity_id (R
+activityId"ü
+first_top_up_data_get_res
+code (Rcode
+activity_id (R
+activityId7
+cfg (2%.ncmd_cs.lobby.activityfirsttopup_cfgRcfg
+state (Rstate"O
+first_top_up_state_ntf
+activity_id (R
+activityId
+state (Rstate":
+first_top_up_reward_req
+activity_id (R
+activityId"N
+first_top_up_reward_res
+code (Rcode
+activity_id (R
+activityId"á
+first_top_up_data_ntf
+activity_id (R
+activityId7
+cfg (2%.ncmd_cs.lobby.activityfirsttopup_cfgRcfg
+state (Rstate"8
+backflow_data_get_req
+activity_id (R
+activityId"£
+backflow_data_get_res
+code (Rcode
+
+start_time (R	startTime6
+cfg (2$.ncmd_cs.lobby.activity_backflow_cfgRcfg
+logout_time (R
+logoutTime":
+seasondash_data_get_req
+activity_id (R
+activityId"R
+seasondash_common_buy_info
+shop_id (RshopId
+	buy_count (RbuyCount"´
+sc_seasondash_all_cfgA
+base_cfg (2&.ncmd_cs.lobby.activity_seasondash_cfgRbaseCfgO
+shop_cfg_list (2+.ncmd_cs.lobby.activity_seasondash_shop_cfgRshopCfgList"∂
+seasondash_data_get_res
+code (RcodeO
+buy_count_list (2).ncmd_cs.lobby.seasondash_common_buy_infoRbuyCountList6
+cfg (2$.ncmd_cs.lobby.sc_seasondash_all_cfgRcfg"g
+seasondash_buy_req
+activity_id (R
+activityId
+shop_id (RshopId
+buy_num (RbuyNum"n
+seasondash_buy_res
+code (RcodeD
+buy_info (2).ncmd_cs.lobby.seasondash_common_buy_infoRbuyInfo"H
+random_drop_data_ntf0
+remaining_drop_count (RremainingDropCount"M
+tales_common_buy_info
+shop_id (RshopId
+	buy_count (RbuyCount"J
+tales_common_phase_info
+phase_id (RphaseId
+state (Rstate"P
+tales_chapter_reward_info
+
+chapter_id (R	chapterId
+state (Rstate"D
+tales_draw_grids_info
+key_id (RkeyId
+color (Rcolor"â
+sc_tales_all_cfg<
+base_cfg (2!.ncmd_cs.lobby.activity_tales_cfgRbaseCfgd
+phase_reward_cfg_list (21.ncmd_cs.lobby.activity_sc_tales_phase_reward_cfgRphaseRewardCfgListJ
+shop_cfg_list (2&.ncmd_cs.lobby.activity_tales_shop_cfgRshopCfgListV
+chapter_cfg_list (2,.ncmd_cs.lobby.activity_sc_tales_chapter_cfgRchapterCfgListT
+draw_grids_list (2,.ncmd_cs.lobby.activity_tales_draw_grids_cfgRdrawGridsListW
+login_award_list (2-.ncmd_cs.lobby.activity_tales_login_award_cfgRloginAwardList"5
+tales_data_get_req
+activity_id (R
+activityId"·
+tales_data_get_res
+code (Rcode
+activity_id (R
+activityId&
+total_buy_count (RtotalBuyCount*
+total_point_count (RtotalPointCount1
+unlock_max_chapter_id (RunlockMaxChapterIdB
+unlock_max_canaward_chapter_id (RunlockMaxCanawardChapterId
+cur_day (RcurDayR
+phase_reward_list (2&.ncmd_cs.lobby.tales_common_phase_infoRphaseRewardListJ
+buy_count_list	 (2$.ncmd_cs.lobby.tales_common_buy_infoRbuyCountList1
+cfg
+ (2.ncmd_cs.lobby.sc_tales_all_cfgRcfgX
+chapter_reward_list (2(.ncmd_cs.lobby.tales_chapter_reward_infoRchapterRewardListL
+draw_grids_list (2$.ncmd_cs.lobby.tales_draw_grids_infoRdrawGridsListY
+finish_draw_grids_list (2$.ncmd_cs.lobby.tales_draw_grids_infoRfinishDrawGridsList\
+card_reward_state_list (2'.ncmd_cs.lobby.common_card_reward_stateRcardRewardStateList"S
+tales_award_phase_req
+activity_id (R
+activityId
+phase_id (RphaseId"\
+tales_award_phase_res
+code (Rcode
+phase_id (RphaseId
+state (Rstate"Y
+tales_award_chapter_req
+activity_id (R
+activityId
+
+chapter_id (R	chapterId"b
+tales_award_chapter_res
+code (Rcode
+
+chapter_id (R	chapterId
+state (Rstate"b
+tales_buy_req
+activity_id (R
+activityId
+shop_id (RshopId
+buy_num (RbuyNum"å
+tales_buy_res
+code (Rcode&
+total_buy_count (RtotalBuyCount?
+buy_info (2$.ncmd_cs.lobby.tales_common_buy_infoRbuyInfo"?
+common_grid_info
+key_id (RkeyId
+color (Rcolor"´
+tales_save_grid_req
+
+chapter_id (R	chapterId
+activity_id (R
+activityIdT
+change_tales_grid_list (2.ncmd_cs.lobby.common_grid_infoRchangeTalesGridList"å
+tales_save_grid_res
+code (Rcode
+
+chapter_id (R	chapterIdT
+change_tales_grid_list (2.ncmd_cs.lobby.common_grid_infoRchangeTalesGridList$
+is_finish_save (RisFinishSavea
+change_finish_tales_grid_list (2.ncmd_cs.lobby.common_grid_infoRchangeFinishTalesGridListB
+unlock_max_canaward_chapter_id (RunlockMaxCanawardChapterId
+activity_id (R
+activityId"Z
+tales_unlock_chapter_req
+
+chapter_id (R	chapterId
+activity_id (R
+activityId"°
+tales_unlock_chapter_res
+code (Rcode
+
+chapter_id (R	chapterId1
+unlock_max_chapter_id (RunlockMaxChapterId
+activity_id (R
+activityId"X
+tales_get_card_award_req
+	reward_id (RrewardId
+activity_id (R
+activityId"Ç
+tales_get_card_award_res
+code (Rcode
+	reward_id (RrewardId
+state (Rstate
+activity_id (R
+activityId"M
+common_card_reward_state
+	reward_id (RrewardId
+state (Rstate"∞
+tales_card_new_day_ntf
+activity_id (R
+activityId
+cur_day (RcurDay\
+card_reward_state_list (2'.ncmd_cs.lobby.common_card_reward_stateRcardRewardStateList"D
+!concert_theme_task_accumulate_req
+activity_id (R
+activityId"n
+!concert_theme_task_accumulate_res
+code (Rcode
+activity_id (R
+activityId
+state (Rstate"K
+concert_theme_level_info
+level_id (RlevelId
+state (Rstate"T
+concert_theme_story_info
+story_id (RstoryId
+
+read_state (R	readState"\
+concert_theme_level_reward_req
+activity_id (R
+activityId
+level_id (RlevelId"ù
+concert_theme_level_reward_res
+code (Rcode
+activity_id (R
+activityIdF
+
+level_info (2'.ncmd_cs.lobby.concert_theme_level_infoR	levelInfo"\
+concert_theme_level_unlock_req
+activity_id (R
+activityId
+level_id (RlevelId"ù
+concert_theme_level_unlock_res
+code (Rcode
+activity_id (R
+activityIdF
+
+level_info (2'.ncmd_cs.lobby.concert_theme_level_infoR	levelInfo"j
+ concert_theme_point_exchange_req
+activity_id (R
+activityId%
+exchange_count (RexchangeCount"~
+ concert_theme_point_exchange_res
+code (Rcode
+activity_id (R
+activityId%
+exchange_count (RexchangeCount"=
+concert_theme_data_get_req
+activity_id (R
+activityId"î
+sc_concert_all_cfgB
+base_cfg (2'.ncmd_cs.lobby.activityconcerttheme_cfgRbaseCfg\
+concert_level_cfg_list (2'.ncmd_cs.lobby.activityconcertlevel_cfgRconcertLevelCfgList\
+concert_story_cfg_list (2'.ncmd_cs.lobby.activityconcertstory_cfgRconcertStoryCfgList"í
+concert_theme_data_get_res
+code (Rcode
+activity_id (R
+activityId6
+accumulate_reward_state (RaccumulateRewardState0
+accumulate_point_num (RaccumulatePointNumO
+level_info_list (2'.ncmd_cs.lobby.concert_theme_level_infoRlevelInfoListO
+story_info_list (2'.ncmd_cs.lobby.concert_theme_story_infoRstoryInfoList3
+cfg (2!.ncmd_cs.lobby.sc_concert_all_cfgRcfg"Z
+concert_theme_read_story_req
+activity_id (R
+activityId
+story_id (RstoryId"õ
+concert_theme_read_story_res
+code (Rcode
+activity_id (R
+activityIdF
+
+story_info (2'.ncmd_cs.lobby.concert_theme_story_infoR	storyInfo"=
+query_web_activity_reddot_req
+	activitys (R	activitys"S
+web_activity_reddot_data
+activity_id (R
+activityId
+reddot (Rreddot"z
+query_web_activity_reddot_res
+code (RcodeE
+	activitys (2'.ncmd_cs.lobby.web_activity_reddot_dataR	activitys"l
+cny_lucky_lottery_info!
+lottery_time (RlotteryTime/
+cny_lucky_lottery_id (RcnyLuckyLotteryId"Ö
+sc_cny_lucky_lottery_cfgi
+cnyluckylotterypool_cfgs (2..ncmd_cs.lobby.activitycnyluckylotterypool_cfgRcnyluckylotterypoolCfgs"8
+cny_lucky_lottery_req
+activity_id (R
+activityId"∑
+cny_lucky_lottery_res
+code (Rcode
+activity_id (R
+activityId
+state (RstateS
+lucky_lottery_info (2%.ncmd_cs.lobby.cny_lucky_lottery_infoRluckyLotteryInfo"N
+cny_lucky_lottery_ntf
+activity_id (R
+activityId
+state (Rstate"A
+cny_lucky_lottery_get_data_req
+activity_id (R
+activityId"û
+cny_lucky_lottery_get_data_res
+code (Rcode
+activity_id (R
+activityId
+state (Rstate\
+lucky_lottery_info_list (2%.ncmd_cs.lobby.cny_lucky_lottery_infoRluckyLotteryInfoListS
+lucky_lottery_cfg (2'.ncmd_cs.lobby.sc_cny_lucky_lottery_cfgRluckyLotteryCfg"[
+ cny_collect_bless_milestone_info!
+milestone_id (RmilestoneId
+state (Rstate"∫
+ cny_collect_bless_give_over_info 
+give_away_id (R
+giveAwayId(
+source_player_id (RsourcePlayerId
+state (Rstate$
+give_away_time (RgiveAwayTime)
+give_away_item_id (RgiveAwayItemId
+nick (	Rnick
+icon (Ricon;
+online_status (2.ncmd_cs.EOnlineStatusRonlineStatus"π
+sc_collect_bless_cfgL
+base_cfg (21.ncmd_cs.lobby.activitycnycollectblessingbase_cfgRbaseCfgS
+acc_cfg_list (21.ncmd_cs.lobby.activitycnycollectblessingsacc_cfgR
+accCfgList"A
+cny_collect_bless_get_data_req
+activity_id (R
+activityId"˝
+cny_collect_bless_get_data_res
+code (Rcode
+activity_id (R
+activityId&
+drop_coin_count (RdropCoinCount8
+accumulate_compose_count (RaccumulateComposeCount-
+daily_give_away_num (RdailyGiveAwayNum_
+milestone_info_list (2/.ncmd_cs.lobby.cny_collect_bless_milestone_infoRmilestoneInfoList^
+give_over_info_list (2/.ncmd_cs.lobby.cny_collect_bless_give_over_infoRgiveOverInfoListT
+sc_collect_bless_cfg (2#.ncmd_cs.lobby.sc_collect_bless_cfgRscCollectBlessCfg"µ
+cny_collect_bless_drop_ntf
+activity_id (R
+activityId&
+drop_coin_count (RdropCoinCount-
+daily_give_away_num (RdailyGiveAwayNum
+can_compose (R
+canCompose"L
+cny_collect_bless_settle_ntf,
+items (2.ncmd_cs.lobby.sc_itemRitems"e
+cny_collect_bless_compose_req
+activity_id (R
+activityId#
+compose_count (RcomposeCount"y
+cny_collect_bless_compose_res
+code (Rcode
+activity_id (R
+activityId#
+compose_count (RcomposeCount"ó
+cny_collect_bless_give_away_req
+activity_id (R
+activityId(
+target_player_id (RtargetPlayerId)
+give_away_item_id (RgiveAwayItemId"V
+cny_collect_bless_give_away_res
+code (Rcode
+activity_id (R
+activityId"f
+cny_collect_bless_take_over_req
+activity_id (R
+activityId"
+give_away_ids (RgiveAwayIds"`
+&cny_collect_bless_give_over_state_info 
+give_away_id (R
+giveAwayId
+state (Rstate"µ
+cny_collect_bless_take_over_res
+code (Rcode
+activity_id (R
+activityId]
+state_info_list (25.ncmd_cs.lobby.cny_collect_bless_give_over_state_infoRstateInfoList"C
+ cny_collect_bless_accumulate_req
+activity_id (R
+activityId"∏
+ cny_collect_bless_accumulate_res
+code (Rcode
+activity_id (R
+activityId_
+milestone_info_list (2/.ncmd_cs.lobby.cny_collect_bless_milestone_infoRmilestoneInfoList"ô
+cny_collect_bless_give_over_ntf
+activity_id (R
+activityIdU
+give_away_info (2/.ncmd_cs.lobby.cny_collect_bless_give_over_infoRgiveAwayInfo"h
+player_cny_cb_activity_info
+	player_id (RplayerId,
+items (2.ncmd_cs.lobby.sc_itemRitems"_
+cny_collect_bless_friends_req
+activity_id (R
+activityId
+
+friend_ids (R	friendIds"¿
+cny_collect_bless_friends_res
+code (Rcode
+activity_id (R
+activityIdj
+player_cny_cb_activity_infos (2*.ncmd_cs.lobby.player_cny_cb_activity_infoRplayerCnyCbActivityInfos"'
+%query_web_activity_total_recharge_req";
+%query_web_activity_total_recharge_res
+code (Rcode"F
+activity_shop_info
+shop_id (RshopId
+buy_num (RbuyNum"J
+cny_firework_story_info
+story_id (RstoryId
+state (Rstate"n
+activity_milestone_info!
+milestone_id (RmilestoneId
+state (Rstate
+progress (Rprogress"t
+cny_firework_story_shop_buy_req
+activity_id (R
+activityId
+shop_id (RshopId
+buy_num (RbuyNum"ñ
+cny_firework_story_shop_buy_res
+code (Rcode
+activity_id (R
+activityId>
+	shop_info (2!.ncmd_cs.lobby.activity_shop_infoRshopInfo"f
+ cny_firework_story_milestone_req
+activity_id (R
+activityId!
+milestone_id (RmilestoneId"¶
+ cny_firework_story_milestone_res
+code (Rcode
+activity_id (R
+activityIdM
+milestone_info (2&.ncmd_cs.lobby.activity_milestone_infoRmilestoneInfo"[
+cny_firework_story_unlock_req
+activity_id (R
+activityId
+story_id (RstoryId"õ
+cny_firework_story_unlock_res
+code (Rcode
+activity_id (R
+activityIdE
+
+story_info (2&.ncmd_cs.lobby.cny_firework_story_infoR	storyInfo"Y
+cny_firework_story_read_req
+activity_id (R
+activityId
+story_id (RstoryId"ô
+cny_firework_story_read_res
+code (Rcode
+activity_id (R
+activityIdE
+
+story_info (2&.ncmd_cs.lobby.cny_firework_story_infoR	storyInfo"B
+cny_firework_story_get_data_req
+activity_id (R
+activityId"¡
+cny_firework_story_cfgo
+cnyfirestorymilestone_cfgs (20.ncmd_cs.lobby.activitycnyfirestorymilestone_cfgRcnyfirestorymilestoneCfgs`
+cnyfirestoryshop_cfgs (2+.ncmd_cs.lobby.activitycnyfirestoryshop_cfgRcnyfirestoryshopCfgsT
+cnyfirestory_cfgs (2'.ncmd_cs.lobby.activitycnyfirestory_cfgRcnyfirestoryCfgs"‡
+cny_firework_story_get_data_res
+code (Rcode
+activity_id (R
+activityId)
+accumulate_coins (RaccumulateCoins.
+accumulate_shop_buy (RaccumulateShopBuyN
+story_info_list (2&.ncmd_cs.lobby.cny_firework_story_infoRstoryInfoListV
+milestone_info_list (2&.ncmd_cs.lobby.activity_milestone_infoRmilestoneInfoListG
+shop_info_list (2!.ncmd_cs.lobby.activity_shop_infoRshopInfoList<
+sc_cfg (2%.ncmd_cs.lobby.cny_firework_story_cfgRscCfg"5
+maid2_get_date_req
+activity_id (R
+activityId"Ö
+activity_maid2_cfgW
+maid2roleopen_cfgs (2(.ncmd_cs.lobby.activitymaid2roleopen_cfgRmaid2roleopenCfgsK
+maid2shop_cfgs (2$.ncmd_cs.lobby.activitymaid2shop_cfgRmaid2shopCfgsI
+maid2base_cfg (2$.ncmd_cs.lobby.activitymaid2base_cfgRmaid2baseCfg"†
+maid2_get_date_res
+code (Rcode
+activity_id (R
+activityId8
+sc_cfg (2!.ncmd_cs.lobby.activity_maid2_cfgRscCfgR
+remind_info_list (2(.ncmd_cs.lobby.activity_shop_remind_infoRremindInfoListG
+shop_info_list (2!.ncmd_cs.lobby.activity_shop_infoRshopInfoList"]
+maid2_game_settle_req
+activity_id (R
+activityId#
+different_num (RdifferentNum"L
+maid2_game_settle_res
+code (Rcode
+activity_id (R
+activityId"g
+maid2_shop_buy_req
+activity_id (R
+activityId
+shop_id (RshopId
+buy_num (RbuyNum"â
+maid2_shop_buy_res
+code (Rcode
+activity_id (R
+activityId>
+	shop_info (2!.ncmd_cs.lobby.activity_shop_infoRshopInfo"n
+maid2_shop_remind_req
+activity_id (R
+activityId
+shop_id (RshopId
+	is_remind (RisRemind"Q
+activity_shop_remind_info
+shop_id (RshopId
+	is_remind (RisRemind"ó
+maid2_shop_remind_res
+code (Rcode
+activity_id (R
+activityIdI
+remind_info (2(.ncmd_cs.lobby.activity_shop_remind_infoR
+remindInfo"q
+activity_common_shop_buy_req
+activity_id (R
+activityId
+shop_id (RshopId
+buy_num (RbuyNum"ì
+activity_common_shop_buy_res
+code (Rcode
+activity_id (R
+activityId>
+	shop_info (2!.ncmd_cs.lobby.activity_shop_infoRshopInfo"c
+activity_common_milestone_req
+activity_id (R
+activityId!
+milestone_id (RmilestoneId"£
+activity_common_milestone_res
+code (Rcode
+activity_id (R
+activityIdM
+milestone_info (2&.ncmd_cs.lobby.activity_milestone_infoRmilestoneInfo"F
+activity_story_info
+story_id (RstoryId
+state (Rstate"q
+activity_common_story_req
+activity_id (R
+activityId
+story_id (RstoryId
+operate (Roperate"ì
+activity_common_story_res
+code (Rcode
+activity_id (R
+activityIdA
+
+story_info (2".ncmd_cs.lobby.activity_story_infoR	storyInfo"C
+ trial_for_detective_get_date_req
+activity_id (R
+activityId"Õ
+ activity_trial_for_detective_cfgQ
+milestone_cfgs (2*.ncmd_cs.lobby.activitycommonmilestone_cfgRmilestoneCfgsB
+	shop_cfgs (2%.ncmd_cs.lobby.activitycommonshop_cfgRshopCfgsE
+
+story_cfgs (2&.ncmd_cs.lobby.activitycommonstory_cfgR	storyCfgsK
+base_cfg (20.ncmd_cs.lobby.activitytrialfordetectivebase_cfgRbaseCfg"Û
+ trial_for_detective_get_date_res
+code (Rcode
+activity_id (R
+activityIdF
+sc_cfg (2/.ncmd_cs.lobby.activity_trial_for_detective_cfgRscCfgG
+shop_info_list (2!.ncmd_cs.lobby.activity_shop_infoRshopInfoListV
+milestone_info_list (2&.ncmd_cs.lobby.activity_milestone_infoRmilestoneInfoListJ
+story_info_list (2".ncmd_cs.lobby.activity_story_infoRstoryInfoList$
+is_first_enter (RisFirstEnter
+role_id (RroleId&
+is_reward_guess	 (RisRewardGuess"Z
+trial_for_detective_select_req
+role_id (RroleId
+activity_id (R
+activityId"n
+trial_for_detective_select_res
+code (Rcode
+role_id (RroleId
+activity_id (R
+activityId"H
+%trial_for_detective_select_reward_req
+activity_id (R
+activityId"\
+%trial_for_detective_select_reward_res
+code (Rcode
+activity_id (R
+activityId"<
+activity_lottery_data_req
+activity_id (R
+activityId"≈
+activity_lottery_data_res
+code (Rcode
+activity_id (R
+activityIdR
+lottery_cfg_list (2(.ncmd_cs.lobby.activitycommonlottery_cfgRlotteryCfgList
+record_list (R
+recordList"\
+activity_lottery_req
+activity_id (R
+activityId#
+lottery_count (RlotteryCount"l
+activity_lottery_res
+code (Rcode
+activity_id (R
+activityId
+record_list (R
+recordList"8
+activity_sea_data_req
+activity_id (R
+activityId"Û
+activity_sea_data_res
+code (Rcode
+activity_id (R
+activityIdX
+milestone_cfg_list (2*.ncmd_cs.lobby.activitycommonmilestone_cfgRmilestoneCfgListV
+milestone_info_list (2&.ncmd_cs.lobby.activity_milestone_infoRmilestoneInfoListR
+lottery_cfg_list (2(.ncmd_cs.lobby.activitycommonlottery_cfgRlotteryCfgList
+record_list (R
+recordList"K
+activity_sign_in_info
+
+sign_in_id (RsignInId
+state (Rstate"›
+activity_sign_in_cfg^
+activitysigninpool_cfgs (2%.ncmd_cs.lobby.activitysigninpool_cfgRactivitysigninpoolCfgse
+activitysigningeneral_cfg (2(.ncmd_cs.lobby.activitysigningeneral_cfgRactivitysigningeneralCfg"\
+activity_sign_in_reward_req
+activity_id (R
+activityId
+
+sign_in_id (RsignInId"ö
+activity_sign_in_reward_res
+code (Rcode
+activity_id (R
+activityIdF
+sign_in_info (2$.ncmd_cs.lobby.activity_sign_in_infoR
+signInInfo"_
+activity_re_sign_in_reward_req
+activity_id (R
+activityId
+
+sign_in_id (RsignInId"ù
+activity_re_sign_in_reward_res
+code (Rcode
+activity_id (R
+activityIdF
+sign_in_info (2$.ncmd_cs.lobby.activity_sign_in_infoR
+signInInfo"
+activity_sign_in_ntf
+activity_id (R
+activityIdF
+sign_in_info (2$.ncmd_cs.lobby.activity_sign_in_infoR
+signInInfo"<
+activity_sign_in_data_req
+activity_id (R
+activityId"Ê
+activity_sign_in_data_res
+code (Rcode
+activity_id (R
+activityIdO
+sign_in_info_list (2$.ncmd_cs.lobby.activity_sign_in_infoRsignInInfoListC
+sign_in_cfg (2#.ncmd_cs.lobby.activity_sign_in_cfgR	signInCfg";
+activity_common_data_req
+activity_id (R
+activityId"â
+activity_common_cfgQ
+milestone_cfgs (2*.ncmd_cs.lobby.activitycommonmilestone_cfgRmilestoneCfgsB
+	shop_cfgs (2%.ncmd_cs.lobby.activitycommonshop_cfgRshopCfgsE
+
+story_cfgs (2&.ncmd_cs.lobby.activitycommonstory_cfgR	storyCfgs@
+base_cfg (2%.ncmd_cs.lobby.activitycommonbase_cfgRbaseCfgR
+lottery_cfg_list (2(.ncmd_cs.lobby.activitycommonlottery_cfgRlotteryCfgList"Ω
+activity_common_data_res
+code (Rcode
+activity_id (R
+activityIdG
+shop_info_list (2!.ncmd_cs.lobby.activity_shop_infoRshopInfoListV
+milestone_info_list (2&.ncmd_cs.lobby.activity_milestone_infoRmilestoneInfoListJ
+story_info_list (2".ncmd_cs.lobby.activity_story_infoRstoryInfoList
+record_list (R
+recordListA
+
+common_cfg (2".ncmd_cs.lobby.activity_common_cfgR	commonCfg
+	is_remind (RisRemind"_
+activity_common_shop_remind_req
+activity_id (R
+activityId
+	is_remind (RisRemind"s
+activity_common_shop_remind_res
+code (Rcode
+activity_id (R
+activityId
+	is_remind (RisRemindbproto3
+É
+lobby_attach_cs.protoncmd_cs.lobby
+enum.proto"è
+attachment_equip_req
+weapon_uuid (R
+weaponUuid9
+attach_type (2.ncmd_cs.EAttachmentTypeR
+attachType
+	attach_id (RattachId"£
+attachment_equip_res
+code (Rcode
+weapon_uuid (R
+weaponUuid9
+attach_type (2.ncmd_cs.EAttachmentTypeR
+attachType
+	attach_id (RattachId"ê
+attachment_unload_req
+weapon_uuid (R
+weaponUuid9
+attach_type (2.ncmd_cs.EAttachmentTypeR
+attachType
+	attach_id (RattachId"§
+attachment_unload_res
+code (Rcode
+weapon_uuid (R
+weaponUuid9
+attach_type (2.ncmd_cs.EAttachmentTypeR
+attachType
+	attach_id (RattachId"≠
+attachment_unlock_req
+	item_uuid (RitemUuid
+weapon_uuid (R
+weaponUuid9
+attach_type (2.ncmd_cs.EAttachmentTypeR
+attachType
+	attach_id (RattachId"§
+attachment_unlock_res
+code (Rcode
+weapon_uuid (R
+weaponUuid9
+attach_type (2.ncmd_cs.EAttachmentTypeR
+attachType
+	attach_id (RattachIdbproto3
+—
+lobby_attribute_cs.protoncmd_cs.lobbycommon.proto
+enum.proto"U
+attribute_item
+id (Rid
+value (	Rvalue
+
+value_type (	R	valueType"I
+attribute_sync_ntf3
+items (2.ncmd_cs.lobby.attribute_itemRitems"m
+player_level_up_ntf
+old_lv (RoldLv
+new_lv (RnewLv(
+items (2.ncmd_cs.item_packRitems"
+privilege_login_req")
+privilege_login_res
+code (Rcode"h
+ban_attr_item+
+ban_type (2.ncmd_cs.BanTypeRbanType
+time (Rtime
+reason (	Rreason"G
+ban_attr_sync_ntf2
+items (2.ncmd_cs.lobby.ban_attr_itemRitemsbproto3
+Ï
+lobby_auth_cs.protoncmd_cs.lobby
+enum.proto"r
+auth_real_name_req&
+type (2.ncmd_cs.ECertTypeRtype
+	real_name (	RrealName
+cert_id (	RcertId"w
+auth_real_name_res
+code (Rcode
+is_match (RisMatch
+tip_msg (	RtipMsg
+auth_age (RauthAge"‡
+auth_real_name_ntf/
+	auth_type (2.ncmd_cs.ECertTypeRauthType*
+unauth_reset_time (RunauthResetTime(
+unauth_game_time (RunauthGameTime(
+config_game_time (RconfigGameTime
+auth_age (RauthAge"b
+auth_teen_over_ntf$
+is_forbid_time (RisForbidTime&
+today_game_time (RtodayGameTimebproto3
+«
+lobby_bag_cs.protoncmd_cs.lobbycommon.proto
+enum.proto"º
+item&
+type (2.ncmd_cs.EItemTypeRtype
+	item_uuid (RitemUuid
+item_id (RitemId
+count (Rcount
+expire_time (R
+expireTime
+obtain_time (R
+obtainTime"i
+attachment_info9
+attach_type (2.ncmd_cs.EAttachmentTypeR
+attachType
+	attach_id (RattachId"e
+item_unlock9
+attach_type (2.ncmd_cs.EAttachmentTypeR
+attachType
+	attach_id (RattachId"Ñ
+weapon4
+weapon_base (2.ncmd_cs.lobby.itemR
+weaponBase
+level (Rlevel
+cur_exp (RcurExp@
+attachments (2.ncmd_cs.lobby.attachment_infoRattachments4
+unlocks (2.ncmd_cs.lobby.item_unlockRunlocks%
+advanced_skins (RadvancedSkins(
+advanced_skin_id (RadvancedSkinId$
+advanced_fx_id (RadvancedFxId&
+terminate_fx_id	 (RterminateFxId"Á
+bag_all_items_sync_ntf0
+	item_list (2.ncmd_cs.lobby.itemRitemList6
+weapon_list (2.ncmd_cs.lobby.weaponR
+weaponList2
+
+decal_list (2.ncmd_cs.lobby.itemR	decalList<
+fluttering_list (2.ncmd_cs.lobby.itemRflutteringList6
+emotion_list (2.ncmd_cs.lobby.itemRemotionList9
+weapon_fx_list (2.ncmd_cs.lobby.itemRweaponFxList"ü
+bag_part_items_sync_ntf0
+	item_list (2.ncmd_cs.lobby.itemRitemList6
+weapon_list (2.ncmd_cs.lobby.weaponR
+weaponList2
+
+decal_list (2.ncmd_cs.lobby.itemR	decalList<
+fluttering_list (2.ncmd_cs.lobby.itemRflutteringList5
+obtain_list (2.ncmd_cs.obtain_dataR
+obtainList6
+emotion_list (2.ncmd_cs.lobby.itemRemotionList9
+weapon_fx_list (2.ncmd_cs.lobby.itemRweaponFxList"ó
+item_use_req
+	item_uuid (RitemUuid
+item_id (RitemId
+count (Rcount;
+occasion_type (2.ncmd_cs.EOccasionTypeRoccasionType"¨
+item_use_res
+code (Rcode5
+obtain_list (2.ncmd_cs.obtain_dataR
+obtainList"
+use_item_uuid (RuseItemUuid
+item_id (RitemId
+count (Rcount"J
+bag_mod_name_req
+	item_uuid (RitemUuid
+new_nick (	RnewNick"y
+bag_mod_name_res
+code (Rcode
+rest_cd (RrestCd
+ban_time (RbanTime
+
+ban_reason (	R	banReason"S
+bag_addition_card_req
+	item_uuid (RitemUuid
+
+item_count (R	itemCount"c
+bag_addition_card_res
+code (Rcode
+item_id (RitemId
+
+item_count (R	itemCount"O
+bag_item_sell_req
+	item_uuid (RitemUuid
+
+sell_count (R	sellCount"‡
+bag_item_sell_res
+code (Rcode
+	item_uuid (RitemUuid
+
+sell_count (R	sellCount;
+currency_type (2.ncmd_cs.ECurrencyTypeRcurrencyType%
+currency_total (RcurrencyTotal
+item_id (RitemId"d
+optional_gift_use_req
+gift_id (RgiftId
+count (Rcount
+	optionals (R	optionals"x
+optional_gift_use_res
+code (Rcode
+gift_id (RgiftId
+count (Rcount
+	optionals (R	optionalsbproto3
+∂
+lobby_battlepass_cs.protoncmd_cs.lobbycommon.proto
+enum.protopublic.proto"Ü
+battlepass_info_ntf%
+battlepass_vip (RbattlepassVip%
+senior_rewards (RseniorRewards'
+explore_rewards (RexploreRewards+
+clueboard_rewards (RclueboardRewards)
+battlepass_super (RbattlepassSuper 
+vip_buy_time (R
+vipBuyTime"3
+battlepass_clueboard_req
+clue_id (RclueId"G
+battlepass_clueboard_res
+code (Rcode
+clue_id (RclueId"?
+battlepass_reward_req
+level (Rlevel
+vip (Rvip"S
+battlepass_reward_res
+code (Rcode
+level (Rlevel
+vip (Rvip"à
+battlepass_vip_ntf%
+battlepass_vip (RbattlepassVip)
+battlepass_super (RbattlepassSuper 
+vip_buy_time (R
+vipBuyTime"≥
+battlepass_task_progress_ntf"
+drop_task_ids (RdropTaskIds>
+update_task_datas (2.ncmd_cs.task_infoRupdateTaskDatas/
+day_task_refresh_cnt (RdayTaskRefreshCnt"<
+battlepass_task_change_req
+tar_task_id (R	tarTaskId"π
+battlepass_task_change_res
+code (Rcode
+old_task_id (R	oldTaskId6
+new_task_data (2.ncmd_cs.task_infoRnewTaskData/
+day_task_refresh_cnt (RdayTaskRefreshCnt"®
+battlepass_take_prize_ntf:
+	module_id (2.ncmd_cs.EBattlePassPrizeModeRmoduleId
+context (	Rcontext5
+obtain_list (2.ncmd_cs.obtain_dataR
+obtainList"œ
+battlepass_season_ntf
+	season_id (RseasonId*
+season_start_time (RseasonStartTime,
+season_finish_time (RseasonFinishTime$
+day_flush_time (RdayFlushTime
+week_cnt (RweekCnt"%
+battlepass_cloister
+id (Rid"
+battlepass_cloister_req"o
+battlepass_cloister_res
+code (Rcode@
+	cloisters (2".ncmd_cs.lobby.battlepass_cloisterR	cloisters".
+battlepass_cloister_read_req
+id (Rid"Ñ
+battlepass_cloister_read_res
+code (Rcode
+id (Rid@
+	cloisters (2".ncmd_cs.lobby.battlepass_cloisterR	cloisters"
+battlepass_reward_all_req"/
+battlepass_reward_all_res
+code (Rcode"(
+task_pass_req
+task_id (RtaskId"#
+task_pass_res
+code (Rcodebproto3
+Ô
+lobby_buff_cs.protoncmd_cs.lobby"æ
+	buff_info
+effect_type (R
+effectType
+	effect_id (ReffectId
+effect_rate (R
+effectRate
+duration (Rduration
+	win_count (RwinCount
+use_type (RuseType"F
+buff_list_ntf5
+	buff_list (2.ncmd_cs.lobby.buff_infoRbuffList"
+buff_update_req"%
+buff_update_res
+code (Rcodebproto3
+ßA
+lobby_career_cs.protoncmd_cs.lobby
+enum.protocommon.proto".
+career_info_req
+	player_id (RplayerId"‘
+career_player
+	player_id (RplayerId
+nick (	Rnick
+icon (Ricon#
+sex (2.ncmd_cs.ESexTypeRsex
+exp (Rexp
+level (Rlevel
+laud (Rlaud
+flogin_time (R
+floginTime
+	avatar_id	 (RavatarId
+frame_id
+ (RframeId
+	border_id (RborderId
+achie_id (RachieId0
+medals (2.ncmd_cs.medal_card_dataRmedals
+birthday (Rbirthday
+	city_code (RcityCode!
+privacy_type (RprivacyType"∏
+career_battle_info/
+	game_mode (2.ncmd_cs.ERoomModeRgameMode
+round (Rround
+win_rate (RwinRate
+mvp_rate (RmvpRate
+
+ave_damage (R	aveDamage
+ave_kill (RaveKill&
+head_burst_rate (RheadBurstRate
+mine_mvp (RmineMvp
+ave_crystal	 (R
+aveCrystal
+max_crystal
+ (R
+maxCrystal
+	mvp_count (RmvpCount)
+car_forward_5_min (RcarForward5Min 
+damage_5_min (R
+damage5Min
+
+kill_5_min (Rkill5Min
+
+total_kill (R	totalKill!
+fly_distance (RflyDistance!
+total_assist (RtotalAssist!
+total_damage (RtotalDamage(
+total_head_burst (RtotalHeadBurst(
+total_place_bomb (RtotalPlaceBomb*
+total_remove_bomb (RtotalRemoveBomb(
+total_skill_kill (RtotalSkillKill,
+total_skill_assist (RtotalSkillAssist(
+total_dead_count (RtotalDeadCount
+
+penta_kill (R	pentaKill
+
+max_damage (R	maxDamage&
+total_win_count (RtotalWinCount$
+max_kill_count (RmaxKillCount(
+max_assist_count (RmaxAssistCount!
+skill_damage (RskillDamage)
+max_kill_per_life (RmaxKillPerLife$
+ave_melee_kill  (RaveMeleeKill"
+max_save_mine! (RmaxSaveMine$
+max_steal_mine" (RmaxStealMine!
+forward_time# (RforwardTime!
+prevent_time$ (RpreventTime(
+round_ave_damage% (RroundAveDamage$
+round_ave_kill& (RroundAveKill
+string_time' (R
+stringTime(
+round_max_damage( (RroundMaxDamage$
+round_max_kill) (RroundMaxKill(
+round_max_assist* (RroundMaxAssist(
+total_melee_kill+ (RtotalMeleeKill(
+car_control_time, (RcarControlTime
+k_d- (RkD"
+head_hit_rate. (RheadHitRate$
+max_melee_kill/ (RmaxMeleeKill$
+kill_head_rate0 (RkillHeadRate
+hit_head1 (RhitHead
+	hit_count2 (RhitCount"
+kill_head_num3 (RkillHeadNum"~
+career_rank
+top_seg (RtopSeg
+
+cur_season (R	curSeason
+cur_top_seg (R	curTopSeg
+cur_seg (RcurSeg"ß
+career_collect
+role_own (RroleOwn
+role_max (RroleMax
+skin_own (RskinOwn
+skin_max (RskinMax
+
+weapon_own (R	weaponOwn
+
+weapon_max (R	weaponMax&
+weapon_skin_own (RweaponSkinOwn&
+weapon_skin_max (RweaponSkinMax
+	skin_list	 (RskinList"Ò
+career_role_employ/
+	game_mode (2.ncmd_cs.ERoomModeRgameMode
+role_id (RroleId
+count (Rcount
+	win_count (RwinCount
+round (Rround
+damage (Rdamage"
+kill_head_num (RkillHeadNum
+kill_num (RkillNum
+dead_num	 (RdeadNum
+hit_head
+ (RhitHead
+	hit_count (RhitCount)
+max_kill_one_game (RmaxKillOneGame-
+max_damage_one_game (RmaxDamageOneGame%
+release_skills (RreleaseSkills
+
+half_count (R	halfCount"O
+career_battle_field&
+show_field_type (RshowFieldType
+pos (Rpos"`
+career_module_data8
+	module_id (2.ncmd_cs.EProfileModuleTypeRmoduleId
+pos (Rpos"º
+career_role_module
+role_id (RroleId 
+role_skin_id (R
+roleSkinId$
+weapon_skin_id (RweaponSkinIdE
+profile_show_type (2.ncmd_cs.EProfileShowTypeRprofileShowType"π
+career_image4
+player (2.ncmd_cs.lobby.career_playerRplayerD
+battle_infos (2!.ncmd_cs.lobby.career_battle_infoRbattleInfos.
+rank (2.ncmd_cs.lobby.career_rankRrank7
+collect (2.ncmd_cs.lobby.career_collectRcollectD
+role_employs (2!.ncmd_cs.lobby.career_role_employRroleEmploys
+top_seg (RtopSeg
+cur_seg (RcurSeg
+	top_stars (RtopStars
+	cur_stars	 (RcurStars 
+top_rank_pos
+ (R
+topRankPos 
+cur_rank_pos (R
+curRankPos
+
+freq_roles (R	freqRoles,
+top_division_score (RtopDivisionScore,
+cur_division_score (RcurDivisionScoreB
+role_module (2!.ncmd_cs.lobby.career_role_moduleR
+roleModuleG
+battle_fields (2".ncmd_cs.lobby.career_battle_fieldRbattleFieldsB
+module_list (2!.ncmd_cs.lobby.career_module_dataR
+moduleList,
+super_string_count (RsuperStringCount%
+visitor_reddot (RvisitorReddot&
+top_grade_score (RtopGradeScore&
+cur_grade_score (RcurGradeScore
+like_tm (RlikeTm)
+req_visit_list_tm (RreqVisitListTm
+like_num (RlikeNum"c
+career_info_res
+code (Rcode<
+career_info (2.ncmd_cs.lobby.career_imageR
+careerInfo"2
+his_career_info_req
+	season_id (RseasonId"è
+his_career_info_res
+code (Rcode
+	season_id (RseasonId
+	final_seg (RfinalSeg
+top_seg (RtopSegD
+battle_infos (2!.ncmd_cs.lobby.career_battle_infoRbattleInfosD
+role_employs (2!.ncmd_cs.lobby.career_role_employRroleEmploys
+
+freq_roles (R	freqRoles
+final_stars (R
+finalStars
+	top_stars	 (RtopStars$
+final_rank_pos
+ (RfinalRankPos 
+top_rank_pos (R
+topRankPos0
+final_division_score (RfinalDivisionScore,
+top_division_score (RtopDivisionScore*
+final_grade_score (RfinalGradeScore&
+top_grade_score (RtopGradeScore,
+super_string_count (RsuperStringCount"
+career_get_head_icons_req"E
+career_get_head_icons_res
+code (Rcode
+icons (Ricons"3
+career_set_head_icon_req
+icon_id (RiconId"{
+career_set_head_icon_res
+code (Rcode
+icon_id (RiconId
+reason (Rreason
+deadline (Rdeadline".
+career_laud_req
+	player_id (RplayerId"%
+career_laud_res
+code (Rcode"
+career_stars_rate_req"?
+career_stars_rate_res
+code (Rcode
+rate (Rrate">
+career_change_privacy_req!
+privacy_type (RprivacyType"R
+career_change_privacy_res
+code (Rcode!
+privacy_type (RprivacyType"6
+career_visitor_like_req
+	player_id (RplayerId"J
+career_visitor_like_res
+code (Rcode
+	player_id (RplayerId"
+career_visitor_data_req"ƒ
+visitor_profile_data
+	player_id (RplayerId
+	avatar_id (RavatarId
+	border_id (RborderId
+nick (	Rnick#
+sex (2.ncmd_cs.ESexTypeRsex
+	timestamp (R	timestamp"u
+career_visitor_data_res
+code (RcodeF
+visitor_list (2#.ncmd_cs.lobby.visitor_profile_dataRvisitorList"<
+career_change_sex_req#
+sex (2.ncmd_cs.ESexTypeRsex"P
+career_change_sex_res
+code (Rcode#
+sex (2.ncmd_cs.ESexTypeRsex"≈
+career_change_role_show_req
+role_id (RroleId 
+role_skin_id (R
+roleSkinId$
+weapon_skin_id (RweaponSkinIdE
+profile_show_type (2.ncmd_cs.EProfileShowTypeRprofileShowType"Ÿ
+career_change_role_show_res
+code (Rcode
+role_id (RroleId 
+role_skin_id (R
+roleSkinId$
+weapon_skin_id (RweaponSkinIdE
+profile_show_type (2.ncmd_cs.EProfileShowTypeRprofileShowType"b
+career_set_custom_module_reqB
+module_list (2!.ncmd_cs.lobby.career_module_dataR
+moduleList"v
+career_set_custom_module_res
+code (RcodeB
+module_list (2!.ncmd_cs.lobby.career_module_dataR
+moduleList"q
+&career_set_custom_battledata_field_reqG
+battle_fields (2".ncmd_cs.lobby.career_battle_fieldRbattleFields"Ö
+&career_set_custom_battledata_field_res
+code (RcodeG
+battle_fields (2".ncmd_cs.lobby.career_battle_fieldRbattleFields"=
+career_change_skin_collect_req
+	skin_list (RskinList"Q
+career_change_skin_collect_res
+code (Rcode
+	skin_list (RskinList"1
+career_show_myself_req
+role_id (RroleId",
+career_show_myself_res
+code (Rcode"S
+career_show_myself_ntf
+	player_id (RplayerId
+	timestamp (R	timestamp"L
+career_fist_bump_req
+	target_id (RtargetId
+text_id (	RtextId"`
+career_fist_bump_res
+code (Rcode
+	target_id (RtargetId
+text_id (	RtextId"i
+career_fist_bump_ntf
+	player_id (RplayerId
+	target_id (RtargetId
+text_id (	RtextIdbproto3
+ˇ!
+lobby_chat_cs.protoncmd_cs.lobby
+enum.proto"®
+chat_player
+	player_id (RplayerId
+nick (	Rnick
+icon (Ricon
+team_id (RteamId
+mic_flag (RmicFlag 
+vc_border_id (R
+vcBorderId"d
+chat_send_req"
+tar_player_id (RtarPlayerId
+msg (	Rmsg
+
+context_id (R	contextId" 
+chat_send_res
+code (Rcode"
+tar_player_id (RtarPlayerId
+msg (	Rmsg
+
+context_id (R	contextId
+result (Rresult
+ban_time (RbanTime
+
+ban_reason (	R	banReason"≠
+private_chat_msg"
+src_player_id (RsrcPlayerId
+src_nick (	RsrcNick
+msg (	Rmsg
+icon (Ricon
+time (Rtime 
+vc_border_id (R
+vcBorderId"U
+chat_recv_ntfD
+private_chats (2.ncmd_cs.lobby.private_chat_msgRprivateChats"∏
+chat_group_info_ntf
+group_id (RgroupId
+
+group_name (	R	groupName1
+
+group_type (2.ncmd_cs.EChatTypeR	groupType4
+members (2.ncmd_cs.lobby.chat_playerRmembers"π
+chat_group_info_item
+group_id (RgroupId
+
+group_name (	R	groupName1
+
+group_type (2.ncmd_cs.EChatTypeR	groupType4
+members (2.ncmd_cs.lobby.chat_playerRmembers"T
+chat_group_info_all_ntf9
+items (2#.ncmd_cs.lobby.chat_group_info_itemRitems"f
+chat_group_member_ntf
+group_id (RgroupId2
+member (2.ncmd_cs.lobby.chat_playerRmember"M
+chat_group_quit_ntf
+group_id (RgroupId
+	player_id (RplayerId"z
+chat_group_send_req
+group_id (RgroupId
+msg (	Rmsg
+
+context_id (R	contextId
+team_id (RteamId"ö
+chat_group_send_res
+code (Rcode
+
+context_id (R	contextId
+result (Rresult
+ban_time (RbanTime
+
+ban_reason (	R	banReason"Ω
+group_chat_msg
+group_id (RgroupId
+	player_id (RplayerId
+msg (	Rmsg
+team_id (RteamId
+nick (	Rnick
+icon (Ricon 
+vc_border_id (R
+vcBorderId"S
+chat_group_recv_ntf<
+
+group_chat (2.ncmd_cs.lobby.group_chat_msgR	groupChat"3
+chat_group_destory_ntf
+group_id (RgroupId"Q
+chat_group_member_mic_req
+group_id (RgroupId
+mic_flag (RmicFlag"/
+chat_group_member_mic_res
+code (Rcode"[
+chat_type_info
+channel (Rchannel/
+	chat_type (2.ncmd_cs.EChatTypeRchatType"\
+world_chat_channel_ntfB
+chat_channels (2.ncmd_cs.lobby.chat_type_infoRchatChannels"@
+world_chat_modify_channel_req
+new_channel (R
+newChannel"T
+world_chat_modify_channel_res
+code (Rcode
+new_channel (R
+newChannel"M
+world_chat_all_channel_req/
+	chat_type (2.ncmd_cs.EChatTypeRchatType"I
+world_chat_channel_item
+channel (Rchannel
+count (Rcount"{
+world_chat_all_channel_res<
+items (2&.ncmd_cs.lobby.world_chat_channel_itemRitems
+all_channel (R
+allChannel"¢
+world_chat_msg_item
+	player_id (RplayerId
+msg (	Rmsg
+nick (	Rnick
+time (Rtime
+icon (Ricon 
+vc_border_id (R
+vcBorderId"g
+world_chat_send_req6
+item (2".ncmd_cs.lobby.world_chat_msg_itemRitem
+channel (Rchannel"c
+world_chat_send_res
+code (Rcode
+ban_time (RbanTime
+
+ban_reason (	R	banReason"g
+world_chat_recv_ntf6
+item (2".ncmd_cs.lobby.world_chat_msg_itemRitem
+channel (Rchannel"3
+world_chat_clear_ntf
+	player_id (RplayerId"/
+world_chat_msgs_req
+channel (Rchannel"à
+world_chat_msgs_res
+code (RcodeC
+world_chats (2".ncmd_cs.lobby.world_chat_msg_itemR
+worldChats
+channel (Rchannel"Ñ
+edit_business_team_card_req#
+show_division (RshowDivision#
+business_text (	RbusinessText
+	team_text (	RteamText"1
+edit_business_team_card_res
+code (Rcode"
+business_team_card_ntf#
+show_division (RshowDivision#
+business_text (	RbusinessText
+	team_text (	RteamText"T
+	quick_msg
+id (Rid
+context (	Rcontext
+
+quick_type (R	quickType"O
+edit_quick_reply_req7
+
+quick_msgs (2.ncmd_cs.lobby.quick_msgR	quickMsgs"*
+edit_quick_reply_res
+code (Rcode"J
+quick_reply_ntf7
+
+quick_msgs (2.ncmd_cs.lobby.quick_msgR	quickMsgs"]
+chat_setting_req!
+chat_setting (RchatSetting&
+chat_ntf_settig (RchatNtfSettig"&
+chat_setting_res
+code (Rcode"]
+chat_setting_ntf!
+chat_setting (RchatSetting&
+chat_ntf_settig (RchatNtfSettigbproto3
+±-
+lobby_clan_cs.protoncmd_cs.lobby
+enum.protocommon.proto"ª
+clan_simple_info
+clan_id (RclanId
+name (	Rname
+level (Rlevel4
+	icon_data (2.ncmd_cs.clan_icon_dataRiconData
+	prefer_id (RpreferId
+	total_num (RtotalNum(
+apply_need_check (RapplyNeedCheck$
+rank_limit_min (RrankLimitMin$
+rank_limit_max	 (RrankLimitMax"õ
+clan_base_info
+clan_id (RclanId
+level (Rlevel
+exp (Rexp
+	total_num (RtotalNum:
+setting (2 .ncmd_cs.lobby.clan_setting_infoRsetting
+leader_name (	R
+leaderName
+leader_icon (R
+leaderIcon-
+leader_vc_border_id (RleaderVcBorderId"µ
+player_clan_info$
+take_max_level (RtakeMaxLevel*
+week_exp_addition (RweekExpAddition.
+week_ideal_addition (RweekIdealAddition
+total_merit (R
+totalMerit"ñ
+clan_setting_info
+name (	Rname
+week_day (RweekDay"
+act_start_seg (RactStartSeg
+act_end_seg (R	actEndSeg
+	prefer_id (RpreferId(
+apply_need_check (RapplyNeedCheck/
+privacy (2.ncmd_cs.EClanPrivacyRprivacy$
+rank_limit_min (RrankLimitMin$
+rank_limit_max	 (RrankLimitMax4
+	icon_data
+ (2.ncmd_cs.clan_icon_dataRiconData
+intro (	Rintro"ÿ
+clan_full_info:
+	base_info (2.ncmd_cs.lobby.clan_base_infoRbaseInfo@
+player_info (2.ncmd_cs.lobby.player_clan_infoR
+playerInfo#
+in_dissolving (RinDissolving#
+dissolve_time (RdissolveTime"W
+clan_member_social_info
+qq (	Rqq
+wechat (	Rwechat
+phone (	Rphone"Í
+clan_member
+	player_id (RplayerId
+nick (	Rnick
+icon (Ricon 
+vc_border_id (R
+vcBorderId
+level (Rlevel
+merit (Rmerit#
+job (2.ncmd_cs.EClanJobRjob
+rank (Rrank
+
+rank_score	 (R	rankScore
+rank_pos
+ (RrankPos.
+status (2.ncmd_cs.EPlayerStatusRstatus;
+online_status (2.ncmd_cs.EOnlineStatusRonlineStatus
+logout_time (R
+logoutTimeG
+social_info (2&.ncmd_cs.lobby.clan_member_social_infoR
+socialInfo"Ÿ
+clan_apply_member
+	player_id (RplayerId
+nick (	Rnick
+icon (Ricon
+	border_id (RborderId
+level (Rlevel
+rank (Rrank
+
+rank_score (R	rankScore
+rank_pos (RrankPos"M
+clan_create_req:
+setting (2 .ncmd_cs.lobby.clan_setting_infoRsetting"h
+clan_create_res
+code (RcodeA
+errcode_list (2.ncmd_cs.EClanSettingErrorCodeRerrcodeList"
+clan_recommand_list_req"k
+clan_recommand_list_res
+code (Rcode<
+	clan_list (2.ncmd_cs.lobby.clan_simple_infoRclanList"G
+clan_search_req
+clan_id (RclanId
+	clan_name (	RclanName"c
+clan_search_res
+code (Rcode<
+	clan_list (2.ncmd_cs.lobby.clan_simple_infoRclanList"1
+clan_friend_list_req
+clan_ids (RclanIds"h
+clan_friend_list_res
+code (Rcode<
+	clan_list (2.ncmd_cs.lobby.clan_simple_infoRclanList"-
+clan_base_info_req
+clan_id (RclanId"d
+clan_base_info_res
+code (Rcode:
+	base_info (2.ncmd_cs.lobby.clan_base_infoRbaseInfo"(
+clan_join_req
+clan_id (RclanId"#
+clan_join_res
+code (Rcode"E
+clan_join_ntf
+	player_id (RplayerId
+clan_id (RclanId"4
+clan_apply_reddot_ntf
+	has_apply (RhasApply"
+clan_applied_ids_req"E
+clan_applied_ids_res
+code (Rcode
+clan_ids (RclanIds"-
+clan_full_info_req
+clan_id (RclanId"d
+clan_full_info_res
+code (Rcode:
+	clan_info (2.ncmd_cs.lobby.clan_full_infoRclanInfo"M
+clan_member_list_req
+clan_id (RclanId
+	increment (R	increment"y
+clan_member_list_res
+code (Rcode4
+members (2.ncmd_cs.lobby.clan_memberRmembers
+clan_id (RclanId"
+clan_apply_list_req"e
+clan_apply_list_res
+code (Rcode:
+members (2 .ncmd_cs.lobby.clan_apply_memberRmembers"/
+clan_take_lv_reward_req
+level (Rlevel"-
+clan_take_lv_reward_res
+code (Rcode"Z
+clan_level_up_ntf
+clan_id (RclanId
+old_lv (RoldLv
+new_lv (RnewLv"g
+clan_apply_reply_req
+	player_id (RplayerId2
+
+reply_type (2.ncmd_cs.EReplyTypeR	replyType"G
+clan_apply_reply_res
+code (Rcode
+	player_id (RplayerId"f
+clan_update_social_info_reqG
+social_info (2&.ncmd_cs.lobby.clan_member_social_infoR
+socialInfo"1
+clan_update_social_info_res
+code (Rcode"U
+clan_update_setting_req:
+setting (2 .ncmd_cs.lobby.clan_setting_infoRsetting"p
+clan_update_setting_res
+code (RcodeA
+errcode_list (2.ncmd_cs.EClanSettingErrorCodeRerrcodeList"U
+clan_update_setting_ntf:
+setting (2 .ncmd_cs.lobby.clan_setting_infoRsetting"1
+clan_dissolve_req
+	operation (R	operation"'
+clan_dissolve_res
+code (Rcode"J
+clan_dissolve_ntf
+clan_id (RclanId
+	operation (R	operation"_
+clan_appoint_member_job_req
+	player_id (RplayerId#
+job (2.ncmd_cs.EClanJobRjob"1
+clan_appoint_member_job_res
+code (Rcode"_
+clan_appoint_member_job_ntf
+	player_id (RplayerId#
+job (2.ncmd_cs.EClanJobRjob"4
+clan_trans_leader_req
+	player_id (RplayerId"+
+clan_trans_leader_res
+code (Rcode"Ø
+clan_trans_leader_ntf"
+old_leader_id (RoldLeaderId&
+old_leader_nick (	RoldLeaderNick"
+new_leader_id (RnewLeaderId&
+new_leader_nick (	RnewLeaderNick"
+clan_exit_req"#
+clan_exit_res
+code (Rcode"E
+clan_exit_ntf
+clan_id (RclanId
+	player_id (RplayerId"3
+clan_kick_req"
+tar_player_id (RtarPlayerId"#
+clan_kick_res
+code (Rcode"E
+clan_kick_ntf
+clan_id (RclanId
+	player_id (RplayerId"j
+clan_reply_trans_leader_req
+clan_id (RclanId2
+
+reply_type (2.ncmd_cs.EReplyTypeR	replyType"1
+clan_reply_trans_leader_res
+code (Rcodebproto3
+ÿ
+lobby_credit_cs.protoncmd_cs.lobby"©
+player_credit!
+credit_score (RcreditScore
+
+credit_exp (R	creditExp3
+credit_day_recover_num (RcreditDayRecoverNum-
+credit_exp_week_add (RcreditExpWeekAdd8
+credit_can_reward_id_list (RcreditCanRewardIdList8
+credit_had_reward_id_list (RcreditHadRewardIdList"≥
+credit_record
+time (Rtime!
+before_score (RbeforeScore
+after_score (R
+afterScore
+reason (Rreason
+	room_mode (RroomMode
+is_win (RisWin"
+credit_info_req"d
+credit_info_res
+code (Rcode=
+credit_info (2.ncmd_cs.lobby.player_creditR
+creditInfo"P
+credit_info_ntf=
+credit_info (2.ncmd_cs.lobby.player_creditR
+creditInfo"4
+credit_exp_reward_req
+	reward_id (RrewardId"H
+credit_exp_reward_res
+code (Rcode
+	reward_id (RrewardId"
+credit_record_req"f
+credit_record_res
+code (Rcode=
+record_list (2.ncmd_cs.lobby.credit_recordR
+recordListbproto3
+Á4
+lobby_friend_cs.protoncmd_cs.lobbycommon.proto
+enum.proto"Û
+friend_player
+group_id (RgroupId5
+friend_type (2.ncmd_cs.EFriendTypeR
+friendType'
+player (2.ncmd_cs.playerRplayer
+intimacy (Rintimacy
+remarks (	Rremarks#
+social_secret (RsocialSecret
+friend_time (R
+friendTime%
+intimacy_level (RintimacyLevel 
+team_win_num	 (R
+teamWinNum
+team_num
+ (RteamNum$
+last_team_time (RlastTeamTime!
+apply_reason (	RapplyReason>
+channel_type (2.ncmd_cs.EFriendChannelTypeRchannelType"^
+friend_group
+group_id (RgroupId
+
+group_name (	R	groupName
+index (Rindex"D
+friend_search_req
+nick (	Rnick
+	player_id (RplayerId"R
+friend_search_res
+code (Rcode)
+friends (2.ncmd_cs.playerRfriends".
+friend_list_req
+	sync_type (RsyncType"∫
+friend_list_res
+code (Rcode
+	sync_type (RsyncType6
+friends (2.ncmd_cs.lobby.friend_playerRfriends#
+social_secret (RsocialSecret
+is_reset (RisReset"â
+friend_list_ntf6
+friends (2.ncmd_cs.lobby.friend_playerRfriends#
+social_secret (RsocialSecret
+is_reset (RisReset"G
+friend_group_ntf3
+groups (2.ncmd_cs.lobby.friend_groupRgroups"E
+friend_reply_req
+reply (Rreply
+	target_id (RtargetId"Y
+friend_reply_res
+code (Rcode
+reply (Rreply
+	target_id (RtargetId"I
+friend_member_ntf4
+friend (2.ncmd_cs.lobby.friend_playerRfriend"Ë
+friend_add_req
+	target_id (RtargetId5
+friend_type (2.ncmd_cs.EFriendTypeR
+friendType
+target_nick (R
+targetNick!
+apply_reason (	RapplyReason>
+channel_type (2.ncmd_cs.EFriendChannelTypeRchannelType"ô
+friend_add_res
+code (Rcode
+	target_id (RtargetId
+target_nick (R
+targetNick5
+friend_type (2.ncmd_cs.EFriendTypeR
+friendType"d
+friend_del_req
+	target_id (RtargetId5
+friend_type (2.ncmd_cs.EFriendTypeR
+friendType"x
+friend_del_res
+code (Rcode
+	target_id (RtargetId5
+friend_type (2.ncmd_cs.EFriendTypeR
+friendType"E
+friend_del_ntf
+	target_id (RtargetId
+reason (Rreason"5
+friend_group_add_req
+
+group_name (	R	groupName"*
+friend_group_add_res
+code (Rcode"1
+friend_group_del_req
+group_id (RgroupId"*
+friend_group_del_res
+code (Rcode"S
+friend_group_modify_req
+group_id (RgroupId
+
+group_name (	R	groupName"-
+friend_group_modify_res
+code (Rcode"H
+friend_group_swap_req
+group_id (RgroupId
+index (Rindex"+
+friend_group_swap_res
+code (Rcode"O
+friend_group_move_req
+	target_id (RtargetId
+group_id (RgroupId"+
+friend_group_move_res
+code (Rcode"K
+friend_remarks_req
+	target_id (RtargetId
+remarks (	Rremarks"(
+friend_remarks_res
+code (Rcode"à
+friend_setup_req4
+
+setup_type (2.ncmd_cs.EFriendSetupR	setupType>
+setup_status (2.ncmd_cs.EFriendSetupStatusRsetupStatus"ú
+friend_setup_res
+code (Rcode4
+
+setup_type (2.ncmd_cs.EFriendSetupR	setupType>
+setup_status (2.ncmd_cs.EFriendSetupStatusRsetupStatus"•
+friend_setup_ntf
+	friend_id (RfriendId4
+
+setup_type (2.ncmd_cs.EFriendSetupR	setupType>
+setup_status (2.ncmd_cs.EFriendSetupStatusRsetupStatus"/
+friend_query_req
+	player_id (RplayerId"O
+friend_query_res
+code (Rcode'
+friend (2.ncmd_cs.playerRfriend"√
+social_friend
+	player_id (RplayerId
+openid (	Ropenid
+	user_name (	RuserName
+gender (Rgender
+picture_url (	R
+pictureUrl'
+player (2.ncmd_cs.playerRplayer"5
+friend_social_list_req
+	sync_type (RsyncType"©
+friend_social_list_res
+code (Rcode
+	sync_type (RsyncTypeC
+social_friends (2.ncmd_cs.lobby.social_friendRsocialFriends
+is_reset (RisReset"f
+friend_qq_share_req&
+is_server_share (RisServerShare'
+interface_param (	RinterfaceParam"e
+friend_qq_share_res
+code (Rcode&
+is_server_share (RisServerShare
+data (	Rdata"ú
+recommend_friend_info+
+type (2.ncmd_cs.ERecommendTypeRtype
+	player_id (RplayerId
+nick (	Rnick
+icon (Ricon#
+sex (2.ncmd_cs.ESexTypeRsex
+rank (Rrank
+	city_code (RcityCode
+level (Rlevel
+exp	 (Rexp
+total_games
+ (R
+totalGames
+
+freq_roles (R	freqRoles
+mmr (Rmmr
+
+avg_damage (R	avgDamage
+
+freq_model (R	freqModel 
+vc_avatar_id (R
+vcAvatarId 
+vc_border_id (R
+vcBorderId
+vc_achie_id (R	vcAchieId
+is_teammate (R
+isTeammate"
+friend_recommend_list_req"≠
+friend_recommend_list_res
+code (RcodeA
+	near_list (2$.ncmd_cs.lobby.recommend_friend_infoRnearListL
+level_like_list (2$.ncmd_cs.lobby.recommend_friend_infoRlevelLikeListN
+record_like_list (2$.ncmd_cs.lobby.recommend_friend_infoRrecordLikeListL
+model_like_list (2$.ncmd_cs.lobby.recommend_friend_infoRmodelLikeListM
+played_together (2$.ncmd_cs.lobby.recommend_friend_infoRplayedTogether"
+friend_near_list_req"e
+friend_near_list_res
+code (Rcode9
+near_player_list (2.ncmd_cs.playerRnearPlayerList"7
+friend_list_status_req
+
+player_ids (R	playerIds"^
+friend_list_status_res
+code (Rcode0
+player_list (2.ncmd_cs.playerR
+playerList"@
+together_friend_list_status_req
+
+player_ids (R	playerIds"t
+together_friend_list_status_res
+code (Rcode=
+player_list (2.ncmd_cs.lobby.friend_playerR
+playerList"{
+friend_intimacy_level_ntf
+	friend_id (RfriendId
+intimacy (Rintimacy%
+intimacy_level (RintimacyLevel"–
+recommend_player
+	player_id (RplayerId
+nick (	Rnick
+icon (Ricon#
+sex (2.ncmd_cs.ESexTypeRsex
+rank (Rrank
+level (Rlevel 
+vc_avatar_id (R
+vcAvatarId
+vc_frame_id (R	vcFrameId 
+vc_border_id	 (R
+vcBorderIdD
+recomm_type
+ (2#.ncmd_cs.ESettleRecommendFriendTypeR
+recommType"d
+ friend_recommend_by_behavior_ntf@
+player_list (2.ncmd_cs.lobby.recommend_playerR
+playerList"ë
+&friend_recommend_by_behavior_reply_reqA
+
+reply_type (2".ncmd_cs.ERecommendFriendReplyTypeR	replyType$
+ban_show_today (RbanShowToday"•
+&friend_recommend_by_behavior_reply_res
+code (RcodeA
+
+reply_type (2".ncmd_cs.ERecommendFriendReplyTypeR	replyType$
+ban_show_today (RbanShowToday"8
+friend_request_list_ntf
+
+player_ids (R	playerIds"R
+friend_request_change_ntf
+operate (Roperate
+	player_id (RplayerId"ï
+friend_addition_ntf 
+first_win_tm (R
+firstWinTm.
+friend_addition_cnt (RfriendAdditionCnt,
+friend_addition_tm (RfriendAdditionTmbproto3
+¸
+lobby_gm_cs.protoncmd_cs.lobby
+enum.proto"*
+gm_command_req
+command (	Rcommand"8
+gm_command_res
+code (Rcode
+tips (	Rtips"
+get_online_players_req"⁄
+player_base_data
+	player_id (RplayerId
+nick (	Rnick
+icon (Ricon#
+sex (2.ncmd_cs.ESexTypeRsex
+rank (Rrank
+status (Rstatus
+team_id (RteamId
+room_id (RroomId"g
+get_online_players_res
+code (Rcode9
+players (2.ncmd_cs.lobby.player_base_dataRplayersbproto3
+ö
+lobby_guide_cs.protoncmd_cs.lobby
+enum.protopublic.proto"4
+player_guide_info
+guide_steps (R
+guideSteps"
+player_guide_info_req"a
+player_guide_info_res
+code (Rcode4
+info (2 .ncmd_cs.lobby.player_guide_infoRinfo"M
+player_guide_info_ntf4
+info (2 .ncmd_cs.lobby.player_guide_infoRinfo"u
+update_player_guide_req9
+
+guide_type (2.ncmd_cs.lobby.EGUIDE_TYPER	guideType
+guide_value (R
+guideValue"-
+update_player_guide_res
+code (Rcode".
+player_rename_req
+new_nick (	RnewNick"'
+player_rename_res
+code (Rcode"P
+player_guide_battle_req5
+battle_type (2.ncmd_cs.GuideBattleR
+battleType"œ
+player_guide_battle_res
+ai_host (	RaiHost
+ai_port (RaiPort
+room_id (RroomId
+token (	Rtoken
+	timestamp (R	timestamp5
+battle_type (2.ncmd_cs.GuideBattleR
+battleType"÷
+player_guide_battle_settle_req
+room_id (RroomId/
+	room_mode (2.ncmd_cs.ERoomModeRroomMode3
+winner_team (2.ncmd_cs.ERoomCampR
+winnerTeam
+map_id (RmapId8
+players (2.ncmd_cs.ds_settle_player_infoRplayers
+	game_time (RgameTime
+scores (Rscores8
+attack_camp_id (2.ncmd_cs.ERoomCampRattackCampId5
+battle_type	 (2.ncmd_cs.GuideBattleR
+battleType>
+round_infos
+ (2.ncmd_cs.ds_round_settle_infoR
+roundInfos"4
+player_guide_battle_settle_res
+code (Rcode"-
+player_train_flag_req
+train (Rtrain"+
+player_train_flag_res
+code (Rcode"-
+player_train_flag_ntf
+train (Rtrain"w
+train_battle_data
+id (Rid
+score (Rscore
+	cost_time (RcostTime
+finish_time (R
+finishTime"^
+player_train_battle_reqC
+train_battle (2 .ncmd_cs.lobby.train_battle_dataRtrainBattle"-
+player_train_battle_res
+code (Rcode",
+get_train_battle_score_req
+id (Rid"u
+get_train_battle_score_res
+code (RcodeC
+train_battle (2 .ncmd_cs.lobby.train_battle_dataRtrainBattle*f
+EGUIDE_TYPE
+EGUIDE_TYPE_NULL 
+EGUIDE_TYPE_CREATE
+EGUIDE_TYPE_BOMB
+EGUIDE_TYPE_ENDbproto3
+·*
+lobby_login_cs.protoncmd_cs.lobbycommon.proto
+enum.proto";
+heartbeat_req
+serial (Rserial
+time (Rtime"O
+heartbeat_res
+code (Rcode
+serial (Rserial
+time (Rtime"-
+ts_ace_report_req
+message (Rmessage"/
+ts_ace_callback_ntf
+message (Rmessage"Û
+ts_ace_login_req
+plat_id (RplatId
+game_id (RgameId
+world_id (RworldId
+
+channel_id (R	channelId
+role_id (RroleId!
+account_type (RaccountType
+
+account_id (R	accountId
+version (Rversion"ç
+ts_ace_login_res
+code (Rcode
+feature_crc (R
+featureCrc!
+feature_name (RfeatureName!
+feature_data (RfeatureData"≤
+tlog_report_data$
+clientversion (	Rclientversion&
+systemsoftware (	Rsystemsoftware&
+systemhardware (	Rsystemhardware 
+telecomoper (	Rtelecomoper
+network (	Rnetwork 
+screenwidth (Rscreenwidth 
+screenhight (Rscreenhight
+density (Rdensity
+
+regchannel	 (R
+regchannel 
+cpuhardware
+ (	Rcpuhardware
+memory (Rmemory
+glrender (	Rglrender
+	glversion (	R	glversion!
+android_oaid (	RandroidOaid
+ios_caid (	RiosCaid<
+	dlog_data (2.ncmd_cs.lobby.dlog_report_dataRdlogData"ú
+dlog_report_data
+	device_id (	RdeviceId
+	time_zone (	RtimeZone
+
+session_id (	R	sessionId
+ads_info (	RadsInfo
+email (	Remail"„
+	login_req
+	login_env (RloginEnv
+open_id (	RopenId!
+access_token (	RaccessToken@
+platform_id (2.ncmd_cs.lobby.EACC_PLATFORM_IDR
+platformId,
+lobby_access_token (	RlobbyAccessToken
+
+machine_id (	R	machineId1
+	device_id (2.ncmd_cs.EDeviceTypeRdeviceId
+active_code (	R
+activeCode
+os	 (	Ros
+	channelid
+ (R	channelid@
+report_data (2.ncmd_cs.lobby.tlog_report_dataR
+reportData!
+is_reconnect (RisReconnect"
+bind_steam_id (	RbindSteamId
+pf (	Rpf
+pf_key (	RpfKey
+open_key (	RopenKey>
+midas_platfrom (2.ncmd_cs.MIDAS_PLATFORMRmidasPlatfrom(
+login_channel_id (	RloginChannelId
+
+sys_nation (	R	sysNation.
+sys_locale_language (	RsysLocaleLanguage8
+game_lang_type (2.ncmd_cs.ELangTypeRgameLangType.
+sign_conf_agreement (RsignConfAgreement"‚
+	login_res
+code (Rcode
+
+account_id (R	accountId'
+player (2.ncmd_cs.playerRplayer
+ban_time (RbanTime
+
+ban_reason (	R	banReason
+
+error_tips (	R	errorTips 
+ace_world_id (R
+aceWorldId"Q
+bind_steam_req
+	bind_type (RbindType"
+bind_steam_id (	RbindSteamId"e
+bind_steam_res
+code (Rcode
+	bind_type (RbindType"
+bind_steam_id (	RbindSteamId"C
+login_queue_req
+open_id (	RopenId
+oper_id (RoperId"o
+login_queue_res
+code (Rcode
+rank (Rrank
+	left_time (RleftTime
+oper_id (RoperId"
+
+logout_req" 
+
+logout_res
+code (Rcode"
+init_state_sync_finish_ntf":
+kick_lobby_ntf
+reason (Rreason
+msg (	Rmsg"c
+player_info
+	player_id (RplayerId
+nick (	Rnick#
+sex (2.ncmd_cs.ESexTypeRsex"d
+player_sync_ntf4
+players (2.ncmd_cs.lobby.player_infoRplayers
+	good_name (	RgoodName"b
+player_create_req
+nick (	Rnick#
+sex (2.ncmd_cs.ESexTypeRsex
+guide (Rguide"P
+player_create_res
+code (Rcode'
+player (2.ncmd_cs.playerRplayer"
+rand_nick_get_req";
+rand_nick_get_res
+code (Rcode
+nick (	Rnick"È
+asa_report_req 
+attribution (	Rattribution
+org_id (	RorgId
+org_name (	RorgName
+campaign_id (	R
+campaignId#
+campaign_name (	RcampaignName
+ad_group_id (	R	adGroupId"
+ad_group_name (	RadGroupName
+
+keyword_id (	R	keywordId
+keyword	 (	Rkeyword,
+keyword_match_type
+ (	RkeywordMatchType&
+creative_set_id (	RcreativeSetId*
+creative_set_name (	RcreativeSetName
+
+click_date (	R	clickDate#
+purchase_date (	RpurchaseDate'
+conversion_date (	RconversionDate'
+conversion_type (	RconversionType(
+contry_or_origin (	RcontryOrOrigin"$
+asa_report_res
+code (Rcode"ó
+purchase_quantity_req#
+login_channel (RloginChannel
+oaid (	Roaid
+caid (	Rcaid
+idfa (	Ridfa
+
+user_agent (	R	userAgent"+
+purchase_quantity_res
+code (Rcode"B
+report_content
+id_type (	RidType
+id_list (	RidList"Õ
+report_feedback_req
+	target_id (RtargetId'
+report_category (RreportCategory#
+report_reason (RreportReason(
+report_battle_id (	RreportBattleId,
+report_battle_time (RreportBattleTime
+report_desc (	R
+reportDesc%
+report_content (	RreportContent"
+pic_url_array (	RpicUrlArray&
+video_url_array	 (	RvideoUrlArray<
+
+content_id
+ (2.ncmd_cs.lobby.report_contentR	contentId!
+report_scene (RreportScene")
+report_feedback_res
+code (Rcode"j
+internet_cafe_report_req!
+netbar_token (	RnetbarToken
+ip (	Rip
+	macs_list (	RmacsList"K
+internet_cafe_report_res
+code (Rcode
+	cafe_type (RcafeType"6
+report_login_picture_req
+pictures (Rpictures".
+report_login_picture_res
+code (Rcode"6
+report_login_picture_ntf
+pictures (Rpictures":
+anti_addiction_ntf
+type (Rtype
+msg (	Rmsg"
+client_need_update_ntf*q
+EACC_PLATFORM_ID
+EACC_PLATFORM_ID_NULL 	
+GUEST
+
+WECHAT
+QQ	
+OTHER	
+STEAM
+IN_HOUSEˇbproto3
+ì
+lobby_lottery_cs.protoncmd_cs.lobbycommon.proto"
+get_lottery_info_req"D
+lottery_bonus_info
+quality (Rquality
+count (Rcount"U
+lottery_history
+id (Rid
+item_id (RitemId
+his_time (RhisTime"`
+lottery_item_info
+id (Rid;
+bonuses (2!.ncmd_cs.lobby.lottery_bonus_infoRbonuses"F
+lottery_cell_prob_info
+quality (Rquality
+prob (Rprob"
+lottery_prob_info
+id (RidZ
+lottery_cell_prob_list (2%.ncmd_cs.lobby.lottery_cell_prob_infoRlotteryCellProbList"b
+get_lottery_info_res
+code (Rcode6
+items (2 .ncmd_cs.lobby.lottery_item_infoRitems"6
+do_lottery_req
+id (Rid
+count (Rcount"…
+do_lottery_res
+code (Rcode5
+obtain_list (2.ncmd_cs.obtain_dataR
+obtainList;
+bonuses (2!.ncmd_cs.lobby.lottery_bonus_infoRbonuses/
+req (2.ncmd_cs.lobby.do_lottery_reqRreq"&
+get_lottery_prob_req
+id (Rid"x
+get_lottery_prob_res
+code (RcodeL
+lottery_prob_list (2 .ncmd_cs.lobby.lottery_prob_infoRlotteryProbList"J
+lottery_info_ntf6
+items (2 .ncmd_cs.lobby.lottery_item_infoRitems"n
+get_lottery_history_req
+	start_pos (RstartPos
+end_pos (RendPos
+
+lottery_id (R	lotteryId"µ
+get_lottery_history_res
+code (Rcode
+	start_pos (RstartPos
+end_pos (RendPosP
+lottery_history_list (2.ncmd_cs.lobby.lottery_historyRlotteryHistoryList"ô
+lottery_cfg
+id (Rid
+type (Rtype
+item_id (RitemId
+start (Rstart
+finish (Rfinish
+normal_drop (R
+normalDrop"Z
+lottery_config_ntfD
+lottery_cfg_list (2.ncmd_cs.lobby.lottery_cfgRlotteryCfgListbproto3
+Ø
+lobby_mail_cs.protoncmd_cs.lobby
+enum.proto"f
+attach_item
+item_id (RitemId
+
+item_count (R	itemCount
+expire_time (R
+expireTime"®
+	gift_item
+
+shop_index (R	shopIndex
+count (Rcount&
+tar_player_name (	RtarPlayerName>
+pay_currency_id (2.ncmd_cs.ECurrencyTypeRpayCurrencyId"Ç
+	mail_info
+mail_id (RmailId
+type (Rtype
+sub_type (RsubType"
+src_player_id (RsrcPlayerId&
+src_player_name (	RsrcPlayerName
+	send_time (RsendTime"
+tar_player_id (RtarPlayerId
+title (	Rtitle
+content	 (	Rcontent=
+attach_items
+ (2.ncmd_cs.lobby.attach_itemRattachItems5
+	gift_item (2.ncmd_cs.lobby.gift_itemRgiftItem
+
+mail_state (R	mailState!
+attach_state (RattachState
+expire_time (R
+expireTime
+clan_id (RclanId"¢
+mail_send_req"
+tar_player_id (RtarPlayerId
+title (	Rtitle
+content (	Rcontent=
+attach_items (2.ncmd_cs.lobby.attach_itemRattachItems"#
+mail_send_res
+code (Rcode",
+mail_load_req
+	mail_uuid (RmailUuid"#
+mail_load_res
+code (Rcode"*
+mail_read_req
+mail_ids (RmailIds">
+mail_read_res
+code (Rcode
+mail_ids (RmailIds",
+mail_delete_req
+mail_ids (RmailIds"@
+mail_delete_res
+code (Rcode
+mail_ids (RmailIds"1
+mail_attach_take_req
+mail_ids (RmailIds"i
+mail_attach_take_res
+code (Rcode=
+attach_items (2.ncmd_cs.lobby.attach_itemRattachItems"W
+mail_sync_ntf.
+mails (2.ncmd_cs.lobby.mail_infoRmails
+finish (Rfinish"=
+mail_recv_ntf,
+mail (2.ncmd_cs.lobby.mail_infoRmail".
+mail_global_ntf
+	mail_uuid (RmailUuidbproto3
+ó
+lobby_match_cs.protoncmd_cs.lobby
+enum.protocommon.proto"*
+match_join_req
+version (	Rversion"®
+ban_rank_boom_info4
+ban_rank_bomb_player_id (RbanRankBombPlayerId+
+ban_rank_bomb_time (RbanRankBombTime/
+ban_rank_bomb_reason (	RbanRankBombReason"Ì
+match_join_res
+code (Rcode!
+penalty_time (RpenaltyTime*
+penalty_player_id (RpenaltyPlayerId@
+
+bank_infos (2!.ncmd_cs.lobby.ban_rank_boom_infoR	bankInfos.
+need_update_players (RneedUpdatePlayers&
+match_lock_time (RmatchLockTime0
+remain_penalty_count (RremainPenaltyCount,
+bad_behavior_count (RbadBehaviorCount"T
+match_join_ntf
+code (Rcode
+ticket (Rticket
+expect (Rexpect"(
+match_quit_req
+ticket (Rticket"$
+match_quit_res
+code (Rcode"W
+match_quit_ntf
+code (Rcode1
+reason (2.ncmd_cs.EMatchQuitReasonRreason"l
+match_role_employ
+role_id (RroleId!
+battle_count (RbattleCount
+	win_count (RwinCount"ø
+match_player*
+campid (2.ncmd_cs.ERoomCampRcampid
+	player_id (RplayerId
+robot (Rrobot
+nick (	Rnick
+icon (Ricon#
+sex (2.ncmd_cs.ESexTypeRsex
+rank (Rrank
+status (Rstatus
+pos	 (Rpos
+level
+ (Rlevel 
+vc_avatar_id (R
+vcAvatarId
+vc_frame_id (R	vcFrameId 
+vc_border_id (R
+vcBorderId
+vc_achie_id (R	vcAchieId#
+ready_confirm (RreadyConfirm
+stars (Rstars
+rank_pos (RrankPos%
+division_score (RdivisionScore5
+	vc_medals (2.ncmd_cs.medal_card_dataRvcMedals
+
+freq_roles (R	freqRoles
+title_id (RtitleId!
+battle_count (RbattleCount
+	win_count (RwinCountC
+role_employs (2 .ncmd_cs.lobby.match_role_employRroleEmploys
+grade_score (R
+gradeScore
+open_id (	RopenId"è
+match_complete_ntf
+code (Rcode&
+mode (2.ncmd_cs.ERoomModeRmode
+map_id (RmapId
+total (Rtotal
+room_id (RroomId
+timeout (Rtimeout5
+players (2.ncmd_cs.lobby.match_playerRplayers&
+ready_left_time (RreadyLeftTime"Õ
+enter_battle_ntf
+code (Rcode
+ip (	Rip
+port (Rport
+room_id (RroomId
+token (Rtoken
+	reconnect (R	reconnect
+
+session_id (	R	sessionId
+map_id (RmapId"Ä
+quit_battle_ntf
+room_id (RroomId*
+status (2.ncmd_cs.EDsStatusRstatus(
+reason (2.ncmd_cs.EDsExitRreason"
+ready_confirm_req"'
+ready_confirm_res
+code (Rcode"0
+ready_confirm_ntf
+	player_id (RplayerId"›
+player_penalty_info
+	player_id (RplayerId!
+penalty_time (RpenaltyTime&
+match_lock_time (RmatchLockTime0
+remain_penalty_count (RremainPenaltyCount,
+bad_behavior_count (RbadBehaviorCount"¢
+penalty_time_ntf
+
+player_ids (R	playerIds!
+penalty_time (RpenaltyTime8
+infos (2".ncmd_cs.lobby.player_penalty_infoRinfos
+type (Rtypebproto3
+†
+lobby_role_cs.protoncmd_cs.lobby"#
+role_cfg
+role_id (RroleId"¡
+	role_info
+role_id (RroleId
+skin_id (RskinId
+exp (Rexp
+expire_time (R
+expireTime
+obtain_time (R
+obtainTime
+owned (Rowned
+reddots	 (Rreddots"-
+role_cfg_sync_req
+version (	Rversion"w
+role_cfg_sync_res
+code (Rcode
+version (	Rversion4
+	diff_list (2.ncmd_cs.lobby.role_cfgRdiffList"a
+role_cfg_sync_ntf
+version (	Rversion2
+role_cfg (2.ncmd_cs.lobby.role_cfgRroleCfg",
+role_sync_req
+	player_id (RplayerId"w
+role_sync_res
+code (Rcode
+	player_id (RplayerId5
+	role_list (2.ncmd_cs.lobby.role_infoRroleList":
+role_special_channel
+type (Rtype
+id (Rid"u
+role_special_obtained_cfg
+role_id (RroleId?
+channels (2#.ncmd_cs.lobby.role_special_channelRchannels"±
+role_sync_ntf
+	player_id (RplayerId5
+	role_list (2.ncmd_cs.lobby.role_infoRroleListL
+role_cfg_list (2(.ncmd_cs.lobby.role_special_obtained_cfgRroleCfgList"1
+role_skin_cfg 
+role_skin_id (R
+roleSkinId"2
+role_skin_cfg_sync_req
+version (	Rversion"Å
+role_skin_cfg_sync_res
+code (Rcode
+version (	Rversion9
+	diff_list (2.ncmd_cs.lobby.role_skin_cfgRdiffList"t
+role_skin_cfg_sync_ntf
+version (	Rversion@
+role_skin_cfg (2.ncmd_cs.lobby.role_skin_cfgRroleSkinCfg"1
+role_skin_sync_req
+	player_id (RplayerId"‰
+role_skin_info 
+role_skin_id (R
+roleSkinId
+expire_time (R
+expireTime
+obtain_time (R
+obtainTime%
+advanced_skins (RadvancedSkins(
+advanced_skin_id (RadvancedSkinId
+
+flutter_id (R	flutterId"ä
+role_skin_sync_res
+code (Rcode
+	player_id (RplayerIdC
+role_skin_list (2.ncmd_cs.lobby.role_skin_infoRroleSkinList"v
+role_skin_sync_ntf
+	player_id (RplayerIdC
+role_skin_list (2.ncmd_cs.lobby.role_skin_infoRroleSkinList"
+week_free_roles_sync_req"
+week_free_roles_update_ntf"É
+week_free_roles_sync_res
+code (Rcode
+
+start_time (R	startTime
+end_time (RendTime
+role_ids (RroleIds"L
+role_change_ntf9
+change_list (2.ncmd_cs.lobby.role_infoR
+changeList"V
+role_skin_change_ntf>
+change_list (2.ncmd_cs.lobby.role_skin_infoR
+changeList"2
+role_voice_sync_ntf
+	voice_ids (RvoiceIds"e
+role_voice_update_ntf"
+add_voice_ids (RaddVoiceIds(
+remove_voice_ids (RremoveVoiceIds"5
+role_action_sync_ntf
+
+action_ids (R	actionIds"j
+role_action_update_ntf$
+add_action_ids (RaddActionIds*
+remove_action_ids (RremoveActionIds">
+role_exp_sync_ntf
+role_id (RroleId
+exp (Rexp"0
+role_voice_read_req
+voice_id (RvoiceId"D
+role_voice_read_res
+code (Rcode
+voice_id (RvoiceId"b
+role_select_advanced_skin_req
+skin_id (RskinId(
+advanced_skin_id (RadvancedSkinId"v
+role_select_advanced_skin_res
+code (Rcode
+skin_id (RskinId(
+advanced_skin_id (RadvancedSkinId"Q
+role_select_flutter_req
+skin_id (RskinId
+
+flutter_id (R	flutterId"e
+role_select_flutter_res
+code (Rcode
+skin_id (RskinId
+
+flutter_id (R	flutterIdbproto3
+Ö4
+lobby_prepare_cs.protoncmd_cs.lobby
+enum.protolobby_role_cs.protolobby_bag_cs.proto"h
+personality_info
+id (RidD
+personality_type (2.ncmd_cs.EPersonalityTypeRpersonalityType"p
+communication_info
+id (RidJ
+communication_type (2.ncmd_cs.ECommunicationTypeRcommunicationType"®
+role_set_communications_req
+role_id (RroleId
+index (RindexJ
+communication_type (2.ncmd_cs.ECommunicationTypeRcommunicationType
+id (Rid"ï
+role_set_communications_res
+code (Rcode
+role_id (RroleIdI
+communications (2!.ncmd_cs.lobby.communication_infoRcommunications"Y
+role_set_personality_req
+role_id (RroleId
+index (Rindex
+id (Rid"¥
+role_set_personality_res
+code (Rcode
+role_id (RroleIdE
+personalities (2.ncmd_cs.lobby.personality_infoRpersonalities
+index (Rindex
+id (Rid"`
+role_swap_personality_req
+role_id (RroleId
+slot1 (Rslot1
+slot2 (Rslot2"t
+role_swap_personality_res
+code (Rcode
+role_id (RroleId
+slot1 (Rslot1
+slot2 (Rslot2"f
+weapon_slot
+weapon_uuid (R
+weaponUuid
+slot_pos (RslotPos
+	weapon_id (RweaponId"¿
+role_prepare_data
+role_id (RroleId4
+weapons (2.ncmd_cs.lobby.weapon_slotRweapons1
+decals (2.ncmd_cs.lobby.decal_infoRdecalsI
+communications (2!.ncmd_cs.lobby.communication_infoRcommunicationsE
+personalities (2.ncmd_cs.lobby.personality_infoRpersonalities
+skin_id (RskinId"ô
+role_prepare_ntf
+role_id (RroleId4
+weapons (2.ncmd_cs.lobby.weapon_slotRweapons6
+roles (2 .ncmd_cs.lobby.role_prepare_dataRroles"c
+
+decal_info
+	decal_pos (RdecalPos
+
+decal_uuid (R	decalUuid
+decal_id (RdecalId"´
+role_prepare_sync_ntf6
+roles (2 .ncmd_cs.lobby.role_prepare_dataRroles1
+decals (2.ncmd_cs.lobby.decal_infoRdecals'
+fluttering_uuid (RflutteringUuid"‚
+equip_weapon_req
+role_id (RroleId
+weapon_uuid (R
+weaponUuid
+slot_pos (RslotPos
+	weapon_id (RweaponId
+advanced_id (R
+advancedId;
+occasion_type (2.ncmd_cs.EOccasionTypeRoccasionType"Ô
+equip_weapon_res
+code (Rcode
+role_id (RroleId
+weapon_uuid (R
+weaponUuid
+slot_pos (RslotPos
+	weapon_id (RweaponId4
+weapons (2.ncmd_cs.lobby.weapon_slotRweapons
+advanced_id (R
+advancedId"M
+equip_multi_weapon_req3
+reqs (2.ncmd_cs.lobby.equip_weapon_reqRreqs",
+equip_multi_weapon_res
+code (Rcode"Å
+equip_decal_req
+	decal_pos (RdecalPos
+
+decal_uuid (R	decalUuid
+role_id (RroleId
+decal_id (RdecalId"ï
+equip_decal_res
+code (Rcode
+	decal_pos (RdecalPos
+
+decal_uuid (R	decalUuid
+role_id (RroleId
+decal_id (RdecalId"?
+equip_fluttering_req'
+fluttering_uuid (RflutteringUuid"S
+equip_fluttering_res
+code (Rcode'
+fluttering_uuid (RflutteringUuid"g
+equip_weapon_advanced_skin_req
+	weapon_id (RweaponId(
+advanced_skin_id (RadvancedSkinId"{
+equip_weapon_advanced_skin_res
+code (Rcode
+	weapon_id (RweaponId(
+advanced_skin_id (RadvancedSkinId"`
+equip_weapon_fx_req
+	weapon_id (RweaponId
+fx_type (RfxType
+fx_id (RfxId"t
+equip_weapon_fx_res
+code (Rcode
+	weapon_id (RweaponId
+fx_type (RfxType
+fx_id (RfxId"∏
+role_skin_select_req
+role_id (RroleId 
+role_skin_id (R
+roleSkinId(
+advanced_skin_id (RadvancedSkinId;
+occasion_type (2.ncmd_cs.EOccasionTypeRoccasionType"è
+role_skin_select_res
+code (Rcode
+role_id (RroleId 
+role_skin_id (R
+roleSkinId(
+advanced_skin_id (RadvancedSkinId"Q
+role_skin_select_ntf
+role_id (RroleId 
+role_skin_id (R
+roleSkinId"U
+cafe_privilege_cfg_ntf%
+cafe_privilege (RcafePrivilege
+items (Ritems"4
+equip_all_personality_req
+role_id (RroleId"H
+equip_all_personality_res
+code (Rcode
+role_id (RroleId".
+equip_all_decal_req
+role_id (RroleId"B
+equip_all_decal_res
+code (Rcode
+role_id (RroleId"0
+prepare_expire_check_req
+roles (Rroles"D
+prepare_expire_check_res
+code (Rcode
+roles (Rroles"j
+all_free_cfg
+id (Rid
+up_time (RupTime
+	down_time (RdownTime
+items (Ritems"[
+prepare_all_free_cfg_ntf?
+free_cfg_list (2.ncmd_cs.lobby.all_free_cfgRfreeCfgList"x
+prepare_favorite_skin_data
+role_id (RroleId
+	skin_list (RskinList$
+random_skin_id (RrandomSkinId"»
+prepare_favorite_data_ntfF
+	role_list (2).ncmd_cs.lobby.prepare_favorite_skin_dataRroleListJ
+weapon_list (2).ncmd_cs.lobby.prepare_favorite_skin_dataR
+weaponList
+is_suit (RisSuit"r
+prepare_favorite_add_skin_req
+role_id (RroleId
+	skin_list (RskinList
+	skin_type (RskinType"Ü
+prepare_favorite_add_skin_res
+code (Rcode
+role_id (RroleId
+	skin_list (RskinList
+	skin_type (RskinType"u
+ prepare_favorite_delete_skin_req
+role_id (RroleId
+	skin_list (RskinList
+	skin_type (RskinType"â
+ prepare_favorite_delete_skin_res
+code (Rcode
+role_id (RroleId
+	skin_list (RskinList
+	skin_type (RskinType"9
+prepare_favorite_open_suit_req
+is_suit (RisSuit"M
+prepare_favorite_open_suit_res
+code (Rcode
+is_suit (RisSuit"ì
+favorite_random_result
+role_id (RroleId-
+random_role_skin_id (RrandomRoleSkinId1
+random_weapon_skin_id (RrandomWeaponSkinId"Z
+prepare_favorite_random_ntf;
+roles (2%.ncmd_cs.lobby.favorite_random_resultRroles"-
+skin_share_req
+	target_id (RtargetId"$
+skin_share_res
+code (Rcode">
+skin_share_req_ntf(
+source_player_id (RsourcePlayerId"V
+skin_share_reply_req
+reply (Rreply(
+source_player_id (RsourcePlayerId"*
+skin_share_reply_res
+code (Rcode"á
+skin_share_infoC
+role_skin_list (2.ncmd_cs.lobby.role_skin_infoRroleSkinList6
+weapon_list (2.ncmd_cs.lobby.weaponR
+weaponList<
+fluttering_list (2.ncmd_cs.lobby.itemRflutteringList9
+weapon_fx_list (2.ncmd_cs.lobby.itemRweaponFxList"ç
+skin_share_ntf
+result (Rresult
+	player_id (RplayerIdF
+skin_share_info (2.ncmd_cs.lobby.skin_share_infoRskinShareInfo".
+skin_share_data_req
+role_id (RroleId"ß
+skin_share_data_res
+code (Rcode
+	player_id (RplayerId
+role_id (RroleIdF
+skin_share_info (2.ncmd_cs.lobby.skin_share_infoRskinShareInfobproto3
+ü
+lobby_rank_cs.protoncmd_cs.lobby
+enum.proto"‡
+rank_data_req/
+	rank_type (2.ncmd_cs.ERankTypeRrankType
+sub_type (RsubType
+	start_pos (RstartPos
+end_pos (RendPos
+custom (Rcustom
+	city_code (RcityCode
+version (Rversion"£
+rank_division_node
+stars (Rstars
+	win_games (RwinGames
+rank (Rrank%
+division_score (RdivisionScore
+grade_score (R
+gradeScore"C
+rank_team_node
+	win_games (RwinGames
+kills (Rkills"C
+rank_role_node
+score (Rscore
+	win_games (RwinGames"`
+rank_crystal_node
+crystal (Rcrystal
+kills (Rkills
+	win_games (RwinGames"a
+rank_pushcar_node
+kills (Rkills
+car_time (RcarTime
+	win_games (RwinGames"g
+train_battle_node
+score (Rscore
+	cost_time (RcostTime
+finish_time (R
+finishTime"ˆ
+rank_row_info
+	player_id (RplayerId
+rank_pos (RrankPos
+nick (	Rnick
+icon (Ricon
+
+freq_roles (R	freqRoles
+	city_code (RcityCode
+level (Rlevel 
+vc_border_id (R
+vcBorderId%
+privilege_type	 (RprivilegeType%
+privilege_time
+ (RprivilegeTimeO
+rank_division_data (2!.ncmd_cs.lobby.rank_division_nodeRrankDivisionDataC
+rank_team_data (2.ncmd_cs.lobby.rank_team_nodeRrankTeamDataC
+rank_role_data (2.ncmd_cs.lobby.rank_role_nodeRrankRoleDataL
+train_battle_data (2 .ncmd_cs.lobby.train_battle_nodeRtrainBattleDataL
+rank_crystal_data (2 .ncmd_cs.lobby.rank_crystal_nodeRrankCrystalDataL
+rank_pushcar_data (2 .ncmd_cs.lobby.rank_pushcar_nodeRrankPushcarData"â
+rank_data_res
+code (Rcode/
+	rank_type (2.ncmd_cs.ERankTypeRrankType
+sub_type (RsubType
+	start_pos (RstartPos
+end_pos (RendPos
+custom (Rcustom
+	city_code (RcityCode
+version (Rversion
+
+rank_total	 (R	rankTotal9
+	rows_info
+ (2.ncmd_cs.lobby.rank_row_infoRrowsInfo9
+	self_rank (2.ncmd_cs.lobby.rank_row_infoRselfRank"H
+rank_data_refresh_ntf/
+	rank_type (2.ncmd_cs.ERankTypeRrankType"
+rank_get_cur_city_code_req"M
+rank_get_cur_city_code_res
+code (Rcode
+	city_code (RcityCode"9
+rank_set_cur_city_code_req
+	city_code (RcityCode"0
+rank_set_cur_city_code_res
+code (Rcode"f
+rank_get_friend_data_req/
+	rank_type (2.ncmd_cs.ERankTypeRrankType
+sub_type (RsubType"à
+rank_get_friend_data_res
+code (Rcode
+finish (Rfinish9
+	rows_info (2.ncmd_cs.lobby.rank_row_infoRrowsInfo9
+	self_rank (2.ncmd_cs.lobby.rank_row_infoRselfRank/
+	rank_type (2.ncmd_cs.ERankTypeRrankType
+sub_type (RsubType"0
+rank_forbid_update_ntf
+reason (	Rreason"
+rank_get_block_hole_rank_req"a
+rank_get_block_hole_rank_res
+code (Rcode
+rank (Rrank
+rank_pos (RrankPos"¿
+rank_search_req/
+	rank_type (2.ncmd_cs.ERankTypeRrankType
+sub_type (RsubType
+custom (Rcustom
+	city_code (RcityCode
+version (Rversion
+nick (	Rnick"è
+rank_search_res
+code (Rcode/
+	rank_type (2.ncmd_cs.ERankTypeRrankType
+sub_type (RsubType
+custom (Rcustom
+	city_code (RcityCode
+version (Rversion
+nick (	Rnick9
+	rows_info (2.ncmd_cs.lobby.rank_row_infoRrowsInfobproto3
+Ï
+lobby_recharge_cs.protoncmd_cs.lobby"2
+recharge_plat_info_req
+version (	Rversion"O
+recharge_plat_info_res
+code (Rcode!
+platform_ids (RplatformIds"ò
+recharge_order_send_req 
+pay_order_id (	R
+payOrderId
+evidence (	Revidence"
+clientParams (	RclientParams
+	oper_type (RoperType"Œ
+recharge_order_send_res
+code (Rcode 
+pay_order_id (	R
+payOrderId
+amount (RamountH
+commodities (2&.ncmd_cs.lobby.recharge_commodity_packRcommodities
+	oper_type (RoperType"ù
+recharge_order_send_ntf 
+pay_order_id (	R
+payOrderId
+amount (RamountH
+commodities (2&.ncmd_cs.lobby.recharge_commodity_packRcommodities"e
+recharge_commodity_pack!
+commodity_id (RcommodityId'
+commodity_count (RcommodityCount"7
+recharge_commodity_sync_req
+version (	Rversion"V
+recharge_commodity_sync_res
+code (Rcode#
+commodity_ids (RcommodityIds"˝
+recharge_order_create_req&
+pay_platform_id (RpayPlatformId
+pay_open_id (	R	payOpenIdH
+commodities (2&.ncmd_cs.lobby.recharge_commodity_packRcommodities
+amount (Ramount
+currency (	Rcurrency
+language (	Rlanguage"√
+recharge_order_create_res
+code (Rcode
+order_id (RorderId 
+pay_order_id (	R
+payOrderId
+pay_code (RpayCode
+pay_msg (	RpayMsg!
+redirect_url (	RredirectUrl"[
+midas_query_balance_req
+open_key (	RopenKey
+pf (	Rpf
+pf_key (	RpfKey"-
+midas_query_balance_res
+code (Rcode"6
+midas_product_data
+id (	Rid
+num (Rnum"ı
+midas_create_order_req
+open_key (	RopenKey
+pf (	Rpf
+pf_key (	RpfKeyD
+product_list (2!.ncmd_cs.lobby.midas_product_dataRproductList
+channel (	Rchannel!
+commodity_id (RcommodityId
+wegame (Rwegame"T
+midas_create_order_res
+code (Rcode
+token (	Rtoken
+url (	Rurl"F
+midas_deliver_ntf
+items (Ritems
+	is_direct (RisDirect"7
+midas_first_pay
+id (Rid
+state (Rstate"X
+midas_first_pay_mul_ntf=
+
+first_pays (2.ncmd_cs.lobby.midas_first_payR	firstPaysbproto3
+Ó
+lobby_reddot_cs.protoncmd_cs.lobby
+enum.proto"„
+reddot_info
+	reddot_id (RreddotId
+
+reddot_rid (R	reddotRid5
+reddot_type (2.ncmd_cs.EReddotTypeR
+reddotType
+overtime (Rovertime
+custom (	Rcustom
+mark (Rmark
+event_id (ReventId".
+reddot_read_req
+	reddot_id (RreddotId"%
+reddot_read_res
+code (Rcode"µ
+reddot_add_req
+
+reddot_rid (R	reddotRid5
+reddot_type (2.ncmd_cs.EReddotTypeR
+reddotType
+overtime (Rovertime
+custom (	Rcustom
+event_id (ReventId"$
+reddot_add_res
+code (Rcode"D
+reddot_add_ntf2
+reddot (2.ncmd_cs.lobby.reddot_infoRreddot"G
+reddot_sync_ntf4
+reddots (2.ncmd_cs.lobby.reddot_infoRreddots"1
+reddot_batch_read_req
+reddots (Rreddots"E
+reddot_batch_read_res
+code (Rcode
+reddots (Rreddots"<
+reddot_voice_batch_read_req
+
+voice_list (R	voiceList"P
+reddot_voice_batch_read_res
+code (Rcode
+
+voice_list (R	voiceListbproto3
+Ã
+lobby_report_cs.protoncmd_cs.lobby"v
+report_net_req
+ds_host (	RdsHost
+ds_port (RdsPort
+
+delay_time (R	delayTime
+ds_ip (	RdsIp"$
+report_net_res
+code (Rcodebproto3
+Œ
+lobby_reward_cs.protoncmd_cs.lobby
+enum.protocommon.proto"Z
+reward_info
+	reward_id (RrewardId.
+status (2.ncmd_cs.ERewardStatusRstatus"ä
+reward_module3
+	module_id (2.ncmd_cs.ERewardModuleRmoduleIdD
+reward_info_list (2.ncmd_cs.lobby.reward_infoRrewardInfoList"i
+reward_all_modules_sync_ntfJ
+all_reward_modules (2.ncmd_cs.lobby.reward_moduleRallRewardModules"h
+reward_module_sync_ntfN
+single_reward_module (2.ncmd_cs.lobby.reward_moduleRsingleRewardModule"e
+reward_recive_req3
+	module_id (2.ncmd_cs.ERewardModuleRmoduleId
+	reward_id (RrewardId"”
+reward_recive_res
+code (Rcode3
+	module_id (2.ncmd_cs.ERewardModuleRmoduleId
+	reward_id (RrewardId.
+status (2.ncmd_cs.ERewardStatusRstatus(
+items (2.ncmd_cs.item_packRitems"
+questionnaire_req";
+questionnaire_res
+open (Ropen
+code (Rcode"
+level_award_get_req"§
+level_award_get_res
+code (Rcode
+level_prize (R
+levelPrize&
+level_new_prize (RlevelNewPrize0
+level_activity_prize (RlevelActivityPrize"
+receive_level_award_req"®
+receive_level_award_res
+code (Rcode
+level_prize (R
+levelPrize&
+level_new_prize (RlevelNewPrize0
+level_activity_prize (RlevelActivityPrize"V
+player_questionnaire
+sid (	Rsid
+state (Rstate
+reddot (Rreddot"¶
+questionnaire_cfg
+sid (	Rsid
+url (	Rurl(
+prize (2.ncmd_cs.item_packRprize
+type (Rtype
+end_time (RendTime
+title (	Rtitle"©
+questionnaire_data_ntfR
+questionnaire_data (2#.ncmd_cs.lobby.player_questionnaireRquestionnaireData;
+cfg_list (2 .ncmd_cs.lobby.questionnaire_cfgRcfgList"A
+questionnaire_state_ntf
+sid (	Rsid
+state (Rstate",
+questionnaire_reward_req
+sid (	Rsid"@
+questionnaire_reward_res
+code (Rcode
+sid (	Rsid"3
+questionnaire_read_req
+sid_list (	RsidList"G
+questionnaire_read_res
+code (Rcode
+sid_list (	RsidList"
+questionnaire_login_req":
+questionnaire_login_res
+login_token (	R
+loginTokenbproto3
+Ô
+lobby_room_cs.protoncmd_cs.lobby
+enum.proto"(
+room_reconnect_req
+sure (Rsure"(
+room_reconnect_res
+code (Rcode"0
+query_room_status_req
+room_id (RroomId"o
+query_room_status_res
+code (Rcode
+exist (Rexist,
+status (2.ncmd_cs.ERoomStatusRstatus"P
+room_member_offline_ntf
+	player_id (RplayerId
+offline (Roffline"Ω
+watch_other_player_req"
+tar_player_id (RtarPlayerId2
+
+watch_type (2.ncmd_cs.EWatchTypeR	watchType
+room_id (RroomId2
+
+watch_view (2.ncmd_cs.EWatchViewR	watchView",
+watch_other_player_res
+code (Rcodebproto3
+Ø&
+lobby_salon_cs.protoncmd_cs.lobbycommon.proto
+enum.proto"R
+salon_battle_record
+room_id (RroomId
+win (Rwin
+mvp (Rmvp"¨
+salon_playerinfo+
+interaction_count (RinteractionCount 
+show_role_id (R
+showRoleIdI
+battle_records (2".ncmd_cs.lobby.salon_battle_recordRbattleRecords"<
+salon_set_playerinfo_req 
+show_role_id (R
+showRoleId".
+salon_set_playerinfo_res
+code (Rcode"
+salon_playerinfo_req"_
+salon_playerinfo_res
+code (Rcode3
+info (2.ncmd_cs.lobby.salon_playerinfoRinfo"K
+salon_playerinfo_ntf3
+info (2.ncmd_cs.lobby.salon_playerinfoRinfo"@
+
+salon_gift
+gift_id (RgiftId
+gift_num (RgiftNum"<
+salon_role_setting
+key (Rkey
+value (Rvalue"h
+salon_sequence
+id (Rid
+main_status (R
+mainStatus%
+picture_status (RpictureStatus"2
+salon_pledge
+id (Rid
+step (Rstep"ò
+
+salon_role
+role_id (RroleId
+intimacy (Rintimacy
+intimacy_lv (R
+intimacyLv/
+gifts (2.ncmd_cs.lobby.salon_giftRgifts=
+settings (2!.ncmd_cs.lobby.salon_role_settingRsettings!
+upgrade_time	 (RupgradeTime'
+upgrade_rewards
+ (RupgradeRewards
+tasks (Rtasks
+
+biographys (R
+biographys'
+read_biographys (RreadBiographys;
+	sequences (2.ncmd_cs.lobby.salon_sequenceR	sequences5
+pledges (2.ncmd_cs.lobby.salon_pledgeRpledges%
+birthday_stage (RbirthdayStage"*
+salon_roles_req
+role_id (RroleId"B
+salon_roles_ntf/
+roles (2.ncmd_cs.lobby.salon_roleRroles"ã
+salon_setting_role_req
+role_id (RroleId=
+settings (2!.ncmd_cs.lobby.salon_role_settingRsettings
+is_reset (RisReset",
+salon_setting_role_res
+code (Rcode"b
+salon_send_gift_req
+role_id (RroleId
+gift_id (RgiftId
+gift_num (RgiftNum")
+salon_send_gift_res
+code (Rcode"Ø
+salon_role_upgrad_ntf
+role_id (RroleId
+intimacy (Rintimacy
+intimacy_lv (R
+intimacyLv
+
+upgrade_lv (R	upgradeLv!
+add_intimacy (RaddIntimacy"e
+ salon_get_role_upgrad_reward_req
+role_id (RroleId
+level (Rlevel
+mode (Rmode"6
+ salon_get_role_upgrad_reward_res
+code (Rcode"T
+salon_message_select
+key (	Rkey
+value (Rvalue
+stime (Rstime"˛
+salon_message
+
+chapter_id (	R	chapterIdB
+
+select_ids (2#.ncmd_cs.lobby.salon_message_selectR	selectIds
+status (Rstatus
+
+flush_time (R	flushTime!
+flyin_status (RflyinStatus0
+sms_type (2.ncmd_cs.SalonSmsTypeRsmsType"6
+salon_get_message_req
+
+chapter_id (	R	chapterId"[
+salon_get_message_res
+code (Rcode.
+msg (2.ncmd_cs.lobby.salon_messageRmsg"G
+salon_get_message_ntf.
+msg (2.ncmd_cs.lobby.salon_messageRmsg"Ø
+salon_save_message_req
+
+chapter_id (	R	chapterIdB
+
+select_ids (2#.ncmd_cs.lobby.salon_message_selectR	selectIds
+is_over (RisOver
+is_flyin (RisFlyin"K
+salon_save_message_res
+code (Rcode
+
+chapter_id (	R	chapterId"v
+salon_interaction_req
+role_id (RroleId%
+interaction_id (RinteractionId
+
+role_state (R	roleState"+
+salon_interaction_res
+code (Rcode"Ñ
+salon_show_oper_req
+	oper_type (RoperType
+param (Rparam
+	param_sub (RparamSub
+
+param_adds (R	paramAdds"ò
+salon_show_oper_res
+code (Rcode
+	oper_type (RoperType
+param (Rparam
+	param_sub (RparamSub
+
+param_adds (R	paramAdds".
+take_task_prize_req
+task_id (RtaskId"y
+take_task_prize_res
+code (Rcode5
+obtain_list (2.ncmd_cs.obtain_dataR
+obtainList
+task_id (RtaskId"M
+salon_send_chatgpt_req
+role_id (RroleId
+question (Rquestion"d
+salon_send_chatgpt_res
+code (Rcode
+role_id (RroleId
+
+request_id (	R	requestId"O
+salon_send_chatgpt_ntf
+
+request_id (	R	requestId
+answer (	Ranswer"N
+holiday_wishes_ntf
+
+holiday_id (R	holidayId
+role_ids (RroleIds"Q
+holiday_wishes_play_req
+
+holiday_id (R	holidayId
+role_id (RroleId"e
+holiday_wishes_play_res
+code (Rcode
+
+holiday_id (R	holidayId
+role_id (RroleId"G
+birthday_record_req0
+player_birthday_time (RplayerBirthdayTime"[
+birthday_record_res
+code (Rcode0
+player_birthday_time (RplayerBirthdayTime"Q
+player_birthday_ntf
+role_ids (RroleIds
+is_birthday (R
+isBirthday".
+birthday_reward_req
+role_id (RroleId"B
+birthday_reward_res
+code (Rcode
+role_id (RroleId"v
+role_birthday_stage_change_req
+role_id (RroleId
+param (Rparam%
+birthday_stage (RbirthdayStage"t
+role_birthday_stage_change_res
+code (Rcode
+role_id (RroleId%
+birthday_stage (RbirthdayStage"Y
+role_birthday_stage_ntf
+role_id (RroleId%
+birthday_stage (RbirthdayStagebproto3
+ë
+lobby_sdk_cs.protoncmd_cs.lobby"p
+polaris_info
+score (Rscore
+mtime (Rmtime
+	tag_black (RtagBlack
+tag_ugc (RtagUgc"
+player_sdk_req"[
+player_sdk_res
+code (Rcode5
+polaris (2.ncmd_cs.lobby.polaris_infoRpolaris"Ç
+polaris_error_ntf
+score (Rscore
+limit_score (R
+limitScore
+	tag_black (RtagBlack
+group_id (RgroupIdbproto3
+ì
+
+lobby_setting_cs.protoncmd_cs.lobby"’
+function_open_cfg
+func_id (RfuncId
+	open_type (RopenType
+
+start_time (R	startTime
+end_time (RendTime
+param (	Rparam
+	func_type (RfuncType
+
+type_order (R	typeOrder"1
+function_open_list_req
+func_id (RfuncId"k
+function_open_list_res
+code (Rcode=
+	func_list (2 .ncmd_cs.lobby.function_open_cfgRfuncList"W
+function_open_list_ntf=
+	func_list (2 .ncmd_cs.lobby.function_open_cfgRfuncList"$
+setting_sync_req
+key (Rkey"6
+setting_item
+key (Rkey
+value (Rvalue"
+setting_sync_res
+code (Rcode>
+setting_list (2.ncmd_cs.lobby.setting_itemRsettingList
+is_sync (RisSync"k
+setting_sync_ntf>
+setting_list (2.ncmd_cs.lobby.setting_itemRsettingList
+is_sync (RisSync"m
+setting_update_req>
+setting_list (2.ncmd_cs.lobby.setting_itemRsettingList
+is_sync (RisSync"(
+setting_update_res
+code (Rcode"D
+set_player_setting_req
+keys (Rkeys
+values (Rvalues"H
+set_player_setting_res
+code (Rcode
+settings (Rsettings"5
+get_player_setting_req
+	player_id (RplayerId"e
+get_player_setting_res
+code (Rcode
+	player_id (RplayerId
+settings (Rsettingsbproto3
+Ä
+lobby_settle_cs.protoncmd_cs.lobby
+enum.protocommon.proto"ﬂ
+settle_qualifying_ntf
+room_id (RroomId#
+win (2.ncmd_cs.EWinTypeRwin
+	old_stars (RoldStars
+stars (Rstars
+scores (Rscores
+
+mode_score (R	modeScore!
+onhook_score (RonhookScore!
+streak_score (RstreakScore#
+display_score	 (RdisplayScore
+power_score
+ (R
+powerScore
+
+streak_win (R	streakWin/
+	play_mode (2.ncmd_cs.EPlayModeRplayMode
+
+is_grading (R	isGrading<
+grading_standing (2.ncmd_cs.EWinTypeRgradingStanding
+
+rank_index (R	rankIndex
+score_fired (R
+scoreFired$
+rank_gap_score (RrankGapScore
+old_rank (RoldRank
+rank (Rrank 
+old_rank_pos (R
+oldRankPos
+rank_pos (RrankPos,
+old_division_score (RoldDivisionScore%
+division_score (RdivisionScore$
+try_best_score (RtryBestScore*
+divison_score_pro (RdivisonScorePro#
+grading_total (RgradingTotal&
+old_grade_score (RoldGradeScore
+grade_score (R
+gradeScore"‰
+settle_battle_role
+role_id (RroleId
+intimacy (Rintimacy 
+role_skin_id (R
+roleSkinId
+gun_skin_id (R	gunSkinId
+is_final (RisFinal
+	add_score (RaddScore
+total_score (R
+totalScore"û
+settle_addition_node4
+attr (2 .ncmd_cs.ESettleAdditionAttrTypeRattr:
+reason (2".ncmd_cs.ESettleAdditionReasonTypeRreason
+value (Rvalue"§
+settle_battle_game_ntf
+room_id (RroomId/
+	room_mode (2.ncmd_cs.ERoomModeRroomMode3
+winner_team (2.ncmd_cs.ERoomCampR
+winnerTeam
+map_id (RmapId5
+players (2.ncmd_cs.player_settle_infoRplayers
+
+gain_ideal (R	gainIdeal
+gain_exp (RgainExp7
+roles (2!.ncmd_cs.lobby.settle_battle_roleRroles
+
+fight_time	 (R	fightTime
+scores
+ (Rscores8
+attack_camp_id (2.ncmd_cs.ERoomCampRattackCampId&
+can_switch_camp (RcanSwitchCamp;
+round_infos (2.ncmd_cs.round_settle_infoR
+roundInfosJ
+addition_nodes (2#.ncmd_cs.lobby.settle_addition_nodeRadditionNodes(
+onemore_until_tm (RonemoreUntilTm"Ï
+qualifying_change_ntf
+	old_stars (RoldStars
+stars (Rstars
+scores (Rscores
+old_rank (RoldRank
+rank (Rrank 
+old_rank_pos (R
+oldRankPos
+rank_pos (RrankPos,
+old_division_score (RoldDivisionScore%
+division_score	 (RdivisionScore&
+old_grade_score
+ (RoldGradeScore
+grade_score (R
+gradeScore"o
+standings_like_req
+	target_id (RtargetId
+like_id (RlikeId#
+broadcast_ids (RbroadcastIds"(
+standings_like_res
+code (Rcode"a
+standings_like_ntf
+src_id (RsrcId
+	target_id (RtargetId
+like_id (RlikeId"8
+negative_game_ntf#
+punishment_id (RpunishmentIdbproto3
+§2
+lobby_shop_cs.protoncmd_cs.lobby
+enum.proto"K
+commodity_items
+item_id (RitemId
+item_amount (R
+itemAmount"0
+shop_pay_giving_req
+order_id (RorderId")
+shop_pay_giving_res
+code (Rcode"2
+shop_pay_claiming_req
+order_id (RorderId"+
+shop_pay_claiming_res
+code (Rcode"p
+price_detail7
+currency_id (2.ncmd_cs.ECurrencyTypeR
+currencyId'
+currency_amount (RcurrencyAmount"≤
+shop_cfg_data
+id (Rid2
+
+store_type (2.ncmd_cs.EStoreTypeR	storeType
+store_param (R
+storeParam
+up_time (RupTime
+	down_time (RdownTime
+goods_id (RgoodsId
+	goods_num (RgoodsNum8
+	now_price (2.ncmd_cs.lobby.price_detailRnowPrice@
+present_price	 (2.ncmd_cs.lobby.price_detailRpresentPrice"
+precondition
+ (Rprecondition!
+goods_layout (RgoodsLayout
+	suit_main (RsuitMain
+	suit_free (RsuitFree 
+show_up_time (R
+showUpTime$
+shop_down_time (RshopDownTime1
+price (2.ncmd_cs.lobby.price_detailRprice(
+discount_up_time (RdiscountUpTime,
+discount_down_time (RdiscountDownTime"K
+shop_limit_info
+goods_id (RgoodsId
+
+bought_cnt (R	boughtCnt"j
+store_fixed_price
+id (RidE
+fixed_price_list (2.ncmd_cs.lobby.price_detailRfixedPriceList"
+shop_cfg_data_req"p
+shop_cfg_data_res
+code (Rcode
+is_end (RisEnd0
+data (2.ncmd_cs.lobby.shop_cfg_dataRdata"
+shop_limit_data_req"æ
+shop_limit_data_res
+code (RcodeG
+limitation_list (2.ncmd_cs.lobby.shop_limit_infoRlimitationListJ
+fixed_price_list (2 .ncmd_cs.lobby.store_fixed_priceRfixedPriceList"4
+shop_change_cfg_data_req
+version (Rversion"–
+shop_change_cfg_data_res
+code (Rcode
+version (Rversion=
+change_list (2.ncmd_cs.lobby.shop_cfg_dataR
+changeListG
+limitation_list (2.ncmd_cs.lobby.shop_limit_infoRlimitationList"ë
+shop_buy_commodity_req
+
+shop_index (R	shopIndex
+count (Rcount>
+pay_currency_id (2.ncmd_cs.ECurrencyTypeRpayCurrencyId
+open_key (	RopenKey
+pf (	Rpf
+pf_key (	RpfKey
+buy_channel (R
+buyChannel
+coupon_uuid (R
+couponUuid"i
+shop_buy_commodity_res
+code (Rcode;
+	item_list (2.ncmd_cs.lobby.commodity_itemsRitemList"Œ
+shop_record
+id (Rid8
+record_type (2.ncmd_cs.ShopRecordTypeR
+recordType
+	target_id (RtargetId
+
+shop_index (R	shopIndex
+count (Rcount
+context (	Rcontext
+time (Rtime
+nick (	Rnick
+icon	 (Ricon5
+status
+ (2.ncmd_cs.ShopRecordStatusTypeRstatus
+reddot (Rreddot"ì
+shop_giving_req
+
+shop_index (R	shopIndex
+count (Rcount
+receiver_id (R
+receiverId
+context (	Rcontext>
+pay_currency_id (2.ncmd_cs.ECurrencyTypeRpayCurrencyId
+open_key (	RopenKey
+pf (	Rpf
+pf_key (	RpfKey
+id	 (Rid"%
+shop_giving_res
+code (Rcode"R
+shop_giving_ntf?
+giving_record (2.ncmd_cs.lobby.shop_recordRgivingRecord"
+shop_claiming_req
+
+shop_index (R	shopIndex
+count (Rcount
+	target_id (RtargetId
+context (	Rcontext"'
+shop_claiming_res
+code (Rcode"X
+shop_claiming_ntfC
+claiming_record (2.ncmd_cs.lobby.shop_recordRclaimingRecord"+
+shop_recv_giving_gift_req
+id (Rid"?
+shop_recv_giving_gift_res
+code (Rcode
+id (Rid"`
+shop_giving_gift_ntfH
+giving_gift_record (2.ncmd_cs.lobby.shop_recordRgivingGiftRecord"!
+shop_giving_claiming_record_req"ï
+shop_giving_claiming_record_res
+code (Rcode
+opt (Ropt4
+records (2.ncmd_cs.lobby.shop_recordRrecords
+finish (Rfinish")
+shop_set_claiming_req
+opt (Ropt"D
+shop_set_claiming_res
+code (Rcode
+new_opt (RnewOpt"*
+shop_claiming_refuse_req
+id (Rid">
+shop_claiming_refuse_res
+code (Rcode
+id (Rid"l
+shop_claiming_refuse_ntfP
+claiming_refuse_record (2.ncmd_cs.lobby.shop_recordRclaimingRefuseRecord"`
+shop_giving_read_req
+id (Rid8
+record_type (2.ncmd_cs.ShopRecordTypeR
+recordType"ì
+shop_giving_read_res
+code (Rcode
+id (Rid8
+record_type (2.ncmd_cs.ShopRecordTypeR
+recordType
+
+new_reddot (R	newReddot"
+shop_giving_claim_limit_req"P
+claim_limit_record
+	target_id (RtargetId
+
+shop_index (R	shopIndex"≤
+shop_giving_claim_limit_res
+code (Rcode!
+giving_count (RgivingCount
+claim_count (R
+claimCount;
+records (2!.ncmd_cs.lobby.claim_limit_recordRrecords".
+shop_claim_give_req
+mail_id (RmailId"D
+shop_claim_give_res
+code (Rcode
+order_id (RorderId"0
+shop_claim_refuse_req
+mail_id (RmailId"D
+shop_claim_refuse_res
+code (Rcode
+mail_id (RmailId"/
+shop_setting_claiming_req
+flag (Rflag"/
+shop_setting_claiming_res
+code (Rcode"ü
+shop_limit_buy_ntf=
+
+limit_info (2.ncmd_cs.lobby.shop_limit_infoR	limitInfoJ
+fixed_price_list (2 .ncmd_cs.lobby.store_fixed_priceRfixedPriceList"3
+shop_recv_gift_req
+
+shop_index (R	shopIndex"(
+shop_recv_gift_res
+code (Rcode"ˆ
+crystal_card
+id (Rid
+
+start_time (R	startTime
+end_time (RendTime
+total_count (R
+totalCount
+
+recv_count (R	recvCount
+crystal (Rcrystal
+
+left_count (R	leftCount#
+total_crystal (RtotalCrystal"H
+shop_month_card_ntf1
+cards (2.ncmd_cs.lobby.crystal_cardRcards"+
+shop_buy_crystal_card_ntf
+id (Rid"
+shop_month_card_crystal_req"K
+shop_month_card_crystal_res
+code (Rcode
+crystal (Rcrystal"»
+hermesdisplay_cfg
+id (Rid
+
+goods_page (R	goodsPage!
+goods_layout (RgoodsLayout
+goods_bg (	RgoodsBg 
+show_up_time (R
+showUpTime$
+shop_down_time (RshopDownTime
+goods_id (RgoodsId%
+popup_portrait (	RpopupPortrait
+	goods_num	 (RgoodsNum
+goods_label
+ (R
+goodsLabel"i
+shop_hermesdisplay_ntfO
+hermesdisplay_data (2 .ncmd_cs.lobby.hermesdisplay_cfgRhermesdisplayData"
+shop_daily_random_req"L
+shop_daily_random_res
+code (Rcode
+daily_goods (R
+dailyGoods"8
+shop_daily_random_ntf
+daily_goods (R
+dailyGoods"P
+goods_flush_time
+
+limit_type (R	limitType
+
+flush_time (R	flushTime"h
+shop_goods_flush_time_ntfK
+goods_flush_times (2.ncmd_cs.lobby.goods_flush_timeRgoodsFlushTimesbproto3
+›
+lobby_standings_cs.protoncmd_cs.lobby
+enum.protocommon.proto"x
+standings_list_req
+	player_id (RplayerId
+index (Rindex/
+	game_mode (2.ncmd_cs.ERoomModeRgameMode"∫
+standings_title/
+	game_mode (2.ncmd_cs.ERoomModeRgameMode/
+	play_mode (2.ncmd_cs.EPlayModeRplayMode
+map_id (RmapId
+scores (Rscores+
+my_team (2.ncmd_cs.ERoomCampRmyTeam3
+winner_team (2.ncmd_cs.ERoomCampR
+winnerTeam
+time (Rtime
+room_id (RroomId
+
+fight_time	 (R	fightTime
+teams
+ (Rteams8
+attack_camp_id (2.ncmd_cs.ERoomCampRattackCampId
+
+my_ranking (R	myRanking&
+can_switch_camp (RcanSwitchCamp#
+divison_score (RdivisonScore,
+old_division_score (RoldDivisionScore"W
+standing_mode_info/
+	game_mode (2.ncmd_cs.ERoomModeRgameMode
+num (Rnum"ø
+standings_list_res
+code (Rcode6
+titles (2.ncmd_cs.lobby.standings_titleRtitles@
+
+mode_infos (2!.ncmd_cs.lobby.standing_mode_infoR	modeInfos
+	player_id (RplayerId"J
+standings_info_req
+	player_id (RplayerId
+room_id (RroomId"+
+settle_role_info
+role_id (RroleId"Ñ
+standings_info5
+players (2.ncmd_cs.player_settle_infoRplayers;
+round_infos (2.ncmd_cs.round_settle_infoR
+roundInfos"~
+standings_info_res
+code (Rcode;
+	standings (2.ncmd_cs.lobby.standings_infoR	standings
+room_id (RroomId",
+battle_replay_req
+room_id (RroomId"c
+battle_replay_res
+code (Rcode!
+download_url (	RdownloadUrl
+room_id (RroomId"
+enter_replay_req"&
+enter_replay_res
+code (Rcode"
+leave_replay_req"&
+leave_replay_res
+code (Rcode"3
+upload_replay_finish_ntf
+room_id (RroomIdbproto3
+Ñ
+lobby_svr_cs.protoncmd_cs.lobby
+enum.proto"Ê
+season_info
+season (Rseason
+	top_stars (RtopStars
+final_stars (R
+finalStars
+round (Rround
+win_rate (RwinRate
+mvp (Rmvp
+
+avg_damage (R	avgDamage
+
+freq_roles (R	freqRoles
+top_rank	 (RtopRank
+
+final_rank
+ (R	finalRank 
+top_rank_pos (R
+topRankPos$
+final_rank_pos (RfinalRankPos"«
+rankinfo_sync_ntf
+season (Rseason
+stars (Rstars
+scores (Rscores
+
+streak_win (R	streakWin"
+is_new_season (RisNewSeason
+	old_stars (RoldStars7
+	info_list (2.ncmd_cs.lobby.season_infoRinfoList
+
+is_grading (R	isGrading<
+grading_standing	 (2.ncmd_cs.EWinTypeRgradingStanding
+	has_prize
+ (RhasPrize
+old_rank (RoldRank
+rank (Rrank 
+old_rank_pos (R
+oldRankPos
+rank_pos (RrankPos,
+old_division_score (RoldDivisionScore%
+division_score (RdivisionScore*
+divison_score_pro (RdivisonScorePro#
+grading_total (RgradingTotal&
+old_grade_score (RoldGradeScore
+grade_score (R
+gradeScore"Q
+common_tips_ntf
+code (Rcode
+type (Rtype
+params (	Rparams"ƒ
+common_banner_ntf
+type (Rtype
+title (	Rtitle
+content (	Rcontent
+
+start_time (R	startTime
+interval (Rinterval
+times (Rtimes
+duration (Rdurationbproto3
+ÆY
+lobby_team_cs.protoncmd_cs.lobby
+enum.protopublic.protocommon.proto"D
+ds_cluster_ping
+
+ds_cluster (R	dsCluster
+ping (Rping"·
+team_member
+	player_id (RplayerId
+nick (	Rnick
+icon (Ricon#
+sex (2.ncmd_cs.ESexTypeRsex
+level (Rlevel
+pos (Rpos
+rank (Rrank-
+status (2.ncmd_cs.EReadyStatusRstatus 
+vc_avatar_id (R
+vcAvatarId
+vc_frame_id (R	vcFrameId 
+vc_border_id (R
+vcBorderId
+vc_achie_id (R	vcAchieId
+stars (Rstars
+robot (Rrobot
+in_practice (R
+inPractice
+offline (Roffline
+
+ds_cluster (R	dsClusterF
+ds_cluster_ping (2.ncmd_cs.lobby.ds_cluster_pingRdsClusterPing
+rank_pos (RrankPos%
+division_score (RdivisionScore5
+	vc_medals (2.ncmd_cs.medal_card_dataRvcMedals
+open_id (	RopenId
+
+freq_roles (R	freqRoles
+title_id (RtitleId!
+battle_count (RbattleCount
+	win_count (RwinCount
+grade_score (R
+gradeScore"‡
+team_create_req&
+mode (2.ncmd_cs.ERoomModeRmode
+map_id (RmapId
+version (	Rversion/
+special (2.ncmd_cs.ESpecialRoomRspecial&
+rule (2.ncmd_cs.room_ruleRrule
+	rule_code (	RruleCode"d
+team_create_res
+code (Rcode&
+mode (2.ncmd_cs.ERoomModeRmode
+map_id (RmapId"(
+team_exit_req
+team_id (RteamId"#
+team_exit_res
+code (Rcode"E
+team_kick_req
+team_id (RteamId
+	player_id (RplayerId"#
+team_kick_res
+code (Rcode"I
+team_invite_req
+team_id (RteamId
+
+player_ids (R	playerIds"D
+team_invite_res
+code (Rcode
+
+player_ids (R	playerIds"X
+team_ready_req
+team_id (RteamId-
+status (2.ncmd_cs.EReadyStatusRstatus"$
+team_ready_res
+code (Rcode"F
+team_apply_req
+team_id (RteamId
+	player_id (RplayerId"$
+team_apply_res
+code (Rcode"¨
+team_mode_ntf
+team_id (RteamId&
+mode (2.ncmd_cs.ERoomModeRmode
+map_id (RmapId&
+rule (2.ncmd_cs.room_ruleRrule
+	rule_code (	RruleCode"o
+team_reply_req
+team_id (RteamId
+	player_id (RplayerId'
+sure (2.ncmd_cs.EReplyTypeRsure"$
+team_reply_res
+code (Rcode"M
+team_trans_leader_req
+team_id (RteamId
+	player_id (RplayerId"+
+team_trans_leader_res
+code (Rcode"M
+team_trans_leader_ntf
+team_id (RteamId
+	leader_id (RleaderId"©
+team_info_ntf
+team_id (RteamId
+	leader_id (RleaderId&
+mode (2.ncmd_cs.ERoomModeRmode4
+members (2.ncmd_cs.lobby.team_memberRmembers
+map_id (RmapId
+	room_code (RroomCode
+
+difficulty (R
+difficulty/
+special (2.ncmd_cs.ESpecialRoomRspecial&
+rule	 (2.ncmd_cs.room_ruleRrule:
+setting
+ (2 .ncmd_cs.lobby.room_setting_infoRsetting
+	rule_code (	RruleCode"Û
+team_invite_ntf
+team_id (RteamId
+	player_id (RplayerId
+nick (	Rnick
+icon (Ricon
+rank (Rrank+
+type (2.ncmd_cs.ETeamApplyTypeRtype&
+mode (2.ncmd_cs.ERoomModeRmode
+rank_pos (RrankPos"^
+team_exit_ntf
+	player_id (RplayerId0
+reason (2.ncmd_cs.ETeamExitReasonRreason",
+team_kick_ntf
+	player_id (RplayerId"Z
+ready_status
+	player_id (RplayerId-
+status (2.ncmd_cs.EReadyStatusRstatus"E
+team_ready_ntf3
+readys (2.ncmd_cs.lobby.ready_statusRreadys"P
+team_member_offline_ntf
+	player_id (RplayerId
+offline (Roffline"D
+team_enter_ntf2
+member (2.ncmd_cs.lobby.team_memberRmember"~
+team_reply_ntf'
+sure (2.ncmd_cs.EReplyTypeRsure
+	player_id (RplayerId
+nick (	Rnick
+icon (Ricon"±
+team_apply_ntf
+	player_id (RplayerId
+nick (	Rnick
+icon (Ricon
+rank (Rrank+
+type (2.ncmd_cs.ETeamApplyTypeRtype
+rank_pos (RrankPos"u
+team_apply_reply_req
+team_id (RteamId
+	player_id (RplayerId'
+sure (2.ncmd_cs.EReplyTypeRsure"*
+team_apply_reply_res
+code (Rcode"Ñ
+team_apply_reply_ntf'
+sure (2.ncmd_cs.EReplyTypeRsure
+	player_id (RplayerId
+nick (	Rnick
+icon (Ricon"F
+team_query_req
+team_id (RteamId
+	target_id (RtargetId"’
+team_query_res
+code (Rcode
+team_id (RteamId
+	leader_id (RleaderId&
+mode (2.ncmd_cs.ERoomModeRmode4
+members (2.ncmd_cs.lobby.team_memberRmembers
+	in_battle (RinBattle"¨
+team_mode_req
+team_id (RteamId&
+mode (2.ncmd_cs.ERoomModeRmode
+map_id (RmapId&
+rule (2.ncmd_cs.room_ruleRrule
+	rule_code (	RruleCode"#
+team_mode_res
+code (Rcode")
+team_begin_req
+team_id (RteamId"T
+team_begin_res
+code (Rcode.
+need_update_players (RneedUpdatePlayers"â
+team_switch_req
+team_id (RteamId
+pos (Rpos
+	target_id (RtargetId.
+pattern (2.ncmd_cs.ESwitchTypeRpattern"%
+team_switch_res
+code (Rcode"^
+team_switch_ntf
+team_id (RteamId2
+player (2.ncmd_cs.lobby.team_memberRplayer"Ü
+team_switch_answer_req
+team_id (RteamId"
+tar_player_id (RtarPlayerId
+tar_pos (RtarPos
+answer (Ranswer",
+team_switch_answer_res
+code (Rcode"ß
+team_robot_req
+team_id (RteamId
+
+difficulty (R
+difficulty
+count (Rcount
+team (Rteam2
+
+robot_type (2.ncmd_cs.ERobotTypeR	robotType"$
+team_robot_res
+code (Rcode"N
+team_enter_practice_req3
+
+train_type (2.ncmd_cs.GuideBattleR	trainType"b
+team_enter_practice_res
+code (Rcode3
+
+train_type (2.ncmd_cs.GuideBattleR	trainType"6
+team_enter_practice_ntf
+	player_id (RplayerId"
+team_leave_practice_req"-
+team_leave_practice_res
+code (Rcode"6
+team_leave_practice_ntf
+	player_id (RplayerId"-
+team_enter_req
+	room_code (RroomCode"$
+team_enter_res
+code (Rcode" 
+play_mode_data/
+	play_mode (2.ncmd_cs.EPlayModeRplayMode
+
+match_open (R	matchOpen
+	rank_open (RrankOpen!
+contest_open (RcontestOpen
+
+time_limit (R	timeLimit
+
+start_time (R	startTime
+end_time (RendTime
+	start_sec (RstartSec
+end_sec	 (RendSec
+week_day
+ (RweekDay"ü
+skill_open_data/
+	play_mode (2.ncmd_cs.EPlayModeRplayMode
+
+skill_type (R	skillType
+open (Ropen
+
+time_limit (R	timeLimit
+
+start_time (R	startTime
+end_time (RendTime
+week_day (RweekDay
+	start_sec (RstartSec
+end_sec	 (RendSec"W
+room_mode_data/
+	game_mode (2.ncmd_cs.ERoomModeRgameMode
+level (Rlevel"‰
+map_sync_ntf
+map_ids (RmapIds<
+
+mode_datas (2.ncmd_cs.lobby.play_mode_dataR	modeDatas?
+skill_datas (2.ncmd_cs.lobby.skill_open_dataR
+skillDatas<
+
+room_datas (2.ncmd_cs.lobby.room_mode_dataR	roomDatas"4
+team_robot_set_req
+
+difficulty (R
+difficulty"(
+team_robot_set_res
+code (Rcode"4
+team_robot_set_ntf
+
+difficulty (R
+difficulty"
+leave_settle_req"&
+leave_settle_res
+code (Rcode"9
+practice_remind_req"
+tar_player_id (RtarPlayerId")
+practice_remind_res
+code (Rcode"2
+practice_remind_ntf
+	player_id (RplayerId"1
+practice_remind_reply_req
+agree (Ragree"/
+practice_remind_reply_res
+code (Rcode"N
+practice_remind_reply_ntf
+	player_id (RplayerId
+agree (Ragree"
+team_gen_room_code_req"I
+team_gen_room_code_res
+code (Rcode
+	room_code (RroomCode"¨
+team_report_ds_ping_req
+
+ds_cluster (R	dsClusterF
+ds_cluster_ping (2.ncmd_cs.lobby.ds_cluster_pingRdsClusterPing*
+human_manual_flag (RhumanManualFlag"-
+team_report_ds_ping_res
+code (Rcode"ó
+room_profile
+team_id (RteamId
+	room_name (	RroomName
+map_id (RmapId/
+	play_mode (2.ncmd_cs.EPlayModeRplayMode
+total (Rtotal
+count (Rcount
+need_passwd (R
+needPasswd
+leader_name	 (	R
+leaderName
+	leader_id
+ (RleaderId
+custom_rule (R
+customRule,
+status (2.ncmd_cs.ERoomStatusRstatus
+
+half_enter (R	halfEnter/
+visible (2.ncmd_cs.ERoomVisableRvisible#
+watcher_count (RwatcherCount
+	rule_code (	RruleCode
+
+watch_slot (R	watchSlot"
+room_list_req"ä
+room_list_res
+code (Rcode1
+rooms (2.ncmd_cs.lobby.room_profileRrooms2
+	sync_flag (2.ncmd_cs.EMsgSyncFlagRsyncFlag"π
+room_setting_info
+	room_name (	RroomName
+
+half_enter (R	halfEnter/
+visible (2.ncmd_cs.ERoomVisableRvisible
+need_passwd (R
+needPasswd
+passwd (	Rpasswd"R
+room_profile_set_req:
+setting (2 .ncmd_cs.lobby.room_setting_infoRsetting"*
+room_profile_set_res
+code (Rcode"A
+room_enter_req
+team_id (RteamId
+passwd (	Rpasswd"G
+room_enter_res
+code (Rcode!
+passwd_error (RpasswdError"Y
+player_rule_info
+index (Rindex
+name (	Rname
+	rule_code (	RruleCode"K
+room_rule_sync_ntf5
+rules (2.ncmd_cs.lobby.player_rule_infoRrules"o
+room_rule_save_req
+index (Rindex&
+rule (2.ncmd_cs.room_ruleRrule
+	rule_code (	RruleCode"]
+room_rule_save_res
+code (Rcode3
+rule (2.ncmd_cs.lobby.player_rule_infoRrule")
+room_rule_del_req
+index (Rindex"=
+room_rule_del_res
+code (Rcode
+index (Rindex"*
+room_rule_code_req
+index (Rindex"]
+room_rule_code_res
+code (Rcode3
+rule (2.ncmd_cs.lobby.player_rule_infoRrule"a
+room_rule_query_req
+	rule_code (	RruleCode
+team_id (RteamId
+index (Rindex"p
+room_rule_query_res
+code (Rcode&
+rule (2.ncmd_cs.room_ruleRrule
+
+owner_nick (	R	ownerNick"π
+room_rule_profile_info
+	rule_code (	RruleCode
+	rule_name (	RruleName
+
+owner_nick (	R	ownerNick/
+	play_mode (2.ncmd_cs.EPlayModeRplayMode
+map_id (RmapId"z
+hot_rule_profile_infoB
+	rule_info (2%.ncmd_cs.lobby.room_rule_profile_infoRruleInfo
+
+hot_degree (R	hotDegree"
+daily_hot_rule_list_req"g
+daily_hot_rule_list_res
+code (Rcode8
+list (2$.ncmd_cs.lobby.hot_rule_profile_infoRlist"
+weekly_hot_rule_list_req"h
+weekly_hot_rule_list_res
+code (Rcode8
+list (2$.ncmd_cs.lobby.hot_rule_profile_infoRlist"R
+collect_rule_list_ntf9
+list (2%.ncmd_cs.lobby.room_rule_profile_infoRlist"4
+collect_room_rule_req
+	rule_code (	RruleCode"f
+collect_room_rule_res
+code (Rcode9
+info (2%.ncmd_cs.lobby.room_rule_profile_infoRinfo"6
+remove_collect_rule_req
+	rule_code (	RruleCode"J
+remove_collect_rule_res
+code (Rcode
+	rule_code (	RruleCode".
+room_ban_tips_ntf
+ban_tips (	RbanTips"2
+teams_brief_query_req
+team_ids (RteamIds"Ö
+
+team_brief
+team_id (RteamId
+mode (Rmode!
+player_count (RplayerCount,
+total_player_count (RtotalPlayerCount!
+min_division (RminDivision!
+max_division (RmaxDivision
+status (Rstatus
+	player_id (RplayerId"g
+teams_brief_query_res
+code (Rcode:
+team_briefs (2.ncmd_cs.lobby.team_briefR
+teamBriefs"
+team_one_more_battle_req".
+team_one_more_battle_res
+code (Rcode"z
+team_one_more_battle_ntf
+	player_id (RplayerIdA
+status (2).ncmd_cs.EOneMoreBattleTeamMateStatusTypeRstatus"V
+#team_one_more_battle_invalidate_ntf
+reason (Rreason
+team_id (RteamIdbproto3
+ù
+lobby_vcard_cs.protoncmd_cs.lobbycommon.proto"l
+self_vcard_update_req!
+resource_ids (RresourceIds0
+medals (2.ncmd_cs.medal_card_dataRmedals"+
+self_vcard_update_res
+code (Rcode"x
+vcard_resource_info
+resource_id (R
+resourceId
+expire_time (R
+expireTime
+obtain_time (R
+obtainTime"[
+vcard_resource_sync_ntf@
+	resources (2".ncmd_cs.lobby.vcard_resource_infoR	resources"∏
+
+title_info
+title_id (RtitleId
+	rank_type (RrankType
+sub_type (RsubType
+	city_code (RcityCode
+rank_pos (RrankPos
+expire_time (R
+expireTime"J
+title_sync_ntf8
+
+title_list (2.ncmd_cs.lobby.title_infoR	titleList"-
+title_update_req
+title_id (RtitleId"&
+title_update_res
+code (Rcode"
+get_title_req"
+get_title_res
+code (Rcode 
+cur_title_id (R
+curTitleId8
+
+title_list (2.ncmd_cs.lobby.title_infoR	titleListbproto3

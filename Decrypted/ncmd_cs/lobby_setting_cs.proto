@@ -1,0 +1,76 @@
+syntax = "proto3";
+
+package ncmd_cs.lobby;
+
+message function_open_cfg {
+  uint32 func_id = 1;
+  uint32 open_type = 2;
+  int64 start_time = 3;
+  int64 end_time = 4;
+  string param = 5;
+  int32 func_type = 6;
+  int32 type_order = 7;
+}
+
+message function_open_list_req {
+  uint32 func_id = 1;
+}
+
+message function_open_list_res {
+  uint32 code = 1;
+  repeated .ncmd_cs.lobby.function_open_cfg func_list = 2;
+}
+
+message function_open_list_ntf {
+  repeated .ncmd_cs.lobby.function_open_cfg func_list = 1;
+}
+
+message setting_sync_req {
+  uint32 key = 1;
+}
+
+message setting_item {
+  uint32 key = 1;
+  int32 value = 2;
+}
+
+message setting_sync_res {
+  uint32 code = 1;
+  repeated .ncmd_cs.lobby.setting_item setting_list = 2;
+  uint32 is_sync = 3;
+}
+
+message setting_sync_ntf {
+  repeated .ncmd_cs.lobby.setting_item setting_list = 1;
+  uint32 is_sync = 2;
+}
+
+message setting_update_req {
+  repeated .ncmd_cs.lobby.setting_item setting_list = 1;
+  uint32 is_sync = 2;
+}
+
+message setting_update_res {
+  uint32 code = 1;
+}
+
+message set_player_setting_req {
+  repeated uint32 keys = 1;
+  repeated int64 values = 2;
+}
+
+message set_player_setting_res {
+  uint32 code = 1;
+  repeated int64 settings = 2;
+}
+
+message get_player_setting_req {
+  int64 player_id = 1;
+}
+
+message get_player_setting_res {
+  uint32 code = 1;
+  int64 player_id = 2;
+  repeated int64 settings = 3;
+}
+

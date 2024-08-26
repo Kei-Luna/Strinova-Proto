@@ -1,0 +1,111 @@
+syntax = "proto3";
+
+package ncmd_cs.lobby;
+
+import "common.proto";
+import "enum.proto";
+import "public.proto";
+
+message battlepass_info_ntf {
+  bool battlepass_vip = 1;
+  repeated int32 senior_rewards = 2;
+  repeated int32 explore_rewards = 3;
+  repeated int32 clueboard_rewards = 4;
+  bool battlepass_super = 5;
+  int64 vip_buy_time = 6;
+}
+
+message battlepass_clueboard_req {
+  int32 clue_id = 1;
+}
+
+message battlepass_clueboard_res {
+  uint32 code = 1;
+  int32 clue_id = 2;
+}
+
+message battlepass_reward_req {
+  int32 level = 1;
+  bool vip = 2;
+}
+
+message battlepass_reward_res {
+  uint32 code = 1;
+  int32 level = 2;
+  bool vip = 3;
+}
+
+message battlepass_vip_ntf {
+  bool battlepass_vip = 1;
+  bool battlepass_super = 2;
+  int64 vip_buy_time = 3;
+}
+
+message battlepass_task_progress_ntf {
+  repeated int32 drop_task_ids = 1;
+  repeated .ncmd_cs.task_info update_task_datas = 2;
+  uint32 day_task_refresh_cnt = 3;
+}
+
+message battlepass_task_change_req {
+  int32 tar_task_id = 1;
+}
+
+message battlepass_task_change_res {
+  uint32 code = 1;
+  int32 old_task_id = 2;
+  .ncmd_cs.task_info new_task_data = 3;
+  uint32 day_task_refresh_cnt = 4;
+}
+
+message battlepass_take_prize_ntf {
+  .ncmd_cs.EBattlePassPrizeMode module_id = 1;
+  string context = 2;
+  .ncmd_cs.obtain_data obtain_list = 3;
+}
+
+message battlepass_season_ntf {
+  int32 season_id = 1;
+  int64 season_start_time = 2;
+  int64 season_finish_time = 3;
+  int64 day_flush_time = 4;
+  int32 week_cnt = 5;
+}
+
+message battlepass_cloister {
+  int32 id = 1;
+}
+
+message battlepass_cloister_req {
+}
+
+message battlepass_cloister_res {
+  uint32 code = 1;
+  repeated .ncmd_cs.lobby.battlepass_cloister cloisters = 2;
+}
+
+message battlepass_cloister_read_req {
+  int32 id = 1;
+}
+
+message battlepass_cloister_read_res {
+  int32 code = 1;
+  int32 id = 2;
+  repeated .ncmd_cs.lobby.battlepass_cloister cloisters = 3;
+}
+
+message battlepass_reward_all_req {
+}
+
+message battlepass_reward_all_res {
+  uint32 code = 1;
+}
+
+message task_pass_req {
+  uint32 task_id = 1;
+}
+
+message task_pass_res {
+  uint32 code = 1;
+}
+

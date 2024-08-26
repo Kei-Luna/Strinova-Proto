@@ -1,0 +1,132 @@
+syntax = "proto3";
+
+package ncmd_cs;
+
+import "enum.proto";
+
+message behavior {
+  int32 behavior_id = 1;
+  int32 value = 2;
+}
+
+message task_info {
+  int32 task_id = 1;
+  .ncmd_cs.ETaskType task_type = 2;
+  .ncmd_cs.ETaskState state = 3;
+  repeated .ncmd_cs.behavior progresses = 4;
+}
+
+message assists_info {
+  uint64 target_id = 1;
+  int32 assists_num = 2;
+}
+
+message ds_settle_player_info {
+  uint64 player_id = 1;
+  .ncmd_cs.ERoomCamp team_id = 2;
+  int32 kill_num = 3;
+  int32 relive_num = 4;
+  int32 assists_num = 5;
+  int32 dead_num = 6;
+  int32 scores = 7;
+  int32 damage = 8;
+  int32 cures = 9;
+  bool on_hook = 10;
+  .ncmd_cs.EWinType win = 11;
+  bool mvp = 12;
+  uint32 res_score = 13;
+  uint32 hit_head = 14;
+  uint32 hit_count = 15;
+  int32 place_bomb_num = 17;
+  int32 remove_bomb_num = 18;
+  repeated .ncmd_cs.ds_settle_role_info roles = 19;
+  uint32 defeat_num = 20;
+  uint32 lift_up_num = 22;
+  string nick = 23;
+  int32 icon = 24;
+  repeated .ncmd_cs.EPlayBehaviorType play_behavior = 38;
+  int32 mmr = 39;
+  uint32 mine = 40;
+  uint32 offline_time = 41;
+  uint32 hang_up_time = 42;
+  uint32 escape_num = 43;
+  repeated .ncmd_cs.ENegativeBehaviorType negative_behavior = 44;
+  bool smvp = 45;
+  uint32 mine_ext = 46;
+  uint32 car_forward_time = 47;
+  uint32 car_back_time = 48;
+  uint32 car_useful_time = 49;
+  uint32 skill_assist = 50;
+  uint32 skill_hit = 51;
+  uint32 bear_damage = 52;
+  uint32 personal_score = 53;
+  uint32 strategy_score = 54;
+  uint32 teamwork_score = 55;
+  repeated .ncmd_cs.assists_info assists_list = 56;
+  uint32 division_score = 57;
+  uint64 from_team_id = 58;
+  uint32 fly_distance = 59;
+  uint32 steal_mine = 60;
+  uint32 skill_damage = 61;
+  uint32 max_kill_per_life = 62;
+  uint32 melee_kill = 63;
+  uint32 skill_kill = 64;
+  uint32 penta_kill = 65;
+  uint32 string_time = 66;
+  uint32 hu_num = 67;
+  uint32 vc_avatar_id = 68;
+  uint32 vc_frame_id = 69;
+  uint32 vc_border_id = 70;
+  uint32 level = 71;
+  uint32 rank = 72;
+  uint32 team_Player_num = 73;
+}
+
+message ds_round_settle_info {
+  .ncmd_cs.ERoundType round_type = 1;
+  repeated .ncmd_cs.ds_settle_player_info players = 2;
+}
+
+message ds_settle_role_info {
+  uint32 role_id = 1;
+  uint32 play_time = 2;
+  int32 role_skin_id = 3;
+  int32 gun_skin_id = 4;
+  bool is_final = 5;
+  int32 round = 6;
+  int32 kill_num = 7;
+  int32 relive_num = 8;
+  int32 assists_num = 9;
+  int32 dead_num = 10;
+  int32 scores = 11;
+  int32 damage = 12;
+  int32 cures = 13;
+  int32 win_num = 14;
+  int32 fail_num = 15;
+  repeated uint32 custom_mask_list = 17;
+  uint32 hit_head = 18;
+  uint32 hit_count = 19;
+  uint32 kill_head_num = 20;
+  uint32 release_skills = 21;
+}
+
+message room_one_rule {
+  uint32 attr_id = 1;
+  repeated uint32 value = 2;
+  .ncmd_cs.ERuleCampType camp_type = 3;
+  uint32 camp_id = 4;
+}
+
+message role_rule {
+  uint32 role_id = 1;
+  .ncmd_cs.room_one_rule rule = 2;
+}
+
+message room_rule {
+  string rule_name = 1;
+  string rule_desc = 2;
+  repeated .ncmd_cs.room_one_rule rules = 3;
+  repeated .ncmd_cs.role_rule role_rules = 4;
+  string custom_text = 5;
+}
+

@@ -1,0 +1,330 @@
+syntax = "proto3";
+
+package ncmd_cs.lobby;
+
+import "enum.proto";
+import "lobby_role_cs.proto";
+import "lobby_bag_cs.proto";
+
+message personality_info {
+  int32 id = 1;
+  .ncmd_cs.EPersonalityType personality_type = 2;
+}
+
+message communication_info {
+  int32 id = 1;
+  .ncmd_cs.ECommunicationType communication_type = 2;
+}
+
+message role_set_communications_req {
+  int32 role_id = 1;
+  int32 index = 2;
+  .ncmd_cs.ECommunicationType communication_type = 3;
+  int32 id = 4;
+}
+
+message role_set_communications_res {
+  uint32 code = 1;
+  int32 role_id = 2;
+  repeated .ncmd_cs.lobby.communication_info communications = 3;
+}
+
+message role_set_personality_req {
+  int32 role_id = 1;
+  int32 index = 2;
+  int32 id = 4;
+}
+
+message role_set_personality_res {
+  uint32 code = 1;
+  int32 role_id = 2;
+  repeated .ncmd_cs.lobby.personality_info personalities = 3;
+  int32 index = 4;
+  int32 id = 5;
+}
+
+message role_swap_personality_req {
+  int32 role_id = 1;
+  int32 slot1 = 2;
+  int32 slot2 = 3;
+}
+
+message role_swap_personality_res {
+  uint32 code = 1;
+  int32 role_id = 2;
+  int32 slot1 = 3;
+  int32 slot2 = 4;
+}
+
+message weapon_slot {
+  uint64 weapon_uuid = 1;
+  int32 slot_pos = 2;
+  int32 weapon_id = 3;
+}
+
+message role_prepare_data {
+  int32 role_id = 1;
+  repeated .ncmd_cs.lobby.weapon_slot weapons = 2;
+  repeated .ncmd_cs.lobby.decal_info decals = 3;
+  repeated .ncmd_cs.lobby.communication_info communications = 4;
+  repeated .ncmd_cs.lobby.personality_info personalities = 5;
+  int32 skin_id = 6;
+}
+
+message role_prepare_ntf {
+  int32 role_id = 1;
+  repeated .ncmd_cs.lobby.weapon_slot weapons = 2;
+  repeated .ncmd_cs.lobby.role_prepare_data roles = 3;
+}
+
+message decal_info {
+  int32 decal_pos = 1;
+  uint64 decal_uuid = 2;
+  int32 decal_id = 3;
+}
+
+message role_prepare_sync_ntf {
+  repeated .ncmd_cs.lobby.role_prepare_data roles = 1;
+  repeated .ncmd_cs.lobby.decal_info decals = 2;
+  uint64 fluttering_uuid = 3;
+}
+
+message equip_weapon_req {
+  int32 role_id = 1;
+  uint64 weapon_uuid = 2;
+  int32 slot_pos = 3;
+  int32 weapon_id = 4;
+  int32 advanced_id = 5;
+  .ncmd_cs.EOccasionType occasion_type = 6;
+}
+
+message equip_weapon_res {
+  uint32 code = 1;
+  int32 role_id = 2;
+  uint64 weapon_uuid = 3;
+  int32 slot_pos = 4;
+  int32 weapon_id = 5;
+  repeated .ncmd_cs.lobby.weapon_slot weapons = 6;
+  int32 advanced_id = 7;
+}
+
+message equip_multi_weapon_req {
+  repeated .ncmd_cs.lobby.equip_weapon_req reqs = 1;
+}
+
+message equip_multi_weapon_res {
+  uint32 code = 1;
+}
+
+message equip_decal_req {
+  int32 decal_pos = 1;
+  uint64 decal_uuid = 2;
+  int32 role_id = 3;
+  int32 decal_id = 4;
+}
+
+message equip_decal_res {
+  uint32 code = 1;
+  int32 decal_pos = 2;
+  uint64 decal_uuid = 3;
+  int32 role_id = 4;
+  int32 decal_id = 5;
+}
+
+message equip_fluttering_req {
+  uint64 fluttering_uuid = 1;
+}
+
+message equip_fluttering_res {
+  uint32 code = 1;
+  uint64 fluttering_uuid = 2;
+}
+
+message equip_weapon_advanced_skin_req {
+  uint32 weapon_id = 1;
+  uint32 advanced_skin_id = 2;
+}
+
+message equip_weapon_advanced_skin_res {
+  uint32 code = 1;
+  uint32 weapon_id = 2;
+  uint32 advanced_skin_id = 3;
+}
+
+message equip_weapon_fx_req {
+  uint32 weapon_id = 1;
+  uint32 fx_type = 2;
+  uint32 fx_id = 3;
+}
+
+message equip_weapon_fx_res {
+  uint32 code = 1;
+  uint32 weapon_id = 2;
+  uint32 fx_type = 3;
+  uint32 fx_id = 4;
+}
+
+message role_skin_select_req {
+  int32 role_id = 1;
+  int32 role_skin_id = 2;
+  int32 advanced_skin_id = 3;
+  .ncmd_cs.EOccasionType occasion_type = 4;
+}
+
+message role_skin_select_res {
+  uint32 code = 1;
+  int32 role_id = 2;
+  int32 role_skin_id = 3;
+  int32 advanced_skin_id = 4;
+}
+
+message role_skin_select_ntf {
+  int32 role_id = 1;
+  int32 role_skin_id = 2;
+}
+
+message cafe_privilege_cfg_ntf {
+  uint32 cafe_privilege = 1;
+  repeated int32 items = 2;
+}
+
+message equip_all_personality_req {
+  uint32 role_id = 1;
+}
+
+message equip_all_personality_res {
+  uint32 code = 1;
+  uint32 role_id = 2;
+}
+
+message equip_all_decal_req {
+  uint32 role_id = 1;
+}
+
+message equip_all_decal_res {
+  uint32 code = 1;
+  uint32 role_id = 2;
+}
+
+message prepare_expire_check_req {
+  repeated uint32 roles = 1;
+}
+
+message prepare_expire_check_res {
+  uint32 code = 1;
+  repeated uint32 roles = 2;
+}
+
+message all_free_cfg {
+  uint32 id = 1;
+  uint32 up_time = 2;
+  uint32 down_time = 3;
+  repeated uint32 items = 4;
+}
+
+message prepare_all_free_cfg_ntf {
+  repeated .ncmd_cs.lobby.all_free_cfg free_cfg_list = 1;
+}
+
+message prepare_favorite_skin_data {
+  uint32 role_id = 1;
+  repeated uint32 skin_list = 2;
+  uint32 random_skin_id = 3;
+}
+
+message prepare_favorite_data_ntf {
+  repeated .ncmd_cs.lobby.prepare_favorite_skin_data role_list = 1;
+  repeated .ncmd_cs.lobby.prepare_favorite_skin_data weapon_list = 2;
+  bool is_suit = 3;
+}
+
+message prepare_favorite_add_skin_req {
+  uint32 role_id = 1;
+  repeated uint32 skin_list = 2;
+  uint32 skin_type = 3;
+}
+
+message prepare_favorite_add_skin_res {
+  uint32 code = 1;
+  uint32 role_id = 2;
+  repeated uint32 skin_list = 3;
+  uint32 skin_type = 4;
+}
+
+message prepare_favorite_delete_skin_req {
+  uint32 role_id = 1;
+  repeated uint32 skin_list = 2;
+  uint32 skin_type = 3;
+}
+
+message prepare_favorite_delete_skin_res {
+  uint32 code = 1;
+  uint32 role_id = 2;
+  repeated uint32 skin_list = 3;
+  uint32 skin_type = 4;
+}
+
+message prepare_favorite_open_suit_req {
+  bool is_suit = 1;
+}
+
+message prepare_favorite_open_suit_res {
+  uint32 code = 1;
+  bool is_suit = 2;
+}
+
+message favorite_random_result {
+  uint32 role_id = 1;
+  uint32 random_role_skin_id = 2;
+  uint32 random_weapon_skin_id = 3;
+}
+
+message prepare_favorite_random_ntf {
+  repeated .ncmd_cs.lobby.favorite_random_result roles = 1;
+}
+
+message skin_share_req {
+  uint64 target_id = 1;
+}
+
+message skin_share_res {
+  uint32 code = 1;
+}
+
+message skin_share_req_ntf {
+  uint64 source_player_id = 1;
+}
+
+message skin_share_reply_req {
+  bool reply = 1;
+  uint64 source_player_id = 2;
+}
+
+message skin_share_reply_res {
+  uint32 code = 1;
+}
+
+message skin_share_info {
+  repeated .ncmd_cs.lobby.role_skin_info role_skin_list = 1;
+  repeated .ncmd_cs.lobby.weapon weapon_list = 2;
+  repeated .ncmd_cs.lobby.item fluttering_list = 3;
+  repeated .ncmd_cs.lobby.item weapon_fx_list = 4;
+}
+
+message skin_share_ntf {
+  bool result = 1;
+  uint64 player_id = 2;
+  .ncmd_cs.lobby.skin_share_info skin_share_info = 3;
+}
+
+message skin_share_data_req {
+  int32 role_id = 1;
+}
+
+message skin_share_data_res {
+  uint32 code = 1;
+  uint64 player_id = 2;
+  int32 role_id = 3;
+  .ncmd_cs.lobby.skin_share_info skin_share_info = 4;
+}
+

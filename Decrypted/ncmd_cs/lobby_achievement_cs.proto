@@ -1,0 +1,56 @@
+syntax = "proto3";
+
+package ncmd_cs.lobby;
+
+import "enum.proto";
+import "common.proto";
+
+message achievement_list_req {
+  uint64 player_id = 1;
+}
+
+message achievement {
+  uint32 id = 1;
+  uint32 progress = 2;
+  uint32 level = 3;
+}
+
+message achievement_type {
+  .ncmd_cs.EAchieveType type = 1;
+  float rank = 2;
+  repeated .ncmd_cs.lobby.achievement achievements = 3;
+  uint32 reward_reach_lv = 4;
+  uint32 reward_take_lv = 5;
+}
+
+message achievement_list_res {
+  uint32 code = 1;
+  repeated .ncmd_cs.lobby.achievement_type achievement_list = 2;
+}
+
+message achievement_list_sync_ntf {
+  repeated .ncmd_cs.lobby.achievement_type achievement_list = 1;
+}
+
+message achievement_level_reward_req {
+  .ncmd_cs.EAchieveType type = 1;
+  uint32 level = 2;
+}
+
+message achievement_level_reward_res {
+  uint32 code = 1;
+  repeated .ncmd_cs.item_pack items = 2;
+  .ncmd_cs.EAchieveType type = 3;
+  uint32 level = 4;
+}
+
+message achievement_reward_req {
+  uint32 id = 1;
+}
+
+message achievement_reward_res {
+  uint32 code = 1;
+  repeated .ncmd_cs.item_pack items = 2;
+  uint32 id = 3;
+}
+

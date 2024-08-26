@@ -1,0 +1,177 @@
+syntax = "proto3";
+
+package ncmd_cs.lobby;
+
+message role_cfg {
+  int32 role_id = 1;
+}
+
+message role_info {
+  int32 role_id = 1;
+  int32 skin_id = 2;
+  int32 exp = 4;
+  int64 expire_time = 5;
+  int64 obtain_time = 6;
+  bool owned = 7;
+  repeated int32 reddots = 9;
+}
+
+message role_cfg_sync_req {
+  string version = 1;
+}
+
+message role_cfg_sync_res {
+  uint32 code = 1;
+  string version = 2;
+  repeated .ncmd_cs.lobby.role_cfg diff_list = 3;
+}
+
+message role_cfg_sync_ntf {
+  string version = 1;
+  repeated .ncmd_cs.lobby.role_cfg role_cfg = 2;
+}
+
+message role_sync_req {
+  uint64 player_id = 1;
+}
+
+message role_sync_res {
+  uint32 code = 1;
+  uint64 player_id = 2;
+  repeated .ncmd_cs.lobby.role_info role_list = 3;
+}
+
+message role_special_channel {
+  uint32 type = 1;
+  uint32 id = 2;
+}
+
+message role_special_obtained_cfg {
+  uint32 role_id = 1;
+  repeated .ncmd_cs.lobby.role_special_channel channels = 2;
+}
+
+message role_sync_ntf {
+  uint64 player_id = 1;
+  repeated .ncmd_cs.lobby.role_info role_list = 2;
+  repeated .ncmd_cs.lobby.role_special_obtained_cfg role_cfg_list = 3;
+}
+
+message role_skin_cfg {
+  int32 role_skin_id = 1;
+}
+
+message role_skin_cfg_sync_req {
+  string version = 1;
+}
+
+message role_skin_cfg_sync_res {
+  uint32 code = 1;
+  string version = 2;
+  repeated .ncmd_cs.lobby.role_skin_cfg diff_list = 3;
+}
+
+message role_skin_cfg_sync_ntf {
+  string version = 1;
+  repeated .ncmd_cs.lobby.role_skin_cfg role_skin_cfg = 2;
+}
+
+message role_skin_sync_req {
+  uint64 player_id = 1;
+}
+
+message role_skin_info {
+  int32 role_skin_id = 1;
+  int64 expire_time = 2;
+  int64 obtain_time = 3;
+  repeated int32 advanced_skins = 4;
+  int32 advanced_skin_id = 5;
+  int32 flutter_id = 6;
+}
+
+message role_skin_sync_res {
+  uint32 code = 1;
+  uint64 player_id = 2;
+  repeated .ncmd_cs.lobby.role_skin_info role_skin_list = 3;
+}
+
+message role_skin_sync_ntf {
+  uint64 player_id = 1;
+  repeated .ncmd_cs.lobby.role_skin_info role_skin_list = 2;
+}
+
+message week_free_roles_sync_req {
+}
+
+message week_free_roles_update_ntf {
+}
+
+message week_free_roles_sync_res {
+  int32 code = 1;
+  uint64 start_time = 2;
+  uint64 end_time = 3;
+  repeated int32 role_ids = 4;
+}
+
+message role_change_ntf {
+  repeated .ncmd_cs.lobby.role_info change_list = 1;
+}
+
+message role_skin_change_ntf {
+  repeated .ncmd_cs.lobby.role_skin_info change_list = 1;
+}
+
+message role_voice_sync_ntf {
+  repeated int32 voice_ids = 1;
+}
+
+message role_voice_update_ntf {
+  repeated int32 add_voice_ids = 1;
+  repeated int32 remove_voice_ids = 2;
+}
+
+message role_action_sync_ntf {
+  repeated int32 action_ids = 1;
+}
+
+message role_action_update_ntf {
+  repeated int32 add_action_ids = 1;
+  repeated int32 remove_action_ids = 2;
+}
+
+message role_exp_sync_ntf {
+  int32 role_id = 1;
+  int32 exp = 2;
+}
+
+message role_voice_read_req {
+  int32 voice_id = 1;
+}
+
+message role_voice_read_res {
+  uint32 code = 1;
+  int32 voice_id = 2;
+}
+
+message role_select_advanced_skin_req {
+  uint32 skin_id = 1;
+  uint32 advanced_skin_id = 2;
+}
+
+message role_select_advanced_skin_res {
+  uint32 code = 1;
+  uint32 skin_id = 2;
+  uint32 advanced_skin_id = 3;
+}
+
+message role_select_flutter_req {
+  uint32 skin_id = 1;
+  uint32 flutter_id = 2;
+}
+
+message role_select_flutter_res {
+  uint32 code = 1;
+  uint32 skin_id = 2;
+  uint32 flutter_id = 3;
+}
+

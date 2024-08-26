@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package ncmd_cs.lobby;
+
+import "common.proto";
+import "enum.proto";
+
+message attribute_item {
+  uint32 id = 1;
+  string value = 2;
+  string value_type = 3;
+}
+
+message attribute_sync_ntf {
+  repeated .ncmd_cs.lobby.attribute_item items = 1;
+}
+
+message player_level_up_ntf {
+  uint32 old_lv = 1;
+  uint32 new_lv = 2;
+  repeated .ncmd_cs.item_pack items = 3;
+}
+
+message privilege_login_req {
+}
+
+message privilege_login_res {
+  uint32 code = 1;
+}
+
+message ban_attr_item {
+  .ncmd_cs.BanType ban_type = 1;
+  uint64 time = 2;
+  string reason = 3;
+}
+
+message ban_attr_sync_ntf {
+  repeated .ncmd_cs.lobby.ban_attr_item items = 1;
+}
+

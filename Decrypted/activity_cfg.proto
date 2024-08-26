@@ -1,0 +1,630 @@
+syntax = "proto3";
+
+package ncmd_cs.lobby;
+
+message sc_item {
+  int32 item_id = 1;
+  int32 item_cnt = 2;
+}
+
+message activitycnycollectblessingsacc_cfg {
+  int32 id = 1;
+  int32 activity_id = 2;
+  int32 accumulate_compose_count = 3;
+  repeated .ncmd_cs.lobby.sc_item reward_items = 4;
+}
+
+message activitycnycollectblessingbase_cfg {
+  int32 id = 1;
+  int32 activity_id = 2;
+  repeated .ncmd_cs.lobby.sc_item consume_items = 3;
+  int32 gift_item_id = 4;
+  int32 gift_item_num = 5;
+  int32 limit_level = 6;
+  int32 max_wish_coin = 7;
+  int32 max_compose_num = 8;
+  int32 daily_take_away_limit = 9;
+  repeated .ncmd_cs.lobby.sc_item gift_return = 10;
+  int32 wish_coin_task_id = 11;
+}
+
+message activitycnycollectblessingsdrop_cfg {
+  int32 id = 1;
+  int32 activity_id = 2;
+  int32 mode_type = 3;
+  int32 drop_min = 4;
+  int32 drop_max = 5;
+}
+
+message activitycnycollectblessrandom_cfg {
+  int32 id = 1;
+  int32 activity_id = 2;
+  int32 coin_id = 3;
+  int32 weight = 4;
+}
+
+message activitycnyfirestorybase_cfg {
+  int32 id = 1;
+  int32 activity_id = 2;
+  string start_message = 3;
+  string end_message = 4;
+}
+
+message sc_condition {
+  int32 type = 1;
+  int32 param1 = 2;
+  int32 param2 = 3;
+  int32 param3 = 4;
+}
+
+message activitycnyfirestorymilestone_cfg {
+  int32 id = 1;
+  int32 activity_id = 2;
+  int32 condition_type = 3;
+  int32 condition_value = 4;
+  repeated .ncmd_cs.lobby.sc_item reward_items = 5;
+  repeated .ncmd_cs.lobby.sc_condition finish_conditions = 6;
+}
+
+message activitycnyfirestoryshop_cfg {
+  int32 id = 1;
+  int32 activity_id = 2;
+  int32 coin_id = 3;
+  int32 price = 4;
+  int32 purchase_limit = 5;
+  repeated .ncmd_cs.lobby.sc_item shop_items = 6;
+  repeated .ncmd_cs.lobby.sc_condition open_conditions = 7;
+  int32 not_reissue = 8;
+}
+
+message activitycnyfirestory_cfg {
+  int32 id = 1;
+  int32 activity_id = 2;
+  int32 role_id = 3;
+  int32 unlock_item_id = 4;
+  int32 unlock_item_num = 5;
+  repeated .ncmd_cs.lobby.sc_item reward_items = 6;
+  int32 mail_id = 7;
+}
+
+message activitycnyluckylotterygeneral_cfg {
+  int32 id = 1;
+  int32 activity_id = 2;
+  int32 time1 = 3;
+  int32 time2 = 4;
+  repeated int32 level_list = 5;
+  int32 new_year_day = 6;
+  int32 lucky_lottery_id = 7;
+}
+
+message activitycnyluckylotterypool_cfg {
+  int32 id = 1;
+  int32 activity_id = 2;
+  int32 level_id = 3;
+  int32 point = 4;
+  repeated .ncmd_cs.lobby.sc_item items = 5;
+  int32 day = 6;
+}
+
+message activitycommonbase_cfg {
+  int32 id = 1;
+  int32 activity_id = 2;
+  repeated .ncmd_cs.lobby.sc_item reward_items = 3;
+  int32 coin_id = 4;
+  string message_id = 5;
+}
+
+message activitycommonlottery_cfg {
+  int32 id = 1;
+  int32 activity_id = 2;
+  int32 level_id = 3;
+  int32 point = 4;
+  int32 count = 5;
+  int32 unlock_type = 6;
+  int32 unlock_param = 7;
+  repeated .ncmd_cs.lobby.sc_item items = 8;
+}
+
+message activitycommonmilestone_cfg {
+  int32 id = 1;
+  int32 activity_id = 2;
+  int32 condition_type = 3;
+  int32 condition_value = 4;
+  repeated .ncmd_cs.lobby.sc_condition finish_conditions = 5;
+  repeated .ncmd_cs.lobby.sc_item reward_items = 6;
+  int32 connected_story = 7;
+}
+
+message activitycommonshop_cfg {
+  int32 id = 1;
+  int32 activity_id = 2;
+  int32 coin_id = 3;
+  int32 price = 4;
+  int32 purchase_limit = 5;
+  repeated .ncmd_cs.lobby.sc_condition open_conditions = 6;
+  repeated .ncmd_cs.lobby.sc_item shop_items = 7;
+  int32 not_reissue = 8;
+}
+
+message activitycommonstory_cfg {
+  int32 id = 1;
+  int32 activity_id = 2;
+  int32 role_id = 3;
+  int32 unlock_item_id = 4;
+  int32 unlock_item_num = 5;
+  repeated .ncmd_cs.lobby.sc_item reward_items = 6;
+  repeated .ncmd_cs.lobby.sc_condition unlock_conditions = 7;
+}
+
+message activityconcertlevel_cfg {
+  int32 id = 1;
+  int32 activity_id = 2;
+  int32 level_id = 3;
+  int32 pre_level_id = 4;
+  int32 unlock_cost_point = 5;
+  repeated .ncmd_cs.lobby.sc_item items = 6;
+}
+
+message activityconcertstory_cfg {
+  int32 id = 1;
+  int32 activity_id = 2;
+  int32 story_id = 3;
+  int32 unlockid = 4;
+}
+
+message activityconcerttheme_cfg {
+  int32 id = 1;
+  int32 activity_id = 2;
+  int32 point_item_id = 3;
+  int32 shop_item_id = 4;
+  int32 shop_item_num = 5;
+  int32 price = 6;
+  int32 accumulate_point_num = 7;
+  int32 reward_item_id = 8;
+  int32 reward_item_num = 9;
+}
+
+message common_item {
+  int32 item_id = 1;
+  int32 item_cnt = 2;
+}
+
+message activityfirsttopup_cfg {
+  int32 activity_id = 1;
+  int32 top_up_count = 2;
+  repeated .ncmd_cs.lobby.common_item items = 3;
+}
+
+message activityfissionpassword_cfg {
+  int32 id = 1;
+  int32 activity_id = 2;
+  string content = 3;
+}
+
+message activityfissionspeech_cfg {
+  int32 id = 1;
+  int32 activity_id = 2;
+  string speech_content = 3;
+}
+
+message activitymaid2base_cfg {
+  int32 id = 1;
+  int32 activity_id = 2;
+  int32 max_remind_num = 3;
+  int32 max_play_num = 4;
+  int32 single_integral_num = 5;
+  int32 integral_item_id = 6;
+  int32 game_ticket_id = 7;
+}
+
+message activitymaid2roleopen_cfg {
+  int32 id = 1;
+  int32 activity_id = 2;
+  int32 open_time = 3;
+  int32 end_time = 4;
+  int32 chat_chapter = 6;
+  int32 message_event_id = 7;
+}
+
+message activitymaid2shop_cfg {
+  int32 id = 1;
+  int32 activity_id = 2;
+  int32 coin_id = 3;
+  int32 price = 4;
+  int32 purchase_limit = 5;
+  repeated .ncmd_cs.lobby.sc_item shop_items = 6;
+}
+
+message activitysigningeneral_cfg {
+  int32 id = 1;
+  int32 activity_id = 2;
+  int32 repair_sign = 3;
+  int32 re_sign_item_id = 4;
+  int32 re_sign_item_count = 5;
+  int32 show_explain = 6;
+}
+
+message activitysigninpool_cfg {
+  int32 id = 1;
+  int32 activity_id = 2;
+  int32 day = 3;
+  repeated .ncmd_cs.lobby.sc_item items = 4;
+  bool reward_level = 5;
+}
+
+message sta_item {
+  int32 item_id = 1;
+  int32 item_cnt = 2;
+}
+
+message activitystappointment_cfg {
+  int32 id = 1;
+  int32 activity_id = 2;
+  int32 day = 3;
+  repeated .ncmd_cs.lobby.sta_item items = 4;
+}
+
+message activitystmusic_cfg {
+  int32 id = 1;
+  int32 activity_id = 2;
+  int32 day = 3;
+  repeated .ncmd_cs.lobby.common_item items = 4;
+}
+
+message activitytrialfordetectivebase_cfg {
+  int32 id = 1;
+  int32 activity_id = 2;
+  repeated .ncmd_cs.lobby.sc_condition guess_conditions = 3;
+  repeated .ncmd_cs.lobby.sc_condition result_conditions = 4;
+  int32 correct_option = 5;
+  repeated .ncmd_cs.lobby.sc_item reward_items = 6;
+  int32 coin_id = 7;
+  string message_id = 8;
+}
+
+message activity_backflow_cfg {
+  int32 id = 1;
+  int32 activity_id = 2;
+  int32 trigger_day = 3;
+  int32 last_day = 4;
+}
+
+message activity_battledrop_cfg {
+  int32 id = 1;
+  int32 mode_type = 2;
+  int32 init_prob = 3;
+  int32 step_prob = 4;
+  int32 count = 5;
+  int32 item_id = 6;
+}
+
+message activity_battlereward_cfg {
+  int32 id = 1;
+  int32 activity_id = 2;
+  int32 attribute_id = 3;
+  float rate = 4;
+}
+
+message activity_beta_recharge_rebate_cfg {
+  int32 id = 1;
+  int32 activity_id = 2;
+  int32 level = 3;
+  int32 amount_min = 4;
+  int32 amount_max = 5;
+  float rebate_rate = 6;
+}
+
+message items {
+  int32 item_id = 1;
+  int32 item_amount = 2;
+}
+
+message activity_con_login_cfg {
+  int32 id = 1;
+  int32 activity_id = 2;
+  int32 day = 3;
+  repeated .ncmd_cs.lobby.items prize = 4;
+}
+
+message gg_item {
+  int32 item_id = 1;
+  int32 item_cnt = 2;
+}
+
+message share_item {
+  int32 item_id = 1;
+  int32 item_cnt = 2;
+  string item_info = 3;
+}
+
+message activity_fission_cfg {
+  int32 id = 1;
+  int32 activity_id = 2;
+  int32 tutor_lv = 3;
+  int32 student_lv = 4;
+  int32 max_student = 8;
+  int32 student_leave = 9;
+  repeated int32 student_tasks = 10;
+  repeated int32 tutor_tasks = 11;
+  repeated .ncmd_cs.lobby.gg_item items = 12;
+  repeated .ncmd_cs.lobby.share_item share_items = 13;
+  repeated .ncmd_cs.lobby.sc_item tutor_items = 14;
+}
+
+message activity_gallerygleaning_cfg {
+  int32 id = 1;
+  int32 activity_id = 2;
+  int32 item_id = 3;
+  int32 item_num = 4;
+  int32 streak_num = 5;
+  int32 default_box_id = 6;
+}
+
+message activity_ggbox_cfg {
+  int32 id = 1;
+  int32 activity_id = 2;
+  int32 box_id = 3;
+  int32 grid = 4;
+  repeated .ncmd_cs.lobby.gg_item items = 5;
+  bool jackpot = 6;
+}
+
+message condition {
+  int32 cond_type = 1;
+  int32 cond_value = 2;
+}
+
+message activity_invite_card_cfg {
+  int32 id = 1;
+  int32 activity_id = 2;
+  int32 sub_activity_id = 3;
+  repeated .ncmd_cs.lobby.condition conditions = 4;
+  int32 act_code = 5;
+  string activity_name = 6;
+}
+
+message activity_maid_cfg {
+  int32 id = 1;
+  int32 activity_id = 2;
+  int32 max_phase = 3;
+  int32 page_num = 5;
+}
+
+message activity_sc_maid_phase_reward_cfg {
+  int32 id = 1;
+  int32 activity_id = 2;
+  int32 page_id = 3;
+  int32 hero_id = 4;
+  int32 phase = 5;
+  repeated .ncmd_cs.lobby.sc_item items = 6;
+  string phase_des = 7;
+  int32 point_item_id = 8;
+  int32 point_count = 9;
+  string phase_name = 10;
+}
+
+message activity_michelleplaytime_cfg {
+  int32 id = 1;
+  int32 activity_id = 2;
+  int32 consume_id = 3;
+  int32 unlock_num = 4;
+  int32 exchange_num = 5;
+  repeated .ncmd_cs.lobby.common_item items = 6;
+}
+
+message activity_mp_unlock_cfg {
+  int32 id = 1;
+  int32 activity_id = 2;
+  int32 grid = 3;
+  repeated .ncmd_cs.lobby.common_item items = 4;
+}
+
+message activity_midaut_cfg {
+  int32 id = 1;
+  int32 activity_id = 2;
+  int32 point_item_id = 3;
+  int32 max_phase = 4;
+  repeated .ncmd_cs.lobby.sc_item cg_award_items = 5;
+}
+
+message activity_sc_midaut_phase_reward_cfg {
+  int32 id = 1;
+  int32 activity_id = 2;
+  int32 point_count = 3;
+  int32 mooncake_buy_count = 4;
+  repeated .ncmd_cs.lobby.sc_item items = 5;
+  string phase_des = 6;
+}
+
+message activity_midaut_shop_cfg {
+  int32 id = 1;
+  int32 activity_id = 2;
+  int32 mooncake_item_id = 3;
+  int32 point_item_id = 4;
+  int32 price = 5;
+  int32 max_sell_num = 6;
+}
+
+message activity_nationfasion_cfg {
+  int32 id = 1;
+  int32 activity_id = 2;
+  int32 point_item_id = 3;
+}
+
+message activity_nationfasion_shop_cfg {
+  int32 id = 1;
+  int32 activity_id = 2;
+  int32 shop_item_id = 3;
+  int32 point_item_id = 4;
+  int32 price = 5;
+  int32 max_sell_num = 6;
+  int32 red_point = 7;
+  int32 shop_item_num = 8;
+}
+
+message activity_paragraph_cfg {
+  int32 id = 1;
+  int32 paragraph_id = 2;
+  string paragraph_title = 3;
+  string paragraph_des = 4;
+}
+
+message activity_seasondash_cfg {
+  int32 id = 1;
+  int32 activity_id = 2;
+  int32 point_item_id = 3;
+}
+
+message activity_seasondash_shop_cfg {
+  int32 id = 1;
+  int32 activity_id = 2;
+  int32 shop_item_id = 3;
+  int32 shop_item_num = 4;
+  int32 point_item_id = 5;
+  int32 price = 6;
+  int32 max_sell_num = 7;
+  int32 red_point = 8;
+}
+
+message activity_summerconcert_cfg {
+  int32 id = 1;
+  int32 activity_id = 2;
+  int32 max_phase = 3;
+  int32 item_id = 4;
+  int32 item_num = 5;
+  int32 exchange_num = 6;
+}
+
+message activity_sc_phase_reward_cfg {
+  int32 id = 1;
+  int32 activity_id = 2;
+  int32 phase = 3;
+  repeated .ncmd_cs.lobby.sc_item items = 4;
+  string name = 5;
+  string phase_des = 6;
+}
+
+message activity_sc_prize_cfg {
+  int32 id = 1;
+  int32 activity_id = 2;
+  int32 phase = 3;
+  int32 index = 4;
+  bool cue = 6;
+  int32 item_id = 7;
+}
+
+message activity_sc_delivery_cfg {
+  int32 id = 1;
+  int32 activity_id = 2;
+  int32 grid = 3;
+  int32 item_id = 4;
+  int32 item_num = 5;
+}
+
+message activity_tales_cfg {
+  int32 id = 1;
+  int32 activity_id = 2;
+  int32 point_item_id = 3;
+  int32 max_phase = 4;
+  int32 max_chapter = 5;
+  int32 color_min = 6;
+  int32 color_max = 7;
+  int32 activity_start_date_offset = 8;
+}
+
+message activity_sc_tales_phase_reward_cfg {
+  int32 id = 1;
+  int32 activity_id = 2;
+  int32 phase_id = 3;
+  int32 point_item_id = 4;
+  int32 point_count = 5;
+  int32 unlock_count = 6;
+  repeated .ncmd_cs.lobby.sc_item items = 7;
+  string phase_des = 8;
+}
+
+message activity_sc_tales_chapter_cfg {
+  int32 id = 1;
+  int32 activity_id = 2;
+  int32 chapter_id = 3;
+  int32 point_count = 4;
+  repeated .ncmd_cs.lobby.sc_item items = 5;
+  string chapter_title = 6;
+  string chapter_brief_des = 7;
+  string chapter_des1 = 8;
+  string chapter_des2 = 9;
+  repeated int32 color_list = 10;
+}
+
+message activity_tales_shop_cfg {
+  int32 id = 1;
+  int32 activity_id = 2;
+  int32 shop_item_id = 3;
+  int32 shop_item_num = 4;
+  int32 point_item_id = 5;
+  int32 price = 6;
+  int32 max_sell_num = 7;
+}
+
+message activity_tales_draw_grids_cfg {
+  int32 id = 1;
+  int32 activity_id = 2;
+  int32 chapter_id = 3;
+  int32 grid_index = 4;
+}
+
+message activity_tales_login_award_cfg {
+  int32 id = 1;
+  int32 activity_id = 2;
+  int32 reward_id = 3;
+  repeated .ncmd_cs.lobby.sc_item items = 4;
+  string reward_title = 5;
+  string reward_des = 6;
+  string reward_signature = 7;
+}
+
+message activity_welcome_mrds_cfg {
+  int32 id = 1;
+  int32 activity_id = 2;
+  int32 start_time = 3;
+  int32 consume_id = 4;
+  int32 unlock_num = 5;
+  int32 exchange_num = 6;
+  repeated .ncmd_cs.lobby.common_item items = 7;
+  int32 role_id = 8;
+}
+
+message activity_welcome_mrds_award_cfg {
+  int32 id = 1;
+  int32 activity_id = 2;
+  int32 milestone_id = 3;
+  int32 milestone_phase = 4;
+  string milestone_sprite = 5;
+  repeated .ncmd_cs.lobby.common_item items = 6;
+  string phase_des = 7;
+  string phase_despage = 8;
+}
+
+message activity_cfg {
+  int32 id = 1;
+  int32 type = 2;
+  int32 sort = 3;
+  string name = 4;
+  string icon = 5;
+  int32 ready_time = 7;
+  int32 start_time = 8;
+  int32 expire_time = 9;
+  int32 end_time = 10;
+  int32 save_time = 11;
+  int32 display_type = 12;
+  string blue_print = 13;
+  string picture = 15;
+  string but_text = 16;
+  int32 jump_type = 17;
+  string jump_url = 18;
+  string proxy = 20;
+  int32 net_type = 21;
+  int32 ds_attention = 22;
+  repeated .ncmd_cs.lobby.sc_item lottery_cost = 23;
+}
+

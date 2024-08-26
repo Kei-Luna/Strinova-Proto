@@ -1,0 +1,91 @@
+syntax = "proto3";
+
+package ncmd_cs.lobby;
+
+import "common.proto";
+
+message get_lottery_info_req {
+}
+
+message lottery_bonus_info {
+  int32 quality = 1;
+  int32 count = 2;
+}
+
+message lottery_history {
+  uint32 id = 1;
+  uint32 item_id = 2;
+  uint32 his_time = 3;
+}
+
+message lottery_item_info {
+  int32 id = 1;
+  repeated .ncmd_cs.lobby.lottery_bonus_info bonuses = 2;
+}
+
+message lottery_cell_prob_info {
+  int32 quality = 1;
+  int32 prob = 2;
+}
+
+message lottery_prob_info {
+  int32 id = 1;
+  repeated .ncmd_cs.lobby.lottery_cell_prob_info lottery_cell_prob_list = 2;
+}
+
+message get_lottery_info_res {
+  uint32 code = 1;
+  repeated .ncmd_cs.lobby.lottery_item_info items = 2;
+}
+
+message do_lottery_req {
+  int32 id = 1;
+  int32 count = 2;
+}
+
+message do_lottery_res {
+  uint32 code = 1;
+  repeated .ncmd_cs.obtain_data obtain_list = 2;
+  repeated .ncmd_cs.lobby.lottery_bonus_info bonuses = 3;
+  .ncmd_cs.lobby.do_lottery_req req = 4;
+}
+
+message get_lottery_prob_req {
+  int32 id = 1;
+}
+
+message get_lottery_prob_res {
+  uint32 code = 1;
+  repeated .ncmd_cs.lobby.lottery_prob_info lottery_prob_list = 2;
+}
+
+message lottery_info_ntf {
+  repeated .ncmd_cs.lobby.lottery_item_info items = 1;
+}
+
+message get_lottery_history_req {
+  uint32 start_pos = 1;
+  uint32 end_pos = 2;
+  uint32 lottery_id = 3;
+}
+
+message get_lottery_history_res {
+  uint32 code = 1;
+  uint32 start_pos = 2;
+  uint32 end_pos = 3;
+  repeated .ncmd_cs.lobby.lottery_history lottery_history_list = 4;
+}
+
+message lottery_cfg {
+  uint32 id = 1;
+  uint32 type = 2;
+  uint32 item_id = 3;
+  uint32 start = 4;
+  uint32 finish = 5;
+  uint32 normal_drop = 6;
+}
+
+message lottery_config_ntf {
+  repeated .ncmd_cs.lobby.lottery_cfg lottery_cfg_list = 1;
+}
+

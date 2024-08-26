@@ -1,0 +1,274 @@
+syntax = "proto3";
+
+package ncmd_cs.lobby;
+
+import "common.proto";
+import "enum.proto";
+
+message heartbeat_req {
+  uint32 serial = 1;
+  uint32 time = 2;
+}
+
+message heartbeat_res {
+  uint32 code = 1;
+  uint32 serial = 2;
+  uint32 time = 3;
+}
+
+message ts_ace_report_req {
+  bytes message = 1;
+}
+
+message ts_ace_callback_ntf {
+  bytes message = 1;
+}
+
+message ts_ace_login_req {
+  uint32 plat_id = 1;
+  uint32 game_id = 2;
+  uint32 world_id = 3;
+  uint32 channel_id = 4;
+  uint32 role_id = 5;
+  uint32 account_type = 6;
+  bytes account_id = 7;
+  bytes version = 8;
+}
+
+message ts_ace_login_res {
+  uint32 code = 1;
+  int32 feature_crc = 2;
+  bytes feature_name = 3;
+  bytes feature_data = 4;
+}
+
+message tlog_report_data {
+  string clientversion = 1;
+  string systemsoftware = 2;
+  string systemhardware = 3;
+  string telecomoper = 4;
+  string network = 5;
+  int32 screenwidth = 6;
+  int32 screenhight = 7;
+  float density = 8;
+  int32 regchannel = 9;
+  string cpuhardware = 10;
+  int32 memory = 11;
+  string glrender = 12;
+  string glversion = 13;
+  string android_oaid = 14;
+  string ios_caid = 15;
+  .ncmd_cs.lobby.dlog_report_data dlog_data = 16;
+}
+
+message dlog_report_data {
+  string device_id = 1;
+  string time_zone = 2;
+  string session_id = 3;
+  string ads_info = 4;
+  string email = 5;
+}
+
+message login_req {
+  uint32 login_env = 1;
+  string open_id = 2;
+  string access_token = 3;
+  .ncmd_cs.lobby.EACC_PLATFORM_ID platform_id = 4;
+  string lobby_access_token = 5;
+  string machine_id = 6;
+  .ncmd_cs.EDeviceType device_id = 7;
+  string active_code = 8;
+  string os = 9;
+  int32 channelid = 10;
+  .ncmd_cs.lobby.tlog_report_data report_data = 11;
+  bool is_reconnect = 12;
+  string bind_steam_id = 13;
+  string pf = 14;
+  string pf_key = 15;
+  string open_key = 16;
+  .ncmd_cs.MIDAS_PLATFORM midas_platfrom = 17;
+  string login_channel_id = 18;
+  string sys_nation = 19;
+  string sys_locale_language = 20;
+  .ncmd_cs.ELangType game_lang_type = 21;
+  bool sign_conf_agreement = 22;
+}
+
+message login_res {
+  uint32 code = 1;
+  uint64 account_id = 2;
+  .ncmd_cs.player player = 3;
+  uint32 ban_time = 4;
+  string ban_reason = 5;
+  string error_tips = 6;
+  uint32 ace_world_id = 7;
+}
+
+message bind_steam_req {
+  uint32 bind_type = 1;
+  string bind_steam_id = 2;
+}
+
+message bind_steam_res {
+  uint32 code = 1;
+  uint32 bind_type = 2;
+  string bind_steam_id = 3;
+}
+
+message login_queue_req {
+  string open_id = 1;
+  uint32 oper_id = 2;
+}
+
+message login_queue_res {
+  uint32 code = 1;
+  uint32 rank = 2;
+  uint32 left_time = 3;
+  uint32 oper_id = 4;
+}
+
+message logout_req {
+}
+
+message logout_res {
+  uint32 code = 1;
+}
+
+message init_state_sync_finish_ntf {
+}
+
+message kick_lobby_ntf {
+  uint32 reason = 1;
+  string msg = 2;
+}
+
+message player_info {
+  uint64 player_id = 1;
+  string nick = 2;
+  .ncmd_cs.ESexType sex = 3;
+}
+
+message player_sync_ntf {
+  repeated .ncmd_cs.lobby.player_info players = 1;
+  string good_name = 2;
+}
+
+message player_create_req {
+  string nick = 1;
+  .ncmd_cs.ESexType sex = 2;
+  bool guide = 3;
+}
+
+message player_create_res {
+  uint32 code = 1;
+  .ncmd_cs.player player = 2;
+}
+
+message rand_nick_get_req {
+}
+
+message rand_nick_get_res {
+  uint32 code = 1;
+  string nick = 2;
+}
+
+message asa_report_req {
+  string attribution = 1;
+  string org_id = 2;
+  string org_name = 3;
+  string campaign_id = 4;
+  string campaign_name = 5;
+  string ad_group_id = 6;
+  string ad_group_name = 7;
+  string keyword_id = 8;
+  string keyword = 9;
+  string keyword_match_type = 10;
+  string creative_set_id = 11;
+  string creative_set_name = 12;
+  string click_date = 13;
+  string purchase_date = 14;
+  string conversion_date = 15;
+  string conversion_type = 16;
+  string contry_or_origin = 17;
+}
+
+message asa_report_res {
+  uint32 code = 1;
+}
+
+message purchase_quantity_req {
+  uint32 login_channel = 1;
+  string oaid = 2;
+  string caid = 3;
+  string idfa = 4;
+  string user_agent = 5;
+}
+
+message purchase_quantity_res {
+  uint32 code = 1;
+}
+
+message report_content {
+  string id_type = 1;
+  repeated string id_list = 2;
+}
+
+message report_feedback_req {
+  uint64 target_id = 1;
+  uint32 report_category = 2;
+  repeated uint32 report_reason = 3;
+  string report_battle_id = 4;
+  uint32 report_battle_time = 5;
+  string report_desc = 6;
+  string report_content = 7;
+  repeated string pic_url_array = 8;
+  repeated string video_url_array = 9;
+  repeated .ncmd_cs.lobby.report_content content_id = 10;
+  int32 report_scene = 11;
+}
+
+message report_feedback_res {
+  uint32 code = 1;
+}
+
+message internet_cafe_report_req {
+  string netbar_token = 1;
+  string ip = 2;
+  repeated string macs_list = 3;
+}
+
+message internet_cafe_report_res {
+  uint32 code = 1;
+  int32 cafe_type = 2;
+}
+
+message report_login_picture_req {
+  repeated uint32 pictures = 1;
+}
+
+message report_login_picture_res {
+  uint32 code = 1;
+}
+
+message report_login_picture_ntf {
+  repeated uint32 pictures = 1;
+}
+
+message anti_addiction_ntf {
+  int32 type = 1;
+  string msg = 2;
+}
+
+message client_need_update_ntf {
+}
+
+enum EACC_PLATFORM_ID {
+  EACC_PLATFORM_ID_NULL = 0;
+  GUEST = 1;
+  WECHAT = 2;
+  QQ = 3;
+  OTHER = 4;
+  STEAM = 5;
+  IN_HOUSE = 255;
+}
+

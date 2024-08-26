@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+package ncmd_cs.lobby;
+
+import "common.proto";
+
+message self_vcard_update_req {
+  repeated int32 resource_ids = 1;
+  repeated .ncmd_cs.medal_card_data medals = 2;
+}
+
+message self_vcard_update_res {
+  uint32 code = 1;
+}
+
+message vcard_resource_info {
+  int32 resource_id = 1;
+  uint64 expire_time = 2;
+  uint64 obtain_time = 3;
+}
+
+message vcard_resource_sync_ntf {
+  repeated .ncmd_cs.lobby.vcard_resource_info resources = 1;
+}
+
+message title_info {
+  uint32 title_id = 1;
+  uint32 rank_type = 2;
+  uint32 sub_type = 3;
+  uint32 city_code = 4;
+  uint32 rank_pos = 5;
+  uint32 expire_time = 6;
+}
+
+message title_sync_ntf {
+  repeated .ncmd_cs.lobby.title_info title_list = 1;
+}
+
+message title_update_req {
+  uint32 title_id = 1;
+}
+
+message title_update_res {
+  int32 code = 1;
+}
+
+message get_title_req {
+}
+
+message get_title_res {
+  int32 code = 1;
+  int32 cur_title_id = 2;
+  repeated .ncmd_cs.lobby.title_info title_list = 3;
+}
+

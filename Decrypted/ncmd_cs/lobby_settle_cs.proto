@@ -1,0 +1,106 @@
+syntax = "proto3";
+
+package ncmd_cs.lobby;
+
+import "enum.proto";
+import "common.proto";
+
+message settle_qualifying_ntf {
+  uint64 room_id = 1;
+  .ncmd_cs.EWinType win = 2;
+  int32 old_stars = 3;
+  int32 stars = 4;
+  int32 scores = 5;
+  int32 mode_score = 6;
+  int32 onhook_score = 7;
+  int32 streak_score = 8;
+  int32 display_score = 9;
+  int32 power_score = 10;
+  int32 streak_win = 11;
+  .ncmd_cs.EPlayMode play_mode = 12;
+  bool is_grading = 13;
+  repeated .ncmd_cs.EWinType grading_standing = 14;
+  int32 rank_index = 15;
+  int32 score_fired = 16;
+  int32 rank_gap_score = 17;
+  uint32 old_rank = 18;
+  uint32 rank = 19;
+  uint32 old_rank_pos = 20;
+  uint32 rank_pos = 21;
+  uint32 old_division_score = 22;
+  uint32 division_score = 23;
+  int32 try_best_score = 24;
+  uint32 divison_score_pro = 25;
+  uint32 grading_total = 26;
+  int32 old_grade_score = 27;
+  int32 grade_score = 28;
+}
+
+message settle_battle_role {
+  uint32 role_id = 1;
+  int32 intimacy = 2;
+  int32 role_skin_id = 3;
+  int32 gun_skin_id = 4;
+  bool is_final = 5;
+  int32 add_score = 6;
+  int32 total_score = 7;
+}
+
+message settle_addition_node {
+  .ncmd_cs.ESettleAdditionAttrType attr = 1;
+  .ncmd_cs.ESettleAdditionReasonType reason = 2;
+  int32 value = 3;
+}
+
+message settle_battle_game_ntf {
+  uint64 room_id = 1;
+  .ncmd_cs.ERoomMode room_mode = 2;
+  repeated .ncmd_cs.ERoomCamp winner_team = 3;
+  int32 map_id = 4;
+  repeated .ncmd_cs.player_settle_info players = 5;
+  int32 gain_ideal = 6;
+  int32 gain_exp = 7;
+  repeated .ncmd_cs.lobby.settle_battle_role roles = 8;
+  uint32 fight_time = 9;
+  repeated uint32 scores = 10;
+  .ncmd_cs.ERoomCamp attack_camp_id = 12;
+  uint32 can_switch_camp = 13;
+  repeated .ncmd_cs.round_settle_info round_infos = 14;
+  repeated .ncmd_cs.lobby.settle_addition_node addition_nodes = 15;
+  uint64 onemore_until_tm = 16;
+}
+
+message qualifying_change_ntf {
+  int32 old_stars = 1;
+  int32 stars = 2;
+  int32 scores = 3;
+  uint32 old_rank = 4;
+  uint32 rank = 5;
+  uint32 old_rank_pos = 6;
+  uint32 rank_pos = 7;
+  uint32 old_division_score = 8;
+  uint32 division_score = 9;
+  int32 old_grade_score = 10;
+  int32 grade_score = 11;
+}
+
+message standings_like_req {
+  uint64 target_id = 1;
+  uint32 like_id = 2;
+  repeated uint64 broadcast_ids = 3;
+}
+
+message standings_like_res {
+  uint32 code = 1;
+}
+
+message standings_like_ntf {
+  uint64 src_id = 1;
+  uint64 target_id = 2;
+  uint32 like_id = 3;
+}
+
+message negative_game_ntf {
+  uint32 punishment_id = 1;
+}
+

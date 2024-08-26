@@ -1,0 +1,116 @@
+syntax = "proto3";
+
+package ncmd_cs.lobby;
+
+import "enum.proto";
+import "common.proto";
+
+message reward_info {
+  int32 reward_id = 1;
+  .ncmd_cs.ERewardStatus status = 2;
+}
+
+message reward_module {
+  .ncmd_cs.ERewardModule module_id = 1;
+  repeated .ncmd_cs.lobby.reward_info reward_info_list = 2;
+}
+
+message reward_all_modules_sync_ntf {
+  repeated .ncmd_cs.lobby.reward_module all_reward_modules = 1;
+}
+
+message reward_module_sync_ntf {
+  .ncmd_cs.lobby.reward_module single_reward_module = 1;
+}
+
+message reward_recive_req {
+  .ncmd_cs.ERewardModule module_id = 1;
+  int32 reward_id = 2;
+}
+
+message reward_recive_res {
+  uint32 code = 1;
+  .ncmd_cs.ERewardModule module_id = 2;
+  int32 reward_id = 3;
+  .ncmd_cs.ERewardStatus status = 4;
+  repeated .ncmd_cs.item_pack items = 5;
+}
+
+message questionnaire_req {
+}
+
+message questionnaire_res {
+  int32 open = 1;
+  uint32 code = 2;
+}
+
+message level_award_get_req {
+}
+
+message level_award_get_res {
+  uint32 code = 1;
+  uint32 level_prize = 2;
+  uint32 level_new_prize = 3;
+  uint32 level_activity_prize = 4;
+}
+
+message receive_level_award_req {
+}
+
+message receive_level_award_res {
+  uint32 code = 1;
+  uint32 level_prize = 2;
+  uint32 level_new_prize = 3;
+  uint32 level_activity_prize = 4;
+}
+
+message player_questionnaire {
+  string sid = 1;
+  uint32 state = 2;
+  bool reddot = 3;
+}
+
+message questionnaire_cfg {
+  string sid = 1;
+  string url = 2;
+  repeated .ncmd_cs.item_pack prize = 3;
+  uint32 type = 4;
+  uint32 end_time = 5;
+  string title = 6;
+}
+
+message questionnaire_data_ntf {
+  repeated .ncmd_cs.lobby.player_questionnaire questionnaire_data = 1;
+  repeated .ncmd_cs.lobby.questionnaire_cfg cfg_list = 2;
+}
+
+message questionnaire_state_ntf {
+  string sid = 1;
+  uint32 state = 2;
+}
+
+message questionnaire_reward_req {
+  string sid = 1;
+}
+
+message questionnaire_reward_res {
+  uint32 code = 1;
+  string sid = 2;
+}
+
+message questionnaire_read_req {
+  repeated string sid_list = 1;
+}
+
+message questionnaire_read_res {
+  uint32 code = 1;
+  repeated string sid_list = 2;
+}
+
+message questionnaire_login_req {
+}
+
+message questionnaire_login_res {
+  string login_token = 1;
+}
+

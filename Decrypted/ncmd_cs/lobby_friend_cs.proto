@@ -1,0 +1,324 @@
+syntax = "proto3";
+
+package ncmd_cs.lobby;
+
+import "common.proto";
+import "enum.proto";
+
+message friend_player {
+  uint64 group_id = 1;
+  .ncmd_cs.EFriendType friend_type = 2;
+  .ncmd_cs.player player = 3;
+  uint32 intimacy = 4;
+  string remarks = 5;
+  uint32 social_secret = 6;
+  uint32 friend_time = 7;
+  uint32 intimacy_level = 8;
+  uint32 team_win_num = 9;
+  uint32 team_num = 10;
+  uint32 last_team_time = 11;
+  string apply_reason = 12;
+  .ncmd_cs.EFriendChannelType channel_type = 13;
+}
+
+message friend_group {
+  uint64 group_id = 1;
+  string group_name = 2;
+  uint32 index = 3;
+}
+
+message friend_search_req {
+  string nick = 1;
+  uint64 player_id = 2;
+}
+
+message friend_search_res {
+  uint32 code = 1;
+  repeated .ncmd_cs.player friends = 2;
+}
+
+message friend_list_req {
+  uint32 sync_type = 1;
+}
+
+message friend_list_res {
+  uint32 code = 1;
+  uint32 sync_type = 2;
+  repeated .ncmd_cs.lobby.friend_player friends = 3;
+  uint32 social_secret = 4;
+  bool is_reset = 5;
+}
+
+message friend_list_ntf {
+  repeated .ncmd_cs.lobby.friend_player friends = 1;
+  uint32 social_secret = 6;
+  bool is_reset = 7;
+}
+
+message friend_group_ntf {
+  repeated .ncmd_cs.lobby.friend_group groups = 1;
+}
+
+message friend_reply_req {
+  bool reply = 1;
+  uint64 target_id = 2;
+}
+
+message friend_reply_res {
+  uint32 code = 1;
+  bool reply = 2;
+  uint64 target_id = 3;
+}
+
+message friend_member_ntf {
+  .ncmd_cs.lobby.friend_player friend = 1;
+}
+
+message friend_add_req {
+  uint64 target_id = 1;
+  .ncmd_cs.EFriendType friend_type = 2;
+  bytes target_nick = 3;
+  string apply_reason = 4;
+  .ncmd_cs.EFriendChannelType channel_type = 5;
+}
+
+message friend_add_res {
+  uint32 code = 1;
+  uint64 target_id = 2;
+  bytes target_nick = 3;
+  .ncmd_cs.EFriendType friend_type = 4;
+}
+
+message friend_del_req {
+  uint64 target_id = 1;
+  .ncmd_cs.EFriendType friend_type = 2;
+}
+
+message friend_del_res {
+  uint32 code = 1;
+  uint64 target_id = 2;
+  .ncmd_cs.EFriendType friend_type = 3;
+}
+
+message friend_del_ntf {
+  uint64 target_id = 1;
+  uint32 reason = 2;
+}
+
+message friend_group_add_req {
+  string group_name = 1;
+}
+
+message friend_group_add_res {
+  uint32 code = 1;
+}
+
+message friend_group_del_req {
+  uint64 group_id = 1;
+}
+
+message friend_group_del_res {
+  uint32 code = 1;
+}
+
+message friend_group_modify_req {
+  uint64 group_id = 1;
+  string group_name = 2;
+}
+
+message friend_group_modify_res {
+  uint32 code = 1;
+}
+
+message friend_group_swap_req {
+  uint64 group_id = 1;
+  uint32 index = 2;
+}
+
+message friend_group_swap_res {
+  uint32 code = 1;
+}
+
+message friend_group_move_req {
+  uint64 target_id = 1;
+  uint64 group_id = 2;
+}
+
+message friend_group_move_res {
+  uint32 code = 1;
+}
+
+message friend_remarks_req {
+  uint64 target_id = 1;
+  string remarks = 2;
+}
+
+message friend_remarks_res {
+  uint32 code = 1;
+}
+
+message friend_setup_req {
+  .ncmd_cs.EFriendSetup setup_type = 1;
+  .ncmd_cs.EFriendSetupStatus setup_status = 2;
+}
+
+message friend_setup_res {
+  uint32 code = 1;
+  .ncmd_cs.EFriendSetup setup_type = 2;
+  .ncmd_cs.EFriendSetupStatus setup_status = 3;
+}
+
+message friend_setup_ntf {
+  uint64 friend_id = 1;
+  .ncmd_cs.EFriendSetup setup_type = 2;
+  .ncmd_cs.EFriendSetupStatus setup_status = 3;
+}
+
+message friend_query_req {
+  uint64 player_id = 1;
+}
+
+message friend_query_res {
+  uint32 code = 1;
+  .ncmd_cs.player friend = 2;
+}
+
+message social_friend {
+  uint64 player_id = 1;
+  string openid = 2;
+  string user_name = 3;
+  int32 gender = 4;
+  string picture_url = 5;
+  .ncmd_cs.player player = 6;
+}
+
+message friend_social_list_req {
+  uint32 sync_type = 1;
+}
+
+message friend_social_list_res {
+  uint32 code = 1;
+  uint32 sync_type = 2;
+  repeated .ncmd_cs.lobby.social_friend social_friends = 3;
+  bool is_reset = 4;
+}
+
+message friend_qq_share_req {
+  bool is_server_share = 1;
+  string interface_param = 2;
+}
+
+message friend_qq_share_res {
+  uint32 code = 1;
+  bool is_server_share = 2;
+  string data = 3;
+}
+
+message recommend_friend_info {
+  .ncmd_cs.ERecommendType type = 1;
+  uint64 player_id = 2;
+  string nick = 3;
+  uint32 icon = 4;
+  .ncmd_cs.ESexType sex = 5;
+  uint32 rank = 6;
+  uint32 city_code = 7;
+  uint32 level = 8;
+  uint32 exp = 9;
+  int32 total_games = 10;
+  repeated uint32 freq_roles = 11;
+  int32 mmr = 12;
+  uint32 avg_damage = 13;
+  int32 freq_model = 14;
+  uint32 vc_avatar_id = 15;
+  uint32 vc_border_id = 16;
+  uint32 vc_achie_id = 17;
+  bool is_teammate = 18;
+}
+
+message friend_recommend_list_req {
+}
+
+message friend_recommend_list_res {
+  uint32 code = 1;
+  repeated .ncmd_cs.lobby.recommend_friend_info near_list = 2;
+  repeated .ncmd_cs.lobby.recommend_friend_info level_like_list = 3;
+  repeated .ncmd_cs.lobby.recommend_friend_info record_like_list = 4;
+  repeated .ncmd_cs.lobby.recommend_friend_info model_like_list = 5;
+  repeated .ncmd_cs.lobby.recommend_friend_info played_together = 6;
+}
+
+message friend_near_list_req {
+}
+
+message friend_near_list_res {
+  uint32 code = 1;
+  repeated .ncmd_cs.player near_player_list = 2;
+}
+
+message friend_list_status_req {
+  repeated uint64 player_ids = 1;
+}
+
+message friend_list_status_res {
+  uint32 code = 1;
+  repeated .ncmd_cs.player player_list = 2;
+}
+
+message together_friend_list_status_req {
+  repeated uint64 player_ids = 1;
+}
+
+message together_friend_list_status_res {
+  uint32 code = 1;
+  repeated .ncmd_cs.lobby.friend_player player_list = 2;
+}
+
+message friend_intimacy_level_ntf {
+  uint64 friend_id = 1;
+  uint32 intimacy = 2;
+  uint32 intimacy_level = 3;
+}
+
+message recommend_player {
+  uint64 player_id = 1;
+  string nick = 2;
+  uint32 icon = 3;
+  .ncmd_cs.ESexType sex = 4;
+  uint32 rank = 5;
+  uint32 level = 6;
+  uint32 vc_avatar_id = 7;
+  uint32 vc_frame_id = 8;
+  uint32 vc_border_id = 9;
+  .ncmd_cs.ESettleRecommendFriendType recomm_type = 10;
+}
+
+message friend_recommend_by_behavior_ntf {
+  repeated .ncmd_cs.lobby.recommend_player player_list = 1;
+}
+
+message friend_recommend_by_behavior_reply_req {
+  .ncmd_cs.ERecommendFriendReplyType reply_type = 1;
+  bool ban_show_today = 2;
+}
+
+message friend_recommend_by_behavior_reply_res {
+  uint32 code = 1;
+  .ncmd_cs.ERecommendFriendReplyType reply_type = 2;
+  bool ban_show_today = 3;
+}
+
+message friend_request_list_ntf {
+  repeated uint64 player_ids = 1;
+}
+
+message friend_request_change_ntf {
+  uint32 operate = 1;
+  uint64 player_id = 2;
+}
+
+message friend_addition_ntf {
+  uint64 first_win_tm = 1;
+  uint32 friend_addition_cnt = 2;
+  uint64 friend_addition_tm = 3;
+}
+

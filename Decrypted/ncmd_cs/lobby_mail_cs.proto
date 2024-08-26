@@ -1,0 +1,96 @@
+syntax = "proto3";
+
+package ncmd_cs.lobby;
+
+import "enum.proto";
+
+message attach_item {
+  uint64 item_id = 1;
+  uint64 item_count = 2;
+  uint32 expire_time = 3;
+}
+
+message gift_item {
+  uint64 shop_index = 1;
+  uint64 count = 2;
+  string tar_player_name = 3;
+  .ncmd_cs.ECurrencyType pay_currency_id = 4;
+}
+
+message mail_info {
+  uint64 mail_id = 1;
+  uint32 type = 2;
+  uint32 sub_type = 3;
+  uint64 src_player_id = 4;
+  string src_player_name = 5;
+  uint64 send_time = 6;
+  uint64 tar_player_id = 7;
+  string title = 8;
+  string content = 9;
+  repeated .ncmd_cs.lobby.attach_item attach_items = 10;
+  .ncmd_cs.lobby.gift_item gift_item = 11;
+  uint32 mail_state = 12;
+  uint32 attach_state = 13;
+  uint32 expire_time = 14;
+  uint64 clan_id = 15;
+}
+
+message mail_send_req {
+  uint64 tar_player_id = 1;
+  string title = 2;
+  string content = 3;
+  repeated .ncmd_cs.lobby.attach_item attach_items = 4;
+}
+
+message mail_send_res {
+  uint32 code = 1;
+}
+
+message mail_load_req {
+  uint64 mail_uuid = 1;
+}
+
+message mail_load_res {
+  uint32 code = 1;
+}
+
+message mail_read_req {
+  repeated uint64 mail_ids = 1;
+}
+
+message mail_read_res {
+  uint32 code = 1;
+  repeated uint64 mail_ids = 2;
+}
+
+message mail_delete_req {
+  repeated uint64 mail_ids = 1;
+}
+
+message mail_delete_res {
+  uint32 code = 1;
+  repeated uint64 mail_ids = 2;
+}
+
+message mail_attach_take_req {
+  repeated uint64 mail_ids = 1;
+}
+
+message mail_attach_take_res {
+  uint32 code = 1;
+  repeated .ncmd_cs.lobby.attach_item attach_items = 2;
+}
+
+message mail_sync_ntf {
+  repeated .ncmd_cs.lobby.mail_info mails = 1;
+  int32 finish = 2;
+}
+
+message mail_recv_ntf {
+  repeated .ncmd_cs.lobby.mail_info mail = 1;
+}
+
+message mail_global_ntf {
+  uint64 mail_uuid = 1;
+}
+

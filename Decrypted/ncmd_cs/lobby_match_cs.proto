@@ -1,0 +1,136 @@
+syntax = "proto3";
+
+package ncmd_cs.lobby;
+
+import "enum.proto";
+import "common.proto";
+
+message match_join_req {
+  string version = 1;
+}
+
+message ban_rank_boom_info {
+  uint64 ban_rank_bomb_player_id = 1;
+  uint64 ban_rank_bomb_time = 2;
+  string ban_rank_bomb_reason = 3;
+}
+
+message match_join_res {
+  uint32 code = 1;
+  uint32 penalty_time = 2;
+  uint64 penalty_player_id = 3;
+  repeated .ncmd_cs.lobby.ban_rank_boom_info bank_infos = 4;
+  repeated uint64 need_update_players = 5;
+  uint32 match_lock_time = 6;
+  uint32 remain_penalty_count = 7;
+  uint32 bad_behavior_count = 8;
+}
+
+message match_join_ntf {
+  uint32 code = 1;
+  uint64 ticket = 2;
+  uint32 expect = 3;
+}
+
+message match_quit_req {
+  uint64 ticket = 1;
+}
+
+message match_quit_res {
+  uint32 code = 1;
+}
+
+message match_quit_ntf {
+  uint32 code = 1;
+  .ncmd_cs.EMatchQuitReason reason = 2;
+}
+
+message match_role_employ {
+  int32 role_id = 1;
+  int32 battle_count = 2;
+  int32 win_count = 3;
+}
+
+message match_player {
+  .ncmd_cs.ERoomCamp campid = 1;
+  uint64 player_id = 2;
+  bool robot = 3;
+  string nick = 4;
+  uint32 icon = 5;
+  .ncmd_cs.ESexType sex = 6;
+  uint32 rank = 7;
+  uint32 status = 8;
+  uint32 pos = 9;
+  uint32 level = 10;
+  uint32 vc_avatar_id = 11;
+  uint32 vc_frame_id = 12;
+  uint32 vc_border_id = 13;
+  uint32 vc_achie_id = 14;
+  bool ready_confirm = 15;
+  int32 stars = 16;
+  uint32 rank_pos = 17;
+  uint32 division_score = 18;
+  repeated .ncmd_cs.medal_card_data vc_medals = 19;
+  repeated uint32 freq_roles = 20;
+  int32 title_id = 21;
+  uint32 battle_count = 22;
+  uint32 win_count = 23;
+  repeated .ncmd_cs.lobby.match_role_employ role_employs = 24;
+  int32 grade_score = 25;
+  string open_id = 26;
+}
+
+message match_complete_ntf {
+  uint32 code = 1;
+  .ncmd_cs.ERoomMode mode = 2;
+  uint32 map_id = 3;
+  uint32 total = 4;
+  uint64 room_id = 5;
+  uint32 timeout = 6;
+  repeated .ncmd_cs.lobby.match_player players = 7;
+  uint32 ready_left_time = 8;
+}
+
+message enter_battle_ntf {
+  uint32 code = 1;
+  string ip = 2;
+  uint32 port = 3;
+  uint64 room_id = 4;
+  uint64 token = 5;
+  bool reconnect = 6;
+  string session_id = 7;
+  uint32 map_id = 8;
+}
+
+message quit_battle_ntf {
+  uint64 room_id = 1;
+  .ncmd_cs.EDsStatus status = 2;
+  .ncmd_cs.EDsExit reason = 3;
+}
+
+message ready_confirm_req {
+}
+
+message ready_confirm_res {
+  uint32 code = 1;
+}
+
+message ready_confirm_ntf {
+  uint64 player_id = 1;
+}
+
+message player_penalty_info {
+  uint64 player_id = 1;
+  uint32 penalty_time = 2;
+  uint32 match_lock_time = 3;
+  uint32 remain_penalty_count = 4;
+  uint32 bad_behavior_count = 5;
+}
+
+message penalty_time_ntf {
+  repeated uint64 player_ids = 1;
+  uint32 penalty_time = 2;
+  repeated .ncmd_cs.lobby.player_penalty_info infos = 3;
+  uint32 type = 4;
+}
+

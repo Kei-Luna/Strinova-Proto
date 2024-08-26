@@ -1,0 +1,127 @@
+syntax = "proto3";
+
+package ncmd_cs;
+
+import "enum.proto";
+
+message item_pack {
+  uint32 item_id = 1;
+  uint32 item_count = 2;
+}
+
+message obtain_item {
+  int32 item_id = 1;
+  int32 count = 2;
+}
+
+message convert_item {
+  int32 item_id = 1;
+  int32 count = 2;
+  .ncmd_cs.ECurrencyType currency_id = 3;
+  int32 currency_cnt = 4;
+}
+
+message obtain_data {
+  repeated .ncmd_cs.obtain_item result_list = 1;
+  repeated .ncmd_cs.convert_item convert_list = 2;
+}
+
+message player {
+  uint64 player_id = 1;
+  string nick = 2;
+  uint32 icon = 3;
+  .ncmd_cs.ESexType sex = 4;
+  uint32 rank = 5;
+  .ncmd_cs.EPlayerStatus status = 6;
+  uint64 team_id = 7;
+  uint64 room_id = 8;
+  uint64 time = 9;
+  .ncmd_cs.EOnlineStatus online_status = 10;
+  int32 stars = 11;
+  int32 win_games = 12;
+  int32 mvp_count = 13;
+  int32 total_games = 14;
+  int32 avr_kill = 15;
+  repeated int32 freq_roles = 16;
+  int32 level = 17;
+  .ncmd_cs.ERoomStatus room_status = 18;
+  .ncmd_cs.ERoomMode game_mode = 19;
+  uint32 logout_time = 23;
+  repeated int64 settings = 24;
+  bool is_today_first_login = 25;
+  uint32 platform_id = 27;
+  uint32 privilege_login_time = 28;
+  uint32 vc_border_id = 29;
+  uint32 battle_progress = 30;
+  string battle_scores = 31;
+  uint64 battle_start_time = 32;
+  .ncmd_cs.EPlayMode play_mode = 33;
+  uint64 rank_pos = 34;
+  uint32 division_score = 35;
+  uint64 clan_id = 36;
+  int32 grade_score = 37;
+  uint32 city_code = 38;
+}
+
+message player_settle_info {
+  uint64 player_id = 1;
+  .ncmd_cs.ERoomCamp team_id = 2;
+  int32 kill_num = 3;
+  int32 relive_num = 4;
+  int32 assists_num = 5;
+  int32 dead_num = 6;
+  int32 scores = 7;
+  int32 damage = 8;
+  int32 cures = 9;
+  bool on_hook = 10;
+  .ncmd_cs.EWinType win = 11;
+  bool mvp = 12;
+  uint32 res_score = 13;
+  uint32 hit_head = 14;
+  uint32 hit_count = 15;
+  repeated uint32 achievement_ids = 16;
+  string nick = 17;
+  int32 icon = 18;
+  int32 place_bomb_num = 19;
+  int32 remove_bomb_num = 20;
+  uint32 final_role_id = 21;
+  uint32 mine = 22;
+  uint32 defeat_num = 23;
+  uint32 escape_num = 24;
+  bool smvp = 25;
+  uint32 mine_ext = 26;
+  uint32 car_forward_time = 27;
+  uint32 car_back_time = 28;
+  uint32 car_useful_time = 29;
+  uint32 skill_assist = 30;
+  uint32 skill_hit = 31;
+  uint32 bear_damage = 32;
+  uint32 personal_score = 33;
+  uint32 strategy_score = 34;
+  uint32 teamwork_score = 35;
+  uint64 from_team_id = 36;
+  uint32 hu_num = 37;
+}
+
+message round_settle_info {
+  .ncmd_cs.ERoundType round_type = 1;
+  repeated .ncmd_cs.player_settle_info players = 2;
+}
+
+message clan_icon_data {
+  uint32 bg_id = 1;
+  uint32 bg_color = 2;
+  uint32 image_id = 3;
+  uint32 image_color = 4;
+}
+
+message medal_card_data {
+  int32 id = 1;
+  repeated int32 axis = 2;
+  int32 zoom_scale = 3;
+  int32 rotate_scale = 4;
+  bool level_flip = 5;
+  uint32 level = 6;
+  .ncmd_cs.clan_icon_data clan_data = 7;
+}
+

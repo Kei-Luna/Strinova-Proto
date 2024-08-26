@@ -1,0 +1,344 @@
+syntax = "proto3";
+
+package ncmd_cs.lobby;
+
+import "enum.proto";
+import "common.proto";
+
+message career_info_req {
+  uint64 player_id = 1;
+}
+
+message career_player {
+  uint64 player_id = 1;
+  string nick = 2;
+  uint32 icon = 3;
+  .ncmd_cs.ESexType sex = 4;
+  uint32 exp = 5;
+  uint32 level = 6;
+  uint64 laud = 7;
+  uint64 flogin_time = 8;
+  uint32 avatar_id = 9;
+  uint32 frame_id = 10;
+  uint32 border_id = 11;
+  uint32 achie_id = 12;
+  repeated .ncmd_cs.medal_card_data medals = 13;
+  uint32 birthday = 14;
+  uint32 city_code = 15;
+  uint32 privacy_type = 16;
+}
+
+message career_battle_info {
+  .ncmd_cs.ERoomMode game_mode = 1;
+  uint32 round = 2;
+  float win_rate = 3;
+  float mvp_rate = 4;
+  float ave_damage = 5;
+  float ave_kill = 6;
+  float head_burst_rate = 7;
+  uint32 mine_mvp = 8;
+  float ave_crystal = 9;
+  uint32 max_crystal = 10;
+  uint32 mvp_count = 11;
+  uint32 car_forward_5_min = 12;
+  uint32 damage_5_min = 13;
+  uint32 kill_5_min = 14;
+  uint32 total_kill = 15;
+  uint32 fly_distance = 16;
+  uint32 total_assist = 17;
+  float total_damage = 18;
+  uint32 total_head_burst = 19;
+  uint32 total_place_bomb = 20;
+  uint32 total_remove_bomb = 21;
+  uint32 total_skill_kill = 22;
+  uint32 total_skill_assist = 23;
+  uint32 total_dead_count = 24;
+  uint32 penta_kill = 25;
+  float max_damage = 26;
+  uint32 total_win_count = 27;
+  uint32 max_kill_count = 28;
+  uint32 max_assist_count = 29;
+  float skill_damage = 30;
+  uint32 max_kill_per_life = 31;
+  float ave_melee_kill = 32;
+  uint32 max_save_mine = 33;
+  uint32 max_steal_mine = 34;
+  uint32 forward_time = 35;
+  uint32 prevent_time = 36;
+  float round_ave_damage = 37;
+  float round_ave_kill = 38;
+  uint32 string_time = 39;
+  float round_max_damage = 40;
+  float round_max_kill = 41;
+  float round_max_assist = 42;
+  uint32 total_melee_kill = 43;
+  uint32 car_control_time = 44;
+  float k_d = 45;
+  float head_hit_rate = 46;
+  uint32 max_melee_kill = 47;
+  float kill_head_rate = 48;
+  uint32 hit_head = 49;
+  uint32 hit_count = 50;
+  uint32 kill_head_num = 51;
+}
+
+message career_rank {
+  int32 top_seg = 2;
+  int32 cur_season = 3;
+  int32 cur_top_seg = 4;
+  int32 cur_seg = 5;
+}
+
+message career_collect {
+  int32 role_own = 1;
+  int32 role_max = 2;
+  int32 skin_own = 3;
+  int32 skin_max = 4;
+  int32 weapon_own = 5;
+  int32 weapon_max = 6;
+  int32 weapon_skin_own = 7;
+  int32 weapon_skin_max = 8;
+  repeated uint32 skin_list = 9;
+}
+
+message career_role_employ {
+  .ncmd_cs.ERoomMode game_mode = 1;
+  int32 role_id = 2;
+  int32 count = 3;
+  int32 win_count = 4;
+  uint32 round = 5;
+  float damage = 6;
+  uint32 kill_head_num = 7;
+  uint32 kill_num = 8;
+  uint32 dead_num = 9;
+  uint32 hit_head = 10;
+  uint32 hit_count = 11;
+  uint32 max_kill_one_game = 12;
+  float max_damage_one_game = 13;
+  uint32 release_skills = 14;
+  uint32 half_count = 15;
+}
+
+message career_battle_field {
+  uint32 show_field_type = 1;
+  uint32 pos = 2;
+}
+
+message career_module_data {
+  .ncmd_cs.EProfileModuleType module_id = 1;
+  uint32 pos = 2;
+}
+
+message career_role_module {
+  uint32 role_id = 1;
+  uint32 role_skin_id = 2;
+  uint32 weapon_skin_id = 3;
+  .ncmd_cs.EProfileShowType profile_show_type = 4;
+}
+
+message career_image {
+  .ncmd_cs.lobby.career_player player = 1;
+  repeated .ncmd_cs.lobby.career_battle_info battle_infos = 2;
+  .ncmd_cs.lobby.career_rank rank = 3;
+  .ncmd_cs.lobby.career_collect collect = 4;
+  repeated .ncmd_cs.lobby.career_role_employ role_employs = 5;
+  int32 top_seg = 6;
+  int32 cur_seg = 7;
+  int32 top_stars = 8;
+  int32 cur_stars = 9;
+  int32 top_rank_pos = 10;
+  int32 cur_rank_pos = 11;
+  repeated uint32 freq_roles = 12;
+  uint32 top_division_score = 13;
+  uint32 cur_division_score = 14;
+  .ncmd_cs.lobby.career_role_module role_module = 15;
+  repeated .ncmd_cs.lobby.career_battle_field battle_fields = 16;
+  repeated .ncmd_cs.lobby.career_module_data module_list = 17;
+  uint32 super_string_count = 18;
+  bool visitor_reddot = 19;
+  int32 top_grade_score = 20;
+  int32 cur_grade_score = 21;
+  int64 like_tm = 22;
+  int64 req_visit_list_tm = 23;
+  uint32 like_num = 24;
+}
+
+message career_info_res {
+  uint32 code = 1;
+  .ncmd_cs.lobby.career_image career_info = 2;
+}
+
+message his_career_info_req {
+  int32 season_id = 1;
+}
+
+message his_career_info_res {
+  int32 code = 1;
+  int32 season_id = 2;
+  int32 final_seg = 3;
+  int32 top_seg = 4;
+  repeated .ncmd_cs.lobby.career_battle_info battle_infos = 5;
+  repeated .ncmd_cs.lobby.career_role_employ role_employs = 6;
+  repeated uint32 freq_roles = 7;
+  int32 final_stars = 8;
+  int32 top_stars = 9;
+  int32 final_rank_pos = 10;
+  int32 top_rank_pos = 11;
+  int32 final_division_score = 12;
+  int32 top_division_score = 13;
+  int32 final_grade_score = 14;
+  int32 top_grade_score = 15;
+  uint32 super_string_count = 16;
+}
+
+message career_get_head_icons_req {
+}
+
+message career_get_head_icons_res {
+  uint32 code = 1;
+  repeated uint32 icons = 2;
+}
+
+message career_set_head_icon_req {
+  uint32 icon_id = 1;
+}
+
+message career_set_head_icon_res {
+  uint32 code = 1;
+  uint32 icon_id = 2;
+  uint32 reason = 3;
+  uint32 deadline = 4;
+}
+
+message career_laud_req {
+  uint64 player_id = 1;
+}
+
+message career_laud_res {
+  uint32 code = 1;
+}
+
+message career_stars_rate_req {
+}
+
+message career_stars_rate_res {
+  uint32 code = 1;
+  uint32 rate = 2;
+}
+
+message career_change_privacy_req {
+  uint32 privacy_type = 1;
+}
+
+message career_change_privacy_res {
+  uint32 code = 1;
+  uint32 privacy_type = 2;
+}
+
+message career_visitor_like_req {
+  uint32 player_id = 1;
+}
+
+message career_visitor_like_res {
+  uint32 code = 1;
+  uint32 player_id = 2;
+}
+
+message career_visitor_data_req {
+}
+
+message visitor_profile_data {
+  uint32 player_id = 1;
+  uint32 avatar_id = 2;
+  uint32 border_id = 3;
+  string nick = 4;
+  .ncmd_cs.ESexType sex = 5;
+  uint32 timestamp = 6;
+}
+
+message career_visitor_data_res {
+  uint32 code = 1;
+  repeated .ncmd_cs.lobby.visitor_profile_data visitor_list = 2;
+}
+
+message career_change_sex_req {
+  .ncmd_cs.ESexType sex = 1;
+}
+
+message career_change_sex_res {
+  uint32 code = 1;
+  .ncmd_cs.ESexType sex = 2;
+}
+
+message career_change_role_show_req {
+  uint32 role_id = 1;
+  uint32 role_skin_id = 2;
+  uint32 weapon_skin_id = 3;
+  .ncmd_cs.EProfileShowType profile_show_type = 4;
+}
+
+message career_change_role_show_res {
+  uint32 code = 1;
+  uint32 role_id = 2;
+  uint32 role_skin_id = 3;
+  uint32 weapon_skin_id = 4;
+  .ncmd_cs.EProfileShowType profile_show_type = 5;
+}
+
+message career_set_custom_module_req {
+  repeated .ncmd_cs.lobby.career_module_data module_list = 1;
+}
+
+message career_set_custom_module_res {
+  uint32 code = 1;
+  repeated .ncmd_cs.lobby.career_module_data module_list = 2;
+}
+
+message career_set_custom_battledata_field_req {
+  repeated .ncmd_cs.lobby.career_battle_field battle_fields = 1;
+}
+
+message career_set_custom_battledata_field_res {
+  uint32 code = 1;
+  repeated .ncmd_cs.lobby.career_battle_field battle_fields = 2;
+}
+
+message career_change_skin_collect_req {
+  repeated uint32 skin_list = 1;
+}
+
+message career_change_skin_collect_res {
+  uint32 code = 1;
+  repeated uint32 skin_list = 2;
+}
+
+message career_show_myself_req {
+  uint32 role_id = 1;
+}
+
+message career_show_myself_res {
+  uint32 code = 1;
+}
+
+message career_show_myself_ntf {
+  uint32 player_id = 1;
+  int32 timestamp = 2;
+}
+
+message career_fist_bump_req {
+  uint32 target_id = 1;
+  string text_id = 2;
+}
+
+message career_fist_bump_res {
+  uint32 code = 1;
+  uint32 target_id = 2;
+  string text_id = 3;
+}
+
+message career_fist_bump_ntf {
+  uint32 player_id = 1;
+  uint32 target_id = 2;
+  string text_id = 3;
+}
+

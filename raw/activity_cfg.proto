@@ -1,0 +1,613 @@
+
+∂v
+activity_cfg.protoncmd_cs.lobby"=
+sc_item
+item_id (RitemId
+item_cnt (RitemCnt" 
+"activitycnycollectblessingsacc_cfg
+id (Rid
+activity_id (R
+activityId8
+accumulate_compose_count (RaccumulateComposeCount9
+reward_items (2.ncmd_cs.lobby.sc_itemRrewardItems"‹
+"activitycnycollectblessingbase_cfg
+id (Rid
+activity_id (R
+activityId;
+consume_items (2.ncmd_cs.lobby.sc_itemRconsumeItems 
+gift_item_id (R
+giftItemId"
+gift_item_num (RgiftItemNum
+limit_level (R
+limitLevel"
+max_wish_coin (RmaxWishCoin&
+max_compose_num (RmaxComposeNum1
+daily_take_away_limit	 (RdailyTakeAwayLimit7
+gift_return
+ (2.ncmd_cs.lobby.sc_itemR
+giftReturn)
+wish_coin_task_id (RwishCoinTaskId"©
+#activitycnycollectblessingsdrop_cfg
+id (Rid
+activity_id (R
+activityId
+	mode_type (RmodeType
+drop_min (RdropMin
+drop_max (RdropMax"Ö
+!activitycnycollectblessrandom_cfg
+id (Rid
+activity_id (R
+activityId
+coin_id (RcoinId
+weight (Rweight"ï
+activitycnyfirestorybase_cfg
+id (Rid
+activity_id (R
+activityId#
+start_message (	RstartMessage
+end_message (	R
+endMessage"j
+sc_condition
+type (Rtype
+param1 (Rparam1
+param2 (Rparam2
+param3 (Rparam3"©
+!activitycnyfirestorymilestone_cfg
+id (Rid
+activity_id (R
+activityId%
+condition_type (RconditionType'
+condition_value (RconditionValue9
+reward_items (2.ncmd_cs.lobby.sc_itemRrewardItemsH
+finish_conditions (2.ncmd_cs.lobby.sc_conditionRfinishConditions"√
+activitycnyfirestoryshop_cfg
+id (Rid
+activity_id (R
+activityId
+coin_id (RcoinId
+price (Rprice%
+purchase_limit (RpurchaseLimit5
+
+shop_items (2.ncmd_cs.lobby.sc_itemR	shopItemsD
+open_conditions (2.ncmd_cs.lobby.sc_conditionRopenConditions
+not_reissue (R
+notReissue"Ü
+activitycnyfirestory_cfg
+id (Rid
+activity_id (R
+activityId
+role_id (RroleId$
+unlock_item_id (RunlockItemId&
+unlock_item_num (RunlockItemNum9
+reward_items (2.ncmd_cs.lobby.sc_itemRrewardItems
+mail_id (RmailId"Ï
+"activitycnyluckylotterygeneral_cfg
+id (Rid
+activity_id (R
+activityId
+time1 (Rtime1
+time2 (Rtime2
+
+level_list (R	levelList 
+new_year_day (R
+newYearDay(
+lucky_lottery_id (RluckyLotteryId"√
+activitycnyluckylotterypool_cfg
+id (Rid
+activity_id (R
+activityId
+level_id (RlevelId
+point (Rpoint,
+items (2.ncmd_cs.lobby.sc_itemRitems
+day (Rday"º
+activitycommonbase_cfg
+id (Rid
+activity_id (R
+activityId9
+reward_items (2.ncmd_cs.lobby.sc_itemRrewardItems
+coin_id (RcoinId
+
+message_id (	R	messageId"Ö
+activitycommonlottery_cfg
+id (Rid
+activity_id (R
+activityId
+level_id (RlevelId
+point (Rpoint
+count (Rcount
+unlock_type (R
+unlockType!
+unlock_param (RunlockParam,
+items (2.ncmd_cs.lobby.sc_itemRitems"Ã
+activitycommonmilestone_cfg
+id (Rid
+activity_id (R
+activityId%
+condition_type (RconditionType'
+condition_value (RconditionValueH
+finish_conditions (2.ncmd_cs.lobby.sc_conditionRfinishConditions9
+reward_items (2.ncmd_cs.lobby.sc_itemRrewardItems'
+connected_story (RconnectedStory"Ω
+activitycommonshop_cfg
+id (Rid
+activity_id (R
+activityId
+coin_id (RcoinId
+price (Rprice%
+purchase_limit (RpurchaseLimitD
+open_conditions (2.ncmd_cs.lobby.sc_conditionRopenConditions5
+
+shop_items (2.ncmd_cs.lobby.sc_itemR	shopItems
+not_reissue (R
+notReissue"∂
+activitycommonstory_cfg
+id (Rid
+activity_id (R
+activityId
+role_id (RroleId$
+unlock_item_id (RunlockItemId&
+unlock_item_num (RunlockItemNum9
+reward_items (2.ncmd_cs.lobby.sc_itemRrewardItemsH
+unlock_conditions (2.ncmd_cs.lobby.sc_conditionRunlockConditions"‚
+activityconcertlevel_cfg
+id (Rid
+activity_id (R
+activityId
+level_id (RlevelId 
+pre_level_id (R
+preLevelId*
+unlock_cost_point (RunlockCostPoint,
+items (2.ncmd_cs.lobby.sc_itemRitems"Ç
+activityconcertstory_cfg
+id (Rid
+activity_id (R
+activityId
+story_id (RstoryId
+unlockid (Runlockid"À
+activityconcerttheme_cfg
+id (Rid
+activity_id (R
+activityId"
+point_item_id (RpointItemId 
+shop_item_id (R
+shopItemId"
+shop_item_num (RshopItemNum
+price (Rprice0
+accumulate_point_num (RaccumulatePointNum$
+reward_item_id (RrewardItemId&
+reward_item_num	 (RrewardItemNum"A
+common_item
+item_id (RitemId
+item_cnt (RitemCnt"ç
+activityfirsttopup_cfg
+activity_id (R
+activityId 
+top_up_count (R
+topUpCount0
+items (2.ncmd_cs.lobby.common_itemRitems"h
+activityfissionpassword_cfg
+id (Rid
+activity_id (R
+activityId
+content (	Rcontent"s
+activityfissionspeech_cfg
+id (Rid
+activity_id (R
+activityId%
+speech_content (	RspeechContent"ê
+activitymaid2base_cfg
+id (Rid
+activity_id (R
+activityId$
+max_remind_num (RmaxRemindNum 
+max_play_num (R
+maxPlayNum.
+single_integral_num (RsingleIntegralNum(
+integral_item_id (RintegralItemId$
+game_ticket_id (RgameTicketId"—
+activitymaid2roleopen_cfg
+id (Rid
+activity_id (R
+activityId
+	open_time (RopenTime
+end_time (RendTime!
+chat_chapter (RchatChapter(
+message_event_id (RmessageEventId"’
+activitymaid2shop_cfg
+id (Rid
+activity_id (R
+activityId
+coin_id (RcoinId
+price (Rprice%
+purchase_limit (RpurchaseLimit5
+
+shop_items (2.ncmd_cs.lobby.sc_itemR	shopItems"‰
+activitysigningeneral_cfg
+id (Rid
+activity_id (R
+activityId
+repair_sign (R
+repairSign%
+re_sign_item_id (RreSignItemId+
+re_sign_item_count (RreSignItemCount!
+show_explain (RshowExplain"¨
+activitysigninpool_cfg
+id (Rid
+activity_id (R
+activityId
+day (Rday,
+items (2.ncmd_cs.lobby.sc_itemRitems!
+reward_level (RrewardLevel">
+sta_item
+item_id (RitemId
+item_cnt (RitemCnt"ç
+activitystappointment_cfg
+id (Rid
+activity_id (R
+activityId
+day (Rday-
+items (2.ncmd_cs.lobby.sta_itemRitems"ä
+activitystmusic_cfg
+id (Rid
+activity_id (R
+activityId
+day (Rday0
+items (2.ncmd_cs.lobby.common_itemRitems"Ä
+!activitytrialfordetectivebase_cfg
+id (Rid
+activity_id (R
+activityIdF
+guess_conditions (2.ncmd_cs.lobby.sc_conditionRguessConditionsH
+result_conditions (2.ncmd_cs.lobby.sc_conditionRresultConditions%
+correct_option (RcorrectOption9
+reward_items (2.ncmd_cs.lobby.sc_itemRrewardItems
+coin_id (RcoinId
+
+message_id (	R	messageId"Ñ
+activity_backflow_cfg
+id (Rid
+activity_id (R
+activityId
+trigger_day (R
+triggerDay
+last_day (RlastDay"Ø
+activity_battledrop_cfg
+id (Rid
+	mode_type (RmodeType
+	init_prob (RinitProb
+	step_prob (RstepProb
+count (Rcount
+item_id (RitemId"É
+activity_battlereward_cfg
+id (Rid
+activity_id (R
+activityId!
+attribute_id (RattributeId
+rate (Rrate"…
+!activity_beta_recharge_rebate_cfg
+id (Rid
+activity_id (R
+activityId
+level (Rlevel
+
+amount_min (R	amountMin
+
+amount_max (R	amountMax
+rebate_rate (R
+rebateRate"A
+items
+item_id (RitemId
+item_amount (R
+itemAmount"á
+activity_con_login_cfg
+id (Rid
+activity_id (R
+activityId
+day (Rday*
+prize (2.ncmd_cs.lobby.itemsRprize"=
+gg_item
+item_id (RitemId
+item_cnt (RitemCnt"]
+
+share_item
+item_id (RitemId
+item_cnt (RitemCnt
+	item_info (	RitemInfo"∞
+activity_fission_cfg
+id (Rid
+activity_id (R
+activityId
+tutor_lv (RtutorLv
+
+student_lv (R	studentLv
+max_student (R
+maxStudent#
+student_leave	 (RstudentLeave#
+student_tasks
+ (RstudentTasks
+tutor_tasks (R
+tutorTasks,
+items (2.ncmd_cs.lobby.gg_itemRitems:
+share_items (2.ncmd_cs.lobby.share_itemR
+shareItems7
+tutor_items (2.ncmd_cs.lobby.sc_itemR
+tutorItems"»
+activity_gallerygleaning_cfg
+id (Rid
+activity_id (R
+activityId
+item_id (RitemId
+item_num (RitemNum
+
+streak_num (R	streakNum$
+default_box_id (RdefaultBoxId"∏
+activity_ggbox_cfg
+id (Rid
+activity_id (R
+activityId
+box_id (RboxId
+grid (Rgrid,
+items (2.ncmd_cs.lobby.gg_itemRitems
+jackpot (Rjackpot"G
+	condition
+	cond_type (RcondType
+
+cond_value (R	condValue"Ì
+activity_invite_card_cfg
+id (Rid
+activity_id (R
+activityId&
+sub_activity_id (RsubActivityId8
+
+conditions (2.ncmd_cs.lobby.conditionR
+conditions
+act_code (RactCode#
+activity_name (	RactivityName"|
+activity_maid_cfg
+id (Rid
+activity_id (R
+activityId
+	max_phase (RmaxPhase
+page_num (RpageNum"À
+!activity_sc_maid_phase_reward_cfg
+id (Rid
+activity_id (R
+activityId
+page_id (RpageId
+hero_id (RheroId
+phase (Rphase,
+items (2.ncmd_cs.lobby.sc_itemRitems
+	phase_des (	RphaseDes"
+point_item_id (RpointItemId
+point_count	 (R
+pointCount
+
+phase_name
+ (	R	phaseName"„
+activity_michelleplaytime_cfg
+id (Rid
+activity_id (R
+activityId
+
+consume_id (R	consumeId
+
+unlock_num (R	unlockNum!
+exchange_num (RexchangeNum0
+items (2.ncmd_cs.lobby.common_itemRitems"è
+activity_mp_unlock_cfg
+id (Rid
+activity_id (R
+activityId
+grid (Rgrid0
+items (2.ncmd_cs.lobby.common_itemRitems"≈
+activity_midaut_cfg
+id (Rid
+activity_id (R
+activityId"
+point_item_id (RpointItemId
+	max_phase (RmaxPhase<
+cg_award_items (2.ncmd_cs.lobby.sc_itemRcgAwardItems"
+#activity_sc_midaut_phase_reward_cfg
+id (Rid
+activity_id (R
+activityId
+point_count (R
+pointCount,
+mooncake_buy_count (RmooncakeBuyCount,
+items (2.ncmd_cs.lobby.sc_itemRitems
+	phase_des (	RphaseDes"—
+activity_midaut_shop_cfg
+id (Rid
+activity_id (R
+activityId(
+mooncake_item_id (RmooncakeItemId"
+point_item_id (RpointItemId
+price (Rprice 
+max_sell_num (R
+maxSellNum"p
+activity_nationfasion_cfg
+id (Rid
+activity_id (R
+activityId"
+point_item_id (RpointItemId"ê
+activity_nationfasion_shop_cfg
+id (Rid
+activity_id (R
+activityId 
+shop_item_id (R
+shopItemId"
+point_item_id (RpointItemId
+price (Rprice 
+max_sell_num (R
+maxSellNum
+	red_point (RredPoint"
+shop_item_num (RshopItemNum"ô
+activity_paragraph_cfg
+id (Rid!
+paragraph_id (RparagraphId'
+paragraph_title (	RparagraphTitle#
+paragraph_des (	RparagraphDes"n
+activity_seasondash_cfg
+id (Rid
+activity_id (R
+activityId"
+point_item_id (RpointItemId"é
+activity_seasondash_shop_cfg
+id (Rid
+activity_id (R
+activityId 
+shop_item_id (R
+shopItemId"
+shop_item_num (RshopItemNum"
+point_item_id (RpointItemId
+price (Rprice 
+max_sell_num (R
+maxSellNum
+	red_point (RredPoint"¡
+activity_summerconcert_cfg
+id (Rid
+activity_id (R
+activityId
+	max_phase (RmaxPhase
+item_id (RitemId
+item_num (RitemNum!
+exchange_num (RexchangeNum"ƒ
+activity_sc_phase_reward_cfg
+id (Rid
+activity_id (R
+activityId
+phase (Rphase,
+items (2.ncmd_cs.lobby.sc_itemRitems
+name (	Rname
+	phase_des (	RphaseDes"ü
+activity_sc_prize_cfg
+id (Rid
+activity_id (R
+activityId
+phase (Rphase
+index (Rindex
+cue (Rcue
+item_id (RitemId"ì
+activity_sc_delivery_cfg
+id (Rid
+activity_id (R
+activityId
+grid (Rgrid
+item_id (RitemId
+item_num (RitemNum"û
+activity_tales_cfg
+id (Rid
+activity_id (R
+activityId"
+point_item_id (RpointItemId
+	max_phase (RmaxPhase
+max_chapter (R
+maxChapter
+	color_min (RcolorMin
+	color_max (RcolorMax;
+activity_start_date_offset (RactivityStartDateOffset"£
+"activity_sc_tales_phase_reward_cfg
+id (Rid
+activity_id (R
+activityId
+phase_id (RphaseId"
+point_item_id (RpointItemId
+point_count (R
+pointCount!
+unlock_count (RunlockCount,
+items (2.ncmd_cs.lobby.sc_itemRitems
+	phase_des (	RphaseDes"Ù
+activity_sc_tales_chapter_cfg
+id (Rid
+activity_id (R
+activityId
+
+chapter_id (R	chapterId
+point_count (R
+pointCount,
+items (2.ncmd_cs.lobby.sc_itemRitems#
+chapter_title (	RchapterTitle*
+chapter_brief_des (	RchapterBriefDes!
+chapter_des1 (	RchapterDes1!
+chapter_des2	 (	RchapterDes2
+
+color_list
+ (R	colorList"Ï
+activity_tales_shop_cfg
+id (Rid
+activity_id (R
+activityId 
+shop_item_id (R
+shopItemId"
+shop_item_num (RshopItemNum"
+point_item_id (RpointItemId
+price (Rprice 
+max_sell_num (R
+maxSellNum"é
+activity_tales_draw_grids_cfg
+id (Rid
+activity_id (R
+activityId
+
+chapter_id (R	chapterId
+
+grid_index (R	gridIndex"â
+activity_tales_login_award_cfg
+id (Rid
+activity_id (R
+activityId
+	reward_id (RrewardId,
+items (2.ncmd_cs.lobby.sc_itemRitems!
+reward_title (	RrewardTitle
+
+reward_des (	R	rewardDes)
+reward_signature (	RrewardSignature"ó
+activity_welcome_mrds_cfg
+id (Rid
+activity_id (R
+activityId
+
+start_time (R	startTime
+
+consume_id (R	consumeId
+
+unlock_num (R	unlockNum!
+exchange_num (RexchangeNum0
+items (2.ncmd_cs.lobby.common_itemRitems
+role_id (RroleId"Ω
+activity_welcome_mrds_award_cfg
+id (Rid
+activity_id (R
+activityId!
+milestone_id (RmilestoneId'
+milestone_phase (RmilestonePhase)
+milestone_sprite (	RmilestoneSprite0
+items (2.ncmd_cs.lobby.common_itemRitems
+	phase_des (	RphaseDes#
+phase_despage (	RphaseDespage"√
+activity_cfg
+id (Rid
+type (Rtype
+sort (Rsort
+name (	Rname
+icon (	Ricon
+
+ready_time (R	readyTime
+
+start_time (R	startTime
+expire_time	 (R
+expireTime
+end_time
+ (RendTime
+	save_time (RsaveTime!
+display_type (RdisplayType
+
+blue_print (	R	bluePrint
+picture (	Rpicture
+but_text (	RbutText
+	jump_type (RjumpType
+jump_url (	RjumpUrl
+proxy (	Rproxy
+net_type (RnetType!
+ds_attention (RdsAttention9
+lottery_cost (2.ncmd_cs.lobby.sc_itemRlotteryCostbproto3

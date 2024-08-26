@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+package ncmd_cs.lobby;
+
+message player_credit {
+  uint32 credit_score = 1;
+  uint32 credit_exp = 2;
+  uint32 credit_day_recover_num = 3;
+  uint32 credit_exp_week_add = 4;
+  repeated uint32 credit_can_reward_id_list = 5;
+  repeated uint32 credit_had_reward_id_list = 6;
+}
+
+message credit_record {
+  uint32 time = 1;
+  uint32 before_score = 2;
+  uint32 after_score = 3;
+  uint32 reason = 4;
+  uint32 room_mode = 5;
+  uint32 is_win = 6;
+}
+
+message credit_info_req {
+}
+
+message credit_info_res {
+  uint32 code = 1;
+  .ncmd_cs.lobby.player_credit credit_info = 2;
+}
+
+message credit_info_ntf {
+  .ncmd_cs.lobby.player_credit credit_info = 1;
+}
+
+message credit_exp_reward_req {
+  uint32 reward_id = 1;
+}
+
+message credit_exp_reward_res {
+  uint32 code = 1;
+  uint32 reward_id = 2;
+}
+
+message credit_record_req {
+}
+
+message credit_record_res {
+  uint32 code = 1;
+  repeated .ncmd_cs.lobby.credit_record record_list = 2;
+}
+

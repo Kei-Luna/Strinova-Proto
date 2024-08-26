@@ -1,0 +1,81 @@
+syntax = "proto3";
+
+package ncmd_cs.dir;
+
+import "enum.proto";
+
+message gray_config {
+  int32 id = 1;
+  string cfg = 2;
+  string gray = 3;
+  string gray_param = 4;
+}
+
+message get_gray_config_req {
+  string open_id = 1;
+  string version = 2;
+}
+
+message get_gray_config_res {
+  uint32 code = 1;
+  repeated .ncmd_cs.dir.gray_config confs = 2;
+}
+
+message server_addr {
+  string host = 1;
+  string ip = 2;
+  uint32 port = 3;
+  uint32 cluster_id = 4;
+  string cluster_name = 5;
+}
+
+message get_token_req {
+  string open_id = 1;
+  .ncmd_cs.EDeviceType device_id = 2;
+}
+
+message get_token_res {
+  uint32 code = 1;
+  string lobby_access_token = 2;
+  .ncmd_cs.dir.server_addr lobby_addr = 3;
+  repeated .ncmd_cs.dir.server_addr ping_list = 4;
+  string api_addr = 5;
+}
+
+message get_lobby_info_req {
+  uint32 magic_code = 1;
+}
+
+message get_lobby_info_res {
+  uint32 code = 1;
+  repeated .ncmd_cs.dir.server_addr addr_list = 2;
+}
+
+message get_system_notice_req {
+}
+
+message system_notice {
+  uint32 id = 1;
+  string msg = 2;
+}
+
+message get_system_notice_res {
+  uint32 code = 1;
+  repeated .ncmd_cs.dir.system_notice notice_list = 2;
+}
+
+message query_steam_bind_req {
+  string steam_open_id = 1;
+  string steam_token = 2;
+  string os = 3;
+  int32 channelid = 4;
+  uint32 login_env = 5;
+}
+
+message query_steam_bind_res {
+  uint32 code = 1;
+  string steam_open_id = 2;
+  string open_id = 3;
+  uint32 platform_id = 4;
+}
+

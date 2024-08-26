@@ -1,0 +1,233 @@
+syntax = "proto3";
+
+package ncmd_cs.lobby;
+
+import "enum.proto";
+
+message chat_player {
+  uint64 player_id = 1;
+  string nick = 2;
+  uint32 icon = 3;
+  uint32 team_id = 4;
+  bool mic_flag = 5;
+  uint32 vc_border_id = 6;
+}
+
+message chat_send_req {
+  uint64 tar_player_id = 1;
+  string msg = 2;
+  uint64 context_id = 3;
+}
+
+message chat_send_res {
+  uint32 code = 1;
+  uint64 tar_player_id = 2;
+  string msg = 3;
+  uint64 context_id = 4;
+  uint32 result = 5;
+  uint32 ban_time = 6;
+  string ban_reason = 7;
+}
+
+message private_chat_msg {
+  uint64 src_player_id = 1;
+  string src_nick = 2;
+  string msg = 3;
+  uint32 icon = 4;
+  uint64 time = 5;
+  uint32 vc_border_id = 6;
+}
+
+message chat_recv_ntf {
+  repeated .ncmd_cs.lobby.private_chat_msg private_chats = 1;
+}
+
+message chat_group_info_ntf {
+  uint64 group_id = 1;
+  string group_name = 2;
+  .ncmd_cs.EChatType group_type = 3;
+  repeated .ncmd_cs.lobby.chat_player members = 4;
+}
+
+message chat_group_info_item {
+  uint64 group_id = 1;
+  string group_name = 2;
+  .ncmd_cs.EChatType group_type = 3;
+  repeated .ncmd_cs.lobby.chat_player members = 4;
+}
+
+message chat_group_info_all_ntf {
+  repeated .ncmd_cs.lobby.chat_group_info_item items = 1;
+}
+
+message chat_group_member_ntf {
+  uint64 group_id = 1;
+  .ncmd_cs.lobby.chat_player member = 2;
+}
+
+message chat_group_quit_ntf {
+  uint64 group_id = 1;
+  uint64 player_id = 2;
+}
+
+message chat_group_send_req {
+  uint64 group_id = 1;
+  string msg = 2;
+  uint64 context_id = 3;
+  uint64 team_id = 4;
+}
+
+message chat_group_send_res {
+  uint32 code = 1;
+  uint64 context_id = 2;
+  uint32 result = 3;
+  uint32 ban_time = 4;
+  string ban_reason = 5;
+}
+
+message group_chat_msg {
+  uint64 group_id = 1;
+  uint64 player_id = 2;
+  string msg = 3;
+  uint64 team_id = 4;
+  string nick = 5;
+  uint32 icon = 6;
+  uint32 vc_border_id = 7;
+}
+
+message chat_group_recv_ntf {
+  .ncmd_cs.lobby.group_chat_msg group_chat = 1;
+}
+
+message chat_group_destory_ntf {
+  uint64 group_id = 1;
+}
+
+message chat_group_member_mic_req {
+  uint64 group_id = 1;
+  bool mic_flag = 2;
+}
+
+message chat_group_member_mic_res {
+  uint32 code = 1;
+}
+
+message chat_type_info {
+  uint32 channel = 1;
+  .ncmd_cs.EChatType chat_type = 2;
+}
+
+message world_chat_channel_ntf {
+  repeated .ncmd_cs.lobby.chat_type_info chat_channels = 1;
+}
+
+message world_chat_modify_channel_req {
+  uint32 new_channel = 1;
+}
+
+message world_chat_modify_channel_res {
+  uint32 code = 1;
+  uint32 new_channel = 2;
+}
+
+message world_chat_all_channel_req {
+  .ncmd_cs.EChatType chat_type = 1;
+}
+
+message world_chat_channel_item {
+  uint32 channel = 1;
+  uint32 count = 2;
+}
+
+message world_chat_all_channel_res {
+  repeated .ncmd_cs.lobby.world_chat_channel_item items = 1;
+  uint32 all_channel = 2;
+}
+
+message world_chat_msg_item {
+  uint64 player_id = 1;
+  string msg = 2;
+  string nick = 3;
+  uint64 time = 4;
+  uint32 icon = 5;
+  uint32 vc_border_id = 6;
+}
+
+message world_chat_send_req {
+  .ncmd_cs.lobby.world_chat_msg_item item = 1;
+  uint32 channel = 2;
+}
+
+message world_chat_send_res {
+  uint32 code = 1;
+  uint32 ban_time = 2;
+  string ban_reason = 3;
+}
+
+message world_chat_recv_ntf {
+  .ncmd_cs.lobby.world_chat_msg_item item = 1;
+  uint32 channel = 2;
+}
+
+message world_chat_clear_ntf {
+  uint64 player_id = 1;
+}
+
+message world_chat_msgs_req {
+  uint32 channel = 1;
+}
+
+message world_chat_msgs_res {
+  uint32 code = 1;
+  repeated .ncmd_cs.lobby.world_chat_msg_item world_chats = 2;
+  uint32 channel = 3;
+}
+
+message edit_business_team_card_req {
+  bool show_division = 1;
+  string business_text = 2;
+  string team_text = 3;
+}
+
+message edit_business_team_card_res {
+  uint32 code = 1;
+}
+
+message business_team_card_ntf {
+  bool show_division = 1;
+  string business_text = 2;
+  string team_text = 3;
+}
+
+message quick_msg {
+  uint32 id = 1;
+  string context = 2;
+  uint32 quick_type = 3;
+}
+
+message edit_quick_reply_req {
+  repeated .ncmd_cs.lobby.quick_msg quick_msgs = 1;
+}
+
+message edit_quick_reply_res {
+  uint32 code = 1;
+}
+
+message quick_reply_ntf {
+  repeated .ncmd_cs.lobby.quick_msg quick_msgs = 1;
+}
+
+message chat_setting_req {
+  uint32 chat_setting = 1;
+  uint32 chat_ntf_settig = 2;
+}
+
+message chat_setting_res {
+  uint32 code = 1;
+}
+
+message chat_setting_ntf {
+  uint32 chat_setting = 1;
+  uint32 chat_ntf_settig = 2;
+}
+

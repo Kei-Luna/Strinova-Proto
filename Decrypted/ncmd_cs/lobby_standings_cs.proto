@@ -1,0 +1,91 @@
+syntax = "proto3";
+
+package ncmd_cs.lobby;
+
+import "enum.proto";
+import "common.proto";
+
+message standings_list_req {
+  uint64 player_id = 1;
+  uint32 index = 2;
+  .ncmd_cs.ERoomMode game_mode = 3;
+}
+
+message standings_title {
+  .ncmd_cs.ERoomMode game_mode = 1;
+  .ncmd_cs.EPlayMode play_mode = 2;
+  uint32 map_id = 3;
+  repeated uint32 scores = 4;
+  .ncmd_cs.ERoomCamp my_team = 5;
+  repeated .ncmd_cs.ERoomCamp winner_team = 6;
+  uint64 time = 7;
+  uint64 room_id = 8;
+  uint32 fight_time = 9;
+  repeated uint64 teams = 10;
+  .ncmd_cs.ERoomCamp attack_camp_id = 11;
+  uint32 my_ranking = 12;
+  uint32 can_switch_camp = 13;
+  int32 divison_score = 14;
+  int32 old_division_score = 15;
+}
+
+message standing_mode_info {
+  .ncmd_cs.ERoomMode game_mode = 1;
+  uint32 num = 2;
+}
+
+message standings_list_res {
+  uint32 code = 1;
+  repeated .ncmd_cs.lobby.standings_title titles = 2;
+  repeated .ncmd_cs.lobby.standing_mode_info mode_infos = 3;
+  uint64 player_id = 4;
+}
+
+message standings_info_req {
+  uint64 player_id = 1;
+  uint64 room_id = 2;
+}
+
+message settle_role_info {
+  uint32 role_id = 1;
+}
+
+message standings_info {
+  repeated .ncmd_cs.player_settle_info players = 1;
+  repeated .ncmd_cs.round_settle_info round_infos = 2;
+}
+
+message standings_info_res {
+  uint32 code = 1;
+  .ncmd_cs.lobby.standings_info standings = 2;
+  uint64 room_id = 3;
+}
+
+message battle_replay_req {
+  uint64 room_id = 1;
+}
+
+message battle_replay_res {
+  uint32 code = 1;
+  string download_url = 2;
+  uint64 room_id = 3;
+}
+
+message enter_replay_req {
+}
+
+message enter_replay_res {
+  uint32 code = 1;
+}
+
+message leave_replay_req {
+}
+
+message leave_replay_res {
+  uint32 code = 1;
+}
+
+message upload_replay_finish_ntf {
+  uint64 room_id = 2;
+}
+

@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package ncmd_cs.lobby;
+
+import "enum.proto";
+
+message room_reconnect_req {
+  bool sure = 1;
+}
+
+message room_reconnect_res {
+  uint32 code = 1;
+}
+
+message query_room_status_req {
+  uint64 room_id = 1;
+}
+
+message query_room_status_res {
+  uint32 code = 1;
+  bool exist = 2;
+  .ncmd_cs.ERoomStatus status = 3;
+}
+
+message room_member_offline_ntf {
+  uint64 player_id = 1;
+  bool offline = 2;
+}
+
+message watch_other_player_req {
+  uint64 tar_player_id = 1;
+  .ncmd_cs.EWatchType watch_type = 2;
+  uint64 room_id = 3;
+  .ncmd_cs.EWatchView watch_view = 4;
+}
+
+message watch_other_player_res {
+  uint32 code = 1;
+}
+

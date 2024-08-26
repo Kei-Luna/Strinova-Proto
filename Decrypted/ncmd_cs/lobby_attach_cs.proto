@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+package ncmd_cs.lobby;
+
+import "enum.proto";
+
+message attachment_equip_req {
+  uint64 weapon_uuid = 1;
+  .ncmd_cs.EAttachmentType attach_type = 2;
+  int32 attach_id = 3;
+}
+
+message attachment_equip_res {
+  uint32 code = 1;
+  uint64 weapon_uuid = 2;
+  .ncmd_cs.EAttachmentType attach_type = 3;
+  int32 attach_id = 4;
+}
+
+message attachment_unload_req {
+  uint64 weapon_uuid = 1;
+  .ncmd_cs.EAttachmentType attach_type = 2;
+  int32 attach_id = 3;
+}
+
+message attachment_unload_res {
+  uint32 code = 1;
+  uint64 weapon_uuid = 2;
+  .ncmd_cs.EAttachmentType attach_type = 3;
+  int32 attach_id = 4;
+}
+
+message attachment_unlock_req {
+  uint64 item_uuid = 1;
+  uint64 weapon_uuid = 2;
+  .ncmd_cs.EAttachmentType attach_type = 3;
+  int32 attach_id = 4;
+}
+
+message attachment_unlock_res {
+  uint32 code = 1;
+  uint64 weapon_uuid = 2;
+  .ncmd_cs.EAttachmentType attach_type = 3;
+  int32 attach_id = 4;
+}
+

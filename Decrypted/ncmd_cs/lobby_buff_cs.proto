@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package ncmd_cs.lobby;
+
+message buff_info {
+  int32 effect_type = 1;
+  int32 effect_id = 2;
+  uint32 effect_rate = 3;
+  uint32 duration = 4;
+  uint32 win_count = 5;
+  uint32 use_type = 6;
+}
+
+message buff_list_ntf {
+  repeated .ncmd_cs.lobby.buff_info buff_list = 1;
+}
+
+message buff_update_req {
+}
+
+message buff_update_res {
+  uint32 code = 1;
+}
+

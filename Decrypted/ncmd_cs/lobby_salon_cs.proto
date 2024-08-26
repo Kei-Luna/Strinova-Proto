@@ -1,0 +1,269 @@
+syntax = "proto3";
+
+package ncmd_cs.lobby;
+
+import "common.proto";
+import "enum.proto";
+
+message salon_battle_record {
+  int64 room_id = 1;
+  int32 win = 2;
+  uint32 mvp = 3;
+}
+
+message salon_playerinfo {
+  uint32 interaction_count = 1;
+  uint32 show_role_id = 2;
+  repeated .ncmd_cs.lobby.salon_battle_record battle_records = 3;
+}
+
+message salon_set_playerinfo_req {
+  uint32 show_role_id = 1;
+}
+
+message salon_set_playerinfo_res {
+  uint32 code = 1;
+}
+
+message salon_playerinfo_req {
+}
+
+message salon_playerinfo_res {
+  uint32 code = 1;
+  .ncmd_cs.lobby.salon_playerinfo info = 2;
+}
+
+message salon_playerinfo_ntf {
+  .ncmd_cs.lobby.salon_playerinfo info = 2;
+}
+
+message salon_gift {
+  uint32 gift_id = 1;
+  uint32 gift_num = 2;
+}
+
+message salon_role_setting {
+  uint32 key = 1;
+  int64 value = 2;
+}
+
+message salon_sequence {
+  uint32 id = 1;
+  uint32 main_status = 2;
+  uint32 picture_status = 3;
+}
+
+message salon_pledge {
+  uint32 id = 1;
+  uint32 step = 2;
+}
+
+message salon_role {
+  uint32 role_id = 1;
+  uint32 intimacy = 2;
+  uint32 intimacy_lv = 3;
+  repeated .ncmd_cs.lobby.salon_gift gifts = 6;
+  repeated .ncmd_cs.lobby.salon_role_setting settings = 8;
+  uint32 upgrade_time = 9;
+  repeated uint32 upgrade_rewards = 10;
+  repeated uint32 tasks = 11;
+  repeated uint32 biographys = 13;
+  repeated uint32 read_biographys = 14;
+  repeated .ncmd_cs.lobby.salon_sequence sequences = 16;
+  repeated .ncmd_cs.lobby.salon_pledge pledges = 17;
+  uint32 birthday_stage = 18;
+}
+
+message salon_roles_req {
+  uint32 role_id = 1;
+}
+
+message salon_roles_ntf {
+  repeated .ncmd_cs.lobby.salon_role roles = 1;
+}
+
+message salon_setting_role_req {
+  uint32 role_id = 1;
+  repeated .ncmd_cs.lobby.salon_role_setting settings = 2;
+  uint32 is_reset = 3;
+}
+
+message salon_setting_role_res {
+  uint32 code = 1;
+}
+
+message salon_send_gift_req {
+  uint32 role_id = 1;
+  uint32 gift_id = 2;
+  uint32 gift_num = 3;
+}
+
+message salon_send_gift_res {
+  uint32 code = 1;
+}
+
+message salon_role_upgrad_ntf {
+  uint32 role_id = 1;
+  uint32 intimacy = 2;
+  uint32 intimacy_lv = 3;
+  uint32 upgrade_lv = 4;
+  int32 add_intimacy = 5;
+}
+
+message salon_get_role_upgrad_reward_req {
+  uint32 role_id = 1;
+  uint32 level = 2;
+  uint32 mode = 3;
+}
+
+message salon_get_role_upgrad_reward_res {
+  uint32 code = 1;
+}
+
+message salon_message_select {
+  string key = 1;
+  uint32 value = 2;
+  uint64 stime = 3;
+}
+
+message salon_message {
+  string chapter_id = 1;
+  repeated .ncmd_cs.lobby.salon_message_select select_ids = 2;
+  uint32 status = 3;
+  uint64 flush_time = 4;
+  uint32 flyin_status = 5;
+  .ncmd_cs.SalonSmsType sms_type = 6;
+}
+
+message salon_get_message_req {
+  string chapter_id = 1;
+}
+
+message salon_get_message_res {
+  uint32 code = 1;
+  repeated .ncmd_cs.lobby.salon_message msg = 2;
+}
+
+message salon_get_message_ntf {
+  repeated .ncmd_cs.lobby.salon_message msg = 1;
+}
+
+message salon_save_message_req {
+  string chapter_id = 1;
+  repeated .ncmd_cs.lobby.salon_message_select select_ids = 2;
+  bool is_over = 3;
+  uint32 is_flyin = 4;
+}
+
+message salon_save_message_res {
+  uint32 code = 1;
+  string chapter_id = 2;
+}
+
+message salon_interaction_req {
+  uint32 role_id = 1;
+  uint32 interaction_id = 2;
+  uint32 role_state = 3;
+}
+
+message salon_interaction_res {
+  uint32 code = 1;
+}
+
+message salon_show_oper_req {
+  uint32 oper_type = 1;
+  uint32 param = 2;
+  uint32 param_sub = 3;
+  repeated uint32 param_adds = 4;
+}
+
+message salon_show_oper_res {
+  uint32 code = 1;
+  uint32 oper_type = 2;
+  uint32 param = 3;
+  uint32 param_sub = 4;
+  repeated uint32 param_adds = 5;
+}
+
+message take_task_prize_req {
+  uint32 task_id = 1;
+}
+
+message take_task_prize_res {
+  uint32 code = 1;
+  .ncmd_cs.obtain_data obtain_list = 2;
+  uint32 task_id = 3;
+}
+
+message salon_send_chatgpt_req {
+  uint32 role_id = 1;
+  bytes question = 2;
+}
+
+message salon_send_chatgpt_res {
+  uint32 code = 1;
+  uint32 role_id = 2;
+  string request_id = 3;
+}
+
+message salon_send_chatgpt_ntf {
+  string request_id = 1;
+  string answer = 2;
+}
+
+message holiday_wishes_ntf {
+  uint32 holiday_id = 1;
+  repeated uint32 role_ids = 2;
+}
+
+message holiday_wishes_play_req {
+  uint32 holiday_id = 1;
+  uint32 role_id = 2;
+}
+
+message holiday_wishes_play_res {
+  uint32 code = 1;
+  uint32 holiday_id = 2;
+  uint32 role_id = 3;
+}
+
+message birthday_record_req {
+  uint32 player_birthday_time = 1;
+}
+
+message birthday_record_res {
+  uint32 code = 1;
+  uint32 player_birthday_time = 2;
+}
+
+message player_birthday_ntf {
+  repeated uint32 role_ids = 1;
+  bool is_birthday = 2;
+}
+
+message birthday_reward_req {
+  uint32 role_id = 1;
+}
+
+message birthday_reward_res {
+  uint32 code = 1;
+  uint32 role_id = 2;
+}
+
+message role_birthday_stage_change_req {
+  uint32 role_id = 1;
+  uint32 param = 2;
+  uint32 birthday_stage = 3;
+}
+
+message role_birthday_stage_change_res {
+  uint32 code = 1;
+  uint32 role_id = 2;
+  uint32 birthday_stage = 3;
+}
+
+message role_birthday_stage_ntf {
+  uint32 role_id = 1;
+  uint32 birthday_stage = 2;
+}
+

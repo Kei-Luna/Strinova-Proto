@@ -1,0 +1,1422 @@
+syntax = "proto3";
+
+package ncmd_cs.lobby;
+
+import "enum.proto";
+import "activity_cfg.proto";
+
+message activity_preview_data {
+  uint32 id = 1;
+  .ncmd_cs.lobby.activity_cfg cfg = 2;
+  bool reddot = 3;
+  .ncmd_cs.EActivityStatus status = 4;
+}
+
+message activity_preview_list_req {
+}
+
+message activity_preview_list_res {
+  uint32 code = 1;
+  repeated .ncmd_cs.lobby.activity_preview_data data_list = 2;
+}
+
+message acticity_update_activity_ntf {
+  .ncmd_cs.lobby.activity_preview_data data = 1;
+}
+
+message acticity_statue_change_ntf {
+  uint32 activity_id = 1;
+  .ncmd_cs.EActivityStatus status = 2;
+}
+
+message activity_preview_list_ntf {
+  repeated .ncmd_cs.lobby.activity_preview_data data_list = 1;
+}
+
+message activity_share_report_req {
+  uint32 activity_id = 1;
+  uint32 task_id = 2;
+}
+
+message activity_share_report_res {
+  uint32 code = 1;
+}
+
+message sta_get_data_req {
+  uint32 activity_id = 1;
+}
+
+message sta_player_card_data {
+  uint32 day = 1;
+  uint32 item_id = 2;
+  uint32 item_cnt = 3;
+}
+
+message sta_player_data {
+  .ncmd_cs.lobby.sta_player_card_data send_item = 1;
+  repeated .ncmd_cs.lobby.sta_player_card_data cards = 2;
+  repeated uint32 days = 3;
+}
+
+message sta_get_data_res {
+  uint32 code = 1;
+  repeated .ncmd_cs.lobby.activitystappointment_cfg cfg_list = 2;
+  .ncmd_cs.lobby.sta_player_data data = 3;
+}
+
+message sta_data_ntf {
+  repeated .ncmd_cs.lobby.activitystappointment_cfg cfg_list = 1;
+  .ncmd_cs.lobby.sta_player_data data = 2;
+  uint32 activity_id = 3;
+}
+
+message sta_open_card_req {
+  uint32 activity_id = 1;
+  uint32 day = 2;
+}
+
+message sta_open_card_res {
+  uint32 code = 1;
+  uint32 activity_id = 2;
+  .ncmd_cs.lobby.sta_player_card_data card = 3;
+}
+
+message sta_choose_reward_req {
+  uint32 activity_id = 1;
+  uint32 day = 2;
+}
+
+message sta_choose_reward_res {
+  uint32 code = 1;
+  uint32 activity_id = 2;
+  uint32 day = 3;
+}
+
+message sta_new_day_ntf {
+  uint32 day = 1;
+}
+
+message battle_reward_get_data_req {
+  uint32 activity_id = 1;
+}
+
+message battle_reward_get_data_res {
+  uint32 code = 1;
+  repeated .ncmd_cs.lobby.activity_battlereward_cfg cfg_list = 2;
+  uint32 current_day_count = 3;
+  uint32 day_count_limit = 4;
+}
+
+message gallery_gleaning_get_data_req {
+  uint32 activity_id = 1;
+}
+
+message gallery_gleaning_data {
+  uint32 box_id = 1;
+  repeated uint32 grids = 2;
+}
+
+message gallery_gleaning_get_data_res {
+  uint32 code = 1;
+  uint32 activity_id = 2;
+  .ncmd_cs.lobby.activity_gallerygleaning_cfg gg_cfg = 3;
+  repeated .ncmd_cs.lobby.activity_ggbox_cfg box_cfg = 4;
+  repeated uint32 task_cfg = 5;
+  repeated .ncmd_cs.lobby.gallery_gleaning_data box_data = 6;
+  uint32 item_num = 7;
+}
+
+message gallery_gleaning_lottery_req {
+  uint32 activity_id = 1;
+  uint32 box_id = 2;
+  uint32 lottery_cnt = 3;
+}
+
+message gallery_gleaning_lottery_res {
+  uint32 code = 1;
+  uint32 activity_id = 2;
+  uint32 box_id = 3;
+  repeated uint32 grids = 4;
+  uint32 left_num = 5;
+}
+
+message sc_data_get_req {
+  uint32 activity_id = 1;
+}
+
+message sc_phase_prize {
+  uint32 phase = 1;
+  uint32 grid = 2;
+  bool cue = 4;
+  int32 item_id = 5;
+}
+
+message sc_prize_preview_cfg {
+  uint32 phase = 1;
+  int32 item_id = 2;
+}
+
+message summer_concert_cfg {
+  .ncmd_cs.lobby.activity_summerconcert_cfg summer_concert = 1;
+  repeated .ncmd_cs.lobby.activity_sc_phase_reward_cfg phase_reward = 2;
+  repeated .ncmd_cs.lobby.activity_sc_delivery_cfg delivery = 3;
+  repeated .ncmd_cs.lobby.sc_prize_preview_cfg preview_prize_target = 4;
+}
+
+message sc_data_get_res {
+  uint32 code = 1;
+  uint32 cur_phase = 2;
+  repeated uint32 phase_reward = 3;
+  repeated uint32 delivery_reward = 4;
+  repeated .ncmd_cs.lobby.sc_phase_prize phase_prize = 5;
+  .ncmd_cs.lobby.summer_concert_cfg cfg = 6;
+}
+
+message sc_open_card_req {
+  uint32 activity_id = 1;
+  uint32 grid = 2;
+}
+
+message sc_open_card_res {
+  uint32 code = 1;
+  uint32 grid = 2;
+  bool cue = 4;
+  uint32 cur_phase = 5;
+  uint32 item_id = 6;
+}
+
+message sc_award_phase_req {
+  uint32 activity_id = 1;
+  uint32 phase = 2;
+}
+
+message sc_award_phase_res {
+  uint32 code = 1;
+  uint32 phase = 2;
+}
+
+message sc_deliver_req {
+  uint32 activity_id = 1;
+  uint32 cnt = 2;
+}
+
+message sc_deliver_res {
+  uint32 code = 1;
+  uint32 activity_id = 2;
+  repeated uint32 grids = 3;
+}
+
+message stm_data_ntf {
+  uint32 activity_id = 1;
+  uint32 cur_day = 2;
+  repeated uint32 days = 3;
+  repeated .ncmd_cs.lobby.activitystmusic_cfg cfg_list = 4;
+}
+
+message stm_new_day_ntf {
+  uint32 activity_id = 1;
+  uint32 cur_day = 2;
+}
+
+message stm_reward_req {
+  uint32 activity_id = 1;
+  uint32 day = 2;
+}
+
+message stm_reward_res {
+  int32 code = 1;
+  uint32 activity_id = 2;
+  uint32 day = 3;
+}
+
+message invite_card_data {
+  uint32 sub_activity_id = 1;
+  uint32 status = 2;
+  uint32 use_code = 3;
+  string code_str = 4;
+  uint32 cond_value = 5;
+}
+
+message invite_card_data_get_req {
+  uint32 activity_id = 1;
+}
+
+message invite_card_data_get_res {
+  int32 code = 1;
+  repeated .ncmd_cs.lobby.invite_card_data invite_card_data_list = 2;
+  repeated .ncmd_cs.lobby.activity_invite_card_cfg invite_card_cfg_list = 3;
+}
+
+message invite_card_reward_req {
+  uint32 activity_id = 1;
+  uint32 sub_activity_id = 2;
+}
+
+message invite_card_reward_res {
+  int32 code = 1;
+  .ncmd_cs.lobby.invite_card_data card_data = 2;
+}
+
+message invite_card_use_req {
+  uint32 activity_id = 1;
+  uint32 sub_activity_id = 2;
+}
+
+message invite_card_use_res {
+  int32 code = 1;
+  .ncmd_cs.lobby.invite_card_data card_data = 2;
+}
+
+message invite_card_data_ntf {
+  repeated .ncmd_cs.lobby.invite_card_data invite_card_data_list = 1;
+}
+
+message beta_recharge_rebate_data_req {
+}
+
+message beta_recharge_rebate_data_res {
+  uint32 code = 1;
+  uint32 step = 2;
+  uint32 recharge_amount = 3;
+  uint32 rebate_amount = 4;
+  bool has_take = 5;
+}
+
+message beta_recharge_rebate_take_req {
+}
+
+message beta_recharge_rebate_take_res {
+  uint32 code = 1;
+  uint32 rebate_amount = 2;
+}
+
+message mp_get_data_req {
+  uint32 activity_id = 1;
+}
+
+message mp_grid_data {
+  uint32 grid = 1;
+  uint32 pos = 2;
+}
+
+message mp_get_data_res {
+  int32 code = 1;
+  uint32 activity_id = 2;
+  uint32 item_num = 3;
+  .ncmd_cs.lobby.activity_michelleplaytime_cfg mp_cfg = 4;
+  repeated .ncmd_cs.lobby.activity_mp_unlock_cfg unlock_cfg = 5;
+  repeated uint32 unlock_grids = 6;
+  repeated .ncmd_cs.lobby.common_item gain_items = 7;
+  repeated .ncmd_cs.lobby.mp_grid_data choose_items = 8;
+}
+
+message mp_unlock_reward_req {
+  uint32 activity_id = 1;
+  uint32 grid = 2;
+  uint32 pos = 3;
+}
+
+message mp_unlock_reward_res {
+  int32 code = 1;
+  uint32 activity_id = 2;
+  uint32 grid = 3;
+  repeated .ncmd_cs.lobby.common_item gain_items = 4;
+  uint32 pos = 5;
+}
+
+message mp_exchange_reward_req {
+  uint32 activity_id = 1;
+  uint32 cnt = 2;
+}
+
+message mp_exchange_reward_res {
+  int32 code = 1;
+  uint32 activity_id = 2;
+  uint32 cnt = 3;
+  repeated .ncmd_cs.lobby.common_item gain_items = 4;
+}
+
+message role_warm_up_get_data_req {
+  uint32 activity_id = 1;
+}
+
+message role_warm_up_get_data_res {
+  int32 code = 1;
+  uint32 activity_id = 2;
+  bool award_role = 3;
+  repeated uint32 award_phase = 4;
+  .ncmd_cs.lobby.activity_welcome_mrds_cfg activity_cfg = 5;
+  repeated .ncmd_cs.lobby.activity_welcome_mrds_award_cfg phase_cfg = 6;
+}
+
+message role_warm_up_award_phase_req {
+  uint32 activity_id = 1;
+  uint32 phase = 2;
+}
+
+message role_warm_up_award_phase_res {
+  int32 code = 1;
+  uint32 activity_id = 2;
+  uint32 phase = 3;
+}
+
+message role_warm_up_award_role_req {
+  uint32 activity_id = 1;
+}
+
+message role_warm_up_award_role_res {
+  int32 code = 1;
+  uint32 activity_id = 2;
+}
+
+message role_warm_up_exchange_req {
+  uint32 activity_id = 1;
+  uint32 cnt = 2;
+}
+
+message role_warm_up_exchange_res {
+  int32 code = 1;
+  uint32 activity_id = 2;
+  uint32 cnt = 3;
+}
+
+message maid_data_get_req {
+  uint32 activity_id = 1;
+}
+
+message sc_maid_all_cfg {
+  .ncmd_cs.lobby.activity_maid_cfg base_cfg = 1;
+  repeated .ncmd_cs.lobby.activity_sc_maid_phase_reward_cfg phase_reward_cfg_list = 2;
+}
+
+message maid_data_get_res {
+  uint32 code = 1;
+  uint32 cur_page = 2;
+  repeated uint32 phase_reward_list = 3;
+  .ncmd_cs.lobby.sc_maid_all_cfg cfg = 4;
+  repeated uint32 page_photo_list = 5;
+  uint32 activity_id = 6;
+}
+
+message maid_select_page_req {
+  uint32 activity_id = 1;
+  uint32 page_index = 2;
+}
+
+message maid_select_page_res {
+  uint32 code = 1;
+  uint32 page_index = 2;
+}
+
+message maid_award_phase_req {
+  uint32 activity_id = 1;
+  uint32 page_index = 2;
+  uint32 phase = 3;
+}
+
+message maid_award_phase_res {
+  uint32 code = 1;
+  uint32 page_index = 2;
+  uint32 phase = 3;
+}
+
+message maid_photo_page_req {
+  uint32 activity_id = 1;
+  uint32 page_index = 2;
+}
+
+message maid_photo_page_res {
+  uint32 code = 1;
+  uint32 page_index = 2;
+}
+
+message fission_student {
+  uint64 player_id = 1;
+  uint32 school_status = 2;
+  uint32 level = 3;
+  uint32 online_status = 4;
+  uint64 logout_time = 5;
+  string nick = 6;
+  uint32 icon = 7;
+  uint32 status = 8;
+  uint32 finish_school = 9;
+}
+
+message fission_recruit {
+  repeated .ncmd_cs.lobby.fission_student students = 1;
+  uint32 shared_id = 2;
+}
+
+message fission_newhand {
+  uint64 tutor_id = 1;
+  uint32 school_status = 2;
+  uint64 start_time = 3;
+  uint64 end_time = 4;
+  uint32 fight_count = 5;
+  uint32 kill_count = 6;
+}
+
+message fission_get_data_req {
+  uint32 activity_id = 1;
+}
+
+message fission_get_data_res {
+  uint32 code = 1;
+  uint32 identity = 2;
+  .ncmd_cs.lobby.fission_newhand newhand = 3;
+  .ncmd_cs.lobby.fission_recruit recruit = 4;
+  .ncmd_cs.lobby.activity_fission_cfg fission_cfg = 5;
+}
+
+message fission_bind_tutor_req {
+  uint32 activity_id = 1;
+  string nick = 2;
+  uint32 shared_id = 3;
+}
+
+message fission_bind_tutor_res {
+  uint32 code = 1;
+  uint64 tutor_id = 2;
+}
+
+message fission_new_student_ntf {
+  .ncmd_cs.lobby.fission_student student = 1;
+}
+
+message fission_set_identity_req {
+  uint32 activity_id = 1;
+  uint32 identity = 2;
+}
+
+message fission_set_identity_res {
+  uint32 code = 1;
+}
+
+message fission_set_shared_req {
+  uint32 activity_id = 1;
+  uint32 shared_id = 2;
+}
+
+message fission_set_shared_res {
+  uint32 code = 1;
+  uint32 shared_id = 2;
+}
+
+message fission_get_school_over_req {
+  uint32 activity_id = 1;
+}
+
+message fission_get_school_over_res {
+  uint32 code = 1;
+  .ncmd_cs.lobby.fission_newhand school_info = 2;
+}
+
+message midaut_data_get_req {
+  uint32 activity_id = 1;
+}
+
+message midaut_common_buy_info {
+  uint32 shop_id = 1;
+  uint32 buy_count = 2;
+}
+
+message midaut_common_phase_info {
+  uint32 phase_id = 1;
+  uint32 state = 2;
+}
+
+message sc_midaut_all_cfg {
+  .ncmd_cs.lobby.activity_midaut_cfg base_cfg = 1;
+  repeated .ncmd_cs.lobby.activity_sc_midaut_phase_reward_cfg phase_reward_cfg_list = 2;
+  repeated .ncmd_cs.lobby.activity_midaut_shop_cfg shop_cfg_list = 3;
+}
+
+message midaut_data_get_res {
+  uint32 code = 1;
+  uint32 total_buy_count = 2;
+  uint32 total_point_count = 3;
+  uint32 play_cg_award_state = 4;
+  repeated .ncmd_cs.lobby.midaut_common_phase_info phase_reward_list = 5;
+  repeated .ncmd_cs.lobby.midaut_common_buy_info buy_count_list = 6;
+  .ncmd_cs.lobby.sc_midaut_all_cfg cfg = 7;
+}
+
+message midaut_award_phase_req {
+  uint32 activity_id = 1;
+  uint32 phase_id = 2;
+}
+
+message midaut_award_phase_res {
+  uint32 code = 1;
+  uint32 phase_id = 2;
+  uint32 state = 3;
+}
+
+message midaut_buy_mooncake_req {
+  uint32 activity_id = 1;
+  uint32 shop_id = 2;
+  uint32 buy_num = 3;
+}
+
+message midaut_buy_mooncake_res {
+  uint32 code = 1;
+  uint32 total_buy_count = 2;
+  .ncmd_cs.lobby.midaut_common_buy_info buy_info = 3;
+}
+
+message midaut_cg_play_req {
+  uint32 activity_id = 1;
+}
+
+message midaut_cg_play_res {
+  uint32 code = 1;
+  uint32 play_cg_award_state = 2;
+}
+
+message nationfasion_data_get_req {
+  uint32 activity_id = 1;
+}
+
+message nationfasion_common_buy_info {
+  uint32 shop_id = 1;
+  uint32 buy_count = 2;
+}
+
+message sc_nationfasion_all_cfg {
+  .ncmd_cs.lobby.activity_nationfasion_cfg base_cfg = 1;
+  repeated .ncmd_cs.lobby.activity_nationfasion_shop_cfg shop_cfg_list = 2;
+}
+
+message nationfasion_data_get_res {
+  uint32 code = 1;
+  repeated .ncmd_cs.lobby.nationfasion_common_buy_info buy_count_list = 2;
+  .ncmd_cs.lobby.sc_nationfasion_all_cfg cfg = 3;
+  uint32 activity_id = 4;
+}
+
+message nationfasion_buy_req {
+  uint32 activity_id = 1;
+  uint32 shop_id = 2;
+  uint32 buy_num = 3;
+}
+
+message nationfasion_buy_res {
+  uint32 code = 1;
+  .ncmd_cs.lobby.nationfasion_common_buy_info buy_info = 2;
+  uint32 activity_id = 3;
+}
+
+message first_top_up_data_get_req {
+  uint32 activity_id = 1;
+}
+
+message first_top_up_data_get_res {
+  uint32 code = 1;
+  uint32 activity_id = 2;
+  .ncmd_cs.lobby.activityfirsttopup_cfg cfg = 3;
+  uint32 state = 4;
+}
+
+message first_top_up_state_ntf {
+  uint32 activity_id = 1;
+  uint32 state = 2;
+}
+
+message first_top_up_reward_req {
+  uint32 activity_id = 1;
+}
+
+message first_top_up_reward_res {
+  uint32 code = 1;
+  uint32 activity_id = 2;
+}
+
+message first_top_up_data_ntf {
+  uint32 activity_id = 1;
+  .ncmd_cs.lobby.activityfirsttopup_cfg cfg = 2;
+  uint32 state = 3;
+}
+
+message backflow_data_get_req {
+  uint32 activity_id = 1;
+}
+
+message backflow_data_get_res {
+  uint32 code = 1;
+  uint64 start_time = 2;
+  .ncmd_cs.lobby.activity_backflow_cfg cfg = 3;
+  uint64 logout_time = 4;
+}
+
+message seasondash_data_get_req {
+  uint32 activity_id = 1;
+}
+
+message seasondash_common_buy_info {
+  uint32 shop_id = 1;
+  uint32 buy_count = 2;
+}
+
+message sc_seasondash_all_cfg {
+  .ncmd_cs.lobby.activity_seasondash_cfg base_cfg = 1;
+  repeated .ncmd_cs.lobby.activity_seasondash_shop_cfg shop_cfg_list = 2;
+}
+
+message seasondash_data_get_res {
+  uint32 code = 1;
+  repeated .ncmd_cs.lobby.seasondash_common_buy_info buy_count_list = 2;
+  .ncmd_cs.lobby.sc_seasondash_all_cfg cfg = 3;
+}
+
+message seasondash_buy_req {
+  uint32 activity_id = 1;
+  uint32 shop_id = 2;
+  uint32 buy_num = 3;
+}
+
+message seasondash_buy_res {
+  uint32 code = 1;
+  .ncmd_cs.lobby.seasondash_common_buy_info buy_info = 2;
+}
+
+message random_drop_data_ntf {
+  uint32 remaining_drop_count = 1;
+}
+
+message tales_common_buy_info {
+  uint32 shop_id = 1;
+  uint32 buy_count = 2;
+}
+
+message tales_common_phase_info {
+  uint32 phase_id = 1;
+  uint32 state = 2;
+}
+
+message tales_chapter_reward_info {
+  uint32 chapter_id = 1;
+  uint32 state = 2;
+}
+
+message tales_draw_grids_info {
+  uint32 key_id = 1;
+  uint32 color = 2;
+}
+
+message sc_tales_all_cfg {
+  .ncmd_cs.lobby.activity_tales_cfg base_cfg = 1;
+  repeated .ncmd_cs.lobby.activity_sc_tales_phase_reward_cfg phase_reward_cfg_list = 2;
+  repeated .ncmd_cs.lobby.activity_tales_shop_cfg shop_cfg_list = 3;
+  repeated .ncmd_cs.lobby.activity_sc_tales_chapter_cfg chapter_cfg_list = 4;
+  repeated .ncmd_cs.lobby.activity_tales_draw_grids_cfg draw_grids_list = 5;
+  repeated .ncmd_cs.lobby.activity_tales_login_award_cfg login_award_list = 6;
+}
+
+message tales_data_get_req {
+  uint32 activity_id = 1;
+}
+
+message tales_data_get_res {
+  uint32 code = 1;
+  uint32 activity_id = 2;
+  uint32 total_buy_count = 3;
+  uint32 total_point_count = 4;
+  uint32 unlock_max_chapter_id = 5;
+  uint32 unlock_max_canaward_chapter_id = 6;
+  uint32 cur_day = 7;
+  repeated .ncmd_cs.lobby.tales_common_phase_info phase_reward_list = 8;
+  repeated .ncmd_cs.lobby.tales_common_buy_info buy_count_list = 9;
+  .ncmd_cs.lobby.sc_tales_all_cfg cfg = 10;
+  repeated .ncmd_cs.lobby.tales_chapter_reward_info chapter_reward_list = 11;
+  repeated .ncmd_cs.lobby.tales_draw_grids_info draw_grids_list = 12;
+  repeated .ncmd_cs.lobby.tales_draw_grids_info finish_draw_grids_list = 13;
+  repeated .ncmd_cs.lobby.common_card_reward_state card_reward_state_list = 14;
+}
+
+message tales_award_phase_req {
+  uint32 activity_id = 1;
+  uint32 phase_id = 2;
+}
+
+message tales_award_phase_res {
+  uint32 code = 1;
+  uint32 phase_id = 2;
+  uint32 state = 3;
+}
+
+message tales_award_chapter_req {
+  uint32 activity_id = 1;
+  uint32 chapter_id = 2;
+}
+
+message tales_award_chapter_res {
+  uint32 code = 1;
+  uint32 chapter_id = 2;
+  uint32 state = 3;
+}
+
+message tales_buy_req {
+  uint32 activity_id = 1;
+  uint32 shop_id = 2;
+  uint32 buy_num = 3;
+}
+
+message tales_buy_res {
+  uint32 code = 1;
+  uint32 total_buy_count = 2;
+  .ncmd_cs.lobby.tales_common_buy_info buy_info = 3;
+}
+
+message common_grid_info {
+  uint32 key_id = 1;
+  uint32 color = 2;
+}
+
+message tales_save_grid_req {
+  uint32 chapter_id = 1;
+  uint32 activity_id = 2;
+  repeated .ncmd_cs.lobby.common_grid_info change_tales_grid_list = 3;
+}
+
+message tales_save_grid_res {
+  uint32 code = 1;
+  uint32 chapter_id = 2;
+  repeated .ncmd_cs.lobby.common_grid_info change_tales_grid_list = 3;
+  uint32 is_finish_save = 4;
+  repeated .ncmd_cs.lobby.common_grid_info change_finish_tales_grid_list = 5;
+  uint32 unlock_max_canaward_chapter_id = 6;
+  uint32 activity_id = 7;
+}
+
+message tales_unlock_chapter_req {
+  uint32 chapter_id = 1;
+  uint32 activity_id = 2;
+}
+
+message tales_unlock_chapter_res {
+  uint32 code = 1;
+  uint32 chapter_id = 2;
+  uint32 unlock_max_chapter_id = 3;
+  uint32 activity_id = 4;
+}
+
+message tales_get_card_award_req {
+  uint32 reward_id = 1;
+  uint32 activity_id = 2;
+}
+
+message tales_get_card_award_res {
+  uint32 code = 1;
+  uint32 reward_id = 2;
+  uint32 state = 3;
+  uint32 activity_id = 4;
+}
+
+message common_card_reward_state {
+  uint32 reward_id = 1;
+  uint32 state = 2;
+}
+
+message tales_card_new_day_ntf {
+  uint32 activity_id = 1;
+  uint32 cur_day = 2;
+  repeated .ncmd_cs.lobby.common_card_reward_state card_reward_state_list = 3;
+}
+
+message concert_theme_task_accumulate_req {
+  uint32 activity_id = 1;
+}
+
+message concert_theme_task_accumulate_res {
+  uint32 code = 1;
+  uint32 activity_id = 2;
+  uint32 state = 3;
+}
+
+message concert_theme_level_info {
+  uint32 level_id = 1;
+  uint32 state = 2;
+}
+
+message concert_theme_story_info {
+  uint32 story_id = 1;
+  uint32 read_state = 2;
+}
+
+message concert_theme_level_reward_req {
+  uint32 activity_id = 1;
+  uint32 level_id = 2;
+}
+
+message concert_theme_level_reward_res {
+  uint32 code = 1;
+  uint32 activity_id = 2;
+  .ncmd_cs.lobby.concert_theme_level_info level_info = 3;
+}
+
+message concert_theme_level_unlock_req {
+  uint32 activity_id = 1;
+  uint32 level_id = 2;
+}
+
+message concert_theme_level_unlock_res {
+  uint32 code = 1;
+  uint32 activity_id = 2;
+  .ncmd_cs.lobby.concert_theme_level_info level_info = 3;
+}
+
+message concert_theme_point_exchange_req {
+  uint32 activity_id = 1;
+  uint32 exchange_count = 2;
+}
+
+message concert_theme_point_exchange_res {
+  uint32 code = 1;
+  uint32 activity_id = 2;
+  uint32 exchange_count = 3;
+}
+
+message concert_theme_data_get_req {
+  uint32 activity_id = 1;
+}
+
+message sc_concert_all_cfg {
+  .ncmd_cs.lobby.activityconcerttheme_cfg base_cfg = 1;
+  repeated .ncmd_cs.lobby.activityconcertlevel_cfg concert_level_cfg_list = 2;
+  repeated .ncmd_cs.lobby.activityconcertstory_cfg concert_story_cfg_list = 3;
+}
+
+message concert_theme_data_get_res {
+  uint32 code = 1;
+  uint32 activity_id = 2;
+  uint32 accumulate_reward_state = 3;
+  uint32 accumulate_point_num = 4;
+  repeated .ncmd_cs.lobby.concert_theme_level_info level_info_list = 5;
+  repeated .ncmd_cs.lobby.concert_theme_story_info story_info_list = 6;
+  .ncmd_cs.lobby.sc_concert_all_cfg cfg = 7;
+}
+
+message concert_theme_read_story_req {
+  uint32 activity_id = 1;
+  uint32 story_id = 2;
+}
+
+message concert_theme_read_story_res {
+  uint32 code = 1;
+  uint32 activity_id = 2;
+  .ncmd_cs.lobby.concert_theme_story_info story_info = 3;
+}
+
+message query_web_activity_reddot_req {
+  repeated uint32 activitys = 1;
+}
+
+message web_activity_reddot_data {
+  uint32 activity_id = 1;
+  bool reddot = 2;
+}
+
+message query_web_activity_reddot_res {
+  uint32 code = 1;
+  repeated .ncmd_cs.lobby.web_activity_reddot_data activitys = 2;
+}
+
+message cny_lucky_lottery_info {
+  uint64 lottery_time = 1;
+  uint32 cny_lucky_lottery_id = 2;
+}
+
+message sc_cny_lucky_lottery_cfg {
+  repeated .ncmd_cs.lobby.activitycnyluckylotterypool_cfg cnyluckylotterypool_cfgs = 1;
+}
+
+message cny_lucky_lottery_req {
+  uint32 activity_id = 1;
+}
+
+message cny_lucky_lottery_res {
+  uint32 code = 1;
+  uint32 activity_id = 2;
+  uint32 state = 3;
+  .ncmd_cs.lobby.cny_lucky_lottery_info lucky_lottery_info = 4;
+}
+
+message cny_lucky_lottery_ntf {
+  uint32 activity_id = 1;
+  uint32 state = 2;
+}
+
+message cny_lucky_lottery_get_data_req {
+  uint32 activity_id = 1;
+}
+
+message cny_lucky_lottery_get_data_res {
+  uint32 code = 1;
+  uint32 activity_id = 2;
+  uint32 state = 3;
+  repeated .ncmd_cs.lobby.cny_lucky_lottery_info lucky_lottery_info_list = 4;
+  .ncmd_cs.lobby.sc_cny_lucky_lottery_cfg lucky_lottery_cfg = 5;
+}
+
+message cny_collect_bless_milestone_info {
+  uint32 milestone_id = 1;
+  uint32 state = 2;
+}
+
+message cny_collect_bless_give_over_info {
+  uint64 give_away_id = 1;
+  uint64 source_player_id = 2;
+  uint32 state = 3;
+  uint64 give_away_time = 4;
+  uint32 give_away_item_id = 5;
+  string nick = 6;
+  uint32 icon = 7;
+  .ncmd_cs.EOnlineStatus online_status = 8;
+}
+
+message sc_collect_bless_cfg {
+  .ncmd_cs.lobby.activitycnycollectblessingbase_cfg base_cfg = 1;
+  repeated .ncmd_cs.lobby.activitycnycollectblessingsacc_cfg acc_cfg_list = 2;
+}
+
+message cny_collect_bless_get_data_req {
+  uint32 activity_id = 1;
+}
+
+message cny_collect_bless_get_data_res {
+  uint32 code = 1;
+  uint32 activity_id = 2;
+  uint32 drop_coin_count = 3;
+  uint32 accumulate_compose_count = 4;
+  uint32 daily_give_away_num = 5;
+  repeated .ncmd_cs.lobby.cny_collect_bless_milestone_info milestone_info_list = 6;
+  repeated .ncmd_cs.lobby.cny_collect_bless_give_over_info give_over_info_list = 7;
+  .ncmd_cs.lobby.sc_collect_bless_cfg sc_collect_bless_cfg = 8;
+}
+
+message cny_collect_bless_drop_ntf {
+  uint32 activity_id = 1;
+  uint32 drop_coin_count = 2;
+  uint32 daily_give_away_num = 3;
+  bool can_compose = 4;
+}
+
+message cny_collect_bless_settle_ntf {
+  repeated .ncmd_cs.lobby.sc_item items = 1;
+}
+
+message cny_collect_bless_compose_req {
+  uint32 activity_id = 1;
+  uint32 compose_count = 2;
+}
+
+message cny_collect_bless_compose_res {
+  uint32 code = 1;
+  uint32 activity_id = 2;
+  uint32 compose_count = 3;
+}
+
+message cny_collect_bless_give_away_req {
+  uint32 activity_id = 1;
+  uint64 target_player_id = 2;
+  uint32 give_away_item_id = 3;
+}
+
+message cny_collect_bless_give_away_res {
+  uint32 code = 1;
+  uint32 activity_id = 2;
+}
+
+message cny_collect_bless_take_over_req {
+  uint32 activity_id = 1;
+  repeated uint64 give_away_ids = 2;
+}
+
+message cny_collect_bless_give_over_state_info {
+  uint64 give_away_id = 1;
+  uint32 state = 3;
+}
+
+message cny_collect_bless_take_over_res {
+  uint32 code = 1;
+  uint32 activity_id = 2;
+  repeated .ncmd_cs.lobby.cny_collect_bless_give_over_state_info state_info_list = 3;
+}
+
+message cny_collect_bless_accumulate_req {
+  uint32 activity_id = 1;
+}
+
+message cny_collect_bless_accumulate_res {
+  uint32 code = 1;
+  uint32 activity_id = 2;
+  repeated .ncmd_cs.lobby.cny_collect_bless_milestone_info milestone_info_list = 3;
+}
+
+message cny_collect_bless_give_over_ntf {
+  uint32 activity_id = 1;
+  .ncmd_cs.lobby.cny_collect_bless_give_over_info give_away_info = 2;
+}
+
+message player_cny_cb_activity_info {
+  uint64 player_id = 1;
+  repeated .ncmd_cs.lobby.sc_item items = 2;
+}
+
+message cny_collect_bless_friends_req {
+  uint32 activity_id = 1;
+  repeated uint64 friend_ids = 2;
+}
+
+message cny_collect_bless_friends_res {
+  uint32 code = 1;
+  uint32 activity_id = 2;
+  repeated .ncmd_cs.lobby.player_cny_cb_activity_info player_cny_cb_activity_infos = 3;
+}
+
+message query_web_activity_total_recharge_req {
+}
+
+message query_web_activity_total_recharge_res {
+  uint32 code = 1;
+}
+
+message activity_shop_info {
+  uint32 shop_id = 1;
+  uint32 buy_num = 2;
+}
+
+message cny_firework_story_info {
+  uint32 story_id = 1;
+  uint32 state = 2;
+}
+
+message activity_milestone_info {
+  uint32 milestone_id = 1;
+  uint32 state = 2;
+  uint32 progress = 3;
+}
+
+message cny_firework_story_shop_buy_req {
+  uint32 activity_id = 1;
+  uint32 shop_id = 2;
+  uint32 buy_num = 3;
+}
+
+message cny_firework_story_shop_buy_res {
+  uint32 code = 1;
+  uint32 activity_id = 2;
+  .ncmd_cs.lobby.activity_shop_info shop_info = 3;
+}
+
+message cny_firework_story_milestone_req {
+  uint32 activity_id = 1;
+  uint32 milestone_id = 2;
+}
+
+message cny_firework_story_milestone_res {
+  uint32 code = 1;
+  uint32 activity_id = 2;
+  .ncmd_cs.lobby.activity_milestone_info milestone_info = 3;
+}
+
+message cny_firework_story_unlock_req {
+  uint32 activity_id = 1;
+  uint32 story_id = 2;
+}
+
+message cny_firework_story_unlock_res {
+  uint32 code = 1;
+  uint32 activity_id = 2;
+  .ncmd_cs.lobby.cny_firework_story_info story_info = 3;
+}
+
+message cny_firework_story_read_req {
+  uint32 activity_id = 1;
+  uint32 story_id = 2;
+}
+
+message cny_firework_story_read_res {
+  uint32 code = 1;
+  uint32 activity_id = 2;
+  .ncmd_cs.lobby.cny_firework_story_info story_info = 3;
+}
+
+message cny_firework_story_get_data_req {
+  uint32 activity_id = 1;
+}
+
+message cny_firework_story_cfg {
+  repeated .ncmd_cs.lobby.activitycnyfirestorymilestone_cfg cnyfirestorymilestone_cfgs = 1;
+  repeated .ncmd_cs.lobby.activitycnyfirestoryshop_cfg cnyfirestoryshop_cfgs = 2;
+  repeated .ncmd_cs.lobby.activitycnyfirestory_cfg cnyfirestory_cfgs = 3;
+}
+
+message cny_firework_story_get_data_res {
+  uint32 code = 1;
+  uint32 activity_id = 2;
+  uint32 accumulate_coins = 3;
+  uint32 accumulate_shop_buy = 4;
+  repeated .ncmd_cs.lobby.cny_firework_story_info story_info_list = 5;
+  repeated .ncmd_cs.lobby.activity_milestone_info milestone_info_list = 6;
+  repeated .ncmd_cs.lobby.activity_shop_info shop_info_list = 7;
+  .ncmd_cs.lobby.cny_firework_story_cfg sc_cfg = 8;
+}
+
+message maid2_get_date_req {
+  uint32 activity_id = 1;
+}
+
+message activity_maid2_cfg {
+  repeated .ncmd_cs.lobby.activitymaid2roleopen_cfg maid2roleopen_cfgs = 1;
+  repeated .ncmd_cs.lobby.activitymaid2shop_cfg maid2shop_cfgs = 2;
+  .ncmd_cs.lobby.activitymaid2base_cfg maid2base_cfg = 3;
+}
+
+message maid2_get_date_res {
+  uint32 code = 1;
+  uint32 activity_id = 2;
+  .ncmd_cs.lobby.activity_maid2_cfg sc_cfg = 3;
+  repeated .ncmd_cs.lobby.activity_shop_remind_info remind_info_list = 4;
+  repeated .ncmd_cs.lobby.activity_shop_info shop_info_list = 5;
+}
+
+message maid2_game_settle_req {
+  uint32 activity_id = 1;
+  uint32 different_num = 2;
+}
+
+message maid2_game_settle_res {
+  uint32 code = 1;
+  uint32 activity_id = 2;
+}
+
+message maid2_shop_buy_req {
+  uint32 activity_id = 1;
+  uint32 shop_id = 2;
+  uint32 buy_num = 3;
+}
+
+message maid2_shop_buy_res {
+  uint32 code = 1;
+  uint32 activity_id = 2;
+  .ncmd_cs.lobby.activity_shop_info shop_info = 3;
+}
+
+message maid2_shop_remind_req {
+  uint32 activity_id = 1;
+  uint32 shop_id = 2;
+  bool is_remind = 3;
+}
+
+message activity_shop_remind_info {
+  uint32 shop_id = 1;
+  bool is_remind = 2;
+}
+
+message maid2_shop_remind_res {
+  uint32 code = 1;
+  uint32 activity_id = 2;
+  .ncmd_cs.lobby.activity_shop_remind_info remind_info = 3;
+}
+
+message activity_common_shop_buy_req {
+  uint32 activity_id = 1;
+  uint32 shop_id = 2;
+  uint32 buy_num = 3;
+}
+
+message activity_common_shop_buy_res {
+  uint32 code = 1;
+  uint32 activity_id = 2;
+  .ncmd_cs.lobby.activity_shop_info shop_info = 3;
+}
+
+message activity_common_milestone_req {
+  uint32 activity_id = 1;
+  uint32 milestone_id = 2;
+}
+
+message activity_common_milestone_res {
+  uint32 code = 1;
+  uint32 activity_id = 2;
+  .ncmd_cs.lobby.activity_milestone_info milestone_info = 3;
+}
+
+message activity_story_info {
+  uint32 story_id = 1;
+  uint32 state = 2;
+}
+
+message activity_common_story_req {
+  uint32 activity_id = 1;
+  uint32 story_id = 2;
+  uint32 operate = 3;
+}
+
+message activity_common_story_res {
+  uint32 code = 1;
+  uint32 activity_id = 2;
+  .ncmd_cs.lobby.activity_story_info story_info = 3;
+}
+
+message trial_for_detective_get_date_req {
+  uint32 activity_id = 1;
+}
+
+message activity_trial_for_detective_cfg {
+  repeated .ncmd_cs.lobby.activitycommonmilestone_cfg milestone_cfgs = 1;
+  repeated .ncmd_cs.lobby.activitycommonshop_cfg shop_cfgs = 2;
+  repeated .ncmd_cs.lobby.activitycommonstory_cfg story_cfgs = 3;
+  .ncmd_cs.lobby.activitytrialfordetectivebase_cfg base_cfg = 4;
+}
+
+message trial_for_detective_get_date_res {
+  uint32 code = 1;
+  uint32 activity_id = 2;
+  .ncmd_cs.lobby.activity_trial_for_detective_cfg sc_cfg = 3;
+  repeated .ncmd_cs.lobby.activity_shop_info shop_info_list = 4;
+  repeated .ncmd_cs.lobby.activity_milestone_info milestone_info_list = 5;
+  repeated .ncmd_cs.lobby.activity_story_info story_info_list = 6;
+  bool is_first_enter = 7;
+  uint32 role_id = 8;
+  bool is_reward_guess = 9;
+}
+
+message trial_for_detective_select_req {
+  uint32 role_id = 1;
+  uint32 activity_id = 2;
+}
+
+message trial_for_detective_select_res {
+  uint32 code = 1;
+  uint32 role_id = 2;
+  uint32 activity_id = 3;
+}
+
+message trial_for_detective_select_reward_req {
+  uint32 activity_id = 1;
+}
+
+message trial_for_detective_select_reward_res {
+  uint32 code = 1;
+  uint32 activity_id = 2;
+}
+
+message activity_lottery_data_req {
+  uint32 activity_id = 1;
+}
+
+message activity_lottery_data_res {
+  uint32 code = 1;
+  uint32 activity_id = 2;
+  repeated .ncmd_cs.lobby.activitycommonlottery_cfg lottery_cfg_list = 3;
+  repeated uint32 record_list = 4;
+}
+
+message activity_lottery_req {
+  uint32 activity_id = 1;
+  uint32 lottery_count = 2;
+}
+
+message activity_lottery_res {
+  uint32 code = 1;
+  uint32 activity_id = 2;
+  repeated uint32 record_list = 3;
+}
+
+message activity_sea_data_req {
+  uint32 activity_id = 1;
+}
+
+message activity_sea_data_res {
+  uint32 code = 1;
+  uint32 activity_id = 2;
+  repeated .ncmd_cs.lobby.activitycommonmilestone_cfg milestone_cfg_list = 3;
+  repeated .ncmd_cs.lobby.activity_milestone_info milestone_info_list = 4;
+  repeated .ncmd_cs.lobby.activitycommonlottery_cfg lottery_cfg_list = 5;
+  repeated uint32 record_list = 6;
+}
+
+message activity_sign_in_info {
+  uint32 sign_in_id = 1;
+  uint32 state = 2;
+}
+
+message activity_sign_in_cfg {
+  repeated .ncmd_cs.lobby.activitysigninpool_cfg activitysigninpool_cfgs = 1;
+  .ncmd_cs.lobby.activitysigningeneral_cfg activitysigningeneral_cfg = 2;
+}
+
+message activity_sign_in_reward_req {
+  uint32 activity_id = 1;
+  uint32 sign_in_id = 2;
+}
+
+message activity_sign_in_reward_res {
+  uint32 code = 1;
+  uint32 activity_id = 2;
+  .ncmd_cs.lobby.activity_sign_in_info sign_in_info = 3;
+}
+
+message activity_re_sign_in_reward_req {
+  uint32 activity_id = 1;
+  uint32 sign_in_id = 2;
+}
+
+message activity_re_sign_in_reward_res {
+  uint32 code = 1;
+  uint32 activity_id = 2;
+  .ncmd_cs.lobby.activity_sign_in_info sign_in_info = 3;
+}
+
+message activity_sign_in_ntf {
+  uint32 activity_id = 1;
+  .ncmd_cs.lobby.activity_sign_in_info sign_in_info = 2;
+}
+
+message activity_sign_in_data_req {
+  uint32 activity_id = 1;
+}
+
+message activity_sign_in_data_res {
+  uint32 code = 1;
+  uint32 activity_id = 2;
+  repeated .ncmd_cs.lobby.activity_sign_in_info sign_in_info_list = 3;
+  .ncmd_cs.lobby.activity_sign_in_cfg sign_in_cfg = 4;
+}
+
+message activity_common_data_req {
+  uint32 activity_id = 1;
+}
+
+message activity_common_cfg {
+  repeated .ncmd_cs.lobby.activitycommonmilestone_cfg milestone_cfgs = 1;
+  repeated .ncmd_cs.lobby.activitycommonshop_cfg shop_cfgs = 2;
+  repeated .ncmd_cs.lobby.activitycommonstory_cfg story_cfgs = 3;
+  .ncmd_cs.lobby.activitycommonbase_cfg base_cfg = 4;
+  repeated .ncmd_cs.lobby.activitycommonlottery_cfg lottery_cfg_list = 5;
+}
+
+message activity_common_data_res {
+  uint32 code = 1;
+  uint32 activity_id = 2;
+  repeated .ncmd_cs.lobby.activity_shop_info shop_info_list = 3;
+  repeated .ncmd_cs.lobby.activity_milestone_info milestone_info_list = 4;
+  repeated .ncmd_cs.lobby.activity_story_info story_info_list = 5;
+  repeated uint32 record_list = 6;
+  .ncmd_cs.lobby.activity_common_cfg common_cfg = 7;
+  bool is_remind = 8;
+}
+
+message activity_common_shop_remind_req {
+  uint32 activity_id = 1;
+  bool is_remind = 2;
+}
+
+message activity_common_shop_remind_res {
+  uint32 code = 1;
+  uint32 activity_id = 2;
+  bool is_remind = 3;
+}
+

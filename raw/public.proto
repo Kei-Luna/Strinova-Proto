@@ -1,0 +1,138 @@
+
+¡
+public.protoncmd_cs
+enum.proto"A
+behavior
+behavior_id (R
+behaviorId
+value (Rvalue"³
+	task_info
+task_id (RtaskId/
+	task_type (2.ncmd_cs.ETaskTypeRtaskType)
+state (2.ncmd_cs.ETaskStateRstate1
+
+progresses (2.ncmd_cs.behaviorR
+progresses"L
+assists_info
+	target_id (RtargetId
+assists_num (R
+assistsNum"œ
+ds_settle_player_info
+	player_id (RplayerId+
+team_id (2.ncmd_cs.ERoomCampRteamId
+kill_num (RkillNum
+
+relive_num (R	reliveNum
+assists_num (R
+assistsNum
+dead_num (RdeadNum
+scores (Rscores
+damage (Rdamage
+cures	 (Rcures
+on_hook
+ (RonHook#
+win (2.ncmd_cs.EWinTypeRwin
+mvp (Rmvp
+	res_score (RresScore
+hit_head (RhitHead
+	hit_count (RhitCount$
+place_bomb_num (RplaceBombNum&
+remove_bomb_num (RremoveBombNum2
+roles (2.ncmd_cs.ds_settle_role_infoRroles
+
+defeat_num (R	defeatNum
+lift_up_num (R	liftUpNum
+nick (	Rnick
+icon (Ricon?
+play_behavior& (2.ncmd_cs.EPlayBehaviorTypeRplayBehavior
+mmr' (Rmmr
+mine( (Rmine!
+offline_time) (RofflineTime 
+hang_up_time* (R
+hangUpTime
+
+escape_num+ (R	escapeNumK
+negative_behavior, (2.ncmd_cs.ENegativeBehaviorTypeRnegativeBehavior
+smvp- (Rsmvp
+mine_ext. (RmineExt(
+car_forward_time/ (RcarForwardTime"
+car_back_time0 (RcarBackTime&
+car_useful_time1 (RcarUsefulTime!
+skill_assist2 (RskillAssist
+	skill_hit3 (RskillHit
+bear_damage4 (R
+bearDamage%
+personal_score5 (RpersonalScore%
+strategy_score6 (RstrategyScore%
+teamwork_score7 (RteamworkScore8
+assists_list8 (2.ncmd_cs.assists_infoRassistsList%
+division_score9 (RdivisionScore 
+from_team_id: (R
+fromTeamId!
+fly_distance; (RflyDistance
+
+steal_mine< (R	stealMine!
+skill_damage= (RskillDamage)
+max_kill_per_life> (RmaxKillPerLife
+
+melee_kill? (R	meleeKill
+
+skill_kill@ (R	skillKill
+
+penta_killA (R	pentaKill
+string_timeB (R
+stringTime
+hu_numC (RhuNum 
+vc_avatar_idD (R
+vcAvatarId
+vc_frame_idE (R	vcFrameId 
+vc_border_idF (R
+vcBorderId
+levelG (Rlevel
+rankH (Rrank&
+team_Player_numI (RteamPlayerNum"„
+ds_round_settle_info2
+
+round_type (2.ncmd_cs.ERoundTypeR	roundType8
+players (2.ncmd_cs.ds_settle_player_infoRplayers"Û
+ds_settle_role_info
+role_id (RroleId
+	play_time (RplayTime 
+role_skin_id (R
+roleSkinId
+gun_skin_id (R	gunSkinId
+is_final (RisFinal
+round (Rround
+kill_num (RkillNum
+
+relive_num (R	reliveNum
+assists_num	 (R
+assistsNum
+dead_num
+ (RdeadNum
+scores (Rscores
+damage (Rdamage
+cures (Rcures
+win_num (RwinNum
+fail_num (RfailNum(
+custom_mask_list (RcustomMaskList
+hit_head (RhitHead
+	hit_count (RhitCount"
+kill_head_num (RkillHeadNum%
+release_skills (RreleaseSkills"Œ
+room_one_rule
+attr_id (RattrId
+value (Rvalue3
+	camp_type (2.ncmd_cs.ERuleCampTypeRcampType
+camp_id (RcampId"P
+	role_rule
+role_id (RroleId*
+rule (2.ncmd_cs.room_one_ruleRrule"Ç
+	room_rule
+	rule_name (	RruleName
+	rule_desc (	RruleDesc,
+rules (2.ncmd_cs.room_one_ruleRrules1
+
+role_rules (2.ncmd_cs.role_ruleR	roleRules
+custom_text (	R
+customTextbproto3

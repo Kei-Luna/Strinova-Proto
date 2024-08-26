@@ -1,0 +1,622 @@
+syntax = "proto3";
+
+package ncmd_cs.lobby;
+
+import "enum.proto";
+import "public.proto";
+import "common.proto";
+
+message ds_cluster_ping {
+  uint32 ds_cluster = 1;
+  int32 ping = 2;
+}
+
+message team_member {
+  uint64 player_id = 1;
+  string nick = 2;
+  uint32 icon = 3;
+  .ncmd_cs.ESexType sex = 4;
+  uint32 level = 5;
+  uint32 pos = 6;
+  uint32 rank = 7;
+  .ncmd_cs.EReadyStatus status = 8;
+  uint32 vc_avatar_id = 11;
+  uint32 vc_frame_id = 12;
+  uint32 vc_border_id = 13;
+  uint32 vc_achie_id = 14;
+  int32 stars = 15;
+  bool robot = 16;
+  bool in_practice = 17;
+  bool offline = 18;
+  int32 ds_cluster = 19;
+  repeated .ncmd_cs.lobby.ds_cluster_ping ds_cluster_ping = 20;
+  uint32 rank_pos = 21;
+  uint32 division_score = 22;
+  repeated .ncmd_cs.medal_card_data vc_medals = 23;
+  string open_id = 24;
+  repeated uint32 freq_roles = 25;
+  int32 title_id = 26;
+  uint32 battle_count = 27;
+  uint32 win_count = 28;
+  int32 grade_score = 29;
+}
+
+message team_create_req {
+  .ncmd_cs.ERoomMode mode = 1;
+  uint32 map_id = 2;
+  string version = 3;
+  .ncmd_cs.ESpecialRoom special = 4;
+  .ncmd_cs.room_rule rule = 5;
+  string rule_code = 6;
+}
+
+message team_create_res {
+  uint32 code = 1;
+  .ncmd_cs.ERoomMode mode = 2;
+  uint32 map_id = 3;
+}
+
+message team_exit_req {
+  uint64 team_id = 1;
+}
+
+message team_exit_res {
+  uint32 code = 1;
+}
+
+message team_kick_req {
+  uint64 team_id = 1;
+  uint64 player_id = 2;
+}
+
+message team_kick_res {
+  uint32 code = 1;
+}
+
+message team_invite_req {
+  uint64 team_id = 1;
+  repeated uint64 player_ids = 2;
+}
+
+message team_invite_res {
+  uint32 code = 1;
+  repeated uint64 player_ids = 2;
+}
+
+message team_ready_req {
+  uint64 team_id = 1;
+  .ncmd_cs.EReadyStatus status = 2;
+}
+
+message team_ready_res {
+  uint32 code = 1;
+}
+
+message team_apply_req {
+  uint64 team_id = 1;
+  uint64 player_id = 2;
+}
+
+message team_apply_res {
+  uint32 code = 1;
+}
+
+message team_mode_ntf {
+  uint64 team_id = 1;
+  .ncmd_cs.ERoomMode mode = 2;
+  uint32 map_id = 3;
+  .ncmd_cs.room_rule rule = 4;
+  string rule_code = 5;
+}
+
+message team_reply_req {
+  uint64 team_id = 1;
+  uint64 player_id = 2;
+  .ncmd_cs.EReplyType sure = 3;
+}
+
+message team_reply_res {
+  uint32 code = 1;
+}
+
+message team_trans_leader_req {
+  uint64 team_id = 1;
+  uint64 player_id = 2;
+}
+
+message team_trans_leader_res {
+  uint32 code = 1;
+}
+
+message team_trans_leader_ntf {
+  uint64 team_id = 1;
+  uint64 leader_id = 2;
+}
+
+message team_info_ntf {
+  uint64 team_id = 1;
+  uint64 leader_id = 2;
+  .ncmd_cs.ERoomMode mode = 3;
+  repeated .ncmd_cs.lobby.team_member members = 4;
+  uint32 map_id = 5;
+  uint32 room_code = 6;
+  uint32 difficulty = 7;
+  .ncmd_cs.ESpecialRoom special = 8;
+  .ncmd_cs.room_rule rule = 9;
+  .ncmd_cs.lobby.room_setting_info setting = 10;
+  string rule_code = 11;
+}
+
+message team_invite_ntf {
+  uint64 team_id = 1;
+  uint64 player_id = 2;
+  string nick = 3;
+  uint32 icon = 4;
+  uint32 rank = 5;
+  .ncmd_cs.ETeamApplyType type = 6;
+  .ncmd_cs.ERoomMode mode = 7;
+  uint32 rank_pos = 8;
+}
+
+message team_exit_ntf {
+  uint64 player_id = 1;
+  .ncmd_cs.ETeamExitReason reason = 2;
+}
+
+message team_kick_ntf {
+  uint64 player_id = 1;
+}
+
+message ready_status {
+  uint64 player_id = 1;
+  .ncmd_cs.EReadyStatus status = 2;
+}
+
+message team_ready_ntf {
+  repeated .ncmd_cs.lobby.ready_status readys = 1;
+}
+
+message team_member_offline_ntf {
+  uint64 player_id = 1;
+  bool offline = 2;
+}
+
+message team_enter_ntf {
+  .ncmd_cs.lobby.team_member member = 1;
+}
+
+message team_reply_ntf {
+  .ncmd_cs.EReplyType sure = 1;
+  uint64 player_id = 2;
+  string nick = 3;
+  uint32 icon = 4;
+}
+
+message team_apply_ntf {
+  uint64 player_id = 1;
+  string nick = 2;
+  uint32 icon = 3;
+  uint32 rank = 4;
+  .ncmd_cs.ETeamApplyType type = 5;
+  uint32 rank_pos = 6;
+}
+
+message team_apply_reply_req {
+  uint64 team_id = 1;
+  uint64 player_id = 2;
+  .ncmd_cs.EReplyType sure = 3;
+}
+
+message team_apply_reply_res {
+  uint32 code = 1;
+}
+
+message team_apply_reply_ntf {
+  .ncmd_cs.EReplyType sure = 1;
+  uint64 player_id = 2;
+  string nick = 3;
+  uint32 icon = 4;
+}
+
+message team_query_req {
+  uint64 team_id = 1;
+  uint64 target_id = 2;
+}
+
+message team_query_res {
+  uint32 code = 1;
+  uint64 team_id = 2;
+  uint64 leader_id = 3;
+  .ncmd_cs.ERoomMode mode = 4;
+  repeated .ncmd_cs.lobby.team_member members = 5;
+  bool in_battle = 6;
+}
+
+message team_mode_req {
+  uint64 team_id = 1;
+  .ncmd_cs.ERoomMode mode = 2;
+  uint32 map_id = 3;
+  .ncmd_cs.room_rule rule = 4;
+  string rule_code = 5;
+}
+
+message team_mode_res {
+  uint32 code = 1;
+}
+
+message team_begin_req {
+  uint64 team_id = 1;
+}
+
+message team_begin_res {
+  uint32 code = 1;
+  repeated uint64 need_update_players = 2;
+}
+
+message team_switch_req {
+  uint64 team_id = 1;
+  uint32 pos = 2;
+  uint64 target_id = 3;
+  .ncmd_cs.ESwitchType pattern = 4;
+}
+
+message team_switch_res {
+  uint32 code = 1;
+}
+
+message team_switch_ntf {
+  uint64 team_id = 1;
+  .ncmd_cs.lobby.team_member player = 2;
+}
+
+message team_switch_answer_req {
+  uint64 team_id = 1;
+  uint64 tar_player_id = 2;
+  uint32 tar_pos = 3;
+  bool answer = 4;
+}
+
+message team_switch_answer_res {
+  uint32 code = 1;
+}
+
+message team_robot_req {
+  uint64 team_id = 1;
+  uint32 difficulty = 2;
+  uint32 count = 4;
+  uint32 team = 5;
+  .ncmd_cs.ERobotType robot_type = 6;
+}
+
+message team_robot_res {
+  uint32 code = 1;
+}
+
+message team_enter_practice_req {
+  .ncmd_cs.GuideBattle train_type = 1;
+}
+
+message team_enter_practice_res {
+  uint32 code = 1;
+  .ncmd_cs.GuideBattle train_type = 2;
+}
+
+message team_enter_practice_ntf {
+  uint64 player_id = 1;
+}
+
+message team_leave_practice_req {
+}
+
+message team_leave_practice_res {
+  uint32 code = 1;
+}
+
+message team_leave_practice_ntf {
+  uint64 player_id = 1;
+}
+
+message team_enter_req {
+  uint32 room_code = 1;
+}
+
+message team_enter_res {
+  uint32 code = 1;
+}
+
+message play_mode_data {
+  .ncmd_cs.EPlayMode play_mode = 1;
+  bool match_open = 2;
+  bool rank_open = 3;
+  bool contest_open = 4;
+  bool time_limit = 5;
+  uint64 start_time = 6;
+  uint64 end_time = 7;
+  uint32 start_sec = 8;
+  uint32 end_sec = 9;
+  repeated uint32 week_day = 10;
+}
+
+message skill_open_data {
+  .ncmd_cs.EPlayMode play_mode = 1;
+  uint32 skill_type = 2;
+  bool open = 3;
+  bool time_limit = 4;
+  uint64 start_time = 5;
+  uint64 end_time = 6;
+  repeated uint32 week_day = 7;
+  uint32 start_sec = 8;
+  uint32 end_sec = 9;
+}
+
+message room_mode_data {
+  .ncmd_cs.ERoomMode game_mode = 1;
+  uint32 level = 2;
+}
+
+message map_sync_ntf {
+  repeated uint32 map_ids = 1;
+  repeated .ncmd_cs.lobby.play_mode_data mode_datas = 2;
+  repeated .ncmd_cs.lobby.skill_open_data skill_datas = 3;
+  repeated .ncmd_cs.lobby.room_mode_data room_datas = 4;
+}
+
+message team_robot_set_req {
+  uint32 difficulty = 1;
+}
+
+message team_robot_set_res {
+  uint32 code = 1;
+}
+
+message team_robot_set_ntf {
+  uint32 difficulty = 1;
+}
+
+message leave_settle_req {
+}
+
+message leave_settle_res {
+  uint32 code = 1;
+}
+
+message practice_remind_req {
+  uint64 tar_player_id = 1;
+}
+
+message practice_remind_res {
+  uint32 code = 1;
+}
+
+message practice_remind_ntf {
+  uint32 player_id = 1;
+}
+
+message practice_remind_reply_req {
+  bool agree = 1;
+}
+
+message practice_remind_reply_res {
+  uint32 code = 1;
+}
+
+message practice_remind_reply_ntf {
+  uint64 player_id = 1;
+  bool agree = 2;
+}
+
+message team_gen_room_code_req {
+}
+
+message team_gen_room_code_res {
+  uint32 code = 1;
+  uint32 room_code = 2;
+}
+
+message team_report_ds_ping_req {
+  uint32 ds_cluster = 1;
+  repeated .ncmd_cs.lobby.ds_cluster_ping ds_cluster_ping = 2;
+  uint32 human_manual_flag = 3;
+}
+
+message team_report_ds_ping_res {
+  uint32 code = 1;
+}
+
+message room_profile {
+  uint64 team_id = 1;
+  string room_name = 3;
+  uint32 map_id = 4;
+  .ncmd_cs.EPlayMode play_mode = 5;
+  uint32 total = 6;
+  uint32 count = 7;
+  bool need_passwd = 8;
+  string leader_name = 9;
+  uint64 leader_id = 10;
+  bool custom_rule = 12;
+  .ncmd_cs.ERoomStatus status = 13;
+  bool half_enter = 14;
+  .ncmd_cs.ERoomVisable visible = 15;
+  uint32 watcher_count = 16;
+  string rule_code = 17;
+  uint32 watch_slot = 18;
+}
+
+message room_list_req {
+}
+
+message room_list_res {
+  uint32 code = 1;
+  repeated .ncmd_cs.lobby.room_profile rooms = 2;
+  .ncmd_cs.EMsgSyncFlag sync_flag = 3;
+}
+
+message room_setting_info {
+  string room_name = 1;
+  bool half_enter = 2;
+  .ncmd_cs.ERoomVisable visible = 3;
+  bool need_passwd = 4;
+  string passwd = 5;
+}
+
+message room_profile_set_req {
+  .ncmd_cs.lobby.room_setting_info setting = 1;
+}
+
+message room_profile_set_res {
+  uint32 code = 1;
+}
+
+message room_enter_req {
+  uint64 team_id = 1;
+  string passwd = 2;
+}
+
+message room_enter_res {
+  uint32 code = 1;
+  bool passwd_error = 2;
+}
+
+message player_rule_info {
+  uint32 index = 1;
+  string name = 2;
+  string rule_code = 3;
+}
+
+message room_rule_sync_ntf {
+  repeated .ncmd_cs.lobby.player_rule_info rules = 1;
+}
+
+message room_rule_save_req {
+  uint32 index = 1;
+  .ncmd_cs.room_rule rule = 2;
+  string rule_code = 3;
+}
+
+message room_rule_save_res {
+  uint32 code = 1;
+  .ncmd_cs.lobby.player_rule_info rule = 2;
+}
+
+message room_rule_del_req {
+  uint32 index = 1;
+}
+
+message room_rule_del_res {
+  uint32 code = 1;
+  uint32 index = 2;
+}
+
+message room_rule_code_req {
+  uint32 index = 1;
+}
+
+message room_rule_code_res {
+  uint32 code = 1;
+  .ncmd_cs.lobby.player_rule_info rule = 2;
+}
+
+message room_rule_query_req {
+  string rule_code = 1;
+  uint64 team_id = 2;
+  uint32 index = 3;
+}
+
+message room_rule_query_res {
+  uint32 code = 1;
+  .ncmd_cs.room_rule rule = 2;
+  string owner_nick = 3;
+}
+
+message room_rule_profile_info {
+  string rule_code = 1;
+  string rule_name = 2;
+  string owner_nick = 3;
+  .ncmd_cs.EPlayMode play_mode = 4;
+  uint32 map_id = 5;
+}
+
+message hot_rule_profile_info {
+  .ncmd_cs.lobby.room_rule_profile_info rule_info = 1;
+  uint32 hot_degree = 2;
+}
+
+message daily_hot_rule_list_req {
+}
+
+message daily_hot_rule_list_res {
+  uint32 code = 1;
+  repeated .ncmd_cs.lobby.hot_rule_profile_info list = 2;
+}
+
+message weekly_hot_rule_list_req {
+}
+
+message weekly_hot_rule_list_res {
+  uint32 code = 1;
+  repeated .ncmd_cs.lobby.hot_rule_profile_info list = 2;
+}
+
+message collect_rule_list_ntf {
+  repeated .ncmd_cs.lobby.room_rule_profile_info list = 2;
+}
+
+message collect_room_rule_req {
+  string rule_code = 1;
+}
+
+message collect_room_rule_res {
+  uint32 code = 1;
+  .ncmd_cs.lobby.room_rule_profile_info info = 2;
+}
+
+message remove_collect_rule_req {
+  string rule_code = 1;
+}
+
+message remove_collect_rule_res {
+  uint32 code = 1;
+  string rule_code = 2;
+}
+
+message room_ban_tips_ntf {
+  string ban_tips = 1;
+}
+
+message teams_brief_query_req {
+  repeated uint64 team_ids = 1;
+}
+
+message team_brief {
+  uint64 team_id = 1;
+  uint32 mode = 2;
+  uint32 player_count = 3;
+  uint32 total_player_count = 4;
+  int32 min_division = 5;
+  int32 max_division = 6;
+  uint32 status = 7;
+  uint64 player_id = 8;
+}
+
+message teams_brief_query_res {
+  uint32 code = 1;
+  repeated .ncmd_cs.lobby.team_brief team_briefs = 2;
+}
+
+message team_one_more_battle_req {
+}
+
+message team_one_more_battle_res {
+  uint32 code = 1;
+}
+
+message team_one_more_battle_ntf {
+  uint64 player_id = 1;
+  .ncmd_cs.EOneMoreBattleTeamMateStatusType status = 2;
+}
+
+message team_one_more_battle_invalidate_ntf {
+  uint32 reason = 1;
+  uint64 team_id = 2;
+}
+

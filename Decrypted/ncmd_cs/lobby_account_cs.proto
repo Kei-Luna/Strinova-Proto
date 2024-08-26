@@ -1,0 +1,65 @@
+syntax = "proto3";
+
+package ncmd_cs.lobby;
+
+message send_phone_msg_req {
+  string phone = 1;
+  uint32 sms_type = 2;
+}
+
+message send_phone_msg_res {
+  uint32 code = 1;
+}
+
+message check_phone_code_req {
+  string phone = 1;
+  uint32 code = 2;
+  uint32 check_type = 3;
+}
+
+message check_phone_code_res {
+  uint32 code = 1;
+}
+
+message query_account_info_req {
+}
+
+message query_account_info_res {
+  uint32 code = 1;
+  string phone = 2;
+  string fanbook = 3;
+  uint32 phone_count = 4;
+  uint32 fanbook_count = 5;
+}
+
+message bind_account_phone_req {
+  uint32 oper_type = 1;
+  uint32 phone_code = 2;
+  string phone = 3;
+}
+
+message bind_account_phone_res {
+  uint32 oper_type = 1;
+  uint32 phone_code = 2;
+  string phone = 3;
+  uint32 code = 4;
+}
+
+message bind_account_fanbook_req {
+  uint32 oper_type = 1;
+  string fanbook_code = 2;
+  string redirect_uri = 3;
+}
+
+message bind_account_fanbook_res {
+  uint32 oper_type = 1;
+  uint32 code = 2;
+}
+
+message logoff_account_req {
+}
+
+message logoff_account_res {
+  uint32 code = 1;
+}
+

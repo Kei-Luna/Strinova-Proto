@@ -1,0 +1,113 @@
+syntax = "proto3";
+
+package ncmd_cs.lobby;
+
+import "enum.proto";
+import "public.proto";
+
+message player_guide_info {
+  repeated uint32 guide_steps = 1;
+}
+
+message player_guide_info_req {
+}
+
+message player_guide_info_res {
+  uint32 code = 1;
+  .ncmd_cs.lobby.player_guide_info info = 2;
+}
+
+message player_guide_info_ntf {
+  .ncmd_cs.lobby.player_guide_info info = 2;
+}
+
+message update_player_guide_req {
+  .ncmd_cs.lobby.EGUIDE_TYPE guide_type = 1;
+  uint32 guide_value = 2;
+}
+
+message update_player_guide_res {
+  uint32 code = 1;
+}
+
+message player_rename_req {
+  string new_nick = 1;
+}
+
+message player_rename_res {
+  uint32 code = 1;
+}
+
+message player_guide_battle_req {
+  .ncmd_cs.GuideBattle battle_type = 1;
+}
+
+message player_guide_battle_res {
+  string ai_host = 1;
+  uint32 ai_port = 2;
+  uint64 room_id = 3;
+  string token = 4;
+  uint64 timestamp = 5;
+  .ncmd_cs.GuideBattle battle_type = 6;
+}
+
+message player_guide_battle_settle_req {
+  uint64 room_id = 1;
+  .ncmd_cs.ERoomMode room_mode = 2;
+  repeated .ncmd_cs.ERoomCamp winner_team = 3;
+  int32 map_id = 4;
+  repeated .ncmd_cs.ds_settle_player_info players = 5;
+  uint32 game_time = 6;
+  repeated uint32 scores = 7;
+  .ncmd_cs.ERoomCamp attack_camp_id = 8;
+  .ncmd_cs.GuideBattle battle_type = 9;
+  repeated .ncmd_cs.ds_round_settle_info round_infos = 10;
+}
+
+message player_guide_battle_settle_res {
+  uint32 code = 1;
+}
+
+message player_train_flag_req {
+  uint32 train = 1;
+}
+
+message player_train_flag_res {
+  uint32 code = 1;
+}
+
+message player_train_flag_ntf {
+  uint32 train = 1;
+}
+
+message train_battle_data {
+  uint32 id = 1;
+  uint32 score = 2;
+  uint32 cost_time = 3;
+  uint32 finish_time = 4;
+}
+
+message player_train_battle_req {
+  .ncmd_cs.lobby.train_battle_data train_battle = 1;
+}
+
+message player_train_battle_res {
+  uint32 code = 1;
+}
+
+message get_train_battle_score_req {
+  uint32 id = 1;
+}
+
+message get_train_battle_score_res {
+  uint32 code = 1;
+  .ncmd_cs.lobby.train_battle_data train_battle = 2;
+}
+
+enum EGUIDE_TYPE {
+  EGUIDE_TYPE_NULL = 0;
+  EGUIDE_TYPE_CREATE = 1;
+  EGUIDE_TYPE_BOMB = 2;
+  EGUIDE_TYPE_END = 3;
+}
+

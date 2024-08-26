@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package ncmd_cs.lobby;
+
+message polaris_info {
+  int64 score = 1;
+  int64 mtime = 2;
+  int32 tag_black = 3;
+  int32 tag_ugc = 4;
+}
+
+message player_sdk_req {
+}
+
+message player_sdk_res {
+  uint32 code = 1;
+  .ncmd_cs.lobby.polaris_info polaris = 2;
+}
+
+message polaris_error_ntf {
+  int32 score = 1;
+  int32 limit_score = 2;
+  int32 tag_black = 3;
+  int32 group_id = 4;
+}
+

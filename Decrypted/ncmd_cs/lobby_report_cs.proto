@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package ncmd_cs.lobby;
+
+message report_net_req {
+  string ds_host = 1;
+  uint32 ds_port = 2;
+  uint32 delay_time = 3;
+  string ds_ip = 4;
+}
+
+message report_net_res {
+  uint32 code = 1;
+}
+
