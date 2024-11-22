@@ -19,6 +19,8 @@ message friend_player {
   uint32 last_team_time = 11;
   string apply_reason = 12;
   .ncmd_cs.EFriendChannelType channel_type = 13;
+  .ncmd_cs.ESubLoginType sub_login_type = 14;
+  uint32 war_zone = 15;
 }
 
 message friend_group {
@@ -190,6 +192,8 @@ message social_friend {
   int32 gender = 4;
   string picture_url = 5;
   .ncmd_cs.player player = 6;
+  int32 third_state = 7;
+  string third_user_id = 8;
 }
 
 message friend_social_list_req {
@@ -233,6 +237,11 @@ message recommend_friend_info {
   uint32 vc_border_id = 16;
   uint32 vc_achie_id = 17;
   bool is_teammate = 18;
+  int32 leisure_rank = 19;
+  int32 leisure_score = 20;
+  uint32 privilege_type = 21;
+  uint32 privilege_time = 22;
+  uint32 war_zone = 23;
 }
 
 message friend_recommend_list_req {
@@ -290,6 +299,8 @@ message recommend_player {
   uint32 vc_frame_id = 8;
   uint32 vc_border_id = 9;
   .ncmd_cs.ESettleRecommendFriendType recomm_type = 10;
+  int32 leisure_rank = 11;
+  int32 leisure_score = 12;
 }
 
 message friend_recommend_by_behavior_ntf {
@@ -320,5 +331,40 @@ message friend_addition_ntf {
   uint64 first_win_tm = 1;
   uint32 friend_addition_cnt = 2;
   uint64 friend_addition_tm = 3;
+}
+
+message report_location_req {
+  float longitude = 1;
+  float latitude = 2;
+  bool close_location = 3;
+}
+
+message report_location_res {
+  uint32 code = 1;
+  float longitude = 2;
+  float latitude = 3;
+}
+
+message search_nearby_req {
+}
+
+message nearby_player {
+  uint64 player_id = 1;
+  string nick = 2;
+  .ncmd_cs.ESexType sex = 3;
+  uint32 rank = 4;
+  uint32 level = 5;
+  uint32 distance = 6;
+  .ncmd_cs.EOnlineStatus online_status = 7;
+  .ncmd_cs.EPlayerStatus status = 8;
+  uint32 icon = 9;
+  uint32 vc_border_id = 10;
+  int32 leisure_rank = 11;
+  int32 leisure_score = 12;
+}
+
+message search_nearby_res {
+  uint32 code = 1;
+  repeated .ncmd_cs.lobby.nearby_player players = 2;
 }
 

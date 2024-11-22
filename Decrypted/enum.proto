@@ -8,6 +8,12 @@ enum ELangType {
   LangType_EN = 2;
   LangType_JA = 3;
   LangType_KO = 4;
+  LangType_PT = 5;
+  LangType_ES = 6;
+  LangType_GER = 7;
+  LangType_FR = 8;
+  LangType_RU = 9;
+  LangType_CN2 = 10;
 }
 
 enum ERegionType {
@@ -30,6 +36,7 @@ enum EChatType {
   ChatType_FIGHT = 6;
   ChatType_LOCATION = 7;
   ChatType_CLAN = 8;
+  ChatType_LANGUAGE = 9;
 }
 
 enum ETeamApplyType {
@@ -102,6 +109,7 @@ enum EPlayerSettingKey {
   PlayerSettingKey_HIDE_BIRTHDAY = 5;
   PlayerSettingKey_FAVORITE_POLICY = 6;
   PlayerSettingKey_BAN_BEHAVIOR_RECOMMEND = 7;
+  PlayerSettingKey_FORBID_FRIEND_WATCH = 9;
 }
 
 enum FavoriteRandomPolicy {
@@ -121,6 +129,7 @@ enum EPersonalityType {
   PersonalityType_None = 0;
   PersonalityType_EMOTION = 1;
   PersonalityType_ACTION = 2;
+  PersonalityType_DECAL = 3;
 }
 
 enum ERewardModule {
@@ -142,6 +151,14 @@ enum ERuleCampType {
   ERuleCampType_TEAM = 2;
 }
 
+enum ERoomModeType {
+  ERoomModeType_NONE = 0;
+  ERoomModeType_ROOM = 101;
+  ERoomModeType_LEISURE = 102;
+  ERoomModeType_RANK = 103;
+  ERoomModeType_SUPER_RANK = 104;
+}
+
 enum ERoomMode {
   RoomMode_NONE = 0;
   RoomMode_TEAM = 1;
@@ -159,6 +176,7 @@ enum ERoomMode {
   RoomMode_CRYSTAL_3 = 14;
   RoomMode_MAHJONG = 15;
   RoomMode_PERSONAL_MELEE = 16;
+  RoomMode_BOMB2 = 17;
 }
 
 enum EPlayMode {
@@ -176,6 +194,7 @@ enum EPlayMode {
   PlayMode_CRYSTAL_3 = 12;
   PlayMode_MAHJONG = 13;
   PlayMode_PERSONAL_MELEE = 14;
+  PlayMode_BOMB2 = 15;
 }
 
 enum ERankType {
@@ -186,6 +205,7 @@ enum ERankType {
   RankType_ROLE = 4;
   RankType_TRAIN = 5;
   RankType_PUSHCAR = 6;
+  RankType_LEISURE = 7;
 }
 
 enum EReddotType {
@@ -204,6 +224,7 @@ enum EReddotType {
   ReddotType_NEW_EMOTION = 12;
   ReddotType_NEW_WEAPON_FX = 13;
   ReddotType_NEW_GIVING = 14;
+  ReddotType_NEW_CHAT_BUBBLE = 15;
 }
 
 enum EStoreType {
@@ -245,6 +266,7 @@ enum EItemType {
   ItemType_Fluttering = 11;
   ItemType_Emotion = 13;
   ItemType_WeaponFx = 14;
+  ItemType_ChatBubble = 15;
   ItemType_ModName = 100;
   ItemType_JinBiAdd = 101;
   ItemType_ExpAdd = 102;
@@ -353,6 +375,7 @@ enum EFriendChannelType {
   FriendChannelType_TEAM_MEMBER = 7;
   FriendChannelType_SEARCH = 8;
   FriendChannelType_TEAM_ROOM = 9;
+  FriendChannelType_STEAM_FRIEND = 10;
 }
 
 enum EFriendSystemGroup {
@@ -387,7 +410,6 @@ enum EMailType {
   MailType_GLOBAL_MAIL = 2;
   MailType_GIFT_MAIL = 3;
   MailType_SYS_MAIL = 4;
-  MailType_CLAN_TRANS_JOB = 5;
 }
 
 enum ESubGiftType {
@@ -673,6 +695,17 @@ enum ERechargePlatformId {
   PlatformId_NULL = 0;
   STEAM = 1;
   PAYER_MAX = 2;
+  ADYEN = 3;
+  EPIC = 4;
+  XSOLLA = 5;
+  CKO = 6;
+  ALIGLOBAL = 7;
+  STEAM_TISHEN = 8;
+}
+
+enum ESubLoginType {
+  SubLoginType_DSKYMAIL = 0;
+  SubLoginType_Steam = 1;
 }
 
 enum EProfileShowType {
@@ -738,6 +771,7 @@ enum ECreditChangeReason {
   ECreditChangeReason_PurposeLose = 5;
   ECreditChangeReason_PlugIn = 6;
   ECreditChangeReason_ThirdTool = 7;
+  ECreditChangeReason_Idip = 8;
   ECreditChangeReason_BattleSettle = 100;
   ECreditChangeReason_Login = 101;
 }
@@ -859,5 +893,87 @@ enum EClanSettingErrorCode {
   ClanSettingErrorCode_INTRO_LEN_ERROR = 60;
   ClanSettingErrorCode_INTRO_CHAR_ILLEGAL = 61;
   ClanSettingErrorCode_INTRO_SWORD = 62;
+}
+
+enum EWarZoneId {
+  WarZoneId_NONE = 0;
+  WarZoneId_NA = 1;
+  WarZoneId_AP = 2;
+  WarZoneId_EU = 3;
+  WarZoneId_LATAM = 4;
+}
+
+enum EVCardType {
+  EVCardType_None = 0;
+  EVCardType_Avatar = 1;
+  EVCardType_Border = 2;
+}
+
+enum ERechargeType {
+  ERechargeType_NONE = 0;
+  ERechargeType_CRYSTAL = 1;
+  ERechargeType_MonthCard = 2;
+  ERechargeType_AdvanceBP = 3;
+  ERechargeType_AdvanceBPPlus = 4;
+  ERechargeType_AdvanceBPPlusDelta = 5;
+  ERechargeType_LimitGift = 6;
+}
+
+enum ERechargeRewardStatus {
+  ERechargeRewardStatus_NONE = 0;
+  ERechargeRewardStatus_UNFINISH = 1;
+  ERechargeRewardStatus_FINISHED = 2;
+  ERechargeRewardStatus_REWARD = 3;
+}
+
+enum IPv6Flag {
+  IPV6_NONE = 0;
+  IPV6_USE_IPV6 = 1;
+  IPV6_USE_NAT64 = 2;
+}
+
+enum EAIBattleType {
+  EAIBattleType_None = 0;
+  EAIBattleType_Warm = 1;
+  EAIBattleType_Cover = 2;
+}
+
+enum EAIMainLableType {
+  EAIMainLableType_None = 0;
+  EAIMainLableType_Newbie = 1;
+  EAIMainLableType_Return = 2;
+  EAIMainLableType_Active = 3;
+  EAIMainLableType_Fails = 4;
+}
+
+enum EAISubLableType {
+  EAISubLableType_None = 0;
+  EAISubLableType_White = 1;
+  EAISubLableType_Exp = 2;
+  EAISubLableType_God = 3;
+}
+
+enum EDivisionTaskStatus {
+  EDivisionTaskStatus_UN_KNOWN = 0;
+  EDivisionTaskStatus_UN_FINISH = 1;
+  EDivisionTaskStatus_CAN_REWARD = 2;
+  EDivisionTaskStatus_HAD_REWARD = 3;
+}
+
+enum EFunctionType {
+  FunctionType_None = 0;
+  FunctionType_ActivityFace = 1;
+  FunctionType_MidasPay = 2;
+  FunctionType_Announcement = 3;
+  FunctionType_Feedback = 4;
+  FunctionType_CustomerService = 5;
+  FunctionType_MonthlyCard = 6;
+  FunctionType_NetworkFilter = 7;
+  FunctionType_RedemptionCode = 8;
+  FunctionType_AccountBind = 9;
+  FunctionType_PlayerGiving = 10;
+  FunctionType_UnlockFace = 11;
+  FunctionType_PayDirectlyGoods = 12;
+  FunctionType_AccumulatedVip = 13;
 }
 

@@ -27,6 +27,11 @@ message standings_title {
   uint32 can_switch_camp = 13;
   int32 divison_score = 14;
   int32 old_division_score = 15;
+  uint32 role_id = 16;
+  uint32 kill_num = 17;
+  uint32 dead_num = 18;
+  uint32 assists_num = 19;
+  uint32 ps = 20;
 }
 
 message standing_mode_info {

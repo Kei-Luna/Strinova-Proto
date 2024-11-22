@@ -17,6 +17,7 @@ message reward_module {
 
 message reward_all_modules_sync_ntf {
   repeated .ncmd_cs.lobby.reward_module all_reward_modules = 1;
+  repeated uint32 one_time_rewards = 2;
 }
 
 message reward_module_sync_ntf {
@@ -112,5 +113,41 @@ message questionnaire_login_req {
 
 message questionnaire_login_res {
   string login_token = 1;
+}
+
+message one_time_reward_receive_req {
+  uint32 reward_id = 1;
+}
+
+message one_time_reward_receive_res {
+  uint32 code = 1;
+  uint32 reward_id = 2;
+}
+
+message leisure_reward_recive_req {
+  uint32 gradation = 1;
+}
+
+message leisure_reward_recive_res {
+  uint32 code = 1;
+  uint32 gradation = 2;
+}
+
+message leisure_reward {
+  uint32 gradation = 1;
+  uint32 status = 2;
+}
+
+message leisure_reward_status_ntf {
+  repeated .ncmd_cs.lobby.leisure_reward leisure_reward_list = 1;
+}
+
+message reward_recive_cdk_req {
+  string cdk_string = 1;
+}
+
+message reward_recive_cdk_res {
+  uint32 code = 1;
+  repeated .ncmd_cs.item_pack items = 2;
 }
 

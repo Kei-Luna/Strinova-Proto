@@ -267,3 +267,12 @@ message role_birthday_stage_ntf {
   uint32 birthday_stage = 2;
 }
 
+message salon_give_garagekits_req {
+  uint32 target_id = 1;
+  uint32 garagekit_id = 2;
+}
+
+message salon_give_garagekits_res {
+  uint32 code = 1;
+}
+

@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package ncmd_cs.lobby;
 
+import "enum.proto";
+
 message function_open_cfg {
   uint32 func_id = 1;
   uint32 open_type = 2;
@@ -72,5 +74,156 @@ message get_player_setting_res {
   uint32 code = 1;
   int64 player_id = 2;
   repeated int64 settings = 3;
+}
+
+message set_player_match_mode_req {
+  repeated .ncmd_cs.ERoomMode mode_list = 1;
+}
+
+message set_player_match_mode_res {
+  uint32 code = 1;
+}
+
+message match_setting_mode {
+  uint32 mode_type = 1;
+  repeated .ncmd_cs.ERoomMode mode_list = 2;
+}
+
+message player_match_mode_ntf {
+  repeated .ncmd_cs.lobby.match_setting_mode match_setting_list = 1;
+}
+
+message cloud_plan {
+  uint32 plan_id = 1;
+  string name = 2;
+  string content = 3;
+  string plan_desc = 4;
+}
+
+message cloud_plan_one_req {
+  uint32 plan_id = 1;
+}
+
+message cloud_plan_one_res {
+  uint32 code = 1;
+  .ncmd_cs.lobby.cloud_plan plan_data = 2;
+}
+
+message cloud_plan_one_ntf {
+  uint32 cur_use_plan_id = 1;
+  .ncmd_cs.lobby.cloud_plan plan_data = 2;
+}
+
+message cloud_plan_list_req {
+}
+
+message cloud_plan_list_res {
+  uint32 code = 1;
+  uint32 cur_use_plan_id = 2;
+  repeated .ncmd_cs.lobby.cloud_plan plan_list = 3;
+}
+
+message cloud_plan_upload_req {
+  .ncmd_cs.lobby.cloud_plan plan_data = 1;
+}
+
+message cloud_plan_upload_res {
+  uint32 code = 1;
+  .ncmd_cs.lobby.cloud_plan plan_data = 2;
+}
+
+message cloud_plan_use_req {
+  uint32 plan_id = 1;
+}
+
+message cloud_plan_use_res {
+  uint32 code = 1;
+  .ncmd_cs.lobby.cloud_plan plan_data = 2;
+}
+
+message cloud_plan_rename_req {
+  uint32 plan_id = 1;
+  string name = 2;
+}
+
+message cloud_plan_rename_res {
+  uint32 code = 1;
+  uint32 plan_id = 2;
+  string name = 3;
+}
+
+message god_plan {
+  uint64 plan_id = 1;
+  string name = 2;
+  string content = 3;
+  string plan_desc = 4;
+  uint32 fit_type = 5;
+  uint32 device_type = 6;
+  uint32 finger_type = 7;
+  uint64 use_num = 8;
+  int64 add_num = 9;
+  int64 calc_num = 10;
+}
+
+message god_plan_all_list_req {
+  uint32 start_pos = 1;
+  uint32 end_pos = 2;
+}
+
+message god_plan_all_list_res {
+  uint32 code = 1;
+  uint32 start_pos = 2;
+  uint32 end_pos = 3;
+  uint32 rank_count = 4;
+  repeated .ncmd_cs.lobby.god_plan plan_list = 5;
+}
+
+message god_plan_self_list_req {
+  uint32 start_pos = 1;
+  uint32 end_pos = 2;
+}
+
+message god_plan_self_list_res {
+  uint32 code = 1;
+  uint32 start_pos = 2;
+  uint32 end_pos = 3;
+  uint32 rank_count = 4;
+  repeated .ncmd_cs.lobby.god_plan plan_list = 5;
+}
+
+message god_plan_upload_req {
+  .ncmd_cs.lobby.god_plan plan_data = 1;
+}
+
+message god_plan_upload_res {
+  uint32 code = 1;
+  .ncmd_cs.lobby.god_plan plan_data = 2;
+}
+
+message god_plan_use_req {
+  uint64 plan_id = 1;
+}
+
+message god_plan_use_res {
+  uint32 code = 1;
+  .ncmd_cs.lobby.god_plan plan_data = 2;
+}
+
+message god_plan_edit_req {
+  .ncmd_cs.lobby.god_plan plan_data = 1;
+}
+
+message god_plan_edit_res {
+  uint32 code = 1;
+  .ncmd_cs.lobby.god_plan plan_data = 2;
+}
+
+message god_plan_del_req {
+  uint64 plan_id = 1;
+}
+
+message god_plan_del_res {
+  uint32 code = 1;
+  uint64 plan_id = 2;
 }
 

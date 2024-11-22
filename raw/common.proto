@@ -1,5 +1,5 @@
 
-Ä
+ü
 common.protoncmd_cs
 enum.proto"C
 	item_pack
@@ -18,7 +18,8 @@ currencyId!
 obtain_data5
 result_list (2.ncmd_cs.obtain_itemR
 resultList8
-convert_list (2.ncmd_cs.convert_itemRconvertList"‰	
+convert_list (2.ncmd_cs.convert_itemRconvertList"Á
+
 player
 	player_id (RplayerId
 nick (	Rnick
@@ -61,7 +62,12 @@ vcBorderId'
 clan_id$ (RclanId
 grade_score% (R
 gradeScore
-	city_code& (RcityCode"ˆ	
+	city_code& (RcityCode!
+country_code' (	RcountryCode.
+war_zone( (2.ncmd_cs.EWarZoneIdRwarZone#
+leisure_score) (RleisureScore!
+leisure_rank* (RleisureRank
+	comb_mode+ (RcombMode"¡	
 player_settle_info
 	player_id (RplayerId+
 team_id (2.ncmd_cs.ERoomCampRteamId
@@ -106,7 +112,8 @@ bearDamage%
 teamwork_score# (RteamworkScore 
 from_team_id$ (R
 fromTeamId
-hu_num% (RhuNum"~
+hu_num% (RhuNum
+pos_num( (RposNum"~
 round_settle_info2
 
 round_type (2.ncmd_cs.ERoundTypeR	roundType5
@@ -126,4 +133,19 @@ zoom_scale (R	zoomScale!
 
 level_flip (R	levelFlip
 level (Rlevel4
-	clan_data (2.ncmd_cs.clan_icon_dataRclanDatabproto3
+	clan_data (2.ncmd_cs.clan_icon_dataRclanData"\
+clan_show_info
+clan_id (RclanId
+level (Rlevel
+	clan_name (	RclanName"†
+player_card_info
+	player_id (RplayerId
+nick (	Rnick
+sex (Rsex
+level (Rlevel
+rank (Rrank
+rank_pos (RrankPos
+	border_id (RborderId
+	avatar_id	 (RavatarId0
+medals
+ (2.ncmd_cs.medal_card_dataRmedalsbproto3

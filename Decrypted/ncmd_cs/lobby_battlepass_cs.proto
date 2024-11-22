@@ -101,6 +101,20 @@ message battlepass_reward_all_res {
   uint32 code = 1;
 }
 
+message battlepass_reward_all_mb_req {
+}
+
+message battlepass_item {
+  uint32 item_id = 1;
+  uint32 count = 2;
+}
+
+message battlepass_reward_all_mb_res {
+  uint32 code = 1;
+  repeated .ncmd_cs.lobby.battlepass_item result_item = 2;
+  repeated .ncmd_cs.lobby.battlepass_item convert_item = 3;
+}
+
 message task_pass_req {
   uint32 task_id = 1;
 }

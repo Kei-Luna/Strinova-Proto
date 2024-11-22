@@ -1,5 +1,5 @@
 
-¡
+Ð
 public.protoncmd_cs
 enum.proto"A
 behavior
@@ -16,7 +16,7 @@ progresses"L
 assists_info
 	target_id (RtargetId
 assists_num (R
-assistsNum"œ
+assistsNum"µ
 ds_settle_player_info
 	player_id (RplayerId+
 team_id (2.ncmd_cs.ERoomCampRteamId
@@ -90,11 +90,17 @@ vcAvatarId
 vcBorderId
 levelG (Rlevel
 rankH (Rrank&
-team_Player_numI (RteamPlayerNum"„
+team_Player_numI (RteamPlayerNum
+pos_numK (RposNum"„
 ds_round_settle_info2
 
 round_type (2.ncmd_cs.ERoundTypeR	roundType8
-players (2.ncmd_cs.ds_settle_player_infoRplayers"Û
+players (2.ncmd_cs.ds_settle_player_infoRplayers"Œ
+ds_settle_weapon_info
+	weapon_id (RweaponId
+damage (Rdamage
+	hit_count (RhitCount!
+bullet_count (RbulletCount"â
 ds_settle_role_info
 role_id (RroleId
 	play_time (RplayTime 
@@ -119,7 +125,10 @@ assistsNum
 hit_head (RhitHead
 	hit_count (RhitCount"
 kill_head_num (RkillHeadNum%
-release_skills (RreleaseSkills"Œ
+release_skills (RreleaseSkills
+survival (Rsurvival#
+survival_time (RsurvivalTimeD
+ds_weapon_list (2.ncmd_cs.ds_settle_weapon_infoRdsWeaponList"Œ
 room_one_rule
 attr_id (RattrId
 value (Rvalue3

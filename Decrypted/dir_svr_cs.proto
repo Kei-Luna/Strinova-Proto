@@ -29,6 +29,19 @@ message server_addr {
   string cluster_name = 5;
 }
 
+message grome_link_server_addr {
+  string romelink = 1;
+  string romelink_v6 = 2;
+  uint32 policy = 3;
+  string clusters = 4;
+  string cluster_v6 = 5;
+  uint32 interval = 6;
+  uint32 count = 7;
+  uint32 timeout = 8;
+  string params = 9;
+  .ncmd_cs.IPv6Flag ipv6_flag = 10;
+}
+
 message get_token_req {
   string open_id = 1;
   .ncmd_cs.EDeviceType device_id = 2;
@@ -40,6 +53,7 @@ message get_token_res {
   .ncmd_cs.dir.server_addr lobby_addr = 3;
   repeated .ncmd_cs.dir.server_addr ping_list = 4;
   string api_addr = 5;
+  .ncmd_cs.dir.grome_link_server_addr gr_addr = 6;
 }
 
 message get_lobby_info_req {

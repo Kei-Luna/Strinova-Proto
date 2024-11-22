@@ -1,5 +1,5 @@
 
-¶v
+Õv
 activity_cfg.protoncmd_cs.lobby"=
 sc_item
 item_id (RitemId
@@ -139,7 +139,7 @@ activityId
 
 shop_items (2.ncmd_cs.lobby.sc_itemR	shopItems
 not_reissue (R
-notReissue"¶
+notReissue"Õ
 activitycommonstory_cfg
 id (Rid
 activity_id (R
@@ -148,7 +148,9 @@ activityId
 unlock_item_id (RunlockItemId&
 unlock_item_num (RunlockItemNum9
 reward_items (2.ncmd_cs.lobby.sc_itemRrewardItemsH
-unlock_conditions (2.ncmd_cs.lobby.sc_conditionRunlockConditions"â
+unlock_conditions (2.ncmd_cs.lobby.sc_conditionRunlockConditions
+
+message_id (	R	messageId"â
 activityconcertlevel_cfg
 id (Rid
 activity_id (R

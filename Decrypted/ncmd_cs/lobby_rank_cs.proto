@@ -50,6 +50,12 @@ message train_battle_node {
   uint32 finish_time = 3;
 }
 
+message leisure_node {
+  uint32 leisure_score = 1;
+  uint32 rank = 2;
+  uint32 win_games = 3;
+}
+
 message rank_row_info {
   uint64 player_id = 1;
   uint32 rank_pos = 2;
@@ -67,6 +73,10 @@ message rank_row_info {
   .ncmd_cs.lobby.train_battle_node train_battle_data = 14;
   .ncmd_cs.lobby.rank_crystal_node rank_crystal_data = 15;
   .ncmd_cs.lobby.rank_pushcar_node rank_pushcar_data = 16;
+  string country_code = 17;
+  .ncmd_cs.EWarZoneId war_zone = 18;
+  .ncmd_cs.lobby.leisure_node leisure_data = 19;
+  uint32 privilege_list = 20;
 }
 
 message rank_data_res {
@@ -93,14 +103,20 @@ message rank_get_cur_city_code_req {
 message rank_get_cur_city_code_res {
   uint32 code = 1;
   uint32 city_code = 2;
+  string country_code = 3;
+  .ncmd_cs.EWarZoneId old_war_zone = 4;
+  .ncmd_cs.EWarZoneId war_zone = 5;
 }
 
 message rank_set_cur_city_code_req {
   uint32 city_code = 1;
+  string country_code = 2;
+  .ncmd_cs.EWarZoneId war_zone = 3;
 }
 
 message rank_set_cur_city_code_res {
   uint32 code = 1;
+  .ncmd_cs.EWarZoneId war_zone = 2;
 }
 
 message rank_get_friend_data_req {

@@ -26,6 +26,7 @@ message career_player {
   uint32 birthday = 14;
   uint32 city_code = 15;
   uint32 privacy_type = 16;
+  uint32 war_zone = 17;
 }
 
 message career_battle_info {
@@ -80,6 +81,8 @@ message career_battle_info {
   uint32 hit_head = 49;
   uint32 hit_count = 50;
   uint32 kill_head_num = 51;
+  float pure_win_rate = 52;
+  uint32 win_calc_round = 53;
 }
 
 message career_rank {
@@ -117,6 +120,8 @@ message career_role_employ {
   float max_damage_one_game = 13;
   uint32 release_skills = 14;
   uint32 half_count = 15;
+  float pure_win_rate = 16;
+  uint32 draw_count = 17;
 }
 
 message career_battle_field {
@@ -161,6 +166,16 @@ message career_image {
   int64 like_tm = 22;
   int64 req_visit_list_tm = 23;
   uint32 like_num = 24;
+  .ncmd_cs.clan_show_info clan_show_info = 25;
+  uint32 leisure_freq_game_mode = 26;
+  uint32 cur_leisure_rank = 27;
+  uint32 cur_leisure_score = 28;
+  uint32 top_leisure_score = 29;
+  uint32 top_leisure_rank = 30;
+  uint32 top_history_leisure_score = 31;
+  uint32 top_history_leisure_rank = 32;
+  int32 his_top_rank = 33;
+  int32 his_top_rank_pos = 35;
 }
 
 message career_info_res {
@@ -189,6 +204,13 @@ message his_career_info_res {
   int32 final_grade_score = 14;
   int32 top_grade_score = 15;
   uint32 super_string_count = 16;
+  uint32 leisure_freq_game_mode = 17;
+  uint32 cur_leisure_rank = 18;
+  uint32 cur_leisure_score = 19;
+  uint32 top_history_leisure_rank = 20;
+  uint32 top_history_leisure_score = 21;
+  int32 his_top_rank = 22;
+  int32 his_top_rank_pos = 24;
 }
 
 message career_get_head_icons_req {
@@ -340,5 +362,76 @@ message career_fist_bump_ntf {
   uint32 player_id = 1;
   uint32 target_id = 2;
   string text_id = 3;
+}
+
+message leisure_career_data {
+  repeated .ncmd_cs.ERoomMode favorite_mode_list = 1;
+  uint32 win_count = 2;
+  uint32 total_battle_count = 3;
+  uint32 avg_perf_score = 4;
+  uint32 total_mvp_count = 5;
+  repeated uint32 favorite_role_list = 6;
+  uint32 leisure_score = 7;
+}
+
+message career_leisure_info_req {
+  uint64 target_id = 1;
+  uint32 season_id = 2;
+}
+
+message career_leisure_info_res {
+  uint32 code = 1;
+  uint64 target_id = 2;
+  uint32 season_id = 3;
+  .ncmd_cs.lobby.leisure_career_data leisure_career = 4;
+}
+
+message career_leisure_rate_req {
+}
+
+message career_leisure_rate_res {
+  uint32 code = 1;
+  uint32 rate = 2;
+}
+
+message his_career_info {
+  int32 season_id = 2;
+  int32 final_seg = 3;
+  int32 top_seg = 4;
+  repeated .ncmd_cs.lobby.career_battle_info battle_infos = 5;
+  repeated .ncmd_cs.lobby.career_role_employ role_employs = 6;
+  repeated uint32 freq_roles = 7;
+  int32 final_stars = 8;
+  int32 top_stars = 9;
+  int32 final_rank_pos = 10;
+  int32 top_rank_pos = 11;
+  int32 final_division_score = 12;
+  int32 top_division_score = 13;
+  int32 final_grade_score = 14;
+  int32 top_grade_score = 15;
+  uint32 super_string_count = 16;
+  uint32 leisure_freq_game_mode = 17;
+  uint32 leisure_cur_rank = 18;
+  uint32 leisure_history_top_rank = 19;
+  uint32 his_top_rank = 20;
+}
+
+message mb_his_career_get_req {
+  repeated int32 season_list = 1;
+}
+
+message mb_his_career_get_res {
+  uint32 code = 1;
+  repeated .ncmd_cs.lobby.his_career_info career_list = 2;
+  repeated int32 season_list = 3;
+}
+
+message get_player_card_req {
+  uint64 player_id = 1;
+}
+
+message get_player_card_res {
+  uint32 code = 1;
+  .ncmd_cs.player_card_info player_info = 2;
 }
 

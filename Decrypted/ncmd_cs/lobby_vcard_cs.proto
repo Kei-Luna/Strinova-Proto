@@ -53,3 +53,37 @@ message get_title_res {
   repeated .ncmd_cs.lobby.title_info title_list = 3;
 }
 
+message wear_medals_ntf {
+  repeated .ncmd_cs.medal_card_data medals = 1;
+}
+
+message chat_bubble_info {
+  uint32 bubble_id = 1;
+  uint32 expire_time = 2;
+}
+
+message chat_bubble_sync_ntf {
+  repeated .ncmd_cs.lobby.chat_bubble_info bubble_list = 1;
+}
+
+message get_chat_bubble_req {
+}
+
+message get_chat_bubble_res {
+  int32 code = 1;
+  repeated .ncmd_cs.lobby.chat_bubble_info bubble_list = 2;
+}
+
+message change_chat_bubble_req {
+  uint32 bubble_id = 1;
+}
+
+message change_chat_bubble_res {
+  int32 code = 1;
+  uint32 bubble_id = 2;
+}
+
+message curr_equip_chat_bubble_ntf {
+  .ncmd_cs.lobby.chat_bubble_info curr_bubble = 1;
+}
+

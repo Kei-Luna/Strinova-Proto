@@ -104,6 +104,32 @@ message get_train_battle_score_res {
   .ncmd_cs.lobby.train_battle_data train_battle = 2;
 }
 
+message unlock_func {
+  uint32 func_id = 1;
+  uint32 status = 2;
+}
+
+message player_unlock_func_info_req {
+}
+
+message player_unlock_func_info_res {
+  uint32 code = 1;
+  repeated .ncmd_cs.lobby.unlock_func info = 2;
+}
+
+message player_unlock_func_info_ntf {
+  repeated .ncmd_cs.lobby.unlock_func info = 2;
+}
+
+message player_unlock_func_req {
+  repeated uint32 func_ids = 1;
+}
+
+message player_unlock_func_res {
+  uint32 code = 1;
+  repeated uint32 func_ids = 2;
+}
+
 enum EGUIDE_TYPE {
   EGUIDE_TYPE_NULL = 0;
   EGUIDE_TYPE_CREATE = 1;

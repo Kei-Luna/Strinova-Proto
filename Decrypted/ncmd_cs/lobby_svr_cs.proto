@@ -40,6 +40,12 @@ message rankinfo_sync_ntf {
   uint32 grading_total = 18;
   int32 old_grade_score = 19;
   int32 grade_score = 20;
+  int32 old_leisure_rank = 21;
+  int32 leisure_rank = 22;
+  int32 old_leisure_score = 23;
+  int32 leisure_score = 24;
+  bool has_leisure_prize = 25;
+  bool has_leisure_settle = 26;
 }
 
 message common_tips_ntf {
@@ -56,5 +62,8 @@ message common_banner_ntf {
   uint32 interval = 5;
   uint32 times = 6;
   uint32 duration = 7;
+}
+
+message common_notice_ntf {
 }
 

@@ -100,6 +100,9 @@ message enter_battle_ntf {
   bool reconnect = 6;
   string session_id = 7;
   uint32 map_id = 8;
+  string gromelink = 9;
+  bool is_use_gr = 10;
+  bool is_watcher = 11;
 }
 
 message quit_battle_ntf {

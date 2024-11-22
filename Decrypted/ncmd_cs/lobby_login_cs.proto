@@ -42,6 +42,12 @@ message ts_ace_login_res {
   bytes feature_data = 4;
 }
 
+message feature_data {
+  int32 crc = 1;
+  bytes name = 2;
+  bytes data = 3;
+}
+
 message tlog_report_data {
   string clientversion = 1;
   string systemsoftware = 2;
@@ -67,6 +73,7 @@ message dlog_report_data {
   string session_id = 3;
   string ads_info = 4;
   string email = 5;
+  string af_id = 6;
 }
 
 message login_req {
@@ -92,6 +99,7 @@ message login_req {
   string sys_locale_language = 20;
   .ncmd_cs.ELangType game_lang_type = 21;
   bool sign_conf_agreement = 22;
+  .ncmd_cs.ESubLoginType sub_login_type = 23;
 }
 
 message login_res {
@@ -102,6 +110,8 @@ message login_res {
   string ban_reason = 5;
   string error_tips = 6;
   uint32 ace_world_id = 7;
+  string pay_country = 8;
+  bool tired_warning = 9;
 }
 
 message bind_steam_req {
@@ -123,7 +133,7 @@ message login_queue_req {
 message login_queue_res {
   uint32 code = 1;
   uint32 rank = 2;
-  uint32 left_time = 3;
+  int32 left_time = 3;
   uint32 oper_id = 4;
 }
 
@@ -135,11 +145,13 @@ message logout_res {
 }
 
 message init_state_sync_finish_ntf {
+  .ncmd_cs.lobby.feature_data feature = 1;
 }
 
 message kick_lobby_ntf {
   uint32 reason = 1;
   string msg = 2;
+  uint32 ban_time = 3;
 }
 
 message player_info {
@@ -269,6 +281,7 @@ enum EACC_PLATFORM_ID {
   QQ = 3;
   OTHER = 4;
   STEAM = 5;
+  OVERSEA = 101;
   IN_HOUSE = 255;
 }
 

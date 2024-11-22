@@ -4,6 +4,7 @@ package ncmd_ds;
 
 import "enum.proto";
 import "public.proto";
+import "common.proto";
 
 message ds_creatematch_req {
   uint64 room_id = 1;
@@ -12,6 +13,9 @@ message ds_creatematch_req {
   repeated .ncmd_ds.ds_player_info players = 5;
   .ncmd_cs.EMsgSyncFlag sync_flag = 6;
   .ncmd_cs.ESpecialRoom special = 7;
+  uint32 drama_id = 8;
+  int32 bot_lv_delta = 9;
+  bool forbid_bot_dynamic = 10;
 }
 
 message ds_weapon_info {
@@ -101,6 +105,17 @@ message ds_player_info {
   uint32 vc_avatar_id = 32;
   uint32 vc_frame_id = 33;
   uint32 vc_border_id = 34;
+  repeated .ncmd_cs.medal_card_data vc_medals = 35;
+  int32 leisure_score = 36;
+  int32 leisure_rank = 37;
+  int32 leisure_mmr = 38;
+  string game_appid = 39;
+  int32 mmr_b = 40;
+  int32 mmr_c = 41;
+  int32 leisure_mmr_b = 42;
+  int32 leisure_mmr_c = 43;
+  int32 mmr_e = 44;
+  int32 leisure_mmr_e = 45;
 }
 
 message ds_creatematch_res {
@@ -206,6 +221,10 @@ message ds_report_tlog_ntf {
 }
 
 message ds_batch_report_tlog_ntf {
+  repeated string log_list = 1;
+}
+
+message ds_batch_report_acelog_ntf {
   repeated string log_list = 1;
 }
 

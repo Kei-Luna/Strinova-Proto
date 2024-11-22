@@ -61,6 +61,11 @@ message player {
   uint64 clan_id = 36;
   int32 grade_score = 37;
   uint32 city_code = 38;
+  string country_code = 39;
+  .ncmd_cs.EWarZoneId war_zone = 40;
+  int32 leisure_score = 41;
+  int32 leisure_rank = 42;
+  uint64 comb_mode = 43;
 }
 
 message player_settle_info {
@@ -101,6 +106,7 @@ message player_settle_info {
   uint32 teamwork_score = 35;
   uint64 from_team_id = 36;
   uint32 hu_num = 37;
+  uint32 pos_num = 40;
 }
 
 message round_settle_info {
@@ -123,5 +129,23 @@ message medal_card_data {
   bool level_flip = 5;
   uint32 level = 6;
   .ncmd_cs.clan_icon_data clan_data = 7;
+}
+
+message clan_show_info {
+  uint64 clan_id = 1;
+  uint32 level = 2;
+  string clan_name = 3;
+}
+
+message player_card_info {
+  uint64 player_id = 2;
+  string nick = 3;
+  int32 sex = 4;
+  int32 level = 5;
+  int32 rank = 6;
+  int32 rank_pos = 7;
+  int32 border_id = 8;
+  int32 avatar_id = 9;
+  repeated .ncmd_cs.medal_card_data medals = 10;
 }
 

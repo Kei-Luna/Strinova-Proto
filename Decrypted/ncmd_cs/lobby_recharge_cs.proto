@@ -2,13 +2,15 @@ syntax = "proto3";
 
 package ncmd_cs.lobby;
 
+import "enum.proto";
+
 message recharge_plat_info_req {
   string version = 1;
 }
 
 message recharge_plat_info_res {
   uint32 code = 1;
-  repeated uint32 platform_ids = 2;
+  uint32 platform_ids = 2;
 }
 
 message recharge_order_send_req {
@@ -16,6 +18,7 @@ message recharge_order_send_req {
   string evidence = 2;
   string clientParams = 3;
   uint32 oper_type = 4;
+  string UA = 5;
 }
 
 message recharge_order_send_res {
@@ -24,6 +27,24 @@ message recharge_order_send_res {
   int32 amount = 3;
   repeated .ncmd_cs.lobby.recharge_commodity_pack commodities = 4;
   uint32 oper_type = 5;
+}
+
+message recharge_epic_order_send_req {
+  string pay_order_id = 1;
+  string evidence = 2;
+  string itemid = 3;
+  uint32 oper_type = 4;
+  string UA = 5;
+  string access_token = 6;
+}
+
+message recharge_epic_order_send_res {
+  uint32 code = 1;
+  string pay_order_id = 2;
+  repeated .ncmd_cs.lobby.recharge_commodity_pack commodities = 3;
+  uint32 oper_type = 4;
+  string evidence = 5;
+  string itemid = 6;
 }
 
 message recharge_order_send_ntf {
@@ -41,9 +62,17 @@ message recharge_commodity_sync_req {
   string version = 1;
 }
 
+message single_recharge_info {
+  uint32 recharge_id = 1;
+  .ncmd_cs.ERechargeType recharge_type = 2;
+  string money_type = 3;
+  uint32 money_num = 4;
+  string recharge_name = 5;
+}
+
 message recharge_commodity_sync_res {
   uint32 code = 1;
-  repeated uint32 commodity_ids = 2;
+  repeated .ncmd_cs.lobby.single_recharge_info commodity_ids = 2;
 }
 
 message recharge_order_create_req {
@@ -53,6 +82,7 @@ message recharge_order_create_req {
   uint32 amount = 4;
   string currency = 5;
   string language = 6;
+  string UA = 7;
 }
 
 message recharge_order_create_res {
@@ -62,6 +92,8 @@ message recharge_order_create_res {
   uint32 pay_code = 4;
   string pay_msg = 5;
   string redirect_url = 6;
+  string offer_id = 7;
+  string itemid = 8;
 }
 
 message midas_query_balance_req {
@@ -107,5 +139,36 @@ message midas_first_pay {
 
 message midas_first_pay_mul_ntf {
   repeated .ncmd_cs.lobby.midas_first_pay first_pays = 1;
+}
+
+message recharge_reward_info {
+  int32 reward_id = 1;
+  .ncmd_cs.ERechargeRewardStatus status = 2;
+  repeated .ncmd_cs.lobby.recharge_item reward_items = 3;
+  int32 reward_num = 4;
+}
+
+message recharge_item {
+  int32 item_id = 1;
+  int32 item_cnt = 2;
+}
+
+message get_recharge_rewards_info_req {
+}
+
+message get_recharge_rewards_info_res {
+  uint32 code = 1;
+  repeated .ncmd_cs.lobby.recharge_reward_info reward_info_list = 2;
+}
+
+message get_recharge_rewards_info_ntf {
+  repeated .ncmd_cs.lobby.recharge_reward_info reward_info_list = 1;
+}
+
+message get_recharge_rewards_req {
+}
+
+message get_recharge_rewards_res {
+  uint32 code = 1;
 }
 

@@ -279,6 +279,7 @@ message crystal_card {
 
 message shop_month_card_ntf {
   repeated .ncmd_cs.lobby.crystal_card cards = 1;
+  bool is_picture = 2;
 }
 
 message shop_buy_crystal_card_ntf {
@@ -304,6 +305,10 @@ message hermesdisplay_cfg {
   string popup_portrait = 8;
   uint32 goods_num = 9;
   uint32 goods_label = 10;
+  string goods_url = 11;
+  repeated uint32 title_color = 12;
+  repeated uint32 bg_color = 13;
+  repeated uint32 name_color = 14;
 }
 
 message shop_hermesdisplay_ntf {
@@ -329,5 +334,38 @@ message goods_flush_time {
 
 message shop_goods_flush_time_ntf {
   repeated .ncmd_cs.lobby.goods_flush_time goods_flush_times = 1;
+}
+
+message directly_limit_info {
+  uint32 commodity_id = 1;
+  uint32 limit_count = 2;
+}
+
+message pay_directly_limit_ntf {
+  repeated .ncmd_cs.lobby.directly_limit_info directly_limit_info = 1;
+}
+
+message good_item {
+  int32 item_id = 1;
+  int32 item_amount = 2;
+}
+
+message pay_directly_goods_cfg {
+  uint32 id = 1;
+  repeated .ncmd_cs.lobby.good_item items = 2;
+  uint32 goods_label = 3;
+  uint32 level = 4;
+  uint32 limit_type = 5;
+  uint32 limits = 6;
+  uint32 goods_page = 7;
+  repeated uint32 good_layout = 8;
+}
+
+message pay_directly_goods_cfgs_req {
+}
+
+message pay_directly_goods_cfgs_res {
+  uint32 code = 1;
+  repeated .ncmd_cs.lobby.pay_directly_goods_cfg cfgs = 2;
 }
 

@@ -89,3 +89,26 @@ message lottery_config_ntf {
   repeated .ncmd_cs.lobby.lottery_cfg lottery_cfg_list = 1;
 }
 
+message lottery_select_up_req {
+  int32 id = 1;
+  int32 op_type = 2;
+  int32 select_up_lottery_id = 3;
+}
+
+message lottery_select_up_res {
+  int32 code = 1;
+  int32 id = 2;
+  int32 op_type = 3;
+  int32 select_up_lottery_id = 4;
+}
+
+message lottery_up_lottery_list_req {
+  int32 reserve = 1;
+}
+
+message lottery_up_lottery_list_res {
+  int32 code = 1;
+  repeated int32 lottery_ids = 2;
+  int32 selected_up_lottery_id = 3;
+}
+

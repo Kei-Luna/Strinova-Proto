@@ -44,6 +44,7 @@ message reddot_sync_ntf {
 
 message reddot_batch_read_req {
   repeated uint64 reddots = 1;
+  repeated .ncmd_cs.EReddotType reddot_type = 2;
 }
 
 message reddot_batch_read_res {

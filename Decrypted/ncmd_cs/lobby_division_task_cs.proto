@@ -1,0 +1,56 @@
+syntax = "proto3";
+
+package ncmd_cs.lobby;
+
+import "enum.proto";
+
+message division_task {
+  int32 task_id = 1;
+  int32 cur_num = 2;
+  .ncmd_cs.EDivisionTaskStatus status = 3;
+}
+
+message division_task_req {
+}
+
+message division_task_res {
+  repeated .ncmd_cs.lobby.division_task task_list = 1;
+}
+
+message division_task_ntf {
+  repeated .ncmd_cs.lobby.division_task task_list = 1;
+}
+
+message division_task_reward_req {
+}
+
+message division_task_reward_res {
+  uint32 code = 1;
+  repeated .ncmd_cs.lobby.division_task task_list = 2;
+}
+
+message division_reward {
+  int32 reward_id = 1;
+  int32 cur_num = 2;
+  .ncmd_cs.EDivisionTaskStatus status = 3;
+}
+
+message division_reward_list_req {
+}
+
+message division_reward_list_res {
+  repeated .ncmd_cs.lobby.division_reward reward_list = 1;
+}
+
+message division_reward_list_ntf {
+  repeated .ncmd_cs.lobby.division_reward reward_list = 1;
+}
+
+message division_get_reward_req {
+}
+
+message division_get_reward_res {
+  uint32 code = 1;
+  repeated .ncmd_cs.lobby.division_reward reward_list = 2;
+}
+

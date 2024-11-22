@@ -80,11 +80,19 @@ message ds_settle_player_info {
   uint32 level = 71;
   uint32 rank = 72;
   uint32 team_Player_num = 73;
+  uint32 pos_num = 75;
 }
 
 message ds_round_settle_info {
   .ncmd_cs.ERoundType round_type = 1;
   repeated .ncmd_cs.ds_settle_player_info players = 2;
+}
+
+message ds_settle_weapon_info {
+  uint32 weapon_id = 1;
+  uint32 damage = 2;
+  uint32 hit_count = 3;
+  uint32 bullet_count = 4;
 }
 
 message ds_settle_role_info {
@@ -108,6 +116,9 @@ message ds_settle_role_info {
   uint32 hit_count = 19;
   uint32 kill_head_num = 20;
   uint32 release_skills = 21;
+  uint32 survival = 22;
+  uint32 survival_time = 23;
+  repeated .ncmd_cs.ds_settle_weapon_info ds_weapon_list = 24;
 }
 
 message room_one_rule {

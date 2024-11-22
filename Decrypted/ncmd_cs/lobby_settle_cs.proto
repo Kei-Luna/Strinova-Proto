@@ -36,6 +36,17 @@ message settle_qualifying_ntf {
   int32 grade_score = 28;
 }
 
+message settle_leisure_qualifying_ntf {
+  uint64 room_id = 1;
+  .ncmd_cs.EWinType win = 2;
+  .ncmd_cs.ERoomMode room_mode = 3;
+  uint32 leisure_score = 4;
+  uint32 old_leisure_score = 5;
+  uint32 leisure_rank = 6;
+  uint32 old_leisure_rank = 7;
+  int32 score_fired = 8;
+}
+
 message settle_battle_role {
   uint32 role_id = 1;
   int32 intimacy = 2;
@@ -68,6 +79,8 @@ message settle_battle_game_ntf {
   repeated .ncmd_cs.round_settle_info round_infos = 14;
   repeated .ncmd_cs.lobby.settle_addition_node addition_nodes = 15;
   uint64 onemore_until_tm = 16;
+  int32 week_accu_exp = 17;
+  int32 week_accu_intimacy = 18;
 }
 
 message qualifying_change_ntf {
@@ -82,6 +95,13 @@ message qualifying_change_ntf {
   uint32 division_score = 9;
   int32 old_grade_score = 10;
   int32 grade_score = 11;
+}
+
+message leisure_qualifying_change_ntf {
+  int32 old_leisure_rank = 1;
+  int32 leisure_rank = 2;
+  int32 old_leisure_score = 3;
+  uint32 leisure_score = 4;
 }
 
 message standings_like_req {

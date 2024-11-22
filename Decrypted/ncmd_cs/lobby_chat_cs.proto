@@ -11,6 +11,7 @@ message chat_player {
   uint32 team_id = 4;
   bool mic_flag = 5;
   uint32 vc_border_id = 6;
+  uint32 bubble_id = 7;
 }
 
 message chat_send_req {
@@ -36,6 +37,7 @@ message private_chat_msg {
   uint32 icon = 4;
   uint64 time = 5;
   uint32 vc_border_id = 6;
+  uint32 bubble_id = 7;
 }
 
 message chat_recv_ntf {
@@ -75,6 +77,7 @@ message chat_group_send_req {
   string msg = 2;
   uint64 context_id = 3;
   uint64 team_id = 4;
+  .ncmd_cs.EChatType group_type = 5;
 }
 
 message chat_group_send_res {
@@ -93,6 +96,8 @@ message group_chat_msg {
   string nick = 5;
   uint32 icon = 6;
   uint32 vc_border_id = 7;
+  .ncmd_cs.EChatType group_type = 8;
+  uint32 bubble_id = 9;
 }
 
 message chat_group_recv_ntf {
@@ -151,6 +156,7 @@ message world_chat_msg_item {
   uint64 time = 4;
   uint32 icon = 5;
   uint32 vc_border_id = 6;
+  uint32 bubble_id = 7;
 }
 
 message world_chat_send_req {
@@ -187,6 +193,7 @@ message edit_business_team_card_req {
   bool show_division = 1;
   string business_text = 2;
   string team_text = 3;
+  bool show_leisure_division = 4;
 }
 
 message edit_business_team_card_res {
@@ -197,6 +204,7 @@ message business_team_card_ntf {
   bool show_division = 1;
   string business_text = 2;
   string team_text = 3;
+  bool show_leisure_division = 4;
 }
 
 message quick_msg {
@@ -229,5 +237,13 @@ message chat_setting_res {
 message chat_setting_ntf {
   uint32 chat_setting = 1;
   uint32 chat_ntf_settig = 2;
+}
+
+message chat_check_translate_req {
+}
+
+message chat_check_translate_res {
+  uint32 code = 1;
+  uint32 remain_cnt = 2;
 }
 

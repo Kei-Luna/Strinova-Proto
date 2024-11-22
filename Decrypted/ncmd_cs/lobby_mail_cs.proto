@@ -32,7 +32,6 @@ message mail_info {
   uint32 mail_state = 12;
   uint32 attach_state = 13;
   uint32 expire_time = 14;
-  uint64 clan_id = 15;
 }
 
 message mail_send_req {

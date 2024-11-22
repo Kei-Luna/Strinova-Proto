@@ -62,6 +62,11 @@ message weapon_slot {
   int32 weapon_id = 3;
 }
 
+message mb_communication_info {
+  uint32 mode = 1;
+  repeated uint32 communication_list = 2;
+}
+
 message role_prepare_data {
   int32 role_id = 1;
   repeated .ncmd_cs.lobby.weapon_slot weapons = 2;
@@ -69,6 +74,7 @@ message role_prepare_data {
   repeated .ncmd_cs.lobby.communication_info communications = 4;
   repeated .ncmd_cs.lobby.personality_info personalities = 5;
   int32 skin_id = 6;
+  repeated .ncmd_cs.lobby.mb_communication_info mb_communications = 7;
 }
 
 message role_prepare_ntf {
@@ -186,6 +192,14 @@ message role_skin_select_ntf {
 message cafe_privilege_cfg_ntf {
   uint32 cafe_privilege = 1;
   repeated int32 items = 2;
+}
+
+message privilege_node {
+  uint32 privilege = 1;
+}
+
+message all_privilege_ntf {
+  repeated .ncmd_cs.lobby.privilege_node privilege_list = 1;
 }
 
 message equip_all_personality_req {
@@ -326,5 +340,18 @@ message skin_share_data_res {
   uint64 player_id = 2;
   int32 role_id = 3;
   .ncmd_cs.lobby.skin_share_info skin_share_info = 4;
+}
+
+message role_set_mb_communications_req {
+  int32 role_id = 1;
+  int32 mode = 2;
+  repeated uint32 communications = 3;
+}
+
+message role_set_mb_communications_res {
+  uint32 code = 1;
+  int32 role_id = 2;
+  int32 mode = 3;
+  repeated uint32 communications = 4;
 }
 

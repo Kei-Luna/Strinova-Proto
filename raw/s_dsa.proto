@@ -1,14 +1,19 @@
 
-¦0
+Â4
 s_dsa.protoncmd_ds
-enum.protopublic.proto"„
+enum.protopublic.protocommon.proto"ï
 ds_creatematch_req
 room_id (RroomId
 map_id (RmapId&
 mode (2.ncmd_cs.ERoomModeRmode1
 players (2.ncmd_ds.ds_player_infoRplayers2
 	sync_flag (2.ncmd_cs.EMsgSyncFlagRsyncFlag/
-special (2.ncmd_cs.ESpecialRoomRspecial"—
+special (2.ncmd_cs.ESpecialRoomRspecial
+drama_id (RdramaId 
+bot_lv_delta	 (R
+botLvDelta,
+forbid_bot_dynamic
+ (RforbidBotDynamic"—
 ds_weapon_info
 
 primary_id (R	primaryId!
@@ -54,7 +59,7 @@ is_can_use (RisCanUse"p
 ds_friend_info
 	friend_id (RfriendId
 intimacy (Rintimacy%
-intimacy_level (RintimacyLevel"Ñ
+intimacy_level (RintimacyLevel"»
 ds_player_info
 	player_id (RplayerId
 nick (Rnick#
@@ -97,7 +102,20 @@ watch_camp (2.ncmd_cs.ERoomCampR	watchCamp
 vcAvatarId
 vc_frame_id! (R	vcFrameId 
 vc_border_id" (R
-vcBorderId"A
+vcBorderId5
+	vc_medals# (2.ncmd_cs.medal_card_dataRvcMedals#
+leisure_score$ (RleisureScore!
+leisure_rank% (RleisureRank
+leisure_mmr& (R
+leisureMmr
+
+game_appid' (	R	gameAppid
+mmr_b( (RmmrB
+mmr_c) (RmmrC"
+leisure_mmr_b* (RleisureMmrB"
+leisure_mmr_c+ (RleisureMmrC
+mmr_e, (RmmrE"
+leisure_mmr_e- (RleisureMmrE"A
 ds_creatematch_res
 code (Rcode
 room_id (RroomId"g
@@ -169,6 +187,8 @@ team_index (R	teamIndex"ˆ
 ds_report_tlog_ntf
 log_str (	RlogStr"5
 ds_batch_report_tlog_ntf
+log_list (	RlogList"7
+ds_batch_report_acelog_ntf
 log_list (	RlogList"3
 ds_finish_return_req
 	player_id (RplayerId"U

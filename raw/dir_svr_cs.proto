@@ -1,5 +1,5 @@
 
-‚
+ÿ
 dir_svr_cs.protoncmd_cs.dir
 enum.proto"b
 gray_config
@@ -20,17 +20,32 @@ gray_param (	R	grayParam"H
 port (Rport
 
 cluster_id (R	clusterId!
-cluster_name (	RclusterName"[
+cluster_name (	RclusterName"¼
+grome_link_server_addr
+romelink (	Rromelink
+romelink_v6 (	R
+romelinkV6
+policy (Rpolicy
+clusters (	Rclusters
+
+cluster_v6 (	R	clusterV6
+interval (Rinterval
+count (Rcount
+timeout (Rtimeout
+params	 (	Rparams.
+	ipv6_flag
+ (2.ncmd_cs.IPv6FlagRipv6Flag"[
 get_token_req
 open_id (	RopenId1
-	device_id (2.ncmd_cs.EDeviceTypeRdeviceId"Ü
+	device_id (2.ncmd_cs.EDeviceTypeRdeviceId"š
 get_token_res
 code (Rcode,
 lobby_access_token (	RlobbyAccessToken7
 
 lobby_addr (2.ncmd_cs.dir.server_addrR	lobbyAddr5
 	ping_list (2.ncmd_cs.dir.server_addrRpingList
-api_addr (	RapiAddr"3
+api_addr (	RapiAddr<
+gr_addr (2#.ncmd_cs.dir.grome_link_server_addrRgrAddr"3
 get_lobby_info_req
 
 magic_code (R	magicCode"_

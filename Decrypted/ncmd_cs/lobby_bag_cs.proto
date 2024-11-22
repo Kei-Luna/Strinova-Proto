@@ -53,6 +53,7 @@ message bag_part_items_sync_ntf {
   .ncmd_cs.obtain_data obtain_list = 5;
   repeated .ncmd_cs.lobby.item emotion_list = 6;
   repeated .ncmd_cs.lobby.item weapon_fx_list = 7;
+  repeated .ncmd_cs.lobby.item chat_bubble_list = 8;
 }
 
 message item_use_req {

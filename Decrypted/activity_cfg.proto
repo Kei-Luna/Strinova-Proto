@@ -154,6 +154,7 @@ message activitycommonstory_cfg {
   int32 unlock_item_num = 5;
   repeated .ncmd_cs.lobby.sc_item reward_items = 6;
   repeated .ncmd_cs.lobby.sc_condition unlock_conditions = 7;
+  string message_id = 8;
 }
 
 message activityconcertlevel_cfg {

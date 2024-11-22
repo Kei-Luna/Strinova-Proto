@@ -9,6 +9,14 @@ import "common.proto";
 message ds_cluster_ping {
   uint32 ds_cluster = 1;
   int32 ping = 2;
+  repeated int32 ping_array = 3;
+}
+
+message mode_battle_data {
+  .ncmd_cs.ERoomMode mode = 1;
+  uint32 battle_count = 2;
+  uint32 win_count = 3;
+  repeated uint32 freq_roles = 4;
 }
 
 message team_member {
@@ -39,6 +47,11 @@ message team_member {
   uint32 battle_count = 27;
   uint32 win_count = 28;
   int32 grade_score = 29;
+  int32 room_referee = 30;
+  int32 leisure_rank = 31;
+  int32 leisure_score = 32;
+  repeated .ncmd_cs.lobby.mode_battle_data mode_battle_list = 33;
+  .ncmd_cs.player_card_info base_card_info = 35;
 }
 
 message team_create_req {
@@ -48,12 +61,14 @@ message team_create_req {
   .ncmd_cs.ESpecialRoom special = 4;
   .ncmd_cs.room_rule rule = 5;
   string rule_code = 6;
+  uint64 comb_mode = 7;
 }
 
 message team_create_res {
   uint32 code = 1;
   .ncmd_cs.ERoomMode mode = 2;
   uint32 map_id = 3;
+  uint64 comb_mode = 4;
 }
 
 message team_exit_req {
@@ -107,6 +122,7 @@ message team_mode_ntf {
   uint32 map_id = 3;
   .ncmd_cs.room_rule rule = 4;
   string rule_code = 5;
+  uint64 comb_mode = 6;
 }
 
 message team_reply_req {
@@ -145,6 +161,11 @@ message team_info_ntf {
   .ncmd_cs.room_rule rule = 9;
   .ncmd_cs.lobby.room_setting_info setting = 10;
   string rule_code = 11;
+  uint64 comb_mode = 12;
+  uint32 watch_slot = 13;
+  uint32 watcher_count = 14;
+  repeated uint32 custom_camp_capacity = 15;
+  uint32 custom_camp_count = 16;
 }
 
 message team_invite_ntf {
@@ -156,6 +177,7 @@ message team_invite_ntf {
   .ncmd_cs.ETeamApplyType type = 6;
   .ncmd_cs.ERoomMode mode = 7;
   uint32 rank_pos = 8;
+  uint64 comb_mode = 9;
 }
 
 message team_exit_ntf {
@@ -238,6 +260,7 @@ message team_mode_req {
   uint32 map_id = 3;
   .ncmd_cs.room_rule rule = 4;
   string rule_code = 5;
+  uint64 comb_mode = 6;
 }
 
 message team_mode_res {
@@ -347,11 +370,20 @@ message skill_open_data {
   repeated uint32 week_day = 7;
   uint32 start_sec = 8;
   uint32 end_sec = 9;
+  .ncmd_cs.ERoomMode game_mode = 10;
 }
 
 message room_mode_data {
   .ncmd_cs.ERoomMode game_mode = 1;
   uint32 level = 2;
+  uint32 mode_type = 3;
+  uint32 play_mode = 4;
+}
+
+message room_mode_set_data {
+  .ncmd_cs.ERoomModeType mode_type = 1;
+  uint32 open_level = 2;
+  uint32 options = 3;
 }
 
 message map_sync_ntf {
@@ -359,6 +391,7 @@ message map_sync_ntf {
   repeated .ncmd_cs.lobby.play_mode_data mode_datas = 2;
   repeated .ncmd_cs.lobby.skill_open_data skill_datas = 3;
   repeated .ncmd_cs.lobby.room_mode_data room_datas = 4;
+  repeated .ncmd_cs.lobby.room_mode_set_data room_set_datas = 5;
 }
 
 message team_robot_set_req {
@@ -581,6 +614,7 @@ message remove_collect_rule_res {
 
 message room_ban_tips_ntf {
   string ban_tips = 1;
+  uint32 ban_time = 2;
 }
 
 message teams_brief_query_req {
@@ -596,6 +630,7 @@ message team_brief {
   int32 max_division = 6;
   uint32 status = 7;
   uint64 player_id = 8;
+  uint64 comb_mode = 9;
 }
 
 message teams_brief_query_res {
@@ -618,5 +653,26 @@ message team_one_more_battle_ntf {
 message team_one_more_battle_invalidate_ntf {
   uint32 reason = 1;
   uint64 team_id = 2;
+}
+
+message team_begin_failed_ntf {
+  uint32 code = 1;
+}
+
+message team_download_maps_req {
+  repeated uint32 download_maps = 1;
+}
+
+message team_download_maps_res {
+  uint32 code = 1;
+  repeated uint32 download_maps = 2;
+}
+
+message batch_enter_team_req {
+  repeated uint64 team_ids = 1;
+}
+
+message batch_enter_team_res {
+  uint32 code = 1;
 }
 

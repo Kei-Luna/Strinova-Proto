@@ -7,32 +7,21 @@ import "common.proto";
 
 message clan_simple_info {
   uint64 clan_id = 1;
-  string name = 2;
-  uint32 level = 3;
-  .ncmd_cs.clan_icon_data icon_data = 4;
-  uint32 prefer_id = 5;
-  uint32 total_num = 6;
-  bool apply_need_check = 7;
-  uint32 rank_limit_min = 8;
-  uint32 rank_limit_max = 9;
+  uint32 level = 2;
+  uint32 total_num = 3;
+  .ncmd_cs.lobby.clan_setting_info setting = 4;
 }
 
 message clan_base_info {
   uint64 clan_id = 1;
   uint32 level = 2;
   uint32 exp = 3;
-  uint32 total_num = 4;
-  .ncmd_cs.lobby.clan_setting_info setting = 5;
-  string leader_name = 6;
-  uint32 leader_icon = 7;
-  uint32 leader_vc_border_id = 8;
-}
-
-message player_clan_info {
-  uint32 take_max_level = 1;
-  uint32 week_exp_addition = 2;
-  uint32 week_ideal_addition = 3;
-  uint32 total_merit = 4;
+  uint32 week_trans_exp = 4;
+  uint32 total_num = 5;
+  .ncmd_cs.lobby.clan_setting_info setting = 6;
+  string leader_name = 7;
+  uint32 leader_icon = 8;
+  uint32 leader_vc_border_id = 9;
 }
 
 message clan_setting_info {
@@ -51,7 +40,6 @@ message clan_setting_info {
 
 message clan_full_info {
   .ncmd_cs.lobby.clan_base_info base_info = 1;
-  .ncmd_cs.lobby.player_clan_info player_info = 2;
   bool in_dissolving = 3;
   uint64 dissolve_time = 4;
 }
@@ -71,23 +59,27 @@ message clan_member {
   uint32 merit = 6;
   .ncmd_cs.EClanJob job = 7;
   uint32 rank = 8;
-  uint32 rank_score = 9;
+  int32 grade_score = 9;
   uint32 rank_pos = 10;
   .ncmd_cs.EPlayerStatus status = 11;
   .ncmd_cs.EOnlineStatus online_status = 12;
   uint64 logout_time = 13;
   .ncmd_cs.lobby.clan_member_social_info social_info = 14;
+  uint32 leisure_rank = 15;
+  uint32 leisure_score = 16;
 }
 
 message clan_apply_member {
   uint64 player_id = 1;
   string nick = 2;
   uint32 icon = 3;
-  uint32 border_id = 4;
+  uint32 vc_border_id = 4;
   uint32 level = 5;
   uint32 rank = 6;
-  uint32 rank_score = 7;
+  int32 grade_score = 7;
   uint32 rank_pos = 8;
+  uint32 leisure_rank = 9;
+  uint32 leisure_score = 10;
 }
 
 message clan_create_req {
@@ -99,10 +91,10 @@ message clan_create_res {
   repeated .ncmd_cs.EClanSettingErrorCode errcode_list = 2;
 }
 
-message clan_recommand_list_req {
+message clan_recommend_list_req {
 }
 
-message clan_recommand_list_res {
+message clan_recommend_list_res {
   uint32 code = 1;
   repeated .ncmd_cs.lobby.clan_simple_info clan_list = 2;
 }
@@ -137,6 +129,7 @@ message clan_base_info_res {
 
 message clan_join_req {
   uint64 clan_id = 1;
+  uint64 friend_id = 2;
 }
 
 message clan_join_res {
@@ -145,7 +138,9 @@ message clan_join_res {
 
 message clan_join_ntf {
   uint64 player_id = 1;
-  uint64 clan_id = 2;
+  string nick = 2;
+  uint32 icon = 3;
+  uint32 vc_border_id = 4;
 }
 
 message clan_apply_reddot_ntf {
@@ -162,6 +157,7 @@ message clan_applied_ids_res {
 
 message clan_full_info_req {
   uint64 clan_id = 1;
+  uint64 target_id = 2;
 }
 
 message clan_full_info_res {
@@ -203,13 +199,13 @@ message clan_level_up_ntf {
 }
 
 message clan_apply_reply_req {
-  repeated uint64 player_id = 1;
+  repeated uint64 player_ids = 1;
   .ncmd_cs.EReplyType reply_type = 2;
 }
 
 message clan_apply_reply_res {
   uint32 code = 1;
-  repeated uint64 player_id = 2;
+  repeated uint64 player_ids = 2;
 }
 
 message clan_update_social_info_req {
@@ -307,5 +303,22 @@ message clan_reply_trans_leader_req {
 
 message clan_reply_trans_leader_res {
   uint32 code = 1;
+}
+
+message clan_info_sync_ntf {
+  uint64 clan_id = 1;
+  .ncmd_cs.clan_icon_data icon_data = 2;
+  string clan_name = 3;
+  uint32 clan_level = 4;
+  uint32 take_max_level = 5;
+  uint32 week_exp_addition = 6;
+  uint32 week_ideal_addition = 7;
+  uint32 total_merit = 8;
+  uint32 reward_take_level = 9;
+}
+
+message clan_apply_trans_leader_ntf {
+  uint64 clan_id = 1;
+  string leader_name = 2;
 }
 
